@@ -1,9 +1,9 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'My Site',
-  tagline: 'The tagline of my site',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  title: 'Dormcon',
+  tagline: 'MIT\'s Dormitory Council',
+  url: 'https://camtheman256.github.io',
+  baseUrl: '/dormcon-website/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -11,35 +11,30 @@ module.exports = {
   projectName: 'docusaurus', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'My Site',
-      logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
-      },
+      title: 'MIT Dormcon',
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
+          to: 'about',
+          activeBasePath: 'about',
+          label: 'About',
           position: 'left',
         },
         {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/camtheman256/dormcon-website',
           label: 'GitHub',
           position: 'right',
         },
       ],
     },
     footer: {
-      style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'About',
           items: [
             {
-              label: 'Getting Started',
-              to: 'docs/',
+              label: 'About Dormcon',
+              to: 'about',
             },
           ],
         },
@@ -47,17 +42,13 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'MIT Housing',
+              href: 'https://studentlife.mit.edu/housing'
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
+              label: 'MIT Guide to Residences',
+              href: 'https://mitguidetoresidences.mit.edu/'
+            }
           ],
         },
         {
@@ -69,13 +60,17 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/camtheman256/dormcon-website',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} MIT Dormcon. Built with Docusaurus.`,
     },
+    announcementBar: {
+      id: "hello_bar",
+      content: "Hello! This site is currently under development."
+    }
   },
   presets: [
     [
@@ -85,13 +80,14 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+            'https://github.com/camtheman256/dormcon-website/edit/master/',
+          routeBasePath: '/about'
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+            'https://github.com/camtheman256/dormcon-website/edit/master/website/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
