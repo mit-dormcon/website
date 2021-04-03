@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{74:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome","permalink":"/dormcon-website/blog/welcome"},{"title":"Hello","permalink":"/dormcon-website/blog/hello-world"},{"title":"Hola","permalink":"/dormcon-website/blog/hola"}]}')}}]);

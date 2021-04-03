@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[20],{89:function(o){o.exports=JSON.parse('{"allTagsPath":"/dormcon-website/blog/tags","slug":"hello","name":"hello","count":2,"permalink":"/dormcon-website/blog/tags/hello"}')}}]);
