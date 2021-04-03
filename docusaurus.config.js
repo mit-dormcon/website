@@ -2,8 +2,8 @@
 module.exports = {
   title: 'Dormcon',
   tagline: 'MIT\'s Dormitory Council',
-  url: 'https://camtheman256.github.io',
-  baseUrl: '/dormcon-website/',
+  url: 'https://dormcon.camk.co',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
