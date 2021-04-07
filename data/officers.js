@@ -1,4 +1,4 @@
-export default officers = {
+export const officers = {
     year: "2020-2021",
     list: [
         {

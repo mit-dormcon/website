@@ -1,4 +1,4 @@
-export default members = [
+export const members = [
     {
         dorm: "Baker",
         president: "Madison Wong & Edenna Chen",
