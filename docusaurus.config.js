@@ -28,15 +28,6 @@ module.exports = {
     footer: {
       links: [
         {
-          title: 'About',
-          items: [
-            {
-              label: 'About Dormcon',
-              to: 'about',
-            },
-          ],
-        },
-        {
           title: 'Community',
           items: [
             {
@@ -50,16 +41,28 @@ module.exports = {
           ],
         },
         {
-          title: 'More',
+          title: 'Friends',
           items: [
             {
-              label: 'Blog',
-              to: 'blog',
+              label: 'UA',
+              href: 'https://ua.mit.edu/',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/camtheman256/dormcon-website',
+              label: 'IFC',
+              href: 'https://www.mitifc.com/',
             },
+            {
+              label: 'Panhel',
+              href: 'https://www.panhel.mit.edu/',
+            },
+            {
+              label: 'LGC',
+              href: 'http://lgc.mit.edu/',
+            },
+            {
+              label: 'GSC',
+              href: 'https://gsc.mit.edu/'
+            }
           ],
         },
       ],
