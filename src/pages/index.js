@@ -30,7 +30,9 @@ const features = [
   {
     title: 'Dormcon Twitter',
     description: (
-      <a class="twitter-timeline" data-height="400" data-theme="light" href="https://twitter.com/MITDormCon?ref_src=twsrc%5Etfw">Tweets by MITDormCon</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <>
+        <a class="twitter-timeline" data-height="400" data-theme="light" href="https://twitter.com/MITDormCon?ref_src=twsrc%5Etfw">Tweets by MITDormCon</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </>
     ),
   },
 ];
