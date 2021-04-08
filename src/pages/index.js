@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -55,6 +55,12 @@ function Feature({imageUrl, title, description}) {
 export default function Home() {
   const context = useDocusaurusContext();
   const {siteConfig = {}} = context;
+  
+  useEffect(() => {
+    // reload Twitter widgets on page load
+    twttr.widgets.load();
+  });
+  
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
