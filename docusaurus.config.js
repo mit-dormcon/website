@@ -71,6 +71,9 @@ module.exports = {
     announcementBar: {
       id: "hello_bar",
       content: "Hello! This site is currently under development."
+    },
+    colorMode: {
+      respectPrefersColorScheme: true
     }
   },
   presets: [

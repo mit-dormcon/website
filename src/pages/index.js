@@ -5,37 +5,8 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
-
-const features = [
-  {
-    title: 'Easy to Use',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
-    title: 'Focus on What Matters',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Dormcon Twitter',
-    description: (
-      <>
-        <a class="twitter-timeline" data-height="400" data-theme="light" href="https://twitter.com/MITDormCon?ref_src=twsrc%5Etfw">Tweets by MITDormCon</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </>
-    ),
-  },
-];
+import { Timeline } from 'react-twitter-widgets';
+import useThemeContext from "@theme/hooks/useThemeContext";
 
 function Feature({imageUrl, title, description}) {
   const imgUrl = useBaseUrl(imageUrl);
@@ -47,14 +18,75 @@ function Feature({imageUrl, title, description}) {
         </div>
       )}
       <h3>{title}</h3>
-      <p>{description}</p>
+      {description}
     </div>
+  );
+}
+
+function FeatureRow() {
+  const { isDarkTheme } = useThemeContext();
+
+  const features = [
+    {
+      title: 'Announcements',
+      description: (
+        <p>
+          <ul>
+            <li>Welcome to the new Dormcon website! This site is currently under development.</li>
+            <li>Leave feedback for Dormcon.</li>
+            <li>Access meeting minutes and schedule.</li>
+          </ul> 
+        </p>
+      ),
+    },
+    {
+      title: 'Spring 2021 Meetings',
+      description: (
+        <div>
+          <p>DormCon Meetings are open to <Link to="/about/voting-members">all dorm residents</Link>.</p> 
+          <p>If you are not a resident in one of MIT's ten dormitories but would like to attend a DormCon meeting, please email us (<a href="mailto:ddormcon-exec@mit.edu">dormcon-exec@mit.edu</a>).</p>
+          <p>The Zoom link for our meetings can be found <a href="https://mit.zoom.us/j/93298082254">here</a>.</p>
+        </div>
+      ),
+    },
+    {
+      title: 'Dormcon Twitter',
+      description: (
+        <Timeline
+          dataSource={{
+            sourceType: 'profile',
+            screenName: 'MITDormCon'
+          }}
+          options={{
+            height: '400',
+            theme: isDarkTheme ? 'dark' : 'light'
+          }}
+        ></Timeline>
+      ),
+    },
+  ];
+
+  return (
+    <main>
+      {features && features.length > 0 && (
+        <section className={styles.features}>
+          <div className="container">
+            <div className="row">
+              {features.map((props, idx) => (
+                <Feature key={idx} {...props} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </main>
   );
 }
 
 export default function Home() {
   const context = useDocusaurusContext();
   const {siteConfig = {}} = context;
+
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
@@ -75,19 +107,7 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <main>
-        {features && features.length > 0 && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-      </main>
+      <FeatureRow />
     </Layout>
   );
 }
