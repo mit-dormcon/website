@@ -28,13 +28,9 @@ const features = [
     ),
   },
   {
-    title: 'Powered by React',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    title: 'Dormcon Twitter',
     description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
+      <a class="twitter-timeline" data-height="400" data-theme="light" href="https://twitter.com/MITDormCon?ref_src=twsrc%5Etfw">Tweets by MITDormCon</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     ),
   },
 ];
