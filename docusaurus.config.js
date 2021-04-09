@@ -17,6 +17,11 @@ module.exports = {
           label: 'About',
           position: 'left',
         },
+        {
+          to: 'feedback',
+          label: 'Feedback',
+          position: 'left'
+        },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/camtheman256/dormcon-website',
