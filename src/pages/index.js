@@ -34,7 +34,7 @@ function FeatureRow() {
           <ul>
             <li>Welcome to the new Dormcon website! This site is currently under development.</li>
             <li><Link to="/feedback">Leave feedback for Dormcon.</Link></li>
-            <li>Access meeting minutes and schedule.</li>
+            <li><Link to="/about/meetings">Access meeting minutes and schedule.</Link></li>
           </ul> 
         </p>
       ),
