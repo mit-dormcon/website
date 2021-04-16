@@ -1,6 +1,6 @@
 # New Dormcon Website
 
-Cameron Kleiman (@camtheman256), Dormcon Tech Chair Spring 2021
+[Cameron Kleiman](https://github.com/camtheman256), Dormcon Tech Chair Spring 2021
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator based on React using [Infima](https://infima.dev) for UI. Visit docusaurus.io for complete documentation of how the site works.
 
@@ -13,6 +13,8 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 - `src/pages` - Markdown, MDX, or React components (JS) put in this directory will get rendered into pages automatically. See the docs on [Pages](https://docusaurus.io/docs/creating-pages).
 - `src/css` - Where global CSS files live.
 - `static` - Where static files (images, pdfs, anything that's not CSS) lives. See the docs on [Static Assets](https://docusaurus.io/docs/static-assets)
+- `docusaurus.config.js` - Big configuration object that controls many aspects of the site, like the navbar, footer, and plugins. See the docs on [Configuration](https://docusaurus.io/docs/configuration).
+- `sidebars.js` - Sidebars for pages in the `docs` folder. There's lots of ways to configure sidebars, so see the docs on [Sidebars](https://docusaurus.io/docs/sidebar).
 
 ## Installation
 
