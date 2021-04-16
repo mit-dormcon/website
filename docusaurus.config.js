@@ -24,7 +24,7 @@ module.exports = {
         },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/camtheman256/dormcon-website',
+          href: 'https://github.com/mit-dormcon/website',
           label: 'GitHub',
           position: 'right',
         },
@@ -89,14 +89,14 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/camtheman256/dormcon-website/edit/master/',
+            'https://github.com/mit-dormcon/website/edit/master/',
           routeBasePath: '/about'
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/camtheman256/dormcon-website/edit/master/blog/',
+            'https://github.com/mit-dormcon/website/edit/master/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
