@@ -9,7 +9,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   themeConfig: {
     navbar: {
-      title: 'MIT Dormcon',
+      title: 'MIT Dorm Group™',
       items: [
         {
           to: 'about',
