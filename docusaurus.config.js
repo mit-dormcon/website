@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Dormcon',
-  tagline: 'MIT\'s Dormitory Council',
+  title: 'The Dorm Group™',
+  tagline: 'Improving dorms at MIT, that\'s what we do.',
   url: 'https://dormcon.camk.co',
   baseUrl: '/',
   onBrokenLinks: 'throw',
