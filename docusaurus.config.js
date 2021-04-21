@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'The Dorm Group™',
-  tagline: 'Improving dorms at MIT, that\'s what we do.',
+  title: 'Dormcon',
+  tagline: 'MIT\'s Dormitory Council',
   url: 'https://dormcon.camk.co',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -9,7 +9,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   themeConfig: {
     navbar: {
-      title: 'MIT Dorm Group™',
+      title: 'MIT Dormcon',
       items: [
         {
           to: 'about',
