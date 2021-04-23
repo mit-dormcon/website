@@ -24,10 +24,10 @@ jobs:
       - name: 🚧 Setup Node
         uses: actions/setup-node@v2.1.5
         with:
-          node-version: '12.x'
+          node-version: '14.x'
 
       - name: 🛍 Get Packages
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --prod
       - name: 🛠 Build Site
         run: npm run build
       
