@@ -24,6 +24,11 @@ module.exports = {
         },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
+          href: 'http://web.mit.edu/dormcon/index.old.shtml',
+          label: 'Old Site',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/mit-dormcon/website',
           label: 'GitHub',
           position: 'right',
