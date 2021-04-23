@@ -80,7 +80,10 @@ module.exports = {
     },
     colorMode: {
       respectPrefersColorScheme: true
-    }
+    },
+    gtag: {
+      trackingID: 'G-XBL1BVV0JB',
+    },
   },
   presets: [
     [
