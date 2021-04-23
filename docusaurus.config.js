@@ -73,10 +73,6 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} MIT Dormcon. Built with Docusaurus.`,
     },
-    announcementBar: {
-      id: "hello_bar",
-      content: "Hello! This site is currently under development."
-    },
     colorMode: {
       respectPrefersColorScheme: true
     }
