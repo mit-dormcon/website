@@ -30,6 +30,6 @@ jobs:
           node-version: '14.x'
 
       - name: 🛍 Get Packages
-        run: yarn install --frozen-lockfile --prod
+        run: yarn install --frozen-lockfile
       - name: 🛠 Build Site
         run: npm run build
