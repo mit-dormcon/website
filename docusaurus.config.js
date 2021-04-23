@@ -1,6 +1,6 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Dormcon',
+  title: 'DormCon',
   tagline: 'MIT\'s Dormitory Council',
   url: 'https://dormcon.camk.co',
   baseUrl: '/',
@@ -9,7 +9,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   themeConfig: {
     navbar: {
-      title: 'MIT Dormcon',
+      title: 'MIT DormCon',
       items: [
         {
           to: 'about',
@@ -76,7 +76,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} MIT Dormcon. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} MIT DormCon. Built with Docusaurus.`,
     },
     colorMode: {
       respectPrefersColorScheme: true

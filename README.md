@@ -1,6 +1,6 @@
-# New Dormcon Website
+# New DormCon Website
 
-[Cameron Kleiman](https://github.com/camtheman256), Dormcon Tech Chair Spring 2021
+[Cameron Kleiman](https://github.com/camtheman256), DormCon Tech Chair Spring 2021
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator based on React using [Infima](https://infima.dev) for UI. Visit docusaurus.io for complete documentation of how the site works.
 

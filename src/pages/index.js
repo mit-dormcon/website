@@ -32,8 +32,8 @@ function FeatureRow() {
       description: (
         <p>
           <ul>
-            <li>Welcome to the new Dormcon website! This site is currently under development.</li>
-            <li><Link to="/feedback">Leave feedback for Dormcon.</Link></li>
+            <li>Welcome to the new DormCon website! This site is currently under development.</li>
+            <li><Link to="/feedback">Leave feedback for DormCon.</Link></li>
             <li><Link to="/about/meetings">Access meeting minutes and schedule.</Link></li>
           </ul> 
         </p>
@@ -50,7 +50,7 @@ function FeatureRow() {
       ),
     },
     {
-      title: 'Dormcon Twitter',
+      title: 'DormCon Twitter',
       description: (
         <Timeline
           dataSource={{
@@ -102,7 +102,7 @@ export default function Home() {
                 styles.getStarted,
               )}
               to="/about/">
-              About Dormcon
+              About DormCon
             </Link>
           </div>
         </div>
