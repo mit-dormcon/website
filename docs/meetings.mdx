@@ -16,4 +16,6 @@ The agenda for each meeting is sent to dormcon-announce@mit.edu two days before 
 import MeetingsComponent from '../components/MeetingsComponent.js';
 import { meetings } from '../data/meetings.js';
 
-<MeetingsComponent meetings={meetings} />
+<h3>{ meetings.year }</h3>
+
+<MeetingsComponent meetings={meetings.list} />

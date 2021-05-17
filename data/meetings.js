@@ -1,4 +1,6 @@
-export const meetings = [
+export const meetings = {
+    year: "Spring 2021",
+    list: [
     {
         name: "Thursday, February 25th at 6:30pm",
         location: "wherever you want to be",
@@ -33,4 +35,4 @@ export const meetings = [
         name: "Thursday, May 20th at 6:30pm",
         location: "Fenway Park",
     },
-];
+]};
