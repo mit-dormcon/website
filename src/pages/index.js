@@ -32,7 +32,7 @@ function FeatureRow() {
       description: (
         <p>
           <ul>
-            <li><b><Link to="/about/elections">Run for DormCon!</Link> Find info about our upcoming elections.</b></li>
+            <li><b><Link to="/about/officers">DormCon has new officers!</Link></b></li>
             <li><Link to="/feedback">Leave feedback for DormCon.</Link></li>
             <li><Link to="/about/meetings">Access meeting minutes and schedule.</Link></li>
           </ul> 
