@@ -1,0 +1,31 @@
+---
+title: Officers and Minutes Archive
+sidebar_label: Archive
+description: DormCon's archive of meeting minutes and past officers
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import OfficersTable from '../components/OfficersTable';
+import MeetingsComponent from '../components/MeetingsComponent';
+import { officers, meetings } from '../data/archive';
+
+## Past Officers
+
+<Tabs values={officers.map((o, idx) => ({label: o.year, value: idx}))} defaultValue={0}>
+    {officers.map((o, idx) => (
+        <TabItem value={idx}>
+            <OfficersTable data={o.list} />
+        </TabItem>
+    ))}
+</Tabs>
+
+## Archived Meeting Minutes
+
+<Tabs values={meetings.map((m, idx) => ({label: m.year, value: idx}))} defaultValue={0}>
+    {meetings.map((m, idx) => (
+        <TabItem value={idx}>
+            <MeetingsComponent meetings={m.list} />
+        </TabItem>
+    ))}
+</Tabs>
