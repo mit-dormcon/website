@@ -8,9 +8,6 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   themeConfig: {
-    announcementBar: {
-      content: '<b>DormCon is having elections!</b> Visit our <a href="/about/elections">elections page</a> to learn how to run.',
-    },
     navbar: {
       title: 'MIT DormCon',
       items: [
