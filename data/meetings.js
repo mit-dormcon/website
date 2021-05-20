@@ -31,8 +31,4 @@ export const meetings = {
         location: "your bed",
         minutes: "/pdf/minutes/DormCon Exec Updates 5.6.2021.pdf",
     },
-    {
-        name: "Thursday, May 20th at 6:30pm",
-        location: "Fenway Park",
-    },
 ]};
