@@ -1,12 +1,12 @@
 export const officers = {
-    year: "2020-2021",
+    year: "2021-2022",
     list: [
         {
             position: "President",
-            name: "Sarah Edwards",
-            affiliation: "New House",
-            year: 2021,
-            kerb: "edwardss"
+            name: "Emily Caragay",
+            affiliation: "East Campus",
+            year: 2022,
+            kerb: "caragay"
         },
         {
             position: "Vice President",
@@ -17,17 +17,17 @@ export const officers = {
         },
         {
             position: "Treasurer",
-            name: "Faraz Masroor",
-            affiliation: "Next House",
-            year: 2021,
-            kerb: "fmasroor"
+            name: "Mohan Richter-Addo",
+            affiliation: "Simmons",
+            year: 2023,
+            kerb: "richtera"
         },
         {
             position: "Secretary",
-            name: "Anna Bair",
-            affiliation: "MacGregor",
-            year: 2023,
-            kerb: "bairanna"
+            name: "Sunmee Choi",
+            affiliation: "Next House",
+            year: 2024,
+            kerb: "sunchoi"
         },
         {
             position: "i3/RAC Chair",
@@ -52,52 +52,52 @@ export const officers = {
         },
         {
             position: "Housing Chair",
-            name: "Emily Caragay",
+            name: "Zawad Chowdhury",
             affiliation: "East Campus",
-            year: 2022,
-            kerb: "caragay"
+            year: 2023,
+            kerb: "zawadx"
         },
         {
             position: "Housing Chair",
-            name: "Mohamed Mohamed",
-            affiliation: "",
-            year: 2022,
-            kerb: "mohamedm"
-        },
-        {
-            position: "Judcomm Chair",
             name: "Jordan Wilke",
             affiliation: "Simmons",
             year: 2023,
             kerb: "wilke18"
         },
         {
-            position: "Risk Management Chair",
-            name: "Angela J Su",
-            affiliation: "MacGregor",
+            position: "Judcomm Chair",
+            name: "Alan Zhu",
+            affiliation: "Next House",
             year: 2023,
-            kerb: "asu"
+            kerb: "alanyzhu"
         },
         {
             position: "Risk Management Chair",
-            name: "Shayna Ahteck",
-            affiliation: "McCormick",
-            year: 2023,
-            kerb: "asahteck"
+            name: "Denzel Segbefia",
+            affiliation: "Burton-Conner",
+            year: 2024,
+            kerb: "denzel"
+        },
+        {
+            position: "Risk Management Chair",
+            name: "Mitali Chowdhury",
+            affiliation: "East Campus",
+            year: 2024,
+            kerb: "mitalic"
         },
         {
             position: "Dining Chair",
-            name: "Duha Syar",
-            affiliation: "New House",
-            year: 2023,
-            kerb: "duhasyar"
-        },
-        {
-            position: "Dining Chair",
-            name: "Shaida Nishat",
-            affiliation: "Simmons",
+            name: "Meghana Vemulapalli",
+            affiliation: "Next House",
             year: 2022,
-            kerb: "nishat"
+            kerb: "meghanav"
+        },
+        {
+            position: "Dining Chair",
+            name: "Ashley Holton",
+            affiliation: "MacGregor",
+            year: 2022,
+            kerb: "aholton"
         },
         {
             position: "🌎 Tech Chair",

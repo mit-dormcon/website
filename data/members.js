@@ -55,8 +55,8 @@ export const members = [
     },
     {
         dorm: "Simmons Hall",
-        president: "Shaida Nishat",
-        kerbs: ["snishat"],
+        president: "Mohan Richter-Addo",
+        kerbs: ["richtera"],
         url: "http://simmons.mit.edu/"
     },
     {
