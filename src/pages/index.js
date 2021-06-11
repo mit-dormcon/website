@@ -40,12 +40,11 @@ function FeatureRow() {
       ),
     },
     {
-      title: 'Spring 2021 Meetings',
+      title: 'Fall 2021 Meetings',
       description: (
         <div>
           <p>DormCon Meetings are open to <Link to="/about/voting-members">all dorm residents</Link>.</p> 
           <p>If you are not a resident in one of MIT's ten dormitories but would like to attend a DormCon meeting, please email us (<a href="mailto:ddormcon-exec@mit.edu">dormcon-exec@mit.edu</a>).</p>
-          <p>The Zoom link for our meetings can be found <a href="https://mit.zoom.us/j/93298082254">here</a>.</p>
         </div>
       ),
     },
