@@ -18,8 +18,8 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'feedback',
-          label: 'Feedback',
+          to: 'contact',
+          label: 'Contact us',
           position: 'left'
         },
         // {to: 'blog', label: 'Blog', position: 'left'},
