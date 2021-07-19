@@ -1,4 +1,4 @@
 export const meetings = {
-    year: "Fall 2022",
+    year: "Fall 2021",
     list: []
 };
