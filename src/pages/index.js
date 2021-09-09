@@ -42,7 +42,7 @@ function FeatureRow() {
       title: 'Fall 2021 Meetings',
       description: (
         <div>
-          <p><Link to="/about/meetings">DormCon Meetings</Link> are open to <Link to="/about/voting-members">all dorm residents</Link>.</p> 
+          <p><Link to="/about/meetings">DormCon meetings</Link> are open to <Link to="/about/voting-members">all dorm residents</Link>.</p> 
           <p>If you are not a resident in one of MIT's ten dormitories but would like to attend a DormCon meeting, please email us (<a href="mailto:ddormcon-exec@mit.edu">dormcon-exec@mit.edu</a>).</p>
         </div>
       ),
