@@ -19,7 +19,7 @@ export default function OfficersTable({ data }) {
                     <td>{p.name}</td>
                     <td>{p.affiliation}</td>
                     <td>{p.year}</td>
-                    <td><a href={`mailto:${p.kerb}@mit.edu`}>{p.kerb}</a></td>
+                    <td><a href={`mailto:${p.kerb}@mit.edu`}>{p.kerb}@mit.edu</a></td>
                 </tr>
             ))}
         </tbody>
