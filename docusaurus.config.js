@@ -18,6 +18,11 @@ module.exports = {
           position: 'left',
         },
         {
+          to: 'tracing',
+          label: 'Contact Tracing',
+          position: 'left',
+        },
+        {
           to: 'rex',
           label: 'REX',
           position: 'left',
