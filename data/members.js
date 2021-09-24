@@ -61,8 +61,8 @@ export const members = [
     },
     {
         dorm: "West Garage",
-        president: "Emily Larson",
-        kerbs: ["ellarson"],
+        president: "Tina Lu",
+        kerbs: ["tingyilu"],
         url: "https://studentlife.mit.edu/housing/undergraduate-housing/renovation-renewal-new-construction-projects/new-vassar-founders-group"
     },
 ];
