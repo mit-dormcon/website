@@ -1,10 +1,11 @@
 module.exports = {
   docs: [
     'about',
-    'elections',
+    'funding',
     'meetings',
     'officers',
     'voting-members',
+    'elections',
     'archive',
   ],
 };
