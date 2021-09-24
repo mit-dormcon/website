@@ -23,11 +23,6 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'rex',
-          label: 'REX',
-          position: 'left',
-        },
-        {
           to: 'contact',
           label: 'Contact us',
           position: 'left'
