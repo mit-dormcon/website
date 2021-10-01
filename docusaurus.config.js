@@ -23,8 +23,8 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'contact',
-          label: 'Contact us',
+          to: 'piazza',
+          label: 'Piazza',
           position: 'left'
         },
         // {to: 'blog', label: 'Blog', position: 'left'},
