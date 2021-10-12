@@ -32,7 +32,7 @@ function FeatureRow() {
       description: (
         <p>
           <ul>
-            <li><Link to="/contact">Contact DormCon for help or to leave feedback.</Link></li>
+            <li><Link to="/piazza">Ask a question on the DormCon Piazza.</Link></li>
             <li><Link to="/about/meetings">View the meeting schedule.</Link></li>
           </ul> 
         </p>
