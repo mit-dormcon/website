@@ -2,7 +2,7 @@
 module.exports = {
   title: 'DormCon',
   tagline: 'MIT\'s Dormitory Council',
-  url: 'https://dormcon.camk.co',
+  url: 'https://dormcon.mit.edu',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
