@@ -23,7 +23,7 @@ export const meetings = {
         },
         {
             name: "Thursday, December 2, 2021 at 7:00pm",
-            location: "Random Hall"
+            location: "New Vassar"
         },
     ]
 };
