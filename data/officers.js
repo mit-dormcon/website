@@ -111,7 +111,7 @@ export const officers = {
             name: "Fatima Nasir",
             year: 2025,
             kerb: "dormcon-cpw-chairs",
-            affiliation: "",
+            affiliation: "Next House",
         },
         {
             position: "🌎 Tech Chair",
