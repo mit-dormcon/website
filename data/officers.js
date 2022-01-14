@@ -104,7 +104,7 @@ export const officers = {
             name: "Olivia Beniston",
             year: 2025,
             kerb: "dormcon-cpw-chairs",
-            affiliation: "",
+            affiliation: "New Vassar",
         },
         {
             position: "CPW Chair",
