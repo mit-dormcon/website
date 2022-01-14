@@ -100,6 +100,20 @@ export const officers = {
             kerb: "dormcon-dining-chair"
         },
         {
+            position: "CPW Chair",
+            name: "Olivia Beniston",
+            year: 2025,
+            kerb: "dormcon-cpw-chairs",
+            affiliation: "",
+        },
+        {
+            position: "CPW Chair",
+            name: "Fatima Nasir",
+            year: 2025,
+            kerb: "dormcon-cpw-chairs",
+            affiliation: "",
+        },
+        {
             position: "🌎 Tech Chair",
             name: "Cameron Kleiman",
             affiliation: "Burton-Conner",
