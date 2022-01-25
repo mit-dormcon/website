@@ -39,7 +39,7 @@ function FeatureRow() {
       ),
     },
     {
-      title: 'Fall 2021 Meetings',
+      title: 'Spring 2022 Meetings',
       description: (
         <div>
           <p><Link to="/about/meetings">DormCon meetings</Link> are open to <Link to="/about/voting-members">all dorm residents</Link>.</p> 

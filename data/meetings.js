@@ -1,29 +1,29 @@
 export const meetings = {
-    year: "Fall 2021",
+    year: "Spring 2022",
     list: [
         {
-            name: "Thursday, September 16, 2021 at 7:00pm",
-            location: "East Campus"
+            name: "Thursday, February 10, 2022 at 7:00pm",
+            location: "Maseeh"
         },
         {
-            name: "Thursday, September 30, 2021 at 7:00pm",
-            location: "New House"
+            name: "Thursday, February 24, 2022 at 7:00pm",
+            location: "Simmons"
         },
         {
-            name: "Thursday, October 14, 2021 at 7:00pm",
-            location: "Baker House"
+            name: "Thursday, March 10, 2022 at 7:00pm",
+            location: "Random"
         },
         {
-            name: "Thursday, October 28, 2021 at 7:00pm",
-            location: "Next House"
+            name: "Thursday, March 31, 2022 at 7:00pm",
+            location: "Baker"
         },
         {
-            name: "Thursday, November 18, 2021 at 7:00pm",
-            location: "McCormick Hall"
+            name: "Thursday, April 21, 2022 at 7:00pm",
+            location: "McCormick"
         },
         {
-            name: "Thursday, December 2, 2021 at 7:00pm",
-            location: "New Vassar"
+            name: "Thursday, May 5, 2022 at 7:00pm",
+            location: "UA Senate Chambers"
         },
     ]
 };
