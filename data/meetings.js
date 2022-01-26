@@ -15,7 +15,7 @@ export const meetings = {
         },
         {
             name: "Thursday, March 31, 2022 at 7:00pm",
-            location: "Baker"
+            location: "MacGregor"
         },
         {
             name: "Thursday, April 21, 2022 at 7:00pm",
