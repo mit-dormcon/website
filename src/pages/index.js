@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import { Timeline } from 'react-twitter-widgets';
-import useThemeContext from "@docusaurus/theme-common/useThemeContext";
+import { useColorMode } from '@docusaurus/theme-common';
 
 function Feature({imageUrl, title, description}) {
   const imgUrl = useBaseUrl(imageUrl);
@@ -24,7 +24,7 @@ function Feature({imageUrl, title, description}) {
 }
 
 function FeatureRow() {
-  const { isDarkTheme } = useThemeContext();
+  const { isDarkTheme } = useColorMode();
 
   const features = [
     {
