@@ -25,7 +25,7 @@ export const officers = {
         {
             position: "Secretary",
             name: "Sunmee Choi",
-            affiliation: "Next House",
+            affiliation: "Simmons",
             year: 2024,
             kerb: "dormcon-secretary"
         },
@@ -35,20 +35,6 @@ export const officers = {
             affiliation: "East Campus",
             year: 2024,
             kerb: "dormcon-i3-rac-chair"
-        },
-        {
-            position: "REX Chair",
-            name: "Sunmee Choi",
-            affiliation: "Next House",
-            year: 2024,
-            kerb: "dormcon-rexvp"
-        },
-        {
-            position: "REX Chair",
-            name: "Denzel Segbefia",
-            affiliation: "Burton-Conner",
-            year: 2024,
-            kerb: "dormcon-rexvp"
         },
         {
             position: "Housing Chair",
@@ -100,14 +86,14 @@ export const officers = {
             kerb: "dormcon-dining-chair"
         },
         {
-            position: "CPW Chair",
+            position: "REX/CPW Chair",
             name: "Olivia Beniston",
             year: 2025,
             kerb: "dormcon-cpw-chairs",
             affiliation: "New Vassar",
         },
         {
-            position: "CPW Chair",
+            position: "REX/CPW Chair",
             name: "Fatima Nasir",
             year: 2025,
             kerb: "dormcon-cpw-chairs",
