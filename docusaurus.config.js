@@ -86,9 +86,6 @@ module.exports = {
     colorMode: {
       respectPrefersColorScheme: true
     },
-    gtag: {
-      trackingID: 'G-XBL1BVV0JB',
-    },
   },
   presets: [
     [
@@ -107,6 +104,9 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        gtag: {
+          trackingID: 'G-XBL1BVV0JB',
         },
       },
     ],
