@@ -33,6 +33,40 @@ const meetings = [
             minutes: "/pdf/minutes/DormCon Exec Updates 5.6.2021.pdf",
         },
     ]},
+    {
+        year: "Fall 2021",
+        list: [
+            {
+                name: "Thursday, September 16, 2021 at 7:00pm",
+                location: "East Campus",
+            },
+            {
+                name: "Thursday, September 30, 2021 at 7:00pm",
+                location: "New House",
+                minutes: "/pdf/minutes/fa21/Dormcon GBM Minutes 9_30.pdf"
+            },
+            {
+                name: "Thursday, October 14, 2021 at 7:00pm",
+                location: "Baker House",
+                minutes: "/pdf/minutes/fa21/Dormcon General Body Meeting - October 14, 2021.pdf"
+            },
+            {
+                name: "Thursday, October 28, 2021 at 7:00pm",
+                location: "Next House",
+                minutes: "/pdf/minutes/fa21/Dormcon GBM Minutes 10_28.pdf"
+            },
+            {
+                name: "Thursday, November 18, 2021 at 7:00pm",
+                location: "McCormick Hall",
+                minutes: "/pdf/minutes/fa21/Dormcon GBM Minutes 11_18.pdf"
+            },
+            {
+                name: "Thursday, December 2, 2021 at 7:00pm",
+                location: "New Vassar",
+                minutes: "/pdf/minutes/fa21/Dormcon GBM Minutes 12_2.pdf"
+            },
+        ]
+    },
 ];
 
 const officers = [
