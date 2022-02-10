@@ -18,11 +18,6 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'tracing',
-          label: 'Contact Tracing',
-          position: 'left',
-        },
-        {
           to: 'piazza',
           label: 'Piazza',
           position: 'left'
