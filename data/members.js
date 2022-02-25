@@ -2,67 +2,67 @@ export const members = [
     {
         dorm: "Baker",
         president: "Madison Wong & Edenna Chen",
-        kerbs: ["madiwong", "edenna"],
+        kerbs: ["baker-prez"],
         url: "https://baker.mit.edu/"
     },
     {
         dorm: "Burton-Conner",
         president: "Sarah Aaronson",
-        kerbs: ["sarahaa"],
+        kerbs: ["bc-president"],
         url: "https://bc.mit.edu/"
     },
     {
         dorm: "East Campus",
-        president: "Brendan Vaughan",
-        kerbs: ["bvaughan"],
+        president: "Hannah Kim",
+        kerbs: ["ec-president"],
         url: "https://ec.mit.edu/"
     },
     {
         dorm: "MacGregor",
         president: "Shruti Ravikumar",
-        kerbs: ["shrutir"],
+        kerbs: ["mac-prez"],
         url: "http://macgregor.mit.edu/"
     },
     {
         dorm: "Maseeh Hall",
-        president: "Octavio J Vega",
-        kerbs: ["ovega84"],
+        president: "Emma Higgason",
+        kerbs: ["maseeh_president"],
         url: "https://maseeh.mit.edu/"
     },
     {
         dorm: "McCormick",
-        president: "Adina Golden",
-        kerbs: ["adinag"],
+        president: "Margaraet Zheng",
+        kerbs: ["mccormick-president"],
         url: "https://mccormick.mit.edu/"
     },
     {
         dorm: "New House",
-        president: "Duha Syar",
-        kerbs: ["duhasyar"],
+        president: "Kristina Chen",
+        kerbs: ["nh-president"],
         url: "https://newhouse.mit.edu/"
     },
     {
         dorm: "Next House",
-        president: "Meghana Vemulapalli",
-        kerbs: ["meghanav"],
+        president: "Alan Zhu",
+        kerbs: ["next-president"],
         url: "https://next.mit.edu/"
     },
     {
         dorm: "Random Hall",
-        president: "Ret X Wang",
-        kerbs: ["mxwang"],
+        president: "Alex Bookbinder and Michelle Guo",
+        kerbs: ["random-president"],
         url: "http://www.mit.edu/~random-hall/"
     },
     {
         dorm: "Simmons Hall",
-        president: "Mohan Richter-Addo",
-        kerbs: ["richtera"],
+        president: "Jordan Wilke",
+        kerbs: ["simmons-president"],
         url: "http://simmons.mit.edu/"
     },
     {
         dorm: "West Garage",
         president: "Tina Lu",
-        kerbs: ["tingyilu"],
+        kerbs: ["nv-prez"],
         url: "https://studentlife.mit.edu/housing/undergraduate-housing/residence-halls/new-vassar"
     },
 ];
