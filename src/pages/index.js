@@ -30,13 +30,11 @@ function FeatureRow() {
     {
       title: 'Announcements',
       description: (
-        <p>
-          <ul>
-            <li><Link to="/piazza">Ask a question on the DormCon Piazza.</Link></li>
-            <li><Link to="https://bit.ly/mit-dining">Give feedback to a dining hall.</Link></li>
-            <li><Link to="/about/meetings">View the meeting schedule.</Link></li>
-          </ul> 
-        </p>
+        <ul>
+          <li><Link to="/piazza">Ask a question on the DormCon Piazza.</Link></li>
+          <li><Link to="https://bit.ly/mit-dining">Give feedback to a dining hall.</Link></li>
+          <li><Link to="/about/meetings">View the meeting schedule.</Link></li>
+        </ul> 
       ),
     },
     {
