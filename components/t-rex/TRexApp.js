@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { EventFilter } from "./EventFilter";
 
 export function TRexApp(props) {
     if(!props.data) return <div>Loading...</div>;
+    const [events, setEvents] = useState(props.data.events);
     return <div className='margin-vert--md'>
-        <EventLayout events={props.data.events} />
+        <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} />
+        <EventLayout events={events} />
     </div>;
 }
 
