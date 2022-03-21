@@ -27,15 +27,37 @@ function EventLayout(props) {
 }
 
 function EventCard(props) {
+    const dateStrings = eventDateDisplay(props.start, props.end);
     return <div className='card margin-vert--sm'>
         <div className='card__header'>
             <h4>{props.name}</h4>
         </div>
         <div className='card__body'>
             <p>{props.description}</p>
+            <p style={{fontStyle: "italic"}}>{dateStrings.timeContext}</p>
         </div>
         <div className='card__footer'>
+            <span style={{color: 'var(--ifm-color-secondary-darkest)'}} className="margin-right--sm">🕒 {dateStrings.duration}</span>
             <span className='badge badge--primary'>{props.dorm}</span>
         </div>
     </div>;
+}
+
+function eventDateDisplay(start, end) {
+    const duration = (end - start)/1000;
+    const hours = Math.floor(duration/3600);
+    const minutes = Math.floor((duration/60) % 60);
+    const now = new Date();
+    let timeContext = "";
+    if(start > now) {
+        timeContext = `Starts ${start.toLocaleString()}`;
+    } else if(end > now) {
+        timeContext = `Ends ${end.toLocaleString()}`;
+    } else {
+        timeContext = `Ended ${end.toLocaleString()}`;
+    }
+    return {
+        duration: (hours > 0 && hours + "h ") + minutes + "m",
+        timeContext
+    }
 }
