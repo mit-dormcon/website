@@ -9,6 +9,10 @@ export default function Events() {
     useEffect(() => {
         const api_url = "https://camk.co/t-rex/api.json";
         fetch(api_url).then((response) => response.json()).then((data) => {
+            data.events.map((ev) => {
+                ev.start = new Date(ev.start);
+                ev.end = new Date(ev.end);
+            });
             setData(data);
             setFuse(new Fuse(data.events, {
                 keys: ['name', 'dorm', {name: 'description', weight: 0.5}]

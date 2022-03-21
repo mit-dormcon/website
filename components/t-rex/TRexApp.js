@@ -5,7 +5,7 @@ export function TRexApp(props) {
     if(!props.data) return <div>Loading...</div>;
     const [events, setEvents] = useState(props.data.events);
     return <div className='margin-vert--md'>
-        <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} />
+        <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} />
         <EventLayout events={events} />
     </div>;
 }
