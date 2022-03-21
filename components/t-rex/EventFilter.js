@@ -24,6 +24,6 @@ export function EventFilter(props) {
         <input type="checkbox" checked={endedFilter} onChange={(e) => setEndedFilter(e.target.checked)} id="ended" />
         <label htmlFor="ended">Show upcoming events only</label>
         <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} style={
-            {fontSize: '2rem', width: '100%'}} placeholder="🔍 Search events..." />
+            {fontSize: '2rem', width: '100%'}} placeholder="🔍 Search" />
     </div>;
 }

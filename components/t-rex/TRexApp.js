@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { EventFilter } from "./EventFilter";
+import Link from "@docusaurus/Link";
 
 export function TRexApp(props) {
     if(!props.data) return <div>Loading...</div>;
@@ -29,16 +30,20 @@ function EventLayout(props) {
 function EventCard(props) {
     const dateStrings = eventDateDisplay(props.start, props.end);
     return <div className='card margin-vert--sm'>
-        <div className='card__header'>
-            <h4>{props.name}</h4>
+        <div className='card__header' style={{display: 'flex', justifyContent: 'space-between'}}>
+            <h4 className='margin-vert--none margin-right--sm'>{props.name}</h4>
+            <GCalButton {...props} />
         </div>
         <div className='card__body'>
             <p>{props.description}</p>
             <p style={{fontStyle: "italic"}}>{dateStrings.timeContext}</p>
         </div>
-        <div className='card__footer'>
-            <span style={{color: 'var(--ifm-color-secondary-darkest)'}} className="margin-right--sm">🕒 {dateStrings.duration}</span>
-            <span className='badge badge--primary'>{props.dorm}</span>
+        <div className='card__footer' style={{display: 'flex', flexWrap: 'wrap'}}>
+            <div className='badge badge--primary margin-right--md'>{props.dorm}</div>
+            <div style={{color: 'var(--ifm-color-secondary-darkest)'}} className="margin-right--sm">🕒 {dateStrings.duration}</div>
+            <div style={{color: 'var(--ifm-color-secondary-darkest)'}}>
+                📍 <Link to={`https://whereis.mit.edu/?q=${encodeURIComponent(props.location)}`}>{props.location}</Link>
+                </div>
         </div>
     </div>;
 }
@@ -60,4 +65,16 @@ function eventDateDisplay(start, end) {
         duration: (hours > 0 && hours + "h ") + minutes + "m",
         timeContext
     }
+}
+
+function GCalButton(props) {
+    const padNumber = (num) => num.toString().padStart(2, "0");
+    const formatGCalDate = (date) => `${date.getUTCFullYear()}${padNumber(date.getUTCMonth()+1)}` +
+        `${padNumber(date.getUTCDate())}T${padNumber(date.getUTCHours())}${padNumber(date.getUTCMinutes())}` + 
+        `${padNumber(date.getUTCSeconds())}Z`;
+
+    const buttonLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.name}` +
+        `&dates=${formatGCalDate(props.start)}/${formatGCalDate(props.end)}&ctz=America/New_York&details=${props.description}` +
+        `&location=${props.location}`;
+    return <div><a className='button button--primary button--outline' href={encodeURI(buttonLink)}>+ 📅</a></div>
 }
