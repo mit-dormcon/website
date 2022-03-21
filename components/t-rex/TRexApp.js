@@ -76,5 +76,5 @@ function GCalButton(props) {
     const buttonLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.name}` +
         `&dates=${formatGCalDate(props.start)}/${formatGCalDate(props.end)}&ctz=America/New_York&details=${props.description}` +
         `&location=${props.location}`;
-    return <div><a className='button button--primary button--outline' href={encodeURI(buttonLink)}>+ 📅</a></div>
+    return <div><Link className='button button--primary button--outline' to={encodeURI(buttonLink)}>+ 📅</Link></div>
 }
