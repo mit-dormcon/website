@@ -4,7 +4,8 @@ export function EventFilter(props) {
     const [searchValue, setSearchValue] = useState("");
     const allDorms = "All Dorms"
     const [dormFilter, setDormFilter] = useState(allDorms);
-    const [endedFilter, setEndedFilter] = useState(true);
+    const allEvents = "All Events", ongoing = "Ongoing", upcoming = "Upcoming";
+    const [timeFilter, setTimeFilter] = useState(ongoing);
     useEffect(() => {
         let events = [];
         const now = new Date();
@@ -13,16 +14,20 @@ export function EventFilter(props) {
             events = props.fuse.search(searchValue).map((result) => result.item);
         }
         if(dormFilter !== allDorms) events = events.filter((ev) => ev.dorm === dormFilter);
-        if(endedFilter) events = events.filter((ev) => ev.end >= now);
+        if(timeFilter === upcoming) events = events.filter((ev) => ev.start >= now);
+        else if(timeFilter === ongoing) events = events.filter((ev) => ev.start < now && ev.end >= now);
         props.setEvents(events);
-    }, [searchValue, dormFilter, endedFilter]);
+    }, [searchValue, dormFilter, timeFilter]);
     return <div>
         <select onChange={(e) => setDormFilter(e.target.value)}>
-            <option defaultChecked>{allDorms}</option>
+            <option selected>{allDorms}</option>
             {props.dorms.map((dorm, idx) => <option key={idx}>{dorm}</option>)}
         </select>
-        <input type="checkbox" checked={endedFilter} onChange={(e) => setEndedFilter(e.target.checked)} id="ended" />
-        <label htmlFor="ended">Show upcoming events only</label>
+        <select onChange={(e) => setTimeFilter(e.target.value)}>
+            <option>{allEvents}</option>
+            <option selected>{ongoing}</option>
+            <option>{upcoming}</option>
+        </select>
         <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} style={
             {fontSize: '2rem', width: '100%'}} placeholder="🔍 Search" />
     </div>;
