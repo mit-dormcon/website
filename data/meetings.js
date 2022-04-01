@@ -18,7 +18,8 @@ export const meetings = {
         },
         {
             name: "Thursday, March 31, 2022 at 6:30pm",
-            location: "MacGregor"
+            location: "MacGregor",
+            minutesLink: "https://web.mit.edu/dormcon/cert_minutes/2022-03-31.pdf"
         },
         {
             name: "Thursday, April 21, 2022 at 6:30pm",
