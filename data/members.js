@@ -19,7 +19,7 @@ export const members = [
     },
     {
         dorm: "MacGregor",
-        president: "Shruti Ravikumar",
+        president: "Logan A Madrigal-Silver",
         kerbs: ["mac-prez"],
         url: "http://macgregor.mit.edu/"
     },
