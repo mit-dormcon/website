@@ -3,6 +3,7 @@
 
 # Production
 /build
+.vercel
 
 # Generated files
 .docusaurus
