@@ -10,6 +10,7 @@ module.exports = {
   themeConfig: {
     navbar: {
       title: 'MIT DormCon',
+      hideOnScroll: true,
       items: [
         {
           to: 'about',
@@ -26,11 +27,6 @@ module.exports = {
         {
           href: 'http://web.mit.edu/dormcon/index.old.shtml',
           label: 'Old Site',
-          position: 'right',
-        },
-        {
-          href: 'https://github.com/mit-dormcon/website',
-          label: 'GitHub',
           position: 'right',
         },
       ],
@@ -75,12 +71,31 @@ module.exports = {
             }
           ],
         },
+        {
+          title: "Social",
+          items: [
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/MITDormCon'
+            },
+            {
+              label: 'Instagram',
+              href: 'https://www.instagram.com/mit_dormcon/'
+            }
+          ]
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} MIT DormCon. Built with Docusaurus.`,
     },
     colorMode: {
       respectPrefersColorScheme: true
     },
+    announcementBar: {
+      content: 'DormCon is having elections! <b><a href="/about/elections">Find out how to run.</a></b>',
+      backgroundColor: '#a31f34',
+      textColor: '#fff',
+      isCloseable: false,
+    }
   },
   presets: [
     [
