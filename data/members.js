@@ -63,6 +63,6 @@ export const members = [
         dorm: "West Garage",
         president: "Tina Lu",
         kerbs: ["nv-prez"],
-        url: "https://studentlife.mit.edu/housing/undergraduate-housing/residence-halls/new-vassar"
+        url: "https://newvassar.mit.edu/"
     },
 ];
