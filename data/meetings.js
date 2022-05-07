@@ -23,11 +23,13 @@ export const meetings = {
         },
         {
             name: "Thursday, April 21, 2022 at 6:30pm",
-            location: "McCormick"
+            location: "McCormick",
+            minutesLink: "https://web.mit.edu/dormcon/cert_minutes/2022-04-21.pdf"
         },
         {
             name: "Thursday, May 5, 2022 at 6:30pm",
-            location: "UA Senate Chambers"
+            location: "UA Senate Chambers",
+            minutesLink: "https://web.mit.edu/dormcon/cert_minutes/2022-05-05.pdf"
         },
     ]
 };
