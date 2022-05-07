@@ -1,32 +1,32 @@
 export const officers = {
-    year: "2021-2022",
+    year: "2022-2023",
     list: [
         {
             position: "President",
-            name: "Emily Caragay",
+            name: "Zawad Chowdhury",
             affiliation: "East Campus",
-            year: 2022,
+            year: 2023,
             kerb: "dormcon-president"
         },
         {
             position: "Vice President",
-            name: "Shuli Jones",
-            affiliation: "East Campus",
-            year: 2022,
+            name: "Alan Zhu",
+            affiliation: "Next House",
+            year: 2023,
             kerb: "dormcon-vp"
         },
         {
             position: "Treasurer",
-            name: "Mohan Richter-Addo",
-            affiliation: "Simmons",
+            name: "Alex Bookbinder",
+            affiliation: "Random",
             year: 2023,
             kerb: "dormcon-treasurer"
         },
         {
             position: "Secretary",
-            name: "Sunmee Choi",
-            affiliation: "Simmons",
-            year: 2024,
+            name: "Michelle Guo",
+            affiliation: "Random",
+            year: 2023,
             kerb: "dormcon-secretary"
         },
         {
@@ -38,66 +38,66 @@ export const officers = {
         },
         {
             position: "Housing Chair",
-            name: "Zawad Chowdhury",
-            affiliation: "East Campus",
-            year: 2023,
+            name: "Fatima Nasir",
+            affiliation: "Next House",
+            year: 2025,
             kerb: "dormcon-housing-chair"
         },
         {
             position: "Housing Chair",
-            name: "Jordan Wilke",
-            affiliation: "Simmons",
+            name: "Arthur Zangi",
+            affiliation: "East Campus",
             year: 2023,
             kerb: "dormcon-housing-chair"
         },
         {
             position: "Judcomm Chair",
-            name: "Alan Zhu",
-            affiliation: "Next House",
+            name: "Sarah Aaronson",
+            affiliation: "Burton-Conner",
             year: 2023,
             kerb: "dormcon-judcomm-chair"
         },
         {
-            position: "Risk Management Chair",
-            name: "Denzel Segbefia",
-            affiliation: "Burton-Conner",
-            year: 2024,
-            kerb: "dormcon-risk-manager"
+            position: "Judcomm Chair",
+            name: "Jordan Wilke",
+            affiliation: "Simmons",
+            year: 2023,
+            kerb: "dormcon-judcomm-chair"
         },
         {
-            position: "Risk Management Chair",
-            name: "Mitali Chowdhury",
-            affiliation: "East Campus",
-            year: 2024,
+            position: "Underclassmen Representative",
+            name: "TBD",
+            affiliation: "",
+            year: "",
             kerb: "dormcon-risk-manager"
         },
         {
             position: "Dining Chair",
-            name: "Meghana Vemulapalli",
-            affiliation: "Next House",
-            year: 2022,
+            name: "Mitali Chowdhury",
+            affiliation: "East Campus",
+            year: 2024,
             kerb: "dormcon-dining-chair"
         },
         {
             position: "Dining Chair",
-            name: "Ashley Holton",
-            affiliation: "MacGregor",
-            year: 2022,
+            name: "Rebecca Lizarde",
+            affiliation: "Burton-Conner",
+            year: 2024,
             kerb: "dormcon-dining-chair"
         },
         {
             position: "REX/CPW Chair",
             name: "Olivia Beniston",
+            affiliation: "New Vassar",
             year: 2025,
             kerb: "dormcon-cpw-chairs",
-            affiliation: "New Vassar",
         },
         {
             position: "REX/CPW Chair",
             name: "Fatima Nasir",
+            affiliation: "Next House",
             year: 2025,
             kerb: "dormcon-cpw-chairs",
-            affiliation: "Next House",
         },
         {
             position: "🌎 Tech Chair",
