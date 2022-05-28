@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { EventFilter } from "./EventFilter";
 import Link from "@docusaurus/Link";
+import { BookmarkDropdownItem } from './Bookmarks';
 
 export function TRexApp(props) {
     if(!props.data) return <div>Loading...</div>;
     const [events, setEvents] = useState(props.data.events);
+    const [savedEvents, setSavedEvents] = useState([]);
+    useEffect(() => {
+        const savedStorage = localStorage.getItem("savedEvents");
+        if(savedStorage) setSavedEvents(JSON.parse(savedStorage));
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
+    }, [savedEvents]);
     return <div className='margin-vert--md'>
-        <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} tags={props.data.tags} />
-        <EventLayout events={events} />
+        <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} tags={props.data.tags} saved={savedEvents} />
+        <EventLayout events={events} saved={savedEvents} setSaved={setSavedEvents} />
     </div>;
 }
 
@@ -21,7 +30,8 @@ function EventLayout(props) {
     return <div className='container'>
         {groupedEvents.map((group, idx) => <div key={idx} className='row'>
             {group.map((e, idx) => <div key={idx} className='col col--4'>
-                <EventCard {...e} />
+                <EventCard {...e} isSaved={props.saved.includes(e.name)} unsave={() => props.setSaved(props.saved.filter((name) => name !== e.name))}
+                    save={() => !props.saved.includes(e.name) && props.setSaved(props.saved.concat([e.name]))} />
             </div>)}
         </div>)}
     </div>;
@@ -32,12 +42,21 @@ function EventCard(props) {
     return <div className='card margin-vert--sm'>
         <div className='card__header' style={{display: 'flex', justifyContent: 'space-between'}}>
             <div>
-                <h4 className='margin-vert--none margin-right--sm'>{props.name}</h4>
+                <h4 className='margin-vert--none margin-right--sm'>
+                    {props.isSaved && "⭐️ "}
+                    {props.name}
+                </h4>
                 <div>
                     {props.tags.map((tag, idx) => <span key={idx} className="badge badge--secondary margin-right--sm">{tag}</span>)}
                 </div>
             </div>
-            <GCalButton {...props} />
+            <div className="dropdown dropdown--right dropdown--hoverable">
+                <button className="button button--primary button--outline button--sm">▼</button>
+                <ul className="dropdown__menu">
+                    <GCalButton {...props} />
+                    <BookmarkDropdownItem {...props} />
+                </ul>
+            </div>
         </div>
         <div className='card__body'>
             <ExpandableText text={props.description} className="margin-bottom--sm" />
@@ -100,5 +119,5 @@ function GCalButton(props) {
     const buttonLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.name}` +
         `&dates=${formatGCalDate(props.start)}/${formatGCalDate(props.end)}&ctz=America/New_York&details=${props.description}` +
         `&location=${props.location}`;
-    return <div><Link className='button button--primary button--outline' to={encodeURI(buttonLink)}>+ 📅</Link></div>
+    return <Link className='dropdown__link' to={encodeURI(buttonLink)}>📅 Add to Calendar</Link>
 }
