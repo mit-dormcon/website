@@ -22,19 +22,21 @@ export function EventFilter(props) {
         props.setEvents(events);
     }, [searchValue, dormFilter, timeFilter, tagFilter]);
     return <div>
-        <select onChange={(e) => setDormFilter(e.target.value)}>
-            <option selected>{allDorms}</option>
-            {props.dorms.map((dorm, idx) => <option key={idx}>{dorm}</option>)}
-        </select>
-        <select onChange={(e) => setTimeFilter(e.target.value)}>
-            <option>{allEvents}</option>
-            <option selected>{ongoing}</option>
-            <option>{upcoming}</option>
-        </select>
-        <select onChange={(e) => setTagFilter(e.target.value)}>
-            <option selected>{everything}</option>
-            {props.tags.map((tag, idx) => <option key={idx}>{tag}</option>)}
-        </select>
+        <div className="margin-bottom--xs">
+            <select onChange={(e) => setDormFilter(e.target.value)}>
+                <option selected>{allDorms}</option>
+                {props.dorms.map((dorm, idx) => <option key={idx}>{dorm}</option>)}
+            </select>
+            <select onChange={(e) => setTimeFilter(e.target.value)}>
+                <option>{allEvents}</option>
+                <option selected>{ongoing}</option>
+                <option>{upcoming}</option>
+            </select>
+            <select onChange={(e) => setTagFilter(e.target.value)}>
+                <option selected>{everything}</option>
+                {props.tags.map((tag, idx) => <option key={idx}>{tag}</option>)}
+            </select>
+        </div>
         <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} style={
             {fontSize: '2rem', width: '100%'}} placeholder="🔍 Search" />
     </div>;
