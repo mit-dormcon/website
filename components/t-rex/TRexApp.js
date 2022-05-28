@@ -6,7 +6,7 @@ export function TRexApp(props) {
     if(!props.data) return <div>Loading...</div>;
     const [events, setEvents] = useState(props.data.events);
     return <div className='margin-vert--md'>
-        <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} />
+        <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} tags={props.data.tags} />
         <EventLayout events={events} />
     </div>;
 }
@@ -31,11 +31,16 @@ function EventCard(props) {
     const dateStrings = eventDateDisplay(props.start, props.end);
     return <div className='card margin-vert--sm'>
         <div className='card__header' style={{display: 'flex', justifyContent: 'space-between'}}>
-            <h4 className='margin-vert--none margin-right--sm'>{props.name}</h4>
+            <div>
+                <h4 className='margin-vert--none margin-right--sm'>{props.name}</h4>
+                <div>
+                    {props.tags.map((tag, idx) => <span key={idx} className="badge badge--secondary margin-right--sm">{tag}</span>)}
+                </div>
+            </div>
             <GCalButton {...props} />
         </div>
         <div className='card__body'>
-            <ExpandableText text={props.description} />
+            <ExpandableText text={props.description} className="margin-bottom--sm" />
             <p style={{fontStyle: "italic"}}>{dateStrings.timeContext}</p>
         </div>
         <div className='card__footer' style={{display: 'flex', flexWrap: 'wrap'}}>
@@ -57,7 +62,7 @@ function ExpandableText(props) {
         truncatePoint = props.text.lastIndexOf(" ", 140);
         truncated = props.text.substring(0, truncatePoint);
     }
-    return <p>
+    return <p className={props.className}>
         {truncated}
         {props.text.length > expandAmount && (<span>
             {expanded && props.text.substring(truncatePoint)}
