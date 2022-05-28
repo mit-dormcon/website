@@ -35,7 +35,7 @@ function EventCard(props) {
             <GCalButton {...props} />
         </div>
         <div className='card__body'>
-            <p>{props.description}</p>
+            <ExpandableText text={props.description} />
             <p style={{fontStyle: "italic"}}>{dateStrings.timeContext}</p>
         </div>
         <div className='card__footer' style={{display: 'flex', flexWrap: 'wrap'}}>
@@ -46,6 +46,25 @@ function EventCard(props) {
                 </div>
         </div>
     </div>;
+}
+
+function ExpandableText(props) {
+    const [expanded, setExpanded] = useState(false);
+    let truncated = props.text;
+    const expandAmount = props.expandAmount || 140;
+    let truncatePoint = 0;
+    if(props.text.length > expandAmount) {
+        truncatePoint = props.text.lastIndexOf(" ", 140);
+        truncated = props.text.substring(0, truncatePoint);
+    }
+    return <p>
+        {truncated}
+        {props.text.length > expandAmount && (<span>
+            {expanded && props.text.substring(truncatePoint)}
+            {" "}
+            <a onClick={(e) => { e.preventDefault(); setExpanded(!expanded); }} href="#" style={{fontStyle: 'italic'}}>{expanded ? "show less" : "show more"}</a>
+        </span>)}
+    </p>;
 }
 
 function eventDateDisplay(start, end) {
