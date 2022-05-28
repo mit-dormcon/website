@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
+import BackToTopButton from "@theme/BackToTopButton";
 import { TRexApp } from "../../../components/t-rex/TRexApp";
 import Fuse from "fuse.js";
 
@@ -28,5 +29,6 @@ export default function Events() {
                 <h1>{data && data.name}</h1>
                 <TRexApp data={data} fuse={fuse} />
             </div>
+            <BackToTopButton />
     </Layout>
 }
