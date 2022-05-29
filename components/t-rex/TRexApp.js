@@ -15,6 +15,7 @@ export function TRexApp(props) {
         localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
     }, [savedEvents]);
     return <div className='margin-vert--md'>
+        <h6>Last updated {(new Date(props.data.published)).toLocaleString()}</h6>
         <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} tags={props.data.tags} saved={savedEvents} />
         <EventLayout events={events} saved={savedEvents} setSaved={setSavedEvents} />
     </div>;
