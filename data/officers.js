@@ -31,8 +31,8 @@ export const officers = {
         },
         {
             position: "i3/RAC Chair",
-            name: "Mitali Chowdhury",
-            affiliation: "East Campus",
+            name: "Mateo Pisinger",
+            affiliation: "New Vassar",
             year: 2024,
             kerb: "dormcon-i3-rac-chair"
         },
