@@ -19,4 +19,4 @@ DormCon is committed to supporting events in the dorm community through funding 
 
 ## Application
 
-**To apply for event funding, please fill out [our application](https://docs.google.com/forms/d/e/1FAIpQLSd0_F86wxzbuSDbf_rzvzAV684NuQoGgh8ax8AtgEBCQzJb0g/viewform?usp=sf_link).**
+**To apply for event funding, please fill out [our application](https://forms.gle/fRBN2P9PVy2jpeSKA).**
