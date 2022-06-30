@@ -15,7 +15,10 @@ export function TRexApp(props) {
         localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
     }, [savedEvents]);
     return <div className='margin-vert--md'>
-        <p class="margin-bottom--sm">{props.data.events.length} events loaded, published {(new Date(props.data.published)).toLocaleString()}</p>
+        <p class="margin-bottom--sm">
+            <Link to="/rex/toolbox">🧰</Link>&emsp;
+            {props.data.events.length} events loaded, published {(new Date(props.data.published)).toLocaleString()}
+        </p>
         <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} tags={props.data.tags} saved={savedEvents} />
         <EventLayout events={events} saved={savedEvents} setSaved={setSavedEvents} colors={props.data.colors} />
     </div>;
