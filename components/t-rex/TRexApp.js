@@ -17,7 +17,7 @@ export function TRexApp(props) {
     return <div className='margin-vert--md'>
         <p class="margin-bottom--sm">{props.data.events.length} events loaded, published {(new Date(props.data.published)).toLocaleString()}</p>
         <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} tags={props.data.tags} saved={savedEvents} />
-        <EventLayout events={events} saved={savedEvents} setSaved={setSavedEvents} />
+        <EventLayout events={events} saved={savedEvents} setSaved={setSavedEvents} colors={props.data.colors} />
     </div>;
 }
 
@@ -34,7 +34,7 @@ function EventLayout(props) {
         {groupedEvents.map((group, idx) => <div key={idx} className='row'>
             {group.map((e, idx) => <div key={idx} className='col col--4'>
                 <EventCard {...e} isSaved={props.saved.includes(e.name)} unsave={unsaveFunc}
-                    save={saveFunc} />
+                    save={saveFunc} colors={props.colors} />
             </div>)}
         </div>)}
     </div>;
@@ -66,13 +66,27 @@ function EventCard(props) {
             <p style={{fontStyle: "italic"}}>{dateStrings.timeContext}</p>
         </div>
         <div className='card__footer' style={{display: 'flex', flexWrap: 'wrap'}}>
-            <div className='badge badge--primary margin-right--md'>{props.dorm}</div>
+            <ColoredBadge className='badge badge--primary margin-right--md' choices={props.colors.dorms} selector={props.dorm}>{props.dorm}</ColoredBadge>
             <div style={{color: 'var(--ifm-color-secondary-darkest)'}} className="margin-right--sm">🕒 {dateStrings.duration}</div>
             <div style={{color: 'var(--ifm-color-secondary-darkest)'}}>
                 📍 <Link to={`https://whereis.mit.edu/?q=${encodeURIComponent(props.location)}`}>{props.location}</Link>
                 </div>
         </div>
     </div>;
+}
+
+function ColoredBadge(props) {
+    const styles = {};
+    if(props.selector in props.choices) {
+        const bgColor = props.choices[props.selector];
+        styles["backgroundColor"] = bgColor;
+        styles["borderColor"] = bgColor;
+        const r = parseInt(bgColor.substring(1, 3), 16);
+        const g = parseInt(bgColor.substring(3, 5), 16);
+        const b = parseInt(bgColor.substring(5), 16);
+        styles["color"] = r*0.299 + g*0.587 + b*0.114 > 186 ? "#000" : "#fff";
+    }
+    return <div className={props.className} style={styles}>{props.children}</div>;
 }
 
 function ExpandableText(props) {
