@@ -7,8 +7,8 @@ export function BookmarkDropdownItem(props) {
     function handleClick(e) {
         e.preventDefault();
         if(props.isSaved)
-            props.unsave();
-        else props.save();
+            props.unsave(props.name);
+        else props.save(props.name);
     }
 
     return <a href="#" className="dropdown__link" onClick={handleClick}>{props.isSaved ? removeBookmarkText : bookmarkText}</a>;

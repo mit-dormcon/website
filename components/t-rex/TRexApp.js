@@ -28,11 +28,13 @@ function EventLayout(props) {
         else lastGroup.push(next);
         return array;
     }, [[]]);
+    const unsaveFunc = (n) => props.setSaved(props.saved.filter((name) => name !== n));
+    const saveFunc = (n) => !props.saved.includes(n) && props.setSaved(props.saved.concat([n]))
     return <div className='container'>
         {groupedEvents.map((group, idx) => <div key={idx} className='row'>
             {group.map((e, idx) => <div key={idx} className='col col--4'>
-                <EventCard {...e} isSaved={props.saved.includes(e.name)} unsave={() => props.setSaved(props.saved.filter((name) => name !== e.name))}
-                    save={() => !props.saved.includes(e.name) && props.setSaved(props.saved.concat([e.name]))} />
+                <EventCard {...e} isSaved={props.saved.includes(e.name)} unsave={unsaveFunc}
+                    save={saveFunc} />
             </div>)}
         </div>)}
     </div>;
