@@ -133,7 +133,7 @@ function GCalButton(props) {
         `${padNumber(date.getUTCDate())}T${padNumber(date.getUTCHours())}${padNumber(date.getUTCMinutes())}` + 
         `${padNumber(date.getUTCSeconds())}Z`;
 
-    const buttonLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.name}` +
+    const buttonLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.dorm}: ${props.name}` +
         `&dates=${formatGCalDate(props.start)}/${formatGCalDate(props.end)}&ctz=America/New_York&details=${props.description}` +
         `&location=${props.location}`;
     return <Link className='dropdown__link' to={encodeURI(buttonLink)}>📅 Add to Calendar</Link>
