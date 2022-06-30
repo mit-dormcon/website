@@ -17,7 +17,7 @@ or vice versa with this tool.
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import {BookmarksTool} from '../../../components/t-rex/Bookmarks.js';
 
-<BrowserOnly><BookmarksTool /></BrowserOnly>
+<BrowserOnly>{() => <BookmarksTool />}</BrowserOnly>
 
 ## API Data
 
