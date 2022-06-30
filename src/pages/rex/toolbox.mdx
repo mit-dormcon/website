@@ -14,9 +14,10 @@ common format, so you can move them between devices and browsers.
 For example, you could save events to your bookmarks on your laptop and move them to your phone,
 or vice versa with this tool.
 
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import {BookmarksTool} from '../../../components/t-rex/Bookmarks.js';
 
-<BookmarksTool />
+<BrowserOnly><BookmarksTool /></BrowserOnly>
 
 ## API Data
 
