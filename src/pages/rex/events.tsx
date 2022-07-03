@@ -7,12 +7,14 @@ import Fuse from "fuse.js";
 async function fetchEvents(): Promise<TRexAPIResponse> {
     const api_url = "https://camk.co/t-rex/api.json";
     const response = await fetch(api_url);
-    const data = await response.json() as TRexAPIResponse;
+    const data = await response.json();
     data.events.map((ev) => {
         ev.start = new Date(ev.start);
         ev.end = new Date(ev.end);
     });
-    return data;
+    data.colors.dorms = new Map<string, string>(Object.entries(data.colors.dorms))
+    data.colors.tags = new Map<string, string>(Object.entries(data.colors.tags))
+    return data as TRexAPIResponse;
 }
 
 export default function Events() {

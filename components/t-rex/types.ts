@@ -4,13 +4,15 @@ type TRexAPIResponse = {
     events: TRexEvent[],
     dorms: string[],
     tags: string[],
-    colors: {
-        dorms: Map<string, string>,
-        tags: Map<string, string>
-    },
+    colors: TRexAPIColors,
     start: string,
     end: string
-}
+};
+
+type TRexAPIColors = {
+    dorms: Map<string, string>,
+    tags: Map<string, string>
+};
 
 type TRexEvent = {
     name: string,
@@ -20,4 +22,4 @@ type TRexEvent = {
     end: Date,
     description: string,
     tags: string[],
-}
+};
