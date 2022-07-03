@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-export function BookmarkDropdownItem(props) {
+export function BookmarkDropdownItem(props: {
+    name: string,
+    isSaved: boolean,
+    unsave: (name: string) => void,
+    save: (name: string) => void
+}) {
     const bookmarkText = "⭐️ Bookmark";
     const removeBookmarkText = "❌ Unbookmark";
 
@@ -15,13 +20,13 @@ export function BookmarkDropdownItem(props) {
 }
 
 export function BookmarksTool() {
-    const [saved, setSaved] = useState(localStorage.getItem("savedEvents"));
+    const [saved, setSaved] = useState<string>(localStorage.getItem("savedEvents"));
 
     const importBookmarks = () => {
         const bookmarks = prompt("Paste your exported bookmarks here:");
         if(bookmarks !== null) {
             try {
-                const bookmarksList = JSON.parse(bookmarks);
+                const bookmarksList: string[] = JSON.parse(bookmarks);
                 if(!(bookmarksList instanceof Array))
                     throw new Error("Bookmarks list needs to be an Array!");
                 const stringBookmarks = JSON.stringify(bookmarksList);

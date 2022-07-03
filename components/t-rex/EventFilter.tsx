@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
+import Fuse from "fuse.js";
 
-export function EventFilter(props) {
+export function EventFilter(props: {
+    events: TRexEvent[],
+    fuse: Fuse<TRexEvent>,
+    saved: string[],
+    setEvents: (events: TRexEvent[]) => void,
+    dorms: string[],
+    tags: string[],
+}) {
     const [searchValue, setSearchValue] = useState("");
     const allDorms = "All Dorms";
     const [dormFilter, setDormFilter] = useState(allDorms);
@@ -39,7 +47,7 @@ export function EventFilter(props) {
                 {props.tags.map((tag, idx) => <option key={idx}>{tag}</option>)}
             </select>
             <div style={{display: 'inline-block'}}>
-                <input type="checkbox" id="showBookmarks" value={bookmarkFilter} onChange={(e) => setBookmarkFilter(e.target.checked)} />
+                <input type="checkbox" id="showBookmarks" checked={bookmarkFilter} onChange={(e) => setBookmarkFilter(e.target.checked)} />
                 <label htmlFor="showBookmarks">⭐️ only</label>
             </div>
         </div>
