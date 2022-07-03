@@ -15,7 +15,7 @@ export function TRexApp(props) {
         localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
     }, [savedEvents]);
     return <div className='margin-vert--md'>
-        <p class="margin-bottom--sm">
+        <p className="margin-bottom--sm">
             <Link to="/rex/toolbox">🧰</Link>&emsp;
             {props.data.events.length} events loaded, published {(new Date(props.data.published)).toLocaleString()}
         </p>
