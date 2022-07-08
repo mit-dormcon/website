@@ -4,11 +4,16 @@
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator based on React using [Infima](https://infima.dev) for UI. Visit docusaurus.io for complete documentation of how the site works.
 
+This site uses TypeScript for static checking to ensure proper formatting and increase site reliability.
+Website builds will run `tsc` to manually check that types are correct, and you can run `yarn exec tsc` to check
+the types before committing your code.
+
 ## Folder structure
 
 - `.github/workflows` - Automated build and deploy scripts the site. Pushing to master automatically deploys the site (and changes go live!) to GitHub Pages.
 - `components` - React components for displaying dynamic data, like the list of officers or list of meetings
-- `data` - JS files containing data such as a list of meetings, voting members, and officers.
+- `data` - TS files containing data such as a list of meetings, voting members, and officers, as well as types
+to enforce proper data formatting.
 - `docs` - Markdown files that are automatically rendered into pages under `/about/<page-id>`. These pages are rendered by the Docs plugin and can have a sidebar if you want. The About section is an example of this. See the docs on [Docs](https://docusaurus.io/docs/docs-introduction).
 - `src/pages` - Markdown, MDX, or React components (JS) put in this directory will get rendered into pages automatically. See the docs on [Pages](https://docusaurus.io/docs/creating-pages).
 - `src/css` - Where global CSS files live.
