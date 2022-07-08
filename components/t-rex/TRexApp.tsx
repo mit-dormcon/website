@@ -46,13 +46,13 @@ function EventLayout(props: EventLayoutProps) {
     }, [[]]);
     const unsaveFunc = (n: string) => props.setSaved(props.saved.filter((name) => name !== n));
     const saveFunc = (n: string) => !props.saved.includes(n) && props.setSaved(props.saved.concat([n]))
-    return <div className='container'>
-        {groupedEvents.map((group, idx) => <div key={idx} className='row'>
+    return <div className='container margin-top--sm'>
+        {props.events.length ? groupedEvents.map((group, idx) => <div key={idx} className='row'>
             {group.map((e, idx) => <div key={idx} className='col col--4'>
                 <EventCard event={e} isSaved={props.saved.includes(e.name)} unsave={unsaveFunc}
                     save={saveFunc} colors={props.colors} />
             </div>)}
-        </div>)}
+        </div>) : <div className="alert alert--secondary" role="alert">No events match this filter.</div>}
     </div>;
 }
 

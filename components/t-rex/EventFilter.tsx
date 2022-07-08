@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Fuse from "fuse.js";
+import Events from "../../src/pages/rex/events";
 
 export function EventFilter(props: {
     events: TRexEvent[],
@@ -18,7 +19,7 @@ export function EventFilter(props: {
     const [tagFilter, setTagFilter] = useState(everything);
     const [bookmarkFilter, setBookmarkFilter] = useState(false);
     useEffect(() => {
-        let events = [];
+        let events: TRexEvent[] = [];
         const now = new Date();
         if(!searchValue) events = props.events;
         else {
