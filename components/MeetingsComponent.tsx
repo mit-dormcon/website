@@ -1,6 +1,8 @@
 import React from 'react';
+import { Meeting } from '../data/types';
 
-export default function MeetingsComponent({ meetings }) {
+export default function MeetingsComponent(props: { meetings: Meeting[] }) {
+    const { meetings } = props;
     return (
         <ul>
             {meetings.map((m, idx) => {

@@ -1,6 +1,8 @@
 import React from 'react';
+import { DormConMember } from '../data/types';
 
-export default function VotingMembersTable({ data }) { 
+export default function VotingMembersTable(props: { data: DormConMember[] }) { 
+    const { data } = props;
     return (
     <table>
         <thead>

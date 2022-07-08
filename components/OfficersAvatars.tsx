@@ -1,10 +1,12 @@
 import React from 'react';
+import { Officer } from '../data/types';
 
-export default function OfficersAvatars({data}) {
+export default function OfficersAvatars(props: { data: Officer[] }) {
+    const { data } = props;
     return (
     <div className="row">
     {data.map((p, idx) => (
-        <div className="avatar col col--4 avatar--vertical" style={{'margin-bottom': '20px'}}>
+        <div className="avatar col col--4 avatar--vertical" style={{marginBottom: '20px'}}>
             <div className="avatar__intro">
                 <h4 className="avatar__name">{p.name}, {p.year}</h4>
                 <small className="avatar__subtitle">{p.position}</small>

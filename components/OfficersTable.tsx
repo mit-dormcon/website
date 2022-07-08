@@ -1,6 +1,8 @@
 import React from 'react';
+import { Officer } from '../data/types';
 
-export default function OfficersTable({ data }) { 
+export default function OfficersTable(props: { data: Officer[] }) { 
+    const { data } = props;
     return (
     <table>
         <thead>
