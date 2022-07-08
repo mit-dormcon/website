@@ -18,6 +18,15 @@ export function EventFilter(props: {
     const everything = "Everything";
     const [tagFilter, setTagFilter] = useState(everything);
     const [bookmarkFilter, setBookmarkFilter] = useState(false);
+
+    const clearFilters = () => {
+        setSearchValue("");
+        setDormFilter(allDorms);
+        setTimeFilter(allEvents);
+        setTagFilter(everything);
+        setBookmarkFilter(false);
+    };
+
     useEffect(() => {
         let events: TRexEvent[] = [];
         const now = new Date();
@@ -34,22 +43,25 @@ export function EventFilter(props: {
     }, [searchValue, dormFilter, timeFilter, tagFilter, bookmarkFilter, props.saved]);
     return <div>
         <div className="margin-bottom--xs">
-            <select onChange={(e) => setDormFilter(e.target.value)} defaultValue={allDorms}>
+            <select onChange={(e) => setDormFilter(e.target.value)} defaultValue={allDorms} value={dormFilter}>
                 <option>{allDorms}</option>
                 {props.dorms.map((dorm, idx) => <option key={idx}>{dorm}</option>)}
             </select>
-            <select onChange={(e) => setTimeFilter(e.target.value)} defaultValue={ongoing}>
+            <select onChange={(e) => setTimeFilter(e.target.value)} defaultValue={ongoing} value={timeFilter}>
                 <option>{allEvents}</option>
                 <option>{ongoing}</option>
                 <option>{upcoming}</option>
             </select>
-            <select onChange={(e) => setTagFilter(e.target.value)} defaultValue={everything}>
+            <select onChange={(e) => setTagFilter(e.target.value)} defaultValue={everything} value={tagFilter}>
                 <option>{everything}</option>
                 {props.tags.map((tag, idx) => <option key={idx}>{tag}</option>)}
             </select>
             <div style={{display: 'inline-block'}}>
                 <input type="checkbox" id="showBookmarks" checked={bookmarkFilter} onChange={(e) => setBookmarkFilter(e.target.checked)} />
                 <label htmlFor="showBookmarks">⭐️ only</label>
+            </div>
+            <div style={{display: 'inline-block'}} className="margin-left--sm">
+                <button className="button button--sm button--outline button--primary" onClick={clearFilters}>❌ Clear</button>
             </div>
         </div>
         <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} style={

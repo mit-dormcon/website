@@ -23,7 +23,7 @@ export function TRexApp(props: TRexAppProps) {
     return <div className='margin-vert--md'>
         <p className="margin-bottom--sm">
             <Link to="/rex/toolbox">🧰</Link>&emsp;
-            {props.data.events.length} events loaded, published {(new Date(props.data.published)).toLocaleString()}
+            <b>{events.length}</b>/{props.data.events.length} events, published {(new Date(props.data.published)).toLocaleString()}
         </p>
         <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} tags={props.data.tags} saved={savedEvents} />
         <EventLayout events={events} saved={savedEvents} setSaved={setSavedEvents} colors={props.data.colors} />
