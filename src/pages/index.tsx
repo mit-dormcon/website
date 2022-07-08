@@ -8,7 +8,8 @@ import styles from './styles.module.css';
 import { Timeline } from 'react-twitter-widgets';
 import { useColorMode } from '@docusaurus/theme-common';
 
-function Feature({imageUrl, title, description}) {
+function Feature(props: { imageUrl?: string, title: string, children: React.ReactNode }) {
+  const { imageUrl, title, children } = props;
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={clsx('col col--4', styles.feature)}>
@@ -18,7 +19,7 @@ function Feature({imageUrl, title, description}) {
         </div>
       )}
       <h3>{title}</h3>
-      {description}
+      {children}
     </div>
   );
 }
@@ -29,7 +30,7 @@ function FeatureRow() {
   const features = [
     {
       title: 'Announcements',
-      description: (
+      children: (
         <ul>
           <li><Link to="/piazza">Ask a question on the DormCon Piazza.</Link></li>
           <li><Link to="https://bit.ly/mit-dining">Give feedback to a dining hall.</Link></li>
@@ -39,7 +40,7 @@ function FeatureRow() {
     },
     {
       title: 'Spring 2022 Meetings',
-      description: (
+      children: (
         <div>
           <p><Link to="/about/meetings">DormCon meetings</Link> are open to <Link to="/about/voting-members">all dorm residents</Link>.</p> 
           <p>If you are not a resident in one of MIT's ten dormitories but would like to attend a DormCon meeting, please email us (<a href="mailto:ddormcon-exec@mit.edu">dormcon-exec@mit.edu</a>).</p>
@@ -48,7 +49,7 @@ function FeatureRow() {
     },
     {
       title: 'DormCon Twitter',
-      description: (
+      children: (
         <Timeline
           dataSource={{
             sourceType: 'profile',
@@ -70,7 +71,7 @@ function FeatureRow() {
           <div className="container">
             <div className="row">
               {features.map((props, idx) => (
-                <Feature key={idx} {...props} />
+                <Feature key={idx} title={props.title}>{props.children}</Feature>
               ))}
             </div>
           </div>
@@ -82,7 +83,7 @@ function FeatureRow() {
 
 export default function Home() {
   const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
+  const {siteConfig} = context;
 
   return (
     <Layout
