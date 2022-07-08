@@ -1,4 +1,6 @@
-export const members = [
+import { DormConMember } from "./types";
+
+export const members: DormConMember[] = [
     {
         dorm: "Baker",
         president: "Madison Wong & Edenna Chen",

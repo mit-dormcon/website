@@ -1,4 +1,6 @@
-export const officers = {
+import { Term } from "./types";
+
+export const officers: Term = {
     year: "2022-2023",
     list: [
         {
@@ -68,7 +70,7 @@ export const officers = {
             position: "Underclassmen Representative",
             name: "TBD",
             affiliation: "",
-            year: "",
+            year: null,
             kerb: "dormcon-risk-manager"
         },
         {

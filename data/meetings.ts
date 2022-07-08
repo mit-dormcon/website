@@ -1,4 +1,6 @@
-export const meetings = {
+import { MeetingSchedule } from "./types";
+
+export const meetings: MeetingSchedule = {
     year: "Spring 2022",
     list: [
         {

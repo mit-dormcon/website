@@ -1,4 +1,6 @@
-const meetings = [
+import { MeetingSchedule, Term } from "./types";
+
+const meetings: MeetingSchedule[] = [
     {
         year: "Spring 2021",
         list: [
@@ -104,7 +106,7 @@ const meetings = [
     }
 ];
 
-const officers = [
+const officers: Term[] = [
     {
         year: "2020-2021",
         list: [

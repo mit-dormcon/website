@@ -28,8 +28,10 @@ jobs:
 
       - name: 🛍 Get Packages
         run: yarn install --frozen-lockfile
+      - name: 📝 Check Types
+        run: yarn exec tsc
       - name: 🛠 Build Site
-        run: npm run build
+        run: yarn run build
       
       - name: 🌐 Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5

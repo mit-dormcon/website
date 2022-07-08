@@ -31,5 +31,7 @@ jobs:
 
       - name: 🛍 Get Packages
         run: yarn install --frozen-lockfile
+      - name: 📝 Check Types
+        run: yarn exec tsc
       - name: 🛠 Build Site
-        run: npm run build
+        run: yarn run build
