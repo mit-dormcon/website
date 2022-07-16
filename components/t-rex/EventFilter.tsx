@@ -43,16 +43,16 @@ export function EventFilter(props: {
     }, [searchValue, dormFilter, timeFilter, tagFilter, bookmarkFilter, props.saved]);
     return <div>
         <div className="margin-bottom--xs">
-            <select onChange={(e) => setDormFilter(e.target.value)} defaultValue={allDorms} value={dormFilter}>
+            <select onChange={(e) => setDormFilter(e.target.value)} value={dormFilter}>
                 <option>{allDorms}</option>
                 {props.dorms.map((dorm, idx) => <option key={idx}>{dorm}</option>)}
             </select>
-            <select onChange={(e) => setTimeFilter(e.target.value)} defaultValue={ongoing} value={timeFilter}>
+            <select onChange={(e) => setTimeFilter(e.target.value)} value={timeFilter}>
                 <option>{allEvents}</option>
                 <option>{ongoing}</option>
                 <option>{upcoming}</option>
             </select>
-            <select onChange={(e) => setTagFilter(e.target.value)} defaultValue={everything} value={tagFilter}>
+            <select onChange={(e) => setTagFilter(e.target.value)} value={tagFilter}>
                 <option>{everything}</option>
                 {props.tags.map((tag, idx) => <option key={idx}>{tag}</option>)}
             </select>
