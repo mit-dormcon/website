@@ -3,6 +3,12 @@ import { EventFilter } from "./EventFilter";
 import Link from "@docusaurus/Link";
 import { BookmarkDropdownItem } from './Bookmarks';
 import Fuse from "fuse.js";
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import duration from "dayjs/plugin/duration";
+
+dayjs.extend(relativeTime);
+dayjs.extend(duration);
 
 type TRexAppProps = {
     data: TRexAPIResponse,
@@ -65,7 +71,14 @@ type EventCardProps = {
 }
 
 function EventCard(props: EventCardProps) {
-    const dateStrings = eventDateDisplay(props.event.start, props.event.end);
+    const [dateStrings, setDateStrings] = useState({duration: "", timeContext: ""});
+    useEffect(() => {
+        setDateStrings(eventDateDisplay(props.event.start, props.event.end));
+        const intervalId = setInterval(() => setDateStrings(eventDateDisplay(props.event.start, props.event.end)), 60 * 1000);
+        return function cleanup() {
+            clearInterval(intervalId);
+        }
+    }, [props]);
     return <div className='card margin-vert--sm'>
         <div className='card__header' style={{display: 'flex', justifyContent: 'space-between'}}>
             <div>
@@ -146,20 +159,22 @@ function eventDateDisplay(start: Date, end: Date): {
     duration: string,
     timeContext: string
 } {
-    const duration = (end.valueOf() - start.valueOf())/1000;
-    const hours = Math.floor(duration/3600);
-    const minutes = Math.floor((duration/60) % 60);
-    const now = new Date();
+    const duration = dayjs.duration(dayjs(end).diff(start)).humanize();
     let timeContext = "";
-    if(start > now) {
-        timeContext = `Starts ${start.toLocaleString()}`;
-    } else if(end > now) {
-        timeContext = `Ends ${end.toLocaleString()}`;
+    let timeUntil: Date;
+    if(dayjs().isBefore(start)) {
+        timeContext += "Starts ";
+        timeUntil = start;
+    } else if(dayjs().isBefore(end)) {
+        timeContext += "Ends ";
+        timeUntil = end;
     } else {
-        timeContext = `Ended ${end.toLocaleString()}`;
+        timeContext += "Ended ";
+        timeUntil = end;
     }
+    timeContext += dayjs(timeUntil).fromNow();
     return {
-        duration: (hours > 0 && hours + "h ") + minutes + "m",
+        duration,
         timeContext
     }
 }
