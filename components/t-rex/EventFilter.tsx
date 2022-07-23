@@ -13,10 +13,13 @@ export function EventFilter(props: {
     const [searchValue, setSearchValue] = useState("");
     const allDorms = "All Dorms";
     const [dormFilter, setDormFilter] = useState(allDorms);
+    const dormEmoji = "🏠";
     const allEvents = "All Events", ongoing = "Ongoing", upcoming = "Upcoming";
     const [timeFilter, setTimeFilter] = useState(ongoing);
+    const timeEmoji = "⏰";
     const everything = "Everything";
     const [tagFilter, setTagFilter] = useState(everything);
+    const tagEmoji = "🏷";
     const [bookmarkFilter, setBookmarkFilter] = useState(false);
 
     const clearFilters = () => {
@@ -44,17 +47,17 @@ export function EventFilter(props: {
     return <div>
         <div className="margin-bottom--xs">
             <select onChange={(e) => setDormFilter(e.target.value)} value={dormFilter}>
-                <option>{allDorms}</option>
-                {props.dorms.map((dorm, idx) => <option key={idx}>{dorm}</option>)}
+                <option value={allDorms}>{dormEmoji} {allDorms}</option>
+                {props.dorms.map((dorm, idx) => <option key={idx} value={dorm}>{dormEmoji} {dorm}</option>)}
             </select>
             <select onChange={(e) => setTimeFilter(e.target.value)} value={timeFilter}>
-                <option>{allEvents}</option>
-                <option>{ongoing}</option>
-                <option>{upcoming}</option>
+                <option value={allEvents}>{timeEmoji} {allEvents}</option>
+                <option value={ongoing}>{timeEmoji} {ongoing}</option>
+                <option value={upcoming}>{timeEmoji} {upcoming}</option>
             </select>
             <select onChange={(e) => setTagFilter(e.target.value)} value={tagFilter}>
-                <option>{everything}</option>
-                {props.tags.map((tag, idx) => <option key={idx}>{tag}</option>)}
+                <option value={everything}>{tagEmoji} {everything}</option>
+                {props.tags.map((tag, idx) => <option key={idx} value={tag}>{tagEmoji} {tag}</option>)}
             </select>
             <div style={{display: 'inline-block'}}>
                 <input type="checkbox" id="showBookmarks" checked={bookmarkFilter} onChange={(e) => setBookmarkFilter(e.target.checked)} />
