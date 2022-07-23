@@ -62,7 +62,7 @@ function EventLayout(props: EventLayoutProps) {
                 <EventCard event={e} isSaved={props.saved.includes(e.name)} unsave={unsaveFunc}
                     save={saveFunc} colors={props.colors} />
             </div>)}
-        </div>) : <div className="alert alert--secondary" role="alert">No events match this filter.</div>}
+        </div>) : <div className="alert alert--secondary" role="alert">💀 No events match this filter.</div>}
     </div>;
 }
 
