@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, CSSProperties } from "react";
 import Layout from "@theme/Layout";
 import BackToTopButton from "@theme/BackToTopButton";
 import { TRexApp } from "../../../components/t-rex/TRexApp";
 import Fuse from "fuse.js";
+import { useColorMode } from "@docusaurus/theme-common";
 
 async function fetchEvents(): Promise<TRexAPIResponse> {
     const api_url = "https://camk.co/t-rex/api.json";
@@ -34,9 +35,27 @@ export default function Events() {
         description="The one page for all REX Events"
         >
             <div className="container margin-top--md">
-                <h1>{data && data.name}</h1>
+                {data && <TRexHeadline>{data.name} Events</TRexHeadline>}
                 <TRexApp data={data} fuse={fuse} />
             </div>
             <BackToTopButton />
     </Layout>
+}
+
+function TRexHeadline(props: {children: React.ReactNode}) {
+    const { colorMode } = useColorMode();
+
+    const lightGradient = "orangered, var(--ifm-color-primary-darkest)";
+    const darkGradient = "orange, var(--ifm-color-primary-lightest)";
+
+    const headlineStyle: CSSProperties = {
+        backgroundImage: `linear-gradient(45deg, ${colorMode === "light" ? lightGradient : darkGradient})`,
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        display: "inline-block",
+        marginBottom: 0,
+        color: "transparent",
+    };
+
+    return <h1 style={headlineStyle} key={0}>{props.children}</h1>
 }
