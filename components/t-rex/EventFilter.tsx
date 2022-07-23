@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Fuse from "fuse.js";
-import Events from "../../src/pages/rex/events";
 
 export function EventFilter(props: {
     events: TRexEvent[],

@@ -16,7 +16,11 @@ type TRexAppProps = {
 }
 
 export function TRexApp(props: TRexAppProps) {
-    if (!props.data) return <div>Loading...</div>;
+    if (!props.data)
+        return <div>
+            <p>Loading...</p>
+            <p><b>Stuck on this page?</b> Make sure you're connected to a network.</p>
+        </div>;
     const [events, setEvents] = useState(props.data.events);
     const [savedEvents, setSavedEvents] = useState<string[]>([]);
     useEffect(() => {
