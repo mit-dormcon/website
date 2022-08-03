@@ -91,7 +91,7 @@ function EventCard(props: EventCardProps) {
                     {props.event.name}
                 </h4>
                 <div>
-                    {props.event.tags.map((tag, idx) => <span key={idx} className="badge badge--secondary margin-right--sm">{tag}</span>)}
+                    {props.event.tags.map((tag, idx) => <ColoredBadge key={idx} className="badge badge--secondary margin-right--sm" choices={props.colors.tags} selector={tag}>{tag}</ColoredBadge>)}
                 </div>
             </div>
             <div className="dropdown dropdown--right dropdown--hoverable">
