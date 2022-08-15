@@ -90,12 +90,6 @@ module.exports = {
     colorMode: {
       respectPrefersColorScheme: true
     },
-    announcementBar: {
-      content: 'DormCon is having elections! <b><a href="/about/elections">Find out how to run.</a></b>',
-      backgroundColor: '#a31f34',
-      textColor: '#fff',
-      isCloseable: false,
-    }
   },
   presets: [
     [
