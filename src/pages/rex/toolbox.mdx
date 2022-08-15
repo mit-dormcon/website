@@ -1,0 +1,34 @@
+---
+title: REX Toolbox
+description: Toolbox for the REX Event viewer
+---
+
+# REX Toolbox
+
+[↩ Back to Events](/rex/events)
+
+## Bookmarks tool
+
+You can use this page to import and export your bookmarks. The bookmarks are in a
+common format, so you can move them between devices and browsers. 
+For example, you could save events to your bookmarks on your laptop and move them to your phone,
+or vice versa with this tool.
+
+<div class="alert alert--warning margin-bottom--md" role="alert">
+<b>⚠️ Be careful!</b> It might be possible to break the REX events viewer with importing some bad data.
+If you find that the events page isn't working, you can import <code>[]</code> to clear your bookmarks.
+</div>
+
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import {BookmarksTool} from '@site/components/t-rex/Bookmarks';
+
+<BrowserOnly>{() => <BookmarksTool />}</BrowserOnly>
+
+## API Data
+
+If you want to make use of the raw API data yourself, you're more than welcome!
+The events are available at https://camk.co/t-rex/api.json, and will update automatically
+as new events are posted.
+
+If you have any questions or feedback on the API, feel free to contact dormcon-tech-chair@mit.edu,
+though unfortunately, I don't have the bandwidth to offer tech support for any derivative projects.
