@@ -6,6 +6,7 @@ import Fuse from "fuse.js";
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import duration from "dayjs/plugin/duration";
+import clsx from 'clsx';
 
 dayjs.extend(relativeTime);
 dayjs.extend(duration);
@@ -222,4 +223,10 @@ function GCalButton(props: {
         `&dates=${formatGCalDate(props.event.start)}/${formatGCalDate(props.event.end)}&ctz=America/New_York&details=${props.event.description}` +
         `&location=${props.event.location}`;
     return <Link className='dropdown__link' to={encodeURI(buttonLink)}>🗓 Add to Calendar</Link>
+}
+
+export function TRexEntryButton() {
+    return <div className='margin-bottom--md' style={{textAlign: 'center'}}>
+        <Link to="/rex/events" className={clsx("button button--primary button--lg")}>Check out our REX Events!</Link>
+    </div>;
 }
