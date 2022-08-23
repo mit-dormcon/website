@@ -23,6 +23,11 @@ module.exports = {
           label: 'Piazza',
           position: 'left'
         },
+        {
+          to: 'rex',
+          label: 'REX',
+          position: 'left',
+        },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'http://web.mit.edu/dormcon/index.old.shtml',

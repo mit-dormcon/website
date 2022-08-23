@@ -85,22 +85,32 @@ export default function Home() {
   const context = useDocusaurusContext();
   const {siteConfig} = context;
 
+  const header = {
+    title: 'DormCon REX',  // siteConfig.title,
+    subtitle: 'Explore MIT residential life',  // siteConfig.tagline,
+    button: 'Explore DormCon REX →',  // About DormCon,
+    buttonLink: '/rex',  // /about
+  }
+
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description={siteConfig.tagline}>
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <span className='badge badge--secondary'>Happening Now</span>
+          <h1 className="hero__title">
+            {header.title}
+            </h1>
+          <p className="hero__subtitle">{header.subtitle}</p>
           <div className={styles.buttons}>
             <Link
               className={clsx(
                 'button button--secondary button--lg',
                 styles.getStarted,
               )}
-              to="/about/">
-              About DormCon
+              to={header.buttonLink}>
+              {header.button}
             </Link>
           </div>
         </div>
