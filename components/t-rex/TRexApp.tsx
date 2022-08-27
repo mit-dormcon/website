@@ -1,3 +1,4 @@
+/// <reference types="gtag.js" />
 import React, { useEffect, useState } from 'react';
 import { EventFilter } from "./EventFilter";
 import Link from "@docusaurus/Link";
@@ -7,6 +8,8 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import duration from "dayjs/plugin/duration";
 import clsx from 'clsx';
+
+declare const gtag: Gtag.Gtag;
 
 dayjs.extend(relativeTime);
 dayjs.extend(duration);
@@ -215,6 +218,11 @@ function eventDateDisplay(start: Date, end: Date): DateDisplayInfo {
 function GCalButton(props: {
     event: TRexEvent
 }) {
+    function logAnalytics() {
+        if(typeof gtag !== 'undefined') {
+            gtag('event', 'calendar', {event_label: props.event.name});
+        }
+    }
     const padNumber = (num: number) => num.toString().padStart(2, "0");
     const formatGCalDate = (date: Date) => `${date.getUTCFullYear()}${padNumber(date.getUTCMonth() + 1)}` +
         `${padNumber(date.getUTCDate())}T${padNumber(date.getUTCHours())}${padNumber(date.getUTCMinutes())}` +
@@ -223,7 +231,8 @@ function GCalButton(props: {
     const buttonLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.event.dorm}: ${props.event.name}` +
         `&dates=${formatGCalDate(props.event.start)}/${formatGCalDate(props.event.end)}&ctz=America/New_York&details=${props.event.description}` +
         `&location=${props.event.location}`;
-    return <Link className='dropdown__link' to={encodeURI(buttonLink)}>🗓 Add to Calendar</Link>
+    return <Link className='dropdown__link' to={encodeURI(buttonLink)} 
+        onClick={logAnalytics}>🗓 Add to Calendar</Link>
 }
 
 export function TRexEntryButton() {
