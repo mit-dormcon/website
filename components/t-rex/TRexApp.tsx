@@ -34,6 +34,7 @@ export function TRexApp(props: TRexAppProps) {
     return <div className='margin-vert--md'>
         <p className="margin-bottom--sm">
             <Link to="/rex/toolbox">🧰</Link>&emsp;
+            <Link to="/rex/help">❓</Link>&emsp;
             <b>{events.length}</b>/{props.data.events.length} events, published {(new Date(props.data.published)).toLocaleString()}
         </p>
         <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} tags={props.data.tags} saved={savedEvents} />
@@ -63,7 +64,7 @@ function EventLayout(props: EventLayoutProps) {
                 <EventCard event={e} isSaved={props.saved.includes(e.name)} unsave={unsaveFunc}
                     save={saveFunc} colors={props.colors} />
             </div>)}
-        </div>) : <div className="alert alert--secondary" role="alert">💀 No events match this filter.</div>}
+        </div>) : <div className="alert alert--secondary" role="alert">💀 <b>No events match this filter.</b> Try adjusting the filters above to see more events.</div>}
     </div>;
 }
 
