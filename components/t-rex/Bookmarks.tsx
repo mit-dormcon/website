@@ -1,4 +1,7 @@
+/// <reference types="gtag.js" />
 import React, { useState } from "react";
+
+declare const gtag: Gtag.Gtag;
 
 export function BookmarkDropdownItem(props: {
     name: string,
@@ -13,7 +16,14 @@ export function BookmarkDropdownItem(props: {
         e.preventDefault();
         if(props.isSaved)
             props.unsave(props.name);
-        else props.save(props.name);
+        else {
+            props.save(props.name)
+            if(typeof gtag !== 'undefined') {
+                gtag('event', 'bookmark', {
+                    event_label: props.name,
+                });
+            }
+        };
     }
 
     return <a href="#" className="dropdown__link" onClick={handleClick}>{props.isSaved ? removeBookmarkText : bookmarkText}</a>;
