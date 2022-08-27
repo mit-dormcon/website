@@ -13,8 +13,8 @@ export function EventFilter(props: {
     const allDorms = "All Dorms";
     const [dormFilter, setDormFilter] = useState(allDorms);
     const dormEmoji = "🏠";
-    const allEvents = "All Events", ongoing = "Ongoing", upcoming = "Upcoming";
-    const [timeFilter, setTimeFilter] = useState(ongoing);
+    const allEvents = "All Events", ongoing = "Now", upcoming = "Upcoming", ongoingUpcoming = "Now + Upcoming";
+    const [timeFilter, setTimeFilter] = useState(ongoingUpcoming);
     const timeEmoji = "⏰";
     const everything = "Everything";
     const [tagFilter, setTagFilter] = useState(everything);
@@ -39,6 +39,7 @@ export function EventFilter(props: {
         if(dormFilter !== allDorms) events = events.filter((ev) => ev.dorm === dormFilter);
         if(timeFilter === upcoming) events = events.filter((ev) => ev.start >= now);
         else if(timeFilter === ongoing) events = events.filter((ev) => ev.start < now && ev.end >= now);
+        else if(timeFilter === ongoingUpcoming) events = events.filter((ev) => ev.end >= now);
         if(tagFilter !== everything) events = events.filter((ev) => ev.tags.includes(tagFilter));
         if(bookmarkFilter) events = events.filter((ev) => props.saved.includes(ev.name));
         props.setEvents(events);
@@ -53,6 +54,7 @@ export function EventFilter(props: {
                 <option value={allEvents}>{timeEmoji} {allEvents}</option>
                 <option value={ongoing}>{timeEmoji} {ongoing}</option>
                 <option value={upcoming}>{timeEmoji} {upcoming}</option>
+                <option value={ongoingUpcoming}>{timeEmoji} {ongoingUpcoming}</option>
             </select>
             <select onChange={(e) => setTagFilter(e.target.value)} value={tagFilter}>
                 <option value={everything}>{tagEmoji} {everything}</option>
