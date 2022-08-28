@@ -32,27 +32,30 @@ export function EventFilter(props: {
     useEffect(() => {
         let events: TRexEvent[] = [];
         const now = new Date();
-        if(!searchValue) events = props.events;
+        if (!searchValue) events = props.events;
         else {
             events = props.fuse.search(searchValue).map((result) => result.item);
         }
-        if(dormFilter !== allDorms) events = events.filter((ev) => ev.dorm === dormFilter);
-        if(timeFilter === upcoming) events = events.filter((ev) => ev.start >= now);
-        else if(timeFilter === ongoing) events = events.filter((ev) => ev.start < now && ev.end >= now);
-        else if(timeFilter === ongoingUpcoming) events = events.filter((ev) => ev.end >= now);
-        if(tagFilter !== everything) events = events.filter((ev) => ev.tags.includes(tagFilter));
-        if(bookmarkFilter) events = events.filter((ev) => props.saved.includes(ev.name));
+        if (dormFilter !== allDorms) events = events.filter((ev) => ev.dorm === dormFilter);
+        if (timeFilter === upcoming) events = events.filter((ev) => ev.start >= now);
+        else if (timeFilter === ongoing) events = events.filter((ev) => ev.start < now && ev.end >= now);
+        else if (timeFilter === ongoingUpcoming) events = events.filter((ev) => ev.end >= now);
+        if (tagFilter !== everything) events = events.filter((ev) => ev.tags.includes(tagFilter));
+        if (bookmarkFilter) events = events.filter((ev) => props.saved.includes(ev.name));
 
-        // Partition and sort events based on whether they have started.
-        // Events that have started => events that end sooner show up first
-        // Events that have yet to start => events that start sooner show up first
-        const startedEvents = events.filter((ev) => ev.start < now);
-        startedEvents.sort((a, b) => a.end.valueOf() - b.end.valueOf());
-        
-        const upcomingEvents = events.filter((ev) => ev.start >= now);
-        upcomingEvents.sort((a, b) => a.start.valueOf() - b.start.valueOf());
+        // Don't sort if there's a search query, so the most relevant events appear at the top
+        if (!searchValue) {
+            // Partition and sort events based on whether they have started.
+            // Events that have started => events that end sooner show up first
+            // Events that have yet to start => events that start sooner show up first
+            const startedEvents = events.filter((ev) => ev.start < now);
+            startedEvents.sort((a, b) => a.end.valueOf() - b.end.valueOf());
 
-        events = Array.of(...startedEvents, ...upcomingEvents);
+            const upcomingEvents = events.filter((ev) => ev.start >= now);
+            upcomingEvents.sort((a, b) => a.start.valueOf() - b.start.valueOf());
+
+            events = Array.of(...startedEvents, ...upcomingEvents);
+        }
         props.setEvents(events);
     }, [searchValue, dormFilter, timeFilter, tagFilter, bookmarkFilter, props.saved]);
     return <div>
@@ -71,15 +74,15 @@ export function EventFilter(props: {
                 <option value={everything}>{tagEmoji} {everything}</option>
                 {props.tags.map((tag, idx) => <option key={idx} value={tag}>{tagEmoji} {tag}</option>)}
             </select>
-            <div style={{display: 'inline-block'}}>
+            <div style={{ display: 'inline-block' }}>
                 <input type="checkbox" id="showBookmarks" checked={bookmarkFilter} onChange={(e) => setBookmarkFilter(e.target.checked)} />
                 <label htmlFor="showBookmarks">⭐️ only</label>
             </div>
-            <div style={{display: 'inline-block'}} className="margin-left--sm">
+            <div style={{ display: 'inline-block' }} className="margin-left--sm">
                 <button className="button button--sm button--outline button--primary" onClick={clearFilters}>❌ Clear</button>
             </div>
         </div>
         <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} style={
-            {fontSize: '2rem', width: '100%'}} placeholder="🔍 Search" />
+            { fontSize: '2rem', width: '100%' }} placeholder="🔍 Search" />
     </div>;
 }

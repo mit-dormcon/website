@@ -25,7 +25,13 @@ export default function Events() {
         fetchEvents().then((data) => {
             setData(data);
             setFuse(new Fuse(data.events, {
-                keys: ['name', 'dorm', {name: 'description', weight: 0.5}]
+                keys: [
+                    {name: 'name', weight: 2},
+                    'dorm',
+                    'location',
+                    'tags',
+                    {name: 'description', weight: 0.5}
+                ]
             }));
         });
     }, []);
