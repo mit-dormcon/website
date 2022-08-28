@@ -42,6 +42,17 @@ export function EventFilter(props: {
         else if(timeFilter === ongoingUpcoming) events = events.filter((ev) => ev.end >= now);
         if(tagFilter !== everything) events = events.filter((ev) => ev.tags.includes(tagFilter));
         if(bookmarkFilter) events = events.filter((ev) => props.saved.includes(ev.name));
+
+        // Partition and sort events based on whether they have started.
+        // Events that have started => events that end sooner show up first
+        // Events that have yet to start => events that start sooner show up first
+        const startedEvents = events.filter((ev) => ev.start < now);
+        startedEvents.sort((a, b) => a.end.valueOf() - b.end.valueOf());
+        
+        const upcomingEvents = events.filter((ev) => ev.start >= now);
+        upcomingEvents.sort((a, b) => a.start.valueOf() - b.start.valueOf());
+
+        events = Array.of(...startedEvents, ...upcomingEvents);
         props.setEvents(events);
     }, [searchValue, dormFilter, timeFilter, tagFilter, bookmarkFilter, props.saved]);
     return <div>
