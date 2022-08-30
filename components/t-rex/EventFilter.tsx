@@ -8,6 +8,8 @@ export function EventFilter(props: {
     setEvents: (events: TRexEvent[]) => void,
     dorms: string[],
     tags: string[],
+    showRelativeTime: boolean,
+    setRelativeTime: (val: boolean) => void
 }) {
     const [searchValue, setSearchValue] = useState("");
     const allDorms = "All Dorms";
@@ -77,10 +79,15 @@ export function EventFilter(props: {
             <div style={{ display: 'inline-block' }}>
                 <input type="checkbox" id="showBookmarks" checked={bookmarkFilter} onChange={(e) => setBookmarkFilter(e.target.checked)} />
                 <label htmlFor="showBookmarks">⭐️ only</label>
+                &ensp;
             </div>
-            <div style={{ display: 'inline-block' }} className="margin-left--sm">
+            <div style={{ display: 'inline-block' }}>
                 <button className="button button--sm button--outline button--primary" onClick={clearFilters}>❌ Clear</button>
-            </div>
+                <button className="button button--sm button--outline button--primary" onClick={() => props.setRelativeTime(!props.showRelativeTime)}>
+                    {props.showRelativeTime ? '⏰' : '⏱'}&ensp;
+                    Switch to {props.showRelativeTime ? 'exact' : 'relative'} times
+                </button>
+                </div>
         </div>
         <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} style={
             { fontSize: '2rem', width: '100%' }} placeholder="🔍 Search" />

@@ -27,6 +27,7 @@ export function TRexApp(props: TRexAppProps) {
         </div>;
     const [events, setEvents] = useState(props.data.events);
     const [savedEvents, setSavedEvents] = useState<string[]>([]);
+    const [showRelativeTime, setShowRelativeTime] = useState(true);
     useEffect(() => {
         const savedStorage = localStorage.getItem("savedEvents");
         if (savedStorage) setSavedEvents(JSON.parse(savedStorage));
@@ -40,8 +41,21 @@ export function TRexApp(props: TRexAppProps) {
             <Link to="/rex/help">❓</Link>&emsp;
             <b>{events.length}</b>/{props.data.events.length} events, published {(new Date(props.data.published)).toLocaleString()}
         </p>
-        <EventFilter fuse={props.fuse} events={props.data.events} setEvents={setEvents} dorms={props.data.dorms} tags={props.data.tags} saved={savedEvents} />
-        <EventLayout events={events} saved={savedEvents} setSaved={setSavedEvents} colors={props.data.colors} />
+        <EventFilter
+            fuse={props.fuse}
+            events={props.data.events}
+            setEvents={setEvents}
+            dorms={props.data.dorms}
+            tags={props.data.tags}
+            saved={savedEvents}
+            showRelativeTime={showRelativeTime}
+            setRelativeTime={setShowRelativeTime} />
+        <EventLayout
+            events={events}
+            saved={savedEvents}
+            setSaved={setSavedEvents}
+            colors={props.data.colors}
+            showRelativeTime={showRelativeTime} />
     </div>;
 }
 
@@ -50,6 +64,7 @@ type EventLayoutProps = {
     saved: string[],
     setSaved: (saved: string[]) => void,
     colors: TRexAPIColors,
+    showRelativeTime: boolean,
 }
 
 function EventLayout(props: EventLayoutProps) {
@@ -65,7 +80,7 @@ function EventLayout(props: EventLayoutProps) {
         {props.events.length ? groupedEvents.map((group, idx) => <div key={idx} className='row'>
             {group.map((e, idx) => <div key={idx} className='col col--4'>
                 <EventCard event={e} isSaved={props.saved.includes(e.name)} unsave={unsaveFunc}
-                    save={saveFunc} colors={props.colors} />
+                    save={saveFunc} colors={props.colors} showRelativeTime={props.showRelativeTime} />
             </div>)}
         </div>) : <div className="alert alert--secondary" role="alert">💀 <b>No events match this filter.</b> Try adjusting the filters above to see more events.</div>}
     </div>;
@@ -76,7 +91,8 @@ type EventCardProps = {
     isSaved: boolean,
     unsave: (name: string) => void,
     save: (name: string) => void,
-    colors: TRexAPIColors
+    colors: TRexAPIColors,
+    showRelativeTime: boolean,
 }
 
 function EventCard(props: EventCardProps) {
@@ -109,7 +125,7 @@ function EventCard(props: EventCardProps) {
         </div>
         <div className='card__body'>
             <ExpandableText text={props.event.description} className="margin-bottom--sm" />
-            <DateDisplay dateStrings={dateStrings} />
+            <DateDisplay dateStrings={dateStrings} showRelativeTime={props.showRelativeTime} />
         </div>
         <div className='card__footer' style={{ display: 'flex', flexWrap: 'wrap' }}>
             <ColoredBadge className='badge badge--primary margin-right--md' choices={props.colors.dorms} selector={props.event.dorm}>{props.event.dorm}</ColoredBadge>
@@ -122,19 +138,11 @@ function EventCard(props: EventCardProps) {
 }
 
 function DateDisplay(props: {
-    dateStrings: DateDisplayInfo
+    dateStrings: DateDisplayInfo,
+    showRelativeTime: boolean
 }) {
-    const [showRelativeTime, setShowRelativeTime] = useState(true);
-    const clickHandler: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
-        e.preventDefault();
-        setShowRelativeTime(!showRelativeTime);
-    };
+    const { showRelativeTime } = props;
     return <p>
-        <a
-            href="#" onClick={clickHandler} title={'Click to show ' + (showRelativeTime ? "exact time" : "relative time")}>
-            ⇄
-        </a>
-        &ensp;
         {showRelativeTime ? '⏱' : '⏰'}
         &ensp;
         <span style={{fontStyle: 'italic'}}>
