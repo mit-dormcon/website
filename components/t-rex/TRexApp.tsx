@@ -130,9 +130,12 @@ function DateDisplay(props: {
         setShowRelativeTime(!showRelativeTime);
     };
     return <p>
-        <a href="#" style={{textDecoration: 'none'}} onClick={clickHandler} title={'Click to show ' + (showRelativeTime ? "exact time" : "relative time")}>
-            {showRelativeTime ? '⏱' : '⏰'}
+        <a
+            href="#" onClick={clickHandler} title={'Click to show ' + (showRelativeTime ? "exact time" : "relative time")}>
+            ⇄
         </a>
+        &ensp;
+        {showRelativeTime ? '⏱' : '⏰'}
         &ensp;
         <span style={{fontStyle: 'italic'}}>
             {showRelativeTime ? props.dateStrings.timeContext : props.dateStrings.timeContextExact}
