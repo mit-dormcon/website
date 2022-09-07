@@ -86,10 +86,10 @@ export default function Home() {
   const {siteConfig} = context;
 
   const header = {
-    title: 'DormCon REX',  // siteConfig.title,
-    subtitle: 'Explore MIT residential life',  // siteConfig.tagline,
-    button: 'Explore DormCon REX →',  // About DormCon,
-    buttonLink: '/rex',  // /about
+    title: siteConfig.title,
+    subtitle: siteConfig.tagline,
+    button: 'About DormCon',
+    buttonLink: '/about',
   }
 
   return (
@@ -98,7 +98,7 @@ export default function Home() {
       description={siteConfig.tagline}>
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <span className='badge badge--secondary'>Happening Now</span>
+          {/*<span className='badge badge--secondary'>Happening Now</span>*/}
           <h1 className="hero__title">
             {header.title}
             </h1>
