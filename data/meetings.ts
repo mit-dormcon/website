@@ -9,7 +9,7 @@ export const meetings: MeetingSchedule = {
         },
         {
             name: "Thursday, September 29th, 2022 at 7pm",
-            location: "New Vassar",
+            location: "Maseeh",
         },
         {
             name: "Thursday, October 13th, 2022 at 7pm",
@@ -25,7 +25,7 @@ export const meetings: MeetingSchedule = {
         },
         {
             name: "Thursday, December 1st, 2022 at 7pm",
-            location: "Baker House",
+            location: "New Vassar",
         },
     ]
 };
