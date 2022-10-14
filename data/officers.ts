@@ -68,10 +68,17 @@ export const officers: Term = {
         },
         {
             position: "Underclassmen Representative",
-            name: "TBD",
-            affiliation: "",
-            year: null,
-            kerb: "dormcon-risk-manager"
+            name: "Jordan Tierney",
+            affiliation: "East Campus",
+            year: 2025,
+            kerb: "dormcon-uc-rep"
+        },
+        {
+            position: "Underclassmen Representative",
+            name: "Geoffrey Enwere",
+            affiliation: "Next House",
+            year: 2026,
+            kerb: "dormcon-uc-rep"
         },
         {
             position: "Dining Chair",
