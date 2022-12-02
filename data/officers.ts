@@ -32,11 +32,18 @@ export const officers: Term = {
             kerb: "dormcon-secretary"
         },
         {
-            position: "i3/RAC Chair",
-            name: "Mateo Pisinger",
-            affiliation: "New Vassar",
-            year: 2024,
-            kerb: "dormcon-i3-rac-chair"
+            position: "REX/CPW Chair",
+            name: "Diego Tempkin",
+            affiliation: "East Campus",
+            year: 2026,
+            kerb: "dormcon-cpw-chairs"
+        },
+        {
+            position: "REX/CPW Chair",
+            name: "Daniel Figgis Gonzalez",
+            affiliation: "East Campus",
+            year: 2025,
+            kerb: "dormcon-cpw-chairs"
         },
         {
             position: "Housing Chair",
@@ -95,18 +102,11 @@ export const officers: Term = {
             kerb: "dormcon-dining-chair"
         },
         {
-            position: "REX/CPW Chair",
-            name: "Olivia Beniston",
-            affiliation: "New Vassar",
-            year: 2025,
-            kerb: "dormcon-cpw-chairs",
-        },
-        {
-            position: "REX/CPW Chair",
-            name: "Fatima Nasir",
-            affiliation: "Next House",
-            year: 2025,
-            kerb: "dormcon-cpw-chairs",
+            position: "i3 Chair",
+            name: "Tyra Espedal",
+            affiliation: "East Campus",
+            year: 2026,
+            kerb: "dormcon-i3-rac-chair",
         },
         {
             position: "🌎 Tech Chair",
