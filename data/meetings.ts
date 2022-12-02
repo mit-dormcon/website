@@ -31,6 +31,7 @@ export const meetings: MeetingSchedule = {
         {
             name: "Thursday, December 1st, 2022 at 7pm",
             location: "New Vassar",
+            minutesLink: "https://web.mit.edu/dormcon/cert_minutes/2022-12-01.pdf",
         },
     ]
 };
