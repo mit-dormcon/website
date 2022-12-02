@@ -33,7 +33,7 @@ export const officers: Term = {
         },
         {
             position: "REX/CPW Chair",
-            name: "Diego Tempkin",
+            name: "Diego Temkin",
             affiliation: "East Campus",
             year: 2026,
             kerb: "dormcon-cpw-chairs"
