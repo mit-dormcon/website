@@ -6,7 +6,7 @@ import Fuse from "fuse.js";
 import { useColorMode } from "@docusaurus/theme-common";
 
 async function fetchEvents(): Promise<TRexAPIResponse> {
-    const api_url = "https://camk.co/t-rex/api.json";
+    const api_url = "https://camtheman256.github.io/t-rex/api.json";
     const response = await fetch(api_url);
     const data = await response.json();
     data.events.map((ev) => {
