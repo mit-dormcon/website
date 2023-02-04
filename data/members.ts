@@ -27,7 +27,7 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "Maseeh Hall",
-        president: "Emma Higgason",
+        president: "Mark Mosser",
         kerbs: ["maseeh_president"],
         url: "https://maseeh.mit.edu/"
     },
