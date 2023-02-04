@@ -9,7 +9,7 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "Burton-Conner",
-        president: "Sarah Aaronson",
+        president: "Cameron Kleiman",
         kerbs: ["bc-president"],
         url: "https://bc.mit.edu/"
     },
