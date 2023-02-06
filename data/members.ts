@@ -3,7 +3,7 @@ import { DormConMember } from "./types";
 export const members: DormConMember[] = [
     {
         dorm: "Baker",
-        president: "Madison Wong & Edenna Chen",
+        president: "Chloe Swanson & Katie Crowley",
         kerbs: ["baker-prez"],
         url: "https://baker.mit.edu/"
     },
