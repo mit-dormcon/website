@@ -33,7 +33,7 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "McCormick",
-        president: "Margaraet Zheng",
+        president: "Maria Garcia-Garcia & Zitong Chen",
         kerbs: ["mccormick-president"],
         url: "https://mccormick.mit.edu/"
     },
