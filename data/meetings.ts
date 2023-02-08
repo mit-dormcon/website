@@ -27,5 +27,5 @@ export const meetings: MeetingSchedule = {
             name: "Thursday, May 11th, 2023 at 7pm",
             location: "On Campus (TBD)",
         },
-    ]
+    ],
 };

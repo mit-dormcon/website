@@ -13,8 +13,12 @@ async function fetchEvents(): Promise<TRexAPIResponse> {
         ev.start = new Date(ev.start);
         ev.end = new Date(ev.end);
     });
-    data.colors.dorms = new Map<string, string>(Object.entries(data.colors.dorms))
-    data.colors.tags = new Map<string, string>(Object.entries(data.colors.tags))
+    data.colors.dorms = new Map<string, string>(
+        Object.entries(data.colors.dorms)
+    );
+    data.colors.tags = new Map<string, string>(
+        Object.entries(data.colors.tags)
+    );
     return data as TRexAPIResponse;
 }
 
@@ -24,38 +28,44 @@ export default function Events() {
     useEffect(() => {
         fetchEvents().then((data) => {
             setData(data);
-            setFuse(new Fuse(data.events, {
-                keys: [
-                    {name: 'name', weight: 2},
-                    'dorm',
-                    'location',
-                    'tags',
-                    {name: 'description', weight: 0.5}
-                ]
-            }));
+            setFuse(
+                new Fuse(data.events, {
+                    keys: [
+                        { name: "name", weight: 2 },
+                        "dorm",
+                        "location",
+                        "tags",
+                        { name: "description", weight: 0.5 },
+                    ],
+                })
+            );
         });
     }, []);
 
-    return <Layout 
-        title="REX Events"
-        description="The one page for all REX Events"
+    return (
+        <Layout
+            title="REX Events"
+            description="The one page for all REX Events"
         >
             <div className="container margin-top--md">
                 {data && <TRexHeadline>{data.name} Events</TRexHeadline>}
                 <TRexApp data={data} fuse={fuse} />
             </div>
             <BackToTopButton />
-    </Layout>
+        </Layout>
+    );
 }
 
-function TRexHeadline(props: {children: React.ReactNode}) {
+function TRexHeadline(props: { children: React.ReactNode }) {
     const { colorMode } = useColorMode();
 
     const lightGradient = "orangered, var(--ifm-color-primary-darkest)";
     const darkGradient = "orange, var(--ifm-color-primary-lightest)";
 
     const headlineStyle: CSSProperties = {
-        backgroundImage: `linear-gradient(45deg, ${colorMode === "light" ? lightGradient : darkGradient})`,
+        backgroundImage: `linear-gradient(45deg, ${
+            colorMode === "light" ? lightGradient : darkGradient
+        })`,
         WebkitBackgroundClip: "text",
         backgroundClip: "text",
         display: "inline-block",
@@ -63,5 +73,9 @@ function TRexHeadline(props: {children: React.ReactNode}) {
         color: "transparent",
     };
 
-    return <h1 style={headlineStyle} key={0}>{props.children}</h1>
+    return (
+        <h1 style={headlineStyle} key={0}>
+            {props.children}
+        </h1>
+    );
 }
