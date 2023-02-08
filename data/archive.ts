@@ -1,6 +1,41 @@
 import { MeetingSchedule, Term } from "./types";
 
 const meetings: MeetingSchedule[] = [
+{
+    year: "Fall 2022",
+    list: [
+        {
+            name: "Thursday, September 15th, 2022 at 7pm",
+            location: "Burton-Conner",
+            minutesLink: "https://web.mit.edu/dormcon/cert_minutes/2022-09-15.pdf",
+        },
+        {
+            name: "Thursday, September 29th, 2022 at 7pm",
+            location: "Maseeh",
+            minutesLink: "https://web.mit.edu/dormcon/cert_minutes/2022-09-29.pdf",
+        },
+        {
+            name: "Thursday, October 13th, 2022 at 7pm",
+            location: "New House",
+            minutesLink: "https://web.mit.edu/dormcon/cert_minutes/2022-10-13.pdf",
+        },
+        {
+            name: "Thursday, October 27th, 2022 at 7pm",
+            location: "East Campus",
+            minutesLink: "https://web.mit.edu/dormcon/cert_minutes/2022-10-27.pdf",
+        },
+        {
+            name: "Thursday, November 10th, 2022 at 7pm",
+            location: "Next House",
+            minutesLink: "https://web.mit.edu/dormcon/cert_minutes/2022-11-10.pdf",
+        },
+        {
+            name: "Thursday, December 1st, 2022 at 7pm",
+            location: "New Vassar",
+            minutesLink: "https://web.mit.edu/dormcon/cert_minutes/2022-12-01.pdf",
+        },
+    ]
+},
     {
         year: "Spring 2021",
         list: [
