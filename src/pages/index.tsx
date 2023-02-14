@@ -34,7 +34,8 @@ function Feature(props: {
 }
 
 function FeatureRow() {
-    const { isDarkTheme } = useColorMode();
+    const { colorMode } = useColorMode();
+    const isDarkTheme = colorMode === "dark";
 
     const features = [
         {
