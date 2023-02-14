@@ -1,7 +1,7 @@
 import { MeetingSchedule } from "./types";
 
 export const meetings: MeetingSchedule = {
-    year: "Fall 2023",
+    year: "Spring 2023",
     list: [
         {
             name: "Thursday, February 16th, 2023 at 7pm",
