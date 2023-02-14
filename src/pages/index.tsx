@@ -7,6 +7,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
 import { Timeline } from "react-twitter-widgets";
 import { useColorMode } from "@docusaurus/theme-common";
+import { meetings } from "../../data/meetings";
 
 function Feature(props: {
     imageUrl?: string;
@@ -59,7 +60,7 @@ function FeatureRow() {
             ),
         },
         {
-            title: "Fall 2022 Meetings",
+            title: `${meetings.year} Meetings`,
             children: (
                 <div>
                     <p>
