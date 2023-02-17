@@ -45,13 +45,13 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "Next House",
-        president: "Alan Zhu",
+        president: "Sruthi Parthasarathi",
         kerbs: ["next-president"],
         url: "https://next.mit.edu/",
     },
     {
         dorm: "Random Hall",
-        president: "Alex Bookbinder and Michelle Guo",
+        president: "Sara Manos",
         kerbs: ["random-president"],
         url: "http://www.mit.edu/~random-hall/",
     },
@@ -63,7 +63,7 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "West Garage",
-        president: "Tina Lu",
+        president: "Alice Yu & Mateo Pisinger",
         kerbs: ["nv-prez"],
         url: "https://newvassar.mit.edu/",
     },
