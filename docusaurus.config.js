@@ -1,5 +1,7 @@
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
+// @ts-check
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
     title: "DormCon",
     tagline: "MIT's Dormitory Council",
     url: "https://dormcon.mit.edu",
@@ -121,3 +123,5 @@ module.exports = {
         ],
     ],
 };
+
+module.exports = config;
