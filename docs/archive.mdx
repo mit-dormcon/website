@@ -4,17 +4,20 @@ sidebar_label: Archive
 description: DormCon's archive of meeting minutes and past officers
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import OfficersTable from '../components/OfficersTable';
-import MeetingsComponent from '../components/MeetingsComponent';
-import { officers, meetings } from '../data/archive';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import OfficersTable from "../components/OfficersTable";
+import MeetingsComponent from "../components/MeetingsComponent";
+import { officers, meetings } from "../data/archive";
 
 ## Past Officers
 
 [Officers prior to 2020](https://docs.google.com/spreadsheets/d/15GVLwvmquPJNLJdh5v76ZgOtbuxg93hDmuU-9SFaPvY/edit?usp=sharing)
 
-<Tabs values={officers.map((o, idx) => ({label: o.year, value: idx}))} defaultValue={0}>
+<Tabs
+    values={officers.map((o, idx) => ({ label: o.year, value: idx }))}
+    defaultValue={0}
+>
     {officers.map((o, idx) => (
         <TabItem value={idx}>
             <OfficersTable data={o.list} />
@@ -26,7 +29,10 @@ import { officers, meetings } from '../data/archive';
 
 More meeting minutes are available at the [old website](http://web.mit.edu/dormcon/minutes/).
 
-<Tabs values={meetings.map((m, idx) => ({label: m.year, value: idx}))} defaultValue={0}>
+<Tabs
+    values={meetings.map((m, idx) => ({ label: m.year, value: idx }))}
+    defaultValue={0}
+>
     {meetings.map((m, idx) => (
         <TabItem value={idx}>
             <MeetingsComponent meetings={m.list} />

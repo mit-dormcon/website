@@ -6,12 +6,14 @@ export const meetings: MeetingSchedule = {
         {
             name: "Thursday, February 16th, 2023 at 7pm",
             location: "Baker",
-            minutesLink: "https://web-cert.mit.edu/dormcon/cert_minutes/2023-02-16.pdf"
+            minutesLink:
+                "https://web-cert.mit.edu/dormcon/cert_minutes/2023-02-16.pdf",
         },
         {
             name: "Thursday, March 2nd, 2023 at 7pm",
             location: "McCormick",
-            minutesLink: "https://web-cert.mit.edu/dormcon/cert_minutes/2023-03-02.pdf"
+            minutesLink:
+                "https://web-cert.mit.edu/dormcon/cert_minutes/2023-03-02.pdf",
         },
         {
             name: "Thursday, March 16th, 2023 at 7pm",
