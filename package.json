@@ -43,7 +43,7 @@
         "@tsconfig/docusaurus": "^1.0.7",
         "@types/gtag.js": "^0.0.12",
         "prettier": "^2.8.7",
-        "typescript": "^5.0.2"
+        "typescript": "^5.0.3"
     },
     "prettier": {
         "tabWidth": 4
