@@ -40,7 +40,7 @@ export const officers: Term = {
         },
         {
             position: "REX/CPW Chair",
-            name: "Daniel Figgis Gonzalez",
+            name: "Daniel Gonzalez",
             affiliation: "East Campus",
             year: 2025,
             kerb: "dormcon-cpw-chairs",
