@@ -28,6 +28,7 @@ export const meetings: MeetingSchedule = {
         {
             name: "Thursday, April 27th, 2023 at 7pm",
             location: "MacGregor",
+            minutesLink: minutesFolder + "2023-04-27.pdf",
         },
         {
             name: "Thursday, May 11th, 2023 at 7pm",
