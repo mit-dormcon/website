@@ -55,7 +55,7 @@ jobs:
               with:
                 path: build
     deploy:
-        if: github.ref_name == "master"
+        if: github.ref_name == 'master'
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
