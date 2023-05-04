@@ -41,23 +41,30 @@ function FeatureRow() {
         {
             title: "Announcements",
             children: (
-                <ul>
-                    <li>
-                        <Link to="/piazza">
-                            Ask a question on the DormCon Piazza.
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="https://bit.ly/mit-dining">
-                            Give feedback to a dining hall.
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/about/meetings">
-                            View the meeting schedule.
-                        </Link>
-                    </li>
-                </ul>
+                <div>
+                    <p>
+                        <b>DormCon elections happening now!</b> Visit our{" "}
+                        <Link to="/about/elections">elections page</Link> to
+                        learn about the positions and how to run.
+                    </p>
+                    <ul>
+                        <li>
+                            <Link to="/piazza">
+                                Ask a question on the DormCon Piazza.
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="https://bit.ly/mit-dining">
+                                Give feedback to a dining hall.
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/about/meetings">
+                                View the meeting schedule.
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
             ),
         },
         {
