@@ -32,7 +32,8 @@ export const meetings: MeetingSchedule = {
         },
         {
             name: "Thursday, May 11th, 2023 at 7pm",
-            location: "On Campus (TBD)",
+            location: "On Campus (56-114)",
+            minutesLink: minutesFolder + "2023-05-11.pdf",
         },
     ],
 };
