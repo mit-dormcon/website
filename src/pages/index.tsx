@@ -42,11 +42,6 @@ function FeatureRow() {
             title: "Announcements",
             children: (
                 <div>
-                    <p>
-                        <b>DormCon elections happening now!</b> Visit our{" "}
-                        <Link to="/about/elections">elections page</Link> to
-                        learn about the positions and how to run.
-                    </p>
                     <ul>
                         <li>
                             <Link to="/piazza">
