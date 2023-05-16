@@ -39,7 +39,7 @@
         ]
     },
     "devDependencies": {
-        "@docusaurus/module-type-aliases": "^2.4.0",
+        "@docusaurus/module-type-aliases": "^2.4.1",
         "@tsconfig/docusaurus": "^1.0.7",
         "@types/gtag.js": "^0.0.12",
         "prettier": "^2.8.8",
