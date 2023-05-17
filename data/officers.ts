@@ -26,9 +26,9 @@ export const officers: Term = {
         },
         {
             position: "Secretary",
-            name: "Michelle Guo",
-            affiliation: "Random",
-            year: 2023,
+            name: "Sunmee Choi",
+            affiliation: "Simmons",
+            year: 2024,
             kerb: "dormcon-secretary",
         },
         {
@@ -69,7 +69,7 @@ export const officers: Term = {
         {
             position: "Judcomm Chair",
             name: "Mateo Pisinger",
-            affiliation: "Simmons",
+            affiliation: "West Garage",
             year: 2024,
             kerb: "dormcon-judcomm-chair",
         },
