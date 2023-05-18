@@ -75,7 +75,7 @@ function FeatureRow() {
                         .
                     </p>
                     <p>
-                        If you are not a resident in one of MIT's ten
+                        If you are not a resident in one of MIT's eleven
                         dormitories but would like to attend a DormCon meeting,
                         please email us (
                         <a href="mailto:ddormcon-exec@mit.edu">
