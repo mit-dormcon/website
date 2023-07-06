@@ -66,7 +66,7 @@ export function EventFilter(props: {
 
             const upcomingEvents = events.filter((ev) => ev.start >= now);
             upcomingEvents.sort(
-                (a, b) => a.start.valueOf() - b.start.valueOf()
+                (a, b) => a.start.valueOf() - b.start.valueOf(),
             );
 
             events = Array.of(...startedEvents, ...upcomingEvents);

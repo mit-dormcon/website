@@ -85,7 +85,7 @@ function EventLayout(props: EventLayoutProps) {
             else lastGroup.push(next);
             return array;
         },
-        [[]]
+        [[]],
     );
     const unsaveFunc = (n: string) =>
         props.setSaved(props.saved.filter((name) => name !== n));
@@ -140,9 +140,9 @@ function EventCard(props: EventCardProps) {
         const intervalId = setInterval(
             () =>
                 setDateStrings(
-                    eventDateDisplay(props.event.start, props.event.end)
+                    eventDateDisplay(props.event.start, props.event.end),
                 ),
-            60 * 1000
+            60 * 1000,
         );
         return function cleanup() {
             clearInterval(intervalId);
@@ -218,7 +218,7 @@ function EventCard(props: EventCardProps) {
                     📍{" "}
                     <Link
                         to={`https://whereis.mit.edu/?q=${encodeURIComponent(
-                            props.event.location
+                            props.event.location,
                         )}`}
                     >
                         {props.event.location}
@@ -348,14 +348,14 @@ function GCalButton(props: { event: TRexEvent }) {
     const formatGCalDate = (date: Date) =>
         `${date.getUTCFullYear()}${padNumber(date.getUTCMonth() + 1)}` +
         `${padNumber(date.getUTCDate())}T${padNumber(
-            date.getUTCHours()
+            date.getUTCHours(),
         )}${padNumber(date.getUTCMinutes())}` +
         `${padNumber(date.getUTCSeconds())}Z`;
 
     const buttonLink =
         `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.event.dorm}: ${props.event.name}` +
         `&dates=${formatGCalDate(props.event.start)}/${formatGCalDate(
-            props.event.end
+            props.event.end,
         )}&ctz=America/New_York&details=${props.event.description}` +
         `&location=${props.event.location}`;
     return (

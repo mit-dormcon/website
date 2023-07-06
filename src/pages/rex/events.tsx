@@ -14,10 +14,10 @@ async function fetchEvents(): Promise<TRexAPIResponse> {
         ev.end = new Date(ev.end);
     });
     data.colors.dorms = new Map<string, string>(
-        Object.entries(data.colors.dorms)
+        Object.entries(data.colors.dorms),
     );
     data.colors.tags = new Map<string, string>(
-        Object.entries(data.colors.tags)
+        Object.entries(data.colors.tags),
     );
     return data as TRexAPIResponse;
 }
@@ -37,7 +37,7 @@ export default function Events() {
                         "tags",
                         { name: "description", weight: 0.5 },
                     ],
-                })
+                }),
             );
         });
     }, []);

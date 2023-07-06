@@ -147,7 +147,7 @@ export default function Home() {
                         <Link
                             className={clsx(
                                 "button button--secondary button--lg",
-                                styles.getStarted
+                                styles.getStarted,
                             )}
                             to={header.buttonLink}
                         >

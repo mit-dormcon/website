@@ -34,7 +34,7 @@ export function BookmarkDropdownItem(props: {
 
 export function BookmarksTool() {
     const [saved, setSaved] = useState<string>(
-        localStorage.getItem("savedEvents")
+        localStorage.getItem("savedEvents"),
     );
 
     const importBookmarks = () => {
@@ -48,11 +48,11 @@ export function BookmarksTool() {
                 localStorage.setItem("savedEvents", stringBookmarks);
                 setSaved(stringBookmarks);
                 alert(
-                    bookmarksList.length + " bookmarks imported successfully."
+                    bookmarksList.length + " bookmarks imported successfully.",
                 );
             } catch (error) {
                 alert(
-                    "Couldn't import your bookmarks! See console for details."
+                    "Couldn't import your bookmarks! See console for details.",
                 );
                 console.error(error);
             }
