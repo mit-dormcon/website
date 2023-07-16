@@ -78,7 +78,7 @@ function FeatureRow() {
                         If you are not a resident in one of MIT's eleven
                         dormitories but would like to attend a DormCon meeting,
                         please email us (
-                        <a href="mailto:ddormcon-exec@mit.edu">
+                        <a href="mailto:dormcon-exec@mit.edu">
                             dormcon-exec@mit.edu
                         </a>
                         ).
@@ -86,21 +86,21 @@ function FeatureRow() {
                 </div>
             ),
         },
-        {
-            title: "DormCon Twitter",
-            children: (
-                <Timeline
-                    dataSource={{
-                        sourceType: "profile",
-                        screenName: "MITDormCon",
-                    }}
-                    options={{
-                        height: "400",
-                        theme: isDarkTheme ? "dark" : "light",
-                    }}
-                ></Timeline>
-            ),
-        },
+        // {
+        //     title: "DormCon Twitter",
+        //     children: (
+        //         <Timeline
+        //             dataSource={{
+        //                 sourceType: "profile",
+        //                 screenName: "MITDormCon",
+        //             }}
+        //             options={{
+        //                 height: "400",
+        //                 theme: isDarkTheme ? "dark" : "light",
+        //             }}
+        //         ></Timeline>
+        //     ),
+        // },
     ];
 
     return (

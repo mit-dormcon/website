@@ -104,7 +104,6 @@ const config = {
             {
                 docs: {
                     sidebarPath: require.resolve("./sidebars.js"),
-                    // Please change this to your repo.
                     routeBasePath: "/about",
                 },
                 blog: {
