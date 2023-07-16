@@ -1,4 +1,4 @@
-import { Term } from "./types";
+import type { Term } from "./types";
 
 export const officers: Term = {
     year: "2023-2024",

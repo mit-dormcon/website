@@ -1,4 +1,4 @@
-import { DormConMember } from "./types";
+import type { DormConMember } from "./types";
 
 export const members: DormConMember[] = [
     {

@@ -1,4 +1,4 @@
-import { MeetingSchedule } from "./types";
+import type { MeetingSchedule } from "./types";
 
 const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
