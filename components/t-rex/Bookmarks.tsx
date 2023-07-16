@@ -3,7 +3,11 @@ import React, { useState } from "react";
 
 declare const gtag: Gtag.Gtag;
 
+/**
+ * This component displays a dropdown link for saving an event to Bookmarks
+ */
 export function BookmarkDropdownItem(props: {
+    /** the name of the event */
     name: string;
     isSaved: boolean;
     unsave: (name: string) => void;
