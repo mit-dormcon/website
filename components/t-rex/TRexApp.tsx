@@ -15,8 +15,8 @@ dayjs.extend(relativeTime);
 dayjs.extend(duration);
 
 type TRexAppProps = {
-    data: TRexAPIResponse;
-    fuse: Fuse<TRexEvent>;
+    data?: TRexAPIResponse;
+    fuse?: Fuse<TRexEvent>;
 };
 
 export function TRexApp(props: TRexAppProps) {
@@ -26,13 +26,14 @@ export function TRexApp(props: TRexAppProps) {
                 <p>Loading...</p>
                 <p>
                     <b>Stuck on this page?</b> Make sure you're connected to a
-                    network.
+                    network and have JavaScript enabled.
                 </p>
             </div>
         );
     const [events, setEvents] = useState(props.data.events);
     const [savedEvents, setSavedEvents] = useState<string[]>([]);
     const [showRelativeTime, setShowRelativeTime] = useState(true);
+
     useEffect(() => {
         const savedStorage = localStorage.getItem("savedEvents");
         if (savedStorage) setSavedEvents(JSON.parse(savedStorage));
@@ -40,6 +41,7 @@ export function TRexApp(props: TRexAppProps) {
     useEffect(() => {
         localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
     }, [savedEvents]);
+
     return (
         <div className="margin-vert--md">
             <p className="margin-bottom--sm">
@@ -78,38 +80,28 @@ type EventLayoutProps = {
 };
 
 function EventLayout(props: EventLayoutProps) {
-    const groupedEvents: TRexEvent[][] = props.events.reduce(
-        (array, next) => {
-            const lastGroup = array.slice(-1).pop();
-            if (lastGroup.length == 3) array.push([next]);
-            else lastGroup.push(next);
-            return array;
-        },
-        [[]],
-    );
     const unsaveFunc = (n: string) =>
         props.setSaved(props.saved.filter((name) => name !== n));
     const saveFunc = (n: string) =>
         !props.saved.includes(n) && props.setSaved(props.saved.concat([n]));
+
     return (
         <div className="container margin-top--sm">
             {props.events.length ? (
-                groupedEvents.map((group, idx) => (
-                    <div key={idx} className="row">
-                        {group.map((e, idx) => (
-                            <div key={idx} className="col col--4">
-                                <EventCard
-                                    event={e}
-                                    isSaved={props.saved.includes(e.name)}
-                                    unsave={unsaveFunc}
-                                    save={saveFunc}
-                                    colors={props.colors}
-                                    showRelativeTime={props.showRelativeTime}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                ))
+                <div className="row">
+                    {props.events.map((e, idx) => (
+                        <div key={idx} className="col col--4">
+                            <EventCard
+                                event={e}
+                                isSaved={props.saved.includes(e.name)}
+                                unsave={unsaveFunc}
+                                save={saveFunc}
+                                colors={props.colors}
+                                showRelativeTime={props.showRelativeTime}
+                            />
+                        </div>
+                    ))}
+                </div>
             ) : (
                 <div className="alert alert--secondary" role="alert">
                     💀 <b>No events match this filter.</b> Try adjusting the
