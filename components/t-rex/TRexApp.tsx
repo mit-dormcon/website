@@ -127,6 +127,7 @@ function EventCard(props: EventCardProps) {
         timeContext: "",
         timeContextExact: "",
     });
+
     useEffect(() => {
         setDateStrings(eventDateDisplay(props.event.start, props.event.end));
         const intervalId = setInterval(
@@ -136,10 +137,9 @@ function EventCard(props: EventCardProps) {
                 ),
             60 * 1000,
         );
-        return function cleanup() {
-            clearInterval(intervalId);
-        };
+        return () => clearInterval(intervalId);
     }, [props]);
+
     return (
         <div className="card margin-vert--sm">
             <div
@@ -207,7 +207,7 @@ function EventCard(props: EventCardProps) {
                 <div style={{ color: "var(--ifm-color-secondary-darkest)" }}>
                     📍{" "}
                     <Link
-                        to={`https://whereis.mit.edu/?q=${encodeURIComponent(
+                        to={`https://mobi.mit.edu/default/map/search?filter=${encodeURIComponent(
                             props.event.location,
                         )}`}
                     >
