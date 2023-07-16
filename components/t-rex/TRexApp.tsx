@@ -156,8 +156,7 @@ function EventCard(props: EventCardProps) {
                             <ColoredBadge
                                 key={idx}
                                 className="badge badge--secondary margin-right--sm"
-                                choices={props.colors.tags}
-                                selector={tag}
+                                color={props.colors.tags.get(tag)}
                             >
                                 {tag}
                             </ColoredBadge>
@@ -195,8 +194,7 @@ function EventCard(props: EventCardProps) {
             >
                 <ColoredBadge
                     className="badge badge--primary margin-right--md"
-                    choices={props.colors.dorms}
-                    selector={props.event.dorm}
+                    color={props.colors.dorms.get(props.event.dorm)}
                 >
                     {props.event.dorm}
                 </ColoredBadge>
@@ -239,26 +237,29 @@ function DateDisplay(props: {
     );
 }
 
-function ColoredBadge<T>(props: {
-    /** A map of keys to an HTML color string */
-    choices: Map<T, string>;
-    selector: T;
+function ColoredBadge(props: {
+    color?: string;
     className: string;
     children: React.ReactNode;
 }) {
-    const styles: React.CSSProperties = {};
-    if (props.choices.has(props.selector)) {
-        const bgColor = props.choices.get(props.selector);
-        styles.backgroundColor = bgColor;
-        styles.borderColor = bgColor;
-        const r = parseInt(bgColor.substring(1, 3), 16);
-        const g = parseInt(bgColor.substring(3, 5), 16);
-        const b = parseInt(bgColor.substring(5), 16);
-        styles["color"] =
-            r * 0.299 + g * 0.587 + b * 0.114 > 186 ? "#000" : "#fff";
+    let textColor: string;
+
+    if (props.color !== undefined) {
+        const r = parseInt(props.color.substring(1, 3), 16);
+        const g = parseInt(props.color.substring(3, 5), 16);
+        const b = parseInt(props.color.substring(5), 16);
+        textColor = r * 0.299 + g * 0.587 + b * 0.114 > 186 ? "#000" : "#fff";
     }
+
     return (
-        <div className={props.className} style={styles}>
+        <div
+            className={props.className}
+            style={{
+                backgroundColor: props.color,
+                borderColor: props.color,
+                color: textColor,
+            }}
+        >
             {props.children}
         </div>
     );
