@@ -8,6 +8,8 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import duration from "dayjs/plugin/duration";
 import clsx from "clsx";
+import { useColorMode } from "@docusaurus/theme-common";
+import styles from "../../src/pages/styles.module.css";
 
 declare const gtag: Gtag.Gtag;
 
@@ -19,6 +21,10 @@ type TRexAppProps = {
     fuse?: Fuse<TRexEvent>;
 };
 
+/**
+ * Top-level T-REX component containing all the event filtering and display
+ * logic
+ */
 export function TRexApp(props: TRexAppProps) {
     if (!props.data)
         return (
@@ -79,6 +85,10 @@ type EventLayoutProps = {
     showRelativeTime: boolean;
 };
 
+/**
+ * Lays out EventCards in a responsive-friendly way, or shows a message when
+ * there are no events.
+ */
 function EventLayout(props: EventLayoutProps) {
     const unsaveFunc = (n: string) =>
         props.setSaved(props.saved.filter((name) => name !== n));
@@ -121,6 +131,9 @@ type EventCardProps = {
     showRelativeTime: boolean;
 };
 
+/**
+ * Card component displaying all information about an event in a compact way
+ */
 function EventCard(props: EventCardProps) {
     const [dateStrings, setDateStrings] = useState<DateDisplayInfo>({
         duration: "",
@@ -219,6 +232,10 @@ function EventCard(props: EventCardProps) {
     );
 }
 
+/**
+ * Handles displaying the proper date from `dateStrings` based on the
+ * `showRelativeTime` prop
+ */
 function DateDisplay(props: {
     dateStrings: DateDisplayInfo;
     showRelativeTime: boolean;
@@ -237,7 +254,14 @@ function DateDisplay(props: {
     );
 }
 
+/**
+ * A badge component with an optional background color
+ *
+ * Automatically adjusts text color based on the background color to create
+ * the highest contrast
+ */
 function ColoredBadge(props: {
+    /** Badge background color, must be in 6 digit hex format, like `#123abc` */
     color?: string;
     className: string;
     children: React.ReactNode;
@@ -265,8 +289,15 @@ function ColoredBadge(props: {
     );
 }
 
+/**
+ * Truncates a long passage of text after a certain amount and displays a link
+ * to expand the view to show more.
+ *
+ * Splits text on the first space before the truncation point.
+ */
 function ExpandableText(props: {
     text: string;
+    /** The number of characters to truncate at */
     expandAmount?: number;
     className: string;
 }) {
@@ -300,14 +331,30 @@ function ExpandableText(props: {
     );
 }
 
+/**
+ * Contains all strings necessary to display datetime strings on the EventCard
+ */
 type DateDisplayInfo = {
     duration: string;
-    /** A relative time representation of the event's start/end */
+    /** A human-readable relative time representation of the event's start/end */
     timeContext: string;
     /** An exact time representation of the event's start/end */
     timeContextExact: string;
 };
 
+/**
+ * Displays a "relevant" time string to the user for a given event.
+ *
+ * If an event **has not** started yet, then the time the event starts will be
+ * returned in a readable string.
+ *
+ * If the event **has** started, then the time the event ends will be returned,
+ * with the proper grammar if the event has yet to end or has already ended.
+ *
+ * @param start event start
+ * @param end event end
+ * @returns the right strings for displaying event start or end on the EventCard
+ */
 function eventDateDisplay(start: Date, end: Date): DateDisplayInfo {
     const duration = dayjs.duration(dayjs(end).diff(start)).humanize();
     let timeContext = "";
@@ -331,6 +378,9 @@ function eventDateDisplay(start: Date, end: Date): DateDisplayInfo {
     };
 }
 
+/**
+ * A dropdown link for adding an event to a Google Calendar
+ */
 function GCalButton(props: { event: TRexEvent }) {
     function logAnalytics() {
         if (typeof gtag !== "undefined") {
@@ -345,6 +395,7 @@ function GCalButton(props: { event: TRexEvent }) {
         )}${padNumber(date.getUTCMinutes())}` +
         `${padNumber(date.getUTCSeconds())}Z`;
 
+    // This URL syntax was sourced from https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/main/services/google.md
     const buttonLink =
         `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.event.dorm}: ${props.event.name}` +
         `&dates=${formatGCalDate(props.event.start)}/${formatGCalDate(
@@ -362,12 +413,33 @@ function GCalButton(props: { event: TRexEvent }) {
     );
 }
 
+export const lightGradient = ["orangered", "var(--ifm-color-primary-darkest)"];
+export const darkGradient = ["orange", "var(--ifm-color-primary-lightest)"];
+
+/**
+ * A big fancy button that used to draw users to the REX events page
+ */
 export function TRexEntryButton() {
+    const { colorMode } = useColorMode();
+
+    const gradient = colorMode === "light" ? lightGradient : darkGradient;
+
     return (
         <div className="margin-bottom--md" style={{ textAlign: "center" }}>
             <Link
                 to="/rex/events"
-                className={clsx("button button--primary button--lg")}
+                className={clsx(
+                    "button button--primary button--lg",
+                    styles.heroButton,
+                )}
+                style={{
+                    backgroundImage: `linear-gradient(45deg, ${[
+                        ...gradient,
+                        gradient[0],
+                    ]})`,
+                    transition: "0.5s",
+                    border: "none",
+                }}
             >
                 Check out our REX Events!
             </Link>

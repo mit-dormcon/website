@@ -1,7 +1,11 @@
 import React, { useState, useEffect, CSSProperties } from "react";
 import Layout from "@theme/Layout";
 import BackToTopButton from "@theme/BackToTopButton";
-import { TRexApp } from "../../../components/t-rex/TRexApp";
+import {
+    TRexApp,
+    darkGradient,
+    lightGradient,
+} from "../../../components/t-rex/TRexApp";
 import Fuse from "fuse.js";
 import { useColorMode } from "@docusaurus/theme-common";
 
@@ -59,12 +63,11 @@ export default function Events() {
 function TRexHeadline(props: { children: React.ReactNode }) {
     const { colorMode } = useColorMode();
 
-    const lightGradient = "orangered, var(--ifm-color-primary-darkest)";
-    const darkGradient = "orange, var(--ifm-color-primary-lightest)";
-
     const headlineStyle: CSSProperties = {
         backgroundImage: `linear-gradient(45deg, ${
-            colorMode === "light" ? lightGradient : darkGradient
+            colorMode === "light"
+                ? lightGradient.join(", ")
+                : darkGradient.join(", ")
         })`,
         WebkitBackgroundClip: "text",
         backgroundClip: "text",
