@@ -67,10 +67,16 @@ export function BookmarksTool() {
         <div>
             <div className="margin-bottom--md">
                 <button
-                    className="button button--primary"
+                    className="button button--primary margin-right--sm"
                     onClick={importBookmarks}
                 >
                     Import Bookmarks
+                </button>
+                <button
+                    className="button button--outline button--primary"
+                    onClick={() => navigator.clipboard.writeText(saved)}
+                >
+                    📋 Copy To Clipboard
                 </button>
             </div>
             <h4>Currently saved bookmarks:</h4>
