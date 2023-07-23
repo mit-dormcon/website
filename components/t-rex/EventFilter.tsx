@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Fuse from "fuse.js";
+import { FilterContext, TimeFilter, unsetFilter } from "./filter";
 
 export function EventFilter(props: {
     events: TRexEvent[];
@@ -11,28 +12,14 @@ export function EventFilter(props: {
     showRelativeTime: boolean;
     setRelativeTime: (val: boolean) => void;
 }) {
-    const [searchValue, setSearchValue] = useState("");
-    const allDorms = "All Dorms";
-    const [dormFilter, setDormFilter] = useState(allDorms);
-    const dormEmoji = "🏠";
-    const allEvents = "All Events",
-        ongoing = "Now",
-        upcoming = "Upcoming",
-        ongoingUpcoming = "Now + Upcoming";
-    const [timeFilter, setTimeFilter] = useState(ongoingUpcoming);
-    const timeEmoji = "⏰";
-    const everything = "Everything";
-    const [tagFilter, setTagFilter] = useState(everything);
-    const tagEmoji = "🏷";
-    const [bookmarkFilter, setBookmarkFilter] = useState(false);
+    const { filter, setFilter } = useContext(FilterContext);
 
-    const clearFilters = () => {
-        setSearchValue("");
-        setDormFilter(allDorms);
-        setTimeFilter(allEvents);
-        setTagFilter(everything);
-        setBookmarkFilter(false);
-    };
+    const { searchValue, dormFilter, timeFilter, tagFilter, bookmarksOnly } =
+        filter;
+
+    const dormEmoji = "🏠";
+    const timeEmoji = "⏰";
+    const tagEmoji = "🏷";
 
     useEffect(() => {
         let events: TRexEvent[] = [];
@@ -43,17 +30,17 @@ export function EventFilter(props: {
                 .search(searchValue)
                 .map((result) => result.item);
         }
-        if (dormFilter !== allDorms)
+        if (dormFilter !== unsetFilter.dormFilter)
             events = events.filter((ev) => ev.dorm === dormFilter);
-        if (timeFilter === upcoming)
+        if (timeFilter === TimeFilter.Upcoming)
             events = events.filter((ev) => ev.start >= now);
-        else if (timeFilter === ongoing)
+        else if (timeFilter === TimeFilter.Ongoing)
             events = events.filter((ev) => ev.start < now && ev.end >= now);
-        else if (timeFilter === ongoingUpcoming)
+        else if (timeFilter === TimeFilter.OngoingUpcoming)
             events = events.filter((ev) => ev.end >= now);
-        if (tagFilter !== everything)
+        if (tagFilter !== unsetFilter.tagFilter)
             events = events.filter((ev) => ev.tags.includes(tagFilter));
-        if (bookmarkFilter)
+        if (bookmarksOnly)
             events = events.filter((ev) => props.saved.includes(ev.name));
 
         // Don't sort if there's a search query, so the most relevant events appear at the top
@@ -72,23 +59,18 @@ export function EventFilter(props: {
             events = Array.of(...startedEvents, ...upcomingEvents);
         }
         props.setEvents(events);
-    }, [
-        searchValue,
-        dormFilter,
-        timeFilter,
-        tagFilter,
-        bookmarkFilter,
-        props.saved,
-    ]);
+    }, [filter, props.saved]);
     return (
         <div>
             <div className="margin-bottom--xs">
                 <select
-                    onChange={(e) => setDormFilter(e.target.value)}
+                    onChange={(e) =>
+                        setFilter({ ...filter, dormFilter: e.target.value })
+                    }
                     value={dormFilter}
                 >
-                    <option value={allDorms}>
-                        {dormEmoji} {allDorms}
+                    <option value={unsetFilter.dormFilter}>
+                        {dormEmoji} {unsetFilter.dormFilter}
                     </option>
                     {props.dorms.map((dorm, idx) => (
                         <option key={idx} value={dorm}>
@@ -97,28 +79,35 @@ export function EventFilter(props: {
                     ))}
                 </select>
                 <select
-                    onChange={(e) => setTimeFilter(e.target.value)}
+                    onChange={(e) =>
+                        setFilter({
+                            ...filter,
+                            timeFilter: e.target.value as TimeFilter,
+                        })
+                    }
                     value={timeFilter}
                 >
-                    <option value={allEvents}>
-                        {timeEmoji} {allEvents}
+                    <option value={TimeFilter.AllEvents}>
+                        {timeEmoji} {TimeFilter.AllEvents}
                     </option>
-                    <option value={ongoing}>
-                        {timeEmoji} {ongoing}
+                    <option value={TimeFilter.Ongoing}>
+                        {timeEmoji} {TimeFilter.Ongoing}
                     </option>
-                    <option value={upcoming}>
-                        {timeEmoji} {upcoming}
+                    <option value={TimeFilter.Upcoming}>
+                        {timeEmoji} {TimeFilter.Upcoming}
                     </option>
-                    <option value={ongoingUpcoming}>
-                        {timeEmoji} {ongoingUpcoming}
+                    <option value={TimeFilter.OngoingUpcoming}>
+                        {timeEmoji} {TimeFilter.OngoingUpcoming}
                     </option>
                 </select>
                 <select
-                    onChange={(e) => setTagFilter(e.target.value)}
+                    onChange={(e) =>
+                        setFilter({ ...filter, tagFilter: e.target.value })
+                    }
                     value={tagFilter}
                 >
-                    <option value={everything}>
-                        {tagEmoji} {everything}
+                    <option value={unsetFilter.tagFilter}>
+                        {tagEmoji} {unsetFilter.tagFilter}
                     </option>
                     {props.tags.map((tag, idx) => (
                         <option key={idx} value={tag}>
@@ -130,8 +119,13 @@ export function EventFilter(props: {
                     <input
                         type="checkbox"
                         id="showBookmarks"
-                        checked={bookmarkFilter}
-                        onChange={(e) => setBookmarkFilter(e.target.checked)}
+                        checked={bookmarksOnly}
+                        onChange={(e) =>
+                            setFilter({
+                                ...filter,
+                                bookmarksOnly: e.target.checked,
+                            })
+                        }
                     />
                     <label htmlFor="showBookmarks">⭐️ only</label>
                     &ensp;
@@ -139,7 +133,7 @@ export function EventFilter(props: {
                 <div style={{ display: "inline-block" }}>
                     <button
                         className="button button--sm button--outline button--primary"
-                        onClick={clearFilters}
+                        onClick={() => setFilter(unsetFilter)}
                     >
                         ❌ Clear
                     </button>
@@ -157,7 +151,9 @@ export function EventFilter(props: {
             <input
                 type="text"
                 value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
+                onChange={(e) =>
+                    setFilter({ ...filter, searchValue: e.target.value })
+                }
                 style={{ fontSize: "2rem", width: "100%" }}
                 placeholder="🔍 Search"
             />

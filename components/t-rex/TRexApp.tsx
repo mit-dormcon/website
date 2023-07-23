@@ -1,5 +1,5 @@
 /// <reference types="gtag.js" />
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { EventFilter } from "./EventFilter";
 import Link from "@docusaurus/Link";
 import { BookmarkDropdownItem } from "./Bookmarks";
@@ -8,6 +8,12 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import duration from "dayjs/plugin/duration";
 import clsx from "clsx";
+import {
+    FilterContext,
+    FilterSettings,
+    TimeFilter,
+    unsetFilter,
+} from "./filter";
 
 declare const gtag: Gtag.Gtag;
 
@@ -33,6 +39,10 @@ export function TRexApp(props: TRexAppProps) {
     const [events, setEvents] = useState(props.data.events);
     const [savedEvents, setSavedEvents] = useState<string[]>([]);
     const [showRelativeTime, setShowRelativeTime] = useState(true);
+    const [filter, setFilter] = useState<FilterSettings>({
+        ...unsetFilter,
+        timeFilter: TimeFilter.OngoingUpcoming,
+    });
 
     useEffect(() => {
         const savedStorage = localStorage.getItem("savedEvents");
@@ -43,31 +53,33 @@ export function TRexApp(props: TRexAppProps) {
     }, [savedEvents]);
 
     return (
-        <div className="margin-vert--md">
-            <p className="margin-bottom--sm">
-                <Link to="/rex/toolbox">🧰</Link>&emsp;
-                <Link to="/rex/help">❓</Link>&emsp;
-                <b>{events.length}</b>/{props.data.events.length} events,
-                published {new Date(props.data.published).toLocaleString()}
-            </p>
-            <EventFilter
-                fuse={props.fuse}
-                events={props.data.events}
-                setEvents={setEvents}
-                dorms={props.data.dorms}
-                tags={props.data.tags}
-                saved={savedEvents}
-                showRelativeTime={showRelativeTime}
-                setRelativeTime={setShowRelativeTime}
-            />
-            <EventLayout
-                events={events}
-                saved={savedEvents}
-                setSaved={setSavedEvents}
-                colors={props.data.colors}
-                showRelativeTime={showRelativeTime}
-            />
-        </div>
+        <FilterContext.Provider value={{ filter, setFilter }}>
+            <div className="margin-vert--md">
+                <p className="margin-bottom--sm">
+                    <Link to="/rex/toolbox">🧰</Link>&emsp;
+                    <Link to="/rex/help">❓</Link>&emsp;
+                    <b>{events.length}</b>/{props.data.events.length} events,
+                    published {new Date(props.data.published).toLocaleString()}
+                </p>
+                <EventFilter
+                    fuse={props.fuse}
+                    events={props.data.events}
+                    setEvents={setEvents}
+                    dorms={props.data.dorms}
+                    tags={props.data.tags}
+                    saved={savedEvents}
+                    showRelativeTime={showRelativeTime}
+                    setRelativeTime={setShowRelativeTime}
+                />
+                <EventLayout
+                    events={events}
+                    saved={savedEvents}
+                    setSaved={setSavedEvents}
+                    colors={props.data.colors}
+                    showRelativeTime={showRelativeTime}
+                />
+            </div>
+        </FilterContext.Provider>
     );
 }
 
@@ -127,6 +139,7 @@ function EventCard(props: EventCardProps) {
         timeContext: "",
         timeContextExact: "",
     });
+    const { filter, setFilter } = useContext(FilterContext);
 
     useEffect(() => {
         setDateStrings(eventDateDisplay(props.event.start, props.event.end));
@@ -157,6 +170,9 @@ function EventCard(props: EventCardProps) {
                                 key={idx}
                                 className="badge badge--secondary margin-right--sm"
                                 color={props.colors.tags.get(tag)}
+                                onClick={() =>
+                                    setFilter({ ...filter, tagFilter: tag })
+                                }
                             >
                                 {tag}
                             </ColoredBadge>
@@ -195,6 +211,9 @@ function EventCard(props: EventCardProps) {
                 <ColoredBadge
                     className="badge badge--primary margin-right--md"
                     color={props.colors.dorms.get(props.event.dorm)}
+                    onClick={() =>
+                        setFilter({ ...filter, dormFilter: props.event.dorm })
+                    }
                 >
                     {props.event.dorm}
                 </ColoredBadge>
@@ -240,6 +259,7 @@ function DateDisplay(props: {
 function ColoredBadge(props: {
     color?: string;
     className: string;
+    onClick?: React.MouseEventHandler;
     children: React.ReactNode;
 }) {
     let textColor: string;
@@ -258,7 +278,10 @@ function ColoredBadge(props: {
                 backgroundColor: props.color,
                 borderColor: props.color,
                 color: textColor,
+                // Set cursor to pointer only when tag is clickable
+                cursor: props.onClick && "pointer",
             }}
+            onClick={props.onClick}
         >
             {props.children}
         </div>
