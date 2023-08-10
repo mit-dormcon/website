@@ -19,7 +19,7 @@
         "@docusaurus/core": "^2.4.0",
         "@docusaurus/preset-classic": "^2.4.1",
         "@mdx-js/react": "^1.6.21",
-        "@types/gtag.js": "^0.0.12",
+        "@types/gtag.js": "^0.0.13",
         "clsx": "^2.0.0",
         "dayjs": "^1.11.9",
         "fuse.js": "^6.6.2",
