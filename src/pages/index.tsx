@@ -8,7 +8,7 @@ import styles from "./styles.module.css";
 import { Timeline } from "react-twitter-widgets";
 import { useColorMode } from "@docusaurus/theme-common";
 import { meetings } from "../../data/meetings";
-import RexEventChart from "../../components/t-rex/REXEventChart";
+import RexEventChart from "../../components/t-rex/RexEventChart";
 
 function Feature(props: {
     imageUrl?: string;
