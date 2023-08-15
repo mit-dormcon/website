@@ -9,7 +9,7 @@ import {
 import Fuse from "fuse.js";
 import { useColorMode } from "@docusaurus/theme-common";
 
-async function fetchEvents(): Promise<TRexAPIResponse> {
+export async function fetchEvents(): Promise<TRexAPIResponse> {
     const api_url = "https://rex.mit.edu/api.json";
     const response = await fetch(api_url);
     const data = await response.json();
