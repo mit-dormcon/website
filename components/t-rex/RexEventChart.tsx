@@ -45,6 +45,7 @@ export default function RexEventChart() {
                     ].includes(dorm)
                 )
                     dorm = "New House";
+                else if (dorm === "New Vassar") dorm = "West Garage";
                 else if (dorm === "Campus Wide!") continue;
 
                 if (byDorm.has(dorm)) byDorm.set(dorm, byDorm.get(dorm) + 1);
@@ -64,7 +65,7 @@ export default function RexEventChart() {
                         labels,
                         datasets: [
                             {
-                                label: "Events By Dorm",
+                                label: "Events",
                                 data: Array.from(eventsByDorm.values()),
                                 backgroundColor: labels.map((l) =>
                                     api.colors.dorms.get(l),
