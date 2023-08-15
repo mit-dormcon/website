@@ -31,6 +31,7 @@ export default function RexEventChart() {
 
     useEffect(() => {
         fetchEvents().then((d) => {
+            d.colors.dorms.set("West Garage", d.colors.dorms.get("New Vassar"));
             setApi(d);
             const byDorm = new Map<string, number>();
             for (const event of d.events) {
