@@ -42,6 +42,7 @@ export default function RexEventChart() {
                         "French House",
                         "iHouse",
                         "Juniper",
+                        "Chocolate City",
                     ].includes(dorm)
                 )
                     dorm = "New House";
