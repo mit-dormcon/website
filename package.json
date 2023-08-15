@@ -20,10 +20,12 @@
         "@docusaurus/preset-classic": "^2.4.1",
         "@mdx-js/react": "^1.6.21",
         "@types/gtag.js": "^0.0.13",
+        "chart.js": "^4.3.3",
         "clsx": "^2.0.0",
         "dayjs": "^1.11.9",
         "fuse.js": "^6.6.2",
         "react": "^18.2.0",
+        "react-chartjs-2": "^5.2.0",
         "react-dom": "^18.2.0",
         "react-twitter-widgets": "^1.11.0"
     },
