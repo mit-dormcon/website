@@ -1,4 +1,4 @@
-import React, { useState, useEffect, CSSProperties } from "react";
+import React, { useState, useEffect, CSSProperties, StrictMode } from "react";
 import Layout from "@theme/Layout";
 import BackToTopButton from "@theme/BackToTopButton";
 import {
@@ -52,10 +52,12 @@ export default function Events() {
             title="REX Events"
             description="The one page for all REX Events"
         >
-            <div className="container margin-top--md">
-                {data && <TRexHeadline>{data.name} Events</TRexHeadline>}
-                <TRexApp data={data} fuse={fuse} />
-            </div>
+            <StrictMode>
+                <div className="container margin-top--md">
+                    {data && <TRexHeadline>{data.name} Events</TRexHeadline>}
+                    <TRexApp data={data} fuse={fuse} />
+                </div>
+            </StrictMode>
             <BackToTopButton />
         </Layout>
     );
