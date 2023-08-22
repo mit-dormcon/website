@@ -206,14 +206,19 @@ function EventCard(props: EventCardProps) {
                 style={{ display: "flex", flexWrap: "wrap" }}
             >
                 <ColoredBadge
-                    className="badge badge--primary margin-right--md"
+                    className="badge badge--primary margin-right--sm"
                     color={props.colors.dorms.get(props.event.dorm)}
                 >
                     {props.event.dorm}
                 </ColoredBadge>
+                {props.event.group && (
+                    <div className="margin-right--sm">
+                        🏘️ {props.event.group}
+                    </div>
+                )}
                 <div
                     style={{ color: "var(--ifm-color-secondary-darkest)" }}
-                    className="margin-right--sm"
+                    className="margin-right--sm margin-left--sm"
                 >
                     🕒 {dateStrings.duration}
                 </div>

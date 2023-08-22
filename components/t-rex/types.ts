@@ -20,6 +20,8 @@ type TRexAPIColors = {
 type TRexEvent = {
     name: string;
     dorm: string;
+    /** The subcommunity or living group hosting this event, if any */
+    group: string | null;
     location: string;
     start: Date;
     end: Date;

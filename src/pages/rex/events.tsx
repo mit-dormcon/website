@@ -37,6 +37,7 @@ export default function Events() {
                     keys: [
                         { name: "name", weight: 2 },
                         "dorm",
+                        "group",
                         "location",
                         "tags",
                         { name: "description", weight: 0.5 },
