@@ -40,9 +40,10 @@ jobs:
               uses: actions/configure-pages@v3.0.6
 
             - name: 🚧 Setup Node
-              uses: actions/setup-node@v3.7.0
+              uses: actions/setup-node@v3.8.1
               with:
                   node-version: "18.x"
+                  cache: yarn
 
             - name: 🛍 Get Packages
               run: yarn install --frozen-lockfile

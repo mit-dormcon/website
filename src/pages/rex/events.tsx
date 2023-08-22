@@ -1,11 +1,15 @@
 import React, { useState, useEffect, CSSProperties, StrictMode } from "react";
 import Layout from "@theme/Layout";
 import BackToTopButton from "@theme/BackToTopButton";
-import { TRexApp } from "../../../components/t-rex/TRexApp";
+import {
+    TRexApp,
+    darkGradient,
+    lightGradient,
+} from "../../../components/t-rex/TRexApp";
 import Fuse from "fuse.js";
 import { useColorMode } from "@docusaurus/theme-common";
 
-async function fetchEvents(): Promise<TRexAPIResponse> {
+export async function fetchEvents(): Promise<TRexAPIResponse> {
     const api_url = "https://rex.mit.edu/api.json";
     const response = await fetch(api_url);
     const data = await response.json();
@@ -33,6 +37,7 @@ export default function Events() {
                     keys: [
                         { name: "name", weight: 2 },
                         "dorm",
+                        "group",
                         "location",
                         "tags",
                         { name: "description", weight: 0.5 },
@@ -61,12 +66,11 @@ export default function Events() {
 function TRexHeadline(props: { children: React.ReactNode }) {
     const { colorMode } = useColorMode();
 
-    const lightGradient = "orangered, var(--ifm-color-primary-darkest)";
-    const darkGradient = "orange, var(--ifm-color-primary-lightest)";
-
     const headlineStyle: CSSProperties = {
         backgroundImage: `linear-gradient(45deg, ${
-            colorMode === "light" ? lightGradient : darkGradient
+            colorMode === "light"
+                ? lightGradient.join(", ")
+                : darkGradient.join(", ")
         })`,
         WebkitBackgroundClip: "text",
         backgroundClip: "text",

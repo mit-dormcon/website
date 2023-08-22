@@ -2,13 +2,22 @@ import React, { useContext, useEffect, useState } from "react";
 import Fuse from "fuse.js";
 import { FilterContext, TimeFilter, unsetFilter } from "./filter";
 
+/**
+ * Top-level event filter UI, containing options to filter by a string value,
+ * dorms, tags, bookmarks, and time.
+ *
+ * Handles the actual logic for filtering events, which are filtered and passed
+ * back up through the `setEvents` prop.
+ */
 export function EventFilter(props: {
     events: TRexEvent[];
+    /** Fuse.js search object */
     fuse: Fuse<TRexEvent>;
     saved: string[];
     setEvents: (events: TRexEvent[]) => void;
     dorms: string[];
     tags: string[];
+    /** Determines whether to show a human-readable time on the event card */
     showRelativeTime: boolean;
     setRelativeTime: (val: boolean) => void;
 }) {
