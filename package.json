@@ -48,6 +48,7 @@
         "typescript": "^5.1.6"
     },
     "prettier": {
-        "tabWidth": 4
+        "tabWidth": 4,
+        "proseWrap": "always"
     }
 }
