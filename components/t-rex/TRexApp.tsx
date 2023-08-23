@@ -16,6 +16,7 @@ import {
 } from "./filter";
 import { useColorMode } from "@docusaurus/theme-common";
 import styles from "../../src/pages/styles.module.css";
+import { useLocation } from "@docusaurus/router";
 
 declare const gtag: Gtag.Gtag;
 
@@ -42,6 +43,8 @@ export function TRexApp(props: TRexAppProps) {
                 </p>
             </div>
         );
+
+    const { search } = useLocation();
     const [events, setEvents] = useState(props.data.events);
     const [savedEvents, setSavedEvents] = useState<string[]>([]);
     const [showRelativeTime, setShowRelativeTime] = useState(true);
@@ -57,6 +60,36 @@ export function TRexApp(props: TRexAppProps) {
     useEffect(() => {
         localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
     }, [savedEvents]);
+
+    // Allow for filtering based on URL Search Params
+    // This feature is documented on the toolbox page.
+    useEffect(() => {
+        const params = new URLSearchParams(search);
+        const paramsFilter: Partial<FilterSettings> = {};
+
+        if (props.data.tags.includes(params.get("tag")))
+            paramsFilter.tagFilter = params.get("tag");
+        if (props.data.dorms.includes(params.get("dorm")))
+            paramsFilter.dormFilter = params.get("dorm");
+        if (["true", "false"].includes(params.get("bookmarks_only")))
+            paramsFilter.bookmarksOnly =
+                params.get("bookmarks_only") === "true";
+        if (params.get("q")) paramsFilter.searchValue = params.get("q");
+
+        const timeFilterMap = {
+            all: TimeFilter.AllEvents,
+            ongoing: TimeFilter.Ongoing,
+            not_ended: TimeFilter.OngoingUpcoming,
+            upcoming: TimeFilter.Upcoming,
+        };
+        if (Object.keys(timeFilterMap).includes(params.get("time_filter")))
+            paramsFilter.timeFilter = timeFilterMap[params.get("time_filter")];
+
+        setFilter({ ...filter, ...paramsFilter });
+
+        if (["true", "false"].includes(params.get("relative_time")))
+            setShowRelativeTime(params.get("relative_time") === "true");
+    }, [search]);
 
     return (
         <FilterContext.Provider value={{ filter, setFilter }}>
