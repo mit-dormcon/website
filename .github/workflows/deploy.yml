@@ -35,7 +35,7 @@ jobs:
         steps:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
             - name: ✅ Checkout code
-              uses: actions/checkout@v3.5.3
+              uses: actions/checkout@v3.6.0
             - name: ⚙️ Configure GitHub Pages
               uses: actions/configure-pages@v3.0.6
 
