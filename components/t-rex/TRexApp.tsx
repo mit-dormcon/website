@@ -1,5 +1,5 @@
 /// <reference types="gtag.js" />
-import React, { useContext, useEffect, useState } from "react";
+import React, { CSSProperties, useContext, useEffect, useState } from "react";
 import { EventFilter } from "./EventFilter";
 import Link from "@docusaurus/Link";
 import { BookmarkDropdownItem } from "./Bookmarks";
@@ -187,6 +187,14 @@ function EventCard(props: EventCardProps) {
     });
     const { filter, setFilter } = useContext(FilterContext);
 
+    const cardStyle: CSSProperties = {};
+    if (props.event.tags.includes("signature")) {
+        cardStyle.border = `2px solid ${props.colors.tags.get("signature")}`;
+        cardStyle.boxShadow = `0px 0px 6px 1px ${props.colors.tags.get(
+            "signature",
+        )}`;
+    }
+
     useEffect(() => {
         setDateStrings(eventDateDisplay(props.event.start, props.event.end));
         const intervalId = setInterval(
@@ -200,7 +208,7 @@ function EventCard(props: EventCardProps) {
     }, [props]);
 
     return (
-        <div className="card margin-vert--sm">
+        <div className="card margin-vert--sm" style={cardStyle}>
             <div
                 className="card__header"
                 style={{ display: "flex", justifyContent: "space-between" }}
