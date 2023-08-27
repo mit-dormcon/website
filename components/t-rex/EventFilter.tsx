@@ -79,10 +79,14 @@ export function EventFilter(props: {
                 position: "sticky",
                 top: "0px",
                 padding: "10px",
+                // Pulled background color from Docusaurus theme
+                // and add transparency so the blur will show but not be completely see through
+                // Using less transparency for light theme because it looks better
                 backgroundColor:
                     colorMode === "light" ? "#ffffffcc" : "#1b1b1baa",
                 zIndex: 10,
                 backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
             }}
         >
             <div className="margin-bottom--xs">
