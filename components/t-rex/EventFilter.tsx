@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useColorMode } from "@docusaurus/theme-common";
 import Fuse from "fuse.js";
+import React, { useContext, useEffect } from "react";
 import { FilterContext, TimeFilter, unsetFilter } from "./filter";
 
 /**
@@ -25,6 +26,8 @@ export function EventFilter(props: {
 
     const { searchValue, dormFilter, timeFilter, tagFilter, bookmarksOnly } =
         filter;
+
+    const { colorMode } = useColorMode();
 
     const dormEmoji = "🏠";
     const timeEmoji = "⏰";
@@ -69,8 +72,19 @@ export function EventFilter(props: {
         }
         props.setEvents(events);
     }, [filter, props.saved]);
+
     return (
-        <div>
+        <div
+            style={{
+                position: "sticky",
+                top: "0px",
+                padding: "10px",
+                backgroundColor:
+                    colorMode === "light" ? "#ffffffcc" : "#1b1b1baa",
+                zIndex: 10,
+                backdropFilter: "blur(10px)",
+            }}
+        >
             <div className="margin-bottom--xs">
                 <select
                     onChange={(e) =>

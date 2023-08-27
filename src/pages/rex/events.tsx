@@ -1,13 +1,14 @@
-import React, { useState, useEffect, CSSProperties, StrictMode } from "react";
-import Layout from "@theme/Layout";
+import { useColorMode } from "@docusaurus/theme-common";
 import BackToTopButton from "@theme/BackToTopButton";
+import Layout from "@theme/Layout";
+import Fuse from "fuse.js";
+import React, { CSSProperties, StrictMode, useEffect, useState } from "react";
 import {
     TRexApp,
     darkGradient,
     lightGradient,
 } from "../../../components/t-rex/TRexApp";
-import Fuse from "fuse.js";
-import { useColorMode } from "@docusaurus/theme-common";
+import "./events.css";
 
 export async function fetchEvents(): Promise<TRexAPIResponse> {
     const api_url = "https://rex.mit.edu/api.json";
