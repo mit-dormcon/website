@@ -79,6 +79,8 @@ export function EventFilter(props: {
                 position: "sticky",
                 top: "0px",
                 padding: "10px",
+                marginLeft: "calc(-1 * var(--ifm-spacing-horizontal))",
+                marginRight: "calc(-1 * var(--ifm-spacing-horizontal))",
                 // Pulled background color from Docusaurus theme
                 // and add transparency so the blur will show but not be completely see through
                 // Using less transparency for light theme because it looks better
