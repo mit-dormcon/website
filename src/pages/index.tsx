@@ -145,7 +145,9 @@ export default function Home() {
         >
             <header className={clsx("hero hero--primary", styles.heroBanner)}>
                 <div className="container">
-                    <span className='badge badge--secondary'>Happening Now</span>
+                    <span className="badge badge--secondary">
+                        Happening Now
+                    </span>
                     <h1 className="hero__title">{header.title}</h1>
                     <p className="hero__subtitle">{header.subtitle}</p>
                     <div className={styles.buttons}>
