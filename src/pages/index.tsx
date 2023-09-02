@@ -102,10 +102,10 @@ function FeatureRow() {
         //         ></Timeline>
         //     ),
         // },
-        {
-            title: "REX Events Per Dorm",
-            children: <RexEventChart />,
-        },
+        // {
+        //     title: "REX Events Per Dorm",
+        //     children: <RexEventChart />,
+        // },
     ];
 
     return (
@@ -132,10 +132,10 @@ export default function Home() {
     const { siteConfig } = context;
 
     const header = {
-        title: "DormCon REX",
-        subtitle: "Find your home in MIT's 11 dormitories",
-        button: "About REX",
-        buttonLink: "/rex",
+        title: siteConfig.title,
+        subtitle: siteConfig.tagline,
+        button: "About DormCon",
+        buttonLink: "/about",
     };
 
     return (
@@ -145,9 +145,9 @@ export default function Home() {
         >
             <header className={clsx("hero hero--primary", styles.heroBanner)}>
                 <div className="container">
-                    <span className="badge badge--secondary">
+                    {/* <span className="badge badge--secondary">
                         Happening Now
-                    </span>
+                    </span> */}
                     <h1 className="hero__title">{header.title}</h1>
                     <p className="hero__subtitle">{header.subtitle}</p>
                     <div className={styles.buttons}>
