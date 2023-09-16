@@ -80,38 +80,32 @@ const meetings: MeetingSchedule[] = [
             {
                 name: "Thursday, February 10, 2022 at 6:30pm",
                 location: "Maseeh",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-02-10.pdf",
+                minutesLink: minutesFolder + "2022-02-10.pdf",
             },
             {
                 name: "Thursday, February 24, 2022 at 6:30pm",
                 location: "Simmons",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-02-24.pdf",
+                minutesLink: minutesFolder + "2022-02-24.pdf",
             },
             {
                 name: "Thursday, March 10, 2022 at 6:30pm",
                 location: "Random",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-03-10.pdf",
+                minutesLink: minutesFolder + "2022-03-10.pdf",
             },
             {
                 name: "Thursday, March 31, 2022 at 6:30pm",
                 location: "MacGregor",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-03-31.pdf",
+                minutesLink: minutesFolder + "2022-03-31.pdf",
             },
             {
                 name: "Thursday, April 21, 2022 at 6:30pm",
                 location: "McCormick",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-04-21.pdf",
+                minutesLink: minutesFolder + "2022-04-21.pdf",
             },
             {
                 name: "Thursday, May 5, 2022 at 6:30pm",
                 location: "UA Senate Chambers",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-05-05.pdf",
+                minutesLink: minutesFolder + "2022-05-05.pdf",
             },
         ],
     },
@@ -121,38 +115,32 @@ const meetings: MeetingSchedule[] = [
             {
                 name: "Thursday, September 15th, 2022 at 7pm",
                 location: "Burton-Conner",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-09-15.pdf",
+                minutesLink: minutesFolder + "2022-09-15.pdf",
             },
             {
                 name: "Thursday, September 29th, 2022 at 7pm",
                 location: "Maseeh",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-09-29.pdf",
+                minutesLink: minutesFolder + "2022-09-29.pdf",
             },
             {
                 name: "Thursday, October 13th, 2022 at 7pm",
                 location: "New House",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-10-13.pdf",
+                minutesLink: minutesFolder + "2022-10-13.pdf",
             },
             {
                 name: "Thursday, October 27th, 2022 at 7pm",
                 location: "East Campus",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-10-27.pdf",
+                minutesLink: minutesFolder + "2022-10-27.pdf",
             },
             {
                 name: "Thursday, November 10th, 2022 at 7pm",
                 location: "Next House",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-11-10.pdf",
+                minutesLink: minutesFolder + "2022-11-10.pdf",
             },
             {
                 name: "Thursday, December 1st, 2022 at 7pm",
                 location: "New Vassar",
-                minutesLink:
-                    "https://web.mit.edu/dormcon/cert_minutes/2022-12-01.pdf",
+                minutesLink: minutesFolder + "2022-12-01.pdf",
             },
         ],
     },
@@ -337,8 +325,8 @@ const officers: Term[] = [
             },
             {
                 position: "i3/RAC Chair",
-                name: "Mitali Chowdhury",
-                affiliation: "East Campus",
+                name: "Mateo Pisinger",
+                affiliation: "New Vassar",
                 year: 2024,
                 kerb: "dormcon-i3-rac-chair",
             },
