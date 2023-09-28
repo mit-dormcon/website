@@ -23,7 +23,8 @@ Some important facts are noted below:
     as needed. Rolling events must be submitted three weeks prior to the event
     in order to allow sufficient time for DormCon review and potential approval.
 
--   No event will be funded beyond 50% of its total event budget.
+-   No event will be funded beyond 50% of its total event budget, up to a
+    maximum of $1,750.
 
 -   Events must be classified into one of four categories; in general,
     preference will be given to events which are advertised to the entire dorm
