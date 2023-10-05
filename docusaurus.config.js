@@ -8,11 +8,17 @@ const config = {
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    favicon: "img/favicon.ico",
+    favicon: "img/dormcon.ico",
     themeConfig: {
         navbar: {
             title: "MIT DormCon",
             hideOnScroll: true,
+            logo: {
+                alt: "Site Logo",
+                src: "img/dormcon-logo.png",
+                width: 32,
+                height: 32,
+            },
             items: [
                 {
                     to: "about",

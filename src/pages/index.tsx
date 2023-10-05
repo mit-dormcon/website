@@ -140,7 +140,7 @@ export default function Home() {
 
     return (
         <Layout
-            title={`Hello from ${siteConfig.title}`}
+            title={`Hello from ${siteConfig.title}!`}
             description={siteConfig.tagline}
         >
             <header className={clsx("hero hero--primary", styles.heroBanner)}>

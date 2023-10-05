@@ -5,7 +5,7 @@ module.exports = {
         "meetings",
         "officers",
         "voting-members",
-        "elections",
+        // "elections",
         "archive",
     ],
 };
