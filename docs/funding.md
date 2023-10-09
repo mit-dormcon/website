@@ -6,10 +6,10 @@ description: Fund your event with money from DormCon!
 ## Funding Guidelines
 
 DormCon is committed to supporting events in the dorm community through funding
-and advisory roles. As of fall semester 2017,
-[the following funding guidelines](/pdf/DormconFundingF17.pdf) were adopted; if
-you plan to apply for event funding, you must read these updated guidelines.
-Some important facts are noted below:
+and advisory roles.
+[The following funding guidelines](/pdf/DormconFundingF23.pdf) were adopted as
+of fall 2023; if you plan to apply for event funding, you must read these
+updated guidelines. Some important facts are noted below:
 
 -   Funding applications must be submitted at least 48 hours before the meeting
     at which the application is to be discussed.
