@@ -10,6 +10,8 @@ export type Meeting = {
 export type MeetingSchedule = {
     year: string;
     list: Meeting[];
+    /** Link to add the meeting schedule to your Google Calendar */
+    gcalLink?: string;
 };
 
 export type Term = {

@@ -20,5 +20,11 @@ import MeetingsComponent from "../components/MeetingsComponent";
 import { meetings } from "../data/meetings";
 
 <h3>{meetings.year}</h3>
-
 <MeetingsComponent meetings={meetings.list} />
+{meetings.gcalLink && (
+    <a href={meetings.gcalLink} target="_blank" rel="noopener">
+        <span className="badge badge--primary">
+            Click here to add these meetings to your Google Calendar!
+        </span>
+    </a>
+)}
