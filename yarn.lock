@@ -2273,10 +2273,10 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
-"@types/gtag.js@^0.0.16":
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/@types/gtag.js/-/gtag.js-0.0.16.tgz#c1a0867730e5f7454b210ea5a45dc07088105bb5"
-  integrity sha512-TefTCQWiQYc1F7zF7KKLOd5E645me+9CjfPwJLNxWxaTK3ITKmCxtHRVH7EhSo1dl+sVGmu2h2htCOZrjWQRrQ==
+"@types/gtag.js@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@types/gtag.js/-/gtag.js-0.0.17.tgz#4f84440e3424149517b41f60bd787374900d0b55"
+  integrity sha512-OsSO6Yyuygr3DeeTovOY0ppLiAVHoXg4CSanO9/vzDQCV+e8pkZNE+HR2dVxGJfUbtRe2IqzC97PYuHSNUepJw==
 
 "@types/hast@^2.0.0":
   version "2.3.1"
