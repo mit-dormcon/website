@@ -40,7 +40,7 @@ jobs:
               uses: actions/configure-pages@v3.0.6
 
             - name: 🚧 Setup Node
-              uses: actions/setup-node@v3.8.1
+              uses: actions/setup-node@v3.8.2
               with:
                   node-version: "18.x"
                   cache: yarn
