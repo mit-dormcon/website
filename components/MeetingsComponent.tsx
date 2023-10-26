@@ -6,10 +6,7 @@ export default function MeetingsComponent(props: { meetings: Meeting[] }) {
     return (
         <ul>
             {meetings.map((m, idx) => {
-                const minutesLink =
-                    (m.minutes &&
-                        require("@site/static" + m.minutes).default) ||
-                    m.minutesLink;
+                const minutesLink = m.minutesLink;
                 return (
                     <li key={idx} style={{ marginBottom: "10px" }}>
                         <div>

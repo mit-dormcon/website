@@ -9,33 +9,32 @@ const meetings: MeetingSchedule[] = [
             {
                 name: "Thursday, February 25th at 6:30pm",
                 location: "wherever you want to be",
-                minutes: "/pdf/minutes/2021_2_25.pdf",
+                minutesLink: minutesFolder + "2021-02-25.pdf",
             },
             {
                 name: "Thursday, March 11th (elections) at 6:30pm",
                 location: "a socially distanced place",
-                minutes:
-                    "/pdf/minutes/03.11.2021 DormCon Updates + Candidate Info.pdf",
+                minutesLink: minutesFolder + "2021-03-11.pdf",
             },
             {
                 name: "Thursday, March 25th at 6:30pm",
                 location: "Zoom University",
-                minutes: "/pdf/minutes/DormCon Updates 03.24.2021.pdf",
+                minutesLink: minutesFolder + "2021-03-25.pdf",
             },
             {
                 name: "Thursday, April 8th at 6:30pm",
                 location: "on top of the dome if you want",
-                minutes: "/pdf/minutes/DormCon Updates 4_8_2021.pdf",
+                minutesLink: minutesFolder + "2021-04-08.pdf",
             },
             {
                 name: "Thursday, April 22nd at 6:30pm",
                 location: "the Stata loading dock",
-                minutes: "/pdf/minutes/DormCon Updates 4.15.2021.pdf",
+                minutesLink: minutesFolder + "2021-04-22.pdf",
             },
             {
                 name: "Thursday, May 6th at 6:30pm",
                 location: "your bed",
-                minutes: "/pdf/minutes/DormCon Exec Updates 5.6.2021.pdf",
+                minutesLink: minutesFolder + "2021-05-06.pdf",
             },
         ],
     },
@@ -49,28 +48,27 @@ const meetings: MeetingSchedule[] = [
             {
                 name: "Thursday, September 30, 2021 at 7:00pm",
                 location: "New House",
-                minutes: "/pdf/minutes/fa21/Dormcon GBM Minutes 9_30.pdf",
+                minutesLink: minutesFolder + "2021-09-30.pdf",
             },
             {
                 name: "Thursday, October 14, 2021 at 7:00pm",
                 location: "Baker House",
-                minutes:
-                    "/pdf/minutes/fa21/Dormcon General Body Meeting - October 14, 2021.pdf",
+                minutesLink: minutesFolder + "2021-10-14.pdf",
             },
             {
                 name: "Thursday, October 28, 2021 at 7:00pm",
                 location: "Next House",
-                minutes: "/pdf/minutes/fa21/Dormcon GBM Minutes 10_28.pdf",
+                minutesLink: minutesFolder + "2021-10-28.pdf",
             },
             {
                 name: "Thursday, November 18, 2021 at 7:00pm",
                 location: "McCormick Hall",
-                minutes: "/pdf/minutes/fa21/Dormcon GBM Minutes 11_18.pdf",
+                minutesLink: minutesFolder + "2021-11-18.pdf",
             },
             {
                 name: "Thursday, December 2, 2021 at 7:00pm",
                 location: "New Vassar",
-                minutes: "/pdf/minutes/fa21/Dormcon GBM Minutes 12_2.pdf",
+                minutesLink: minutesFolder + "2021-12-02.pdf",
             },
         ],
     },

@@ -1,8 +1,6 @@
 export type Meeting = {
     name: string;
     location: string;
-    /** A file in the static folder where the minutes are located */
-    minutes?: string;
     /** An external link to the pdf of minutes, perhaps on Athena */
     minutesLink?: string;
 };
