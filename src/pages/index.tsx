@@ -40,7 +40,7 @@ function FeatureRow() {
 
     const features = [
         {
-            title: "Announcements",
+            title: "Resources",
             children: (
                 <div>
                     <ul>
@@ -50,7 +50,7 @@ function FeatureRow() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="https://bit.ly/mit-dining">
+                            <Link to="http://bit.ly/dining23">
                                 Give feedback to a dining hall.
                             </Link>
                         </li>
@@ -84,6 +84,28 @@ function FeatureRow() {
                         </a>
                         ).
                     </p>
+                </div>
+            ),
+        },
+        {
+            title: "Announcements",
+            children: (
+                <div>
+                    <ul>
+                        <li>
+                            <p>
+                                The{" "}
+                                <a href="https://studentlife.mit.edu/building-switch-lottery">
+                                    spring building switch lottery form
+                                </a>{" "}
+                                closes Nov. 1st at noon (12:00 PM EST)!
+                            </p>
+                        </li>
+                        <li>
+                            The results for the spring building switch lottery
+                            will be out on Nov. 8th!
+                        </li>
+                    </ul>
                 </div>
             ),
         },
