@@ -8,7 +8,7 @@ const config = {
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    favicon: "img/dormcon.ico",
+    favicon: "img/favicon.ico",
     themeConfig: {
         navbar: {
             title: "MIT DormCon",
