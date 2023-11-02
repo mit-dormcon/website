@@ -93,15 +93,6 @@ function FeatureRow() {
                 <div>
                     <ul>
                         <li>
-                            <p>
-                                The{" "}
-                                <a href="https://studentlife.mit.edu/building-switch-lottery">
-                                    spring building switch lottery form
-                                </a>{" "}
-                                closes Nov. 1st at noon (12:00 PM EST)!
-                            </p>
-                        </li>
-                        <li>
                             The results for the spring building switch lottery
                             will be out on Nov. 8th!
                         </li>
