@@ -6,7 +6,7 @@ export const officers: Term = {
         {
             position: "President",
             name: "Mitali Chowdhury",
-            affiliation: "East Campus",
+            affiliation: "East Campus + Maseeh",
             year: 2024,
             kerb: "dormcon-president",
         },
@@ -34,7 +34,7 @@ export const officers: Term = {
         {
             position: "REX/CPW Chair",
             name: "Diego Temkin",
-            affiliation: "East Campus",
+            affiliation: "East Campus + Simmons",
             year: 2026,
             kerb: "dormcon-cpw-chairs",
         },
@@ -90,7 +90,7 @@ export const officers: Term = {
         {
             position: "Dining Chair",
             name: "Tyra Espedal",
-            affiliation: "East Campus",
+            affiliation: "East Campus + MacGregor",
             year: 2026,
             kerb: "dormcon-dining-chair",
         },
@@ -104,14 +104,14 @@ export const officers: Term = {
         {
             position: "i3 Chair",
             name: "Tyra Espedal",
-            affiliation: "East Campus",
+            affiliation: "East Campus + MacGregor",
             year: 2026,
             kerb: "dormcon-i3-rac-chair",
         },
         {
             position: "🌎 Tech Chair",
             name: "Nate Shwatal",
-            affiliation: "East Campus",
+            affiliation: "East Campus + Maseeh",
             year: 2024,
             kerb: "dormcon-tech-chair",
         },

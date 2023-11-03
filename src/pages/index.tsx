@@ -94,7 +94,11 @@ function FeatureRow() {
                     <ul>
                         <li>
                             The results for the spring building switch lottery
-                            will be out on Nov. 8th!
+                            will be out on Wednesday, November 8th!
+                        </li>
+                        <li>
+                            Our next meeting is on Thursday, November 9th at
+                            7:30pm in McCormick!
                         </li>
                     </ul>
                 </div>
