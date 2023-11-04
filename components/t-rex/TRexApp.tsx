@@ -1,5 +1,5 @@
 /// <reference types="gtag.js" />
-import React, { CSSProperties, useContext, useEffect, useState } from "react";
+import { CSSProperties, useContext, useEffect, useState } from "react";
 import { EventFilter } from "./EventFilter";
 import Link from "@docusaurus/Link";
 import { BookmarkDropdownItem } from "./Bookmarks";

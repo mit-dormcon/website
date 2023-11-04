@@ -31,8 +31,9 @@ and give input on the policies we advocate for.
 ### Eligibility
 
 All non-graduating dorm residents are eligible to run for a position on DormCon
-Exec (no experience necessary)! Feel free to reach out to dormcon-exec@mit.edu
-or any of the listed contacts for each position if you have any questions!
+Exec (no experience necessary)! Feel free to reach out to
+[dormcon-exec@mit.edu](mailto:dormcon-exec@mit.edu) or any of the listed
+contacts for each position if you have any questions!
 
 ## How to Run
 
@@ -40,8 +41,9 @@ or any of the listed contacts for each position if you have any questions!
 
 _If you are unable to make it to the meeting,_ then you can send a proxy who
 will represent you as a candidate. The name of the proxy should be sent to us in
-advance of the meeting at dormcon-exec@mit.edu. Your proxy should be able to
-speak to your platform and provide brief answers to the following questions:
+advance of the meeting at [dormcon-exec@mit.edu](mailto:dormcon-exec@mit.edu).
+Your proxy should be able to speak to your platform and provide brief answers to
+the following questions:
 
 -   What will be your workload over the next year?
 -   Can you make weekly Thursday night meetings?

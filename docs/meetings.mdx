@@ -21,7 +21,7 @@ import { meetings } from "../data/meetings";
 
 <div>
     <h3>
-        {meetings.year} &ensp;
+        {meetings.year + "\u2002"}
         {meetings.gcalLink && (
             <a href={meetings.gcalLink} target="_blank" rel="noopener">
                 <span className="badge badge--primary">

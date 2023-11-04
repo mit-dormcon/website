@@ -1,7 +1,7 @@
-// @ts-check
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
     title: "DormCon",
     tagline: "MIT's Dormitory Council",
     url: "https://dormcon.mit.edu",
@@ -9,6 +9,13 @@ const config = {
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
+    markdown: {
+        mdx1Compat: {
+            comments: false,
+            admonitions: false,
+            headingIds: false,
+        },
+    },
     themeConfig: {
         navbar: {
             title: "MIT DormCon",
@@ -103,10 +110,10 @@ const config = {
         colorMode: {
             respectPrefersColorScheme: true,
         },
-    },
+    } satisfies Preset.ThemeConfig,
     presets: [
         [
-            "@docusaurus/preset-classic",
+            "classic",
             {
                 docs: {
                     sidebarPath: require.resolve("./sidebars.js"),
@@ -124,9 +131,9 @@ const config = {
                 gtag: {
                     trackingID: "G-XBL1BVV0JB",
                 },
-            },
+            } satisfies Preset.Options,
         ],
     ],
 };
 
-module.exports = config;
+export default config;

@@ -1,6 +1,6 @@
 import { useColorMode } from "@docusaurus/theme-common";
 import Fuse from "fuse.js";
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { FilterContext, TimeFilter, unsetFilter } from "./filter";
 
 /**

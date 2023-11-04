@@ -1,5 +1,5 @@
 /// <reference types="gtag.js" />
-import React, { useState } from "react";
+import { useState } from "react";
 
 declare const gtag: Gtag.Gtag;
 

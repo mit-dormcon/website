@@ -1,4 +1,3 @@
-import React from "react";
 import { DormConMember } from "../data/types";
 
 export default function VotingMembersTable(props: { data: DormConMember[] }) {

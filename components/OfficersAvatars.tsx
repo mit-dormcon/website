@@ -1,4 +1,3 @@
-import React from "react";
 import { Officer } from "../data/types";
 
 export default function OfficersAvatars(props: { data: Officer[] }) {
