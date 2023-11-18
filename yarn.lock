@@ -1202,7 +1202,7 @@
     "@docsearch/css" "3.5.2"
     algoliasearch "^4.19.1"
 
-"@docusaurus/core@3.0.0", "@docusaurus/core@^3.0.0":
+"@docusaurus/core@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@docusaurus/core/-/core-3.0.0.tgz#46bc9bf2bcd99ca98a1c8f10a70bf3afaaaf9dcb"
   integrity sha512-bHWtY55tJTkd6pZhHrWz1MpWuwN4edZe0/UWgFF7PW/oJeDZvLSXKqwny3L91X1/LGGoypBGkeZn8EOuKeL4yQ==
@@ -1328,7 +1328,7 @@
     vfile "^6.0.1"
     webpack "^5.88.1"
 
-"@docusaurus/module-type-aliases@3.0.0", "@docusaurus/module-type-aliases@^3.0.0":
+"@docusaurus/module-type-aliases@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@docusaurus/module-type-aliases/-/module-type-aliases-3.0.0.tgz#9a7dd323bb87ca666eb4b0b4b90d04425f2e05d6"
   integrity sha512-CfC6CgN4u/ce+2+L1JdsHNyBd8yYjl4De2B2CBj2a9F7WuJ5RjV1ciuU7KDg8uyju+NRVllRgvJvxVUjCdkPiw==
@@ -1458,7 +1458,7 @@
     sitemap "^7.1.1"
     tslib "^2.6.0"
 
-"@docusaurus/preset-classic@^3.0.0":
+"@docusaurus/preset-classic@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@docusaurus/preset-classic/-/preset-classic-3.0.0.tgz#b05c3960c4d0a731b2feb97e94e3757ab073c611"
   integrity sha512-90aOKZGZdi0+GVQV+wt8xx4M4GiDrBRke8NO8nWwytMEXNrxrBxsQYFRD1YlISLJSCiHikKf3Z/MovMnQpnZyg==
@@ -1567,12 +1567,12 @@
     fs-extra "^11.1.1"
     tslib "^2.6.0"
 
-"@docusaurus/tsconfig@^3.0.0":
+"@docusaurus/tsconfig@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@docusaurus/tsconfig/-/tsconfig-3.0.0.tgz#89ce292cff8debaa03d93d651ffd6375561e7dab"
   integrity sha512-yR9sng4izFudS+v1xV5yboNfc1hATMDpYp9iYfWggbBDwKSm0J1IdIgkygRnqC/AWs1ARUQUpG0gFotPCE/4Ew==
 
-"@docusaurus/types@3.0.0", "@docusaurus/types@^3.0.0":
+"@docusaurus/types@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@docusaurus/types/-/types-3.0.0.tgz#3edabe43f70b45f81a48f3470d6a73a2eba41945"
   integrity sha512-Qb+l/hmCOVemReuzvvcFdk84bUmUFyD0Zi81y651ie3VwMrXqC7C0E7yZLKMOsLj/vkqsxHbtkAuYMI89YzNzg==
