@@ -79,9 +79,52 @@ const config: Config = {
                 //     },
                 //     specialPage: "about",
                 // },
+                // {
+                //     to: "about",
+                //     label: "About",
+                //     position: "left",
+                // },
                 {
-                    to: "about",
+                    type: "dropdown",
                     label: "About",
+                    items: [
+                        {
+                            type: "doc",
+                            label: "About DormCon",
+                            docId: "about",
+                        },
+                        {
+                            type: "doc",
+                            label: "Event Funding",
+                            docId: "funding",
+                        },
+                        {
+                            type: "doc",
+                            label: "Meetings",
+                            docId: "meetings",
+                        },
+                        {
+                            type: "doc",
+                            label: "Officers",
+                            docId: "officers",
+                        },
+                        {
+                            type: "doc",
+                            label: "Voting Members",
+                            docId: "voting-members",
+                        },
+                        {
+                            type: "doc",
+                            label: "Elections",
+                            docId: "elections",
+                        },
+                        {
+                            type: "doc",
+                            label: "Archive",
+                            docId: "archive",
+                        },
+                    ],
+                    to: "about",
                     position: "left",
                 },
                 {
