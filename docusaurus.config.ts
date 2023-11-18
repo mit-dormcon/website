@@ -28,10 +28,56 @@ const config: Config = {
             },
             items: [
                 {
-                    to: "about",
-                    activeBasePath: "about",
-                    label: "About",
-                    position: "left",
+                    type: "custom-dropdown",
+                    dropdownProps: {
+                        type: "dropdown",
+                        label: "About",
+                        items: [
+                            {
+                                type: "doc",
+                                label: "About DormCon",
+                                docId: "about",
+                            },
+                            {
+                                type: "doc",
+                                label: "Event Funding",
+                                docId: "funding",
+                            },
+                            {
+                                type: "doc",
+                                label: "Meetings",
+                                docId: "meetings",
+                            },
+                            {
+                                type: "doc",
+                                label: "Officers",
+                                docId: "officers",
+                            },
+                            {
+                                type: "doc",
+                                label: "Voting Members",
+                                docId: "voting-members",
+                            },
+                            {
+                                type: "doc",
+                                label: "Elections",
+                                docId: "elections",
+                            },
+                            {
+                                type: "doc",
+                                label: "Archive",
+                                docId: "archive",
+                            },
+                        ],
+                        to: "about",
+                        position: "left",
+                    },
+                    linkProps: {
+                        to: "about",
+                        label: "About",
+                        position: "left",
+                    },
+                    specialPage: "about",
                 },
                 {
                     to: "piazza",
@@ -43,7 +89,6 @@ const config: Config = {
                     label: "REX",
                     position: "left",
                 },
-                // {to: 'blog', label: 'Blog', position: 'left'},
                 {
                     href: "http://web.mit.edu/dormcon/index.old.shtml",
                     label: "Old Site",
