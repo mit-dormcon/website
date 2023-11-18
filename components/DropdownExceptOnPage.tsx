@@ -11,8 +11,9 @@ export interface Props {
 }
 
 export default function DropdownExceptOnPage(props: Props): JSX.Element {
-    return !useIsBrowser() ||
-        window.location.pathname.startsWith(`/${props.specialPage}`)
-        ? DefaultNavbarItem(props.linkProps)
-        : DropdownNavbarItem(props.dropdownProps);
+    return DefaultNavbarItem(props.linkProps);
+    // return !useIsBrowser() ||
+    //     window.location.pathname.startsWith(`/${props.specialPage}`)
+    //     ? DefaultNavbarItem(props.linkProps)
+    //     : DropdownNavbarItem(props.dropdownProps);
 }
