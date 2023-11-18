@@ -8,6 +8,7 @@ import DocSidebarNavbarItem from "@theme/NavbarItem/DocSidebarNavbarItem";
 import DocsVersionNavbarItem from "@theme/NavbarItem/DocsVersionNavbarItem";
 import DocsVersionDropdownNavbarItem from "@theme/NavbarItem/DocsVersionDropdownNavbarItem";
 import DropdownExceptOnPage from "@site/components/DropdownExceptOnPage";
+
 const ComponentTypes = {
     default: DefaultNavbarItem,
     localeDropdown: LocaleDropdownNavbarItem,

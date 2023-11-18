@@ -2,6 +2,7 @@ import DefaultNavbarItem from "@theme/NavbarItem/DefaultNavbarItem";
 import DropdownNavbarItem from "@theme/NavbarItem/DropdownNavbarItem";
 import type { Props as DefaultNavbarItemProps } from "@theme/NavbarItem/DefaultNavbarItem";
 import type { Props as DropdownNavbarItemProps } from "@theme/NavbarItem/DropdownNavbarItem";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 export interface Props {
     readonly dropdownProps: DropdownNavbarItemProps;
@@ -10,7 +11,13 @@ export interface Props {
 }
 
 export default function DropdownExceptOnPage(props: Props): JSX.Element {
-    return window.location.pathname.startsWith(`/${props.specialPage}`)
-        ? DefaultNavbarItem(props.linkProps)
-        : DropdownNavbarItem(props.dropdownProps);
+    return (
+        <BrowserOnly>
+            {() =>
+                window.location.pathname.startsWith(`/${props.specialPage}`)
+                    ? DefaultNavbarItem(props.linkProps)
+                    : DropdownNavbarItem(props.dropdownProps)
+            }
+        </BrowserOnly>
+    );
 }
