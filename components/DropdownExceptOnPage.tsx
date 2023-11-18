@@ -1,19 +1,34 @@
 import DefaultNavbarItem from "@theme/NavbarItem/DefaultNavbarItem";
 import DropdownNavbarItem from "@theme/NavbarItem/DropdownNavbarItem";
-import type { Props as DefaultNavbarItemProps } from "@theme/NavbarItem/DefaultNavbarItem";
-import type { Props as DropdownNavbarItemProps } from "@theme/NavbarItem/DropdownNavbarItem";
+import type {
+    DesktopOrMobileNavBarItemProps as DefaultNavbarItemProps,
+    Props as DefaultWithMobileProps,
+} from "@theme/NavbarItem/DefaultNavbarItem";
+import type {
+    DesktopOrMobileNavBarItemProps as DropdownNavbarItemProps,
+    Props as DropdownWithMobileProps,
+} from "@theme/NavbarItem/DropdownNavbarItem";
 import useIsBrowser from "@docusaurus/useIsBrowser";
 
 export interface Props {
     readonly dropdownProps: DropdownNavbarItemProps;
     readonly linkProps: DefaultNavbarItemProps;
     readonly specialPage: string;
+    readonly mobile?: boolean;
 }
 
 export default function DropdownExceptOnPage(props: Props): JSX.Element {
-    return DefaultNavbarItem(props.linkProps);
-    // return !useIsBrowser() ||
-    //     window.location.pathname.startsWith(`/${props.specialPage}`)
-    //     ? DefaultNavbarItem(props.linkProps)
-    //     : DropdownNavbarItem(props.dropdownProps);
+    const dropdownProps: DropdownWithMobileProps = {
+        ...props.dropdownProps,
+        mobile: props.mobile,
+    };
+    const defaultProps: DefaultWithMobileProps = {
+        ...props.linkProps,
+        mobile: props.mobile,
+    };
+
+    return !useIsBrowser() ||
+        window.location.pathname.startsWith(`/${props.specialPage}`)
+        ? DefaultNavbarItem(defaultProps)
+        : DropdownNavbarItem(dropdownProps);
 }
