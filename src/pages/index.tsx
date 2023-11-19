@@ -93,12 +93,14 @@ function FeatureRow() {
                 <div>
                     <ul>
                         <li>
-                            The results for the spring building switch lottery
-                            will be out on Wednesday, November 8th!
+                            Our next meeting is on Thursday, November 30th at
+                            7:30pm in Random!
                         </li>
                         <li>
-                            Our next meeting is on Thursday, November 9th at
-                            7:30pm in McCormick!
+                            At that meeting, we're holding{" "}
+                            <Link to="/about/elections">elections</Link> for
+                            several positions; show up if you're interested in
+                            running!
                         </li>
                     </ul>
                 </div>

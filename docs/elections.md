@@ -15,12 +15,12 @@ Do you want to…
 -   _…join a student government that doesn’t take itself too seriously?_
 
 Then run for a 🦈DormCon🦈 exec position at the next DormCon GBM on **Thursday,
-November 30th at 7:30 pm in Random Hall**.
+November 30th at 7:30 pm in Random Hall!**
 
 ### Positions
 
-There are 5 positions being elected: 1 Housing Chair, REX/CPW Chairs, i3 Chair,
-and 1 Underclassmen Rep.
+There are 5 positions being elected: 1 Housing Chair, 2 REX/CPW Chairs, 1 i3
+Chair, and 1 Underclassmen Rep.
 
 [Click here for descriptions of the positions.](https://docs.google.com/document/d/1ju33s2RrvM9_Ri66-frxgyejJ9zwUNbc0sLkC1M6svE/edit?usp=sharing)
 In addition to being responsible for a specific area of focus, all members of
@@ -35,6 +35,8 @@ Exec (no experience necessary)! Feel free to reach out to
 contacts for each position if you have any questions!
 
 ## How to Run
+
+[Fill out this (non-binding) form to indicate your interest in a position.](https://forms.gle/GT7WejfGKwryBwEPA)
 
 _If you are unable to make it to the meeting,_ then you can send a proxy who
 will represent you as a candidate. The name of the proxy should be sent to us in
