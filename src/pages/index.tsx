@@ -40,24 +40,19 @@ function FeatureRow() {
 
     const features = [
         {
-            title: "Resources",
+            title: "Announcements",
             children: (
                 <div>
                     <ul>
                         <li>
-                            <Link to="/piazza">
-                                Ask a question on the DormCon Piazza.
-                            </Link>
+                            Our next meeting is on Thursday, November 30th at
+                            7:30pm in Random!
                         </li>
                         <li>
-                            <Link to="http://bit.ly/dining23">
-                                Give feedback to a dining hall.
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/about/meetings">
-                                View the meeting schedule.
-                            </Link>
+                            At that meeting, we're holding{" "}
+                            <Link to="/about/elections">elections</Link> for
+                            several positions; show up if you're interested in
+                            running!
                         </li>
                     </ul>
                 </div>
@@ -88,19 +83,24 @@ function FeatureRow() {
             ),
         },
         {
-            title: "Announcements",
+            title: "Resources",
             children: (
                 <div>
                     <ul>
                         <li>
-                            Our next meeting is on Thursday, November 30th at
-                            7:30pm in Random!
+                            <Link to="/piazza">
+                                Ask a question on the DormCon Piazza.
+                            </Link>
                         </li>
                         <li>
-                            At that meeting, we're holding{" "}
-                            <Link to="/about/elections">elections</Link> for
-                            several positions; show up if you're interested in
-                            running!
+                            <Link to="http://bit.ly/dining23">
+                                Give feedback to a dining hall.
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/about/meetings">
+                                View the meeting schedule.
+                            </Link>
                         </li>
                     </ul>
                 </div>
