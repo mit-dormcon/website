@@ -28,10 +28,12 @@ export const meetings: MeetingSchedule = {
         {
             name: "Thursday, November 9th, 2023 at 7:30pm",
             location: "McCormick",
+            minutesLink: minutesFolder + "2023-11-09.pdf",
         },
         {
             name: "Thursday, November 30th, 2023 at 7:30pm",
             location: "Random",
+            minutesLink: minutesFolder + "2023-11-30.pdf",
         },
     ],
     gcalLink:
