@@ -19,8 +19,18 @@
         "node": ">=18.0"
     },
     "dependencies": {
-        "@docusaurus/core": "3.0.0",
-        "@docusaurus/preset-classic": "3.0.0",
+        "@babel/core": "7.23.5",
+        "@babel/helpers": "7.23.5",
+        "@docusaurus/core": "^3.0.1",
+        "@docusaurus/cssnano-preset": "3.0.1",
+        "@docusaurus/plugin-debug": "3.0.1",
+        "@docusaurus/plugin-google-analytics": "3.0.1",
+        "@docusaurus/plugin-google-gtag": "3.0.1",
+        "@docusaurus/plugin-google-tag-manager": "3.0.1",
+        "@docusaurus/plugin-sitemap": "3.0.1",
+        "@docusaurus/preset-classic": "3.0.1",
+        "@docusaurus/theme-classic": "3.0.1",
+        "@docusaurus/theme-search-algolia": "3.0.1",
         "@mdx-js/react": "^3.0.0",
         "chart.js": "^4.4.0",
         "clsx": "^2.0.0",
@@ -29,6 +39,7 @@
         "react": "^18.2.0",
         "react-chartjs-2": "^5.2.0",
         "react-dom": "^18.2.0",
+        "react-json-view-lite": "1.2.1",
         "react-twitter-widgets": "^1.11.0"
     },
     "browserslist": {
@@ -44,9 +55,9 @@
         ]
     },
     "devDependencies": {
-        "@docusaurus/module-type-aliases": "3.0.0",
-        "@docusaurus/tsconfig": "3.0.0",
-        "@docusaurus/types": "3.0.0",
+        "@docusaurus/module-type-aliases": "3.0.1",
+        "@docusaurus/tsconfig": "3.0.1",
+        "@docusaurus/types": "3.0.1",
         "@types/gtag.js": "^0.0.18",
         "@types/react": "^18.2.39",
         "prettier": "^3.1.0",
