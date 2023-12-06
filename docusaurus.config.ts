@@ -58,11 +58,11 @@ const config: Config = {
                                 label: "Voting Members",
                                 docId: "voting-members",
                             },
-                            {
-                                type: "doc",
-                                label: "Elections",
-                                docId: "elections",
-                            },
+                            // {
+                            //     type: "doc",
+                            //     label: "Elections",
+                            //     docId: "elections",
+                            // },
                             {
                                 type: "doc",
                                 label: "Archive",

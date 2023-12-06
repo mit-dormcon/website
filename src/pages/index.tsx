@@ -45,14 +45,8 @@ function FeatureRow() {
                 <div>
                     <ul>
                         <li>
-                            Our next meeting is on Thursday, November 30th at
-                            7:30pm in Random!
-                        </li>
-                        <li>
-                            At that meeting, we're holding{" "}
-                            <Link to="/about/elections">elections</Link> for
-                            several positions; show up if you're interested in
-                            running!
+                            We have no more meetings for the fall semester, but
+                            keep an eye out for the spring meeting schedule!
                         </li>
                     </ul>
                 </div>

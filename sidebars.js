@@ -5,7 +5,7 @@ export default {
         "meetings",
         "officers",
         "voting-members",
-        "elections",
+        // "elections",
         "archive",
     ],
 };
