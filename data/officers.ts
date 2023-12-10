@@ -34,8 +34,8 @@ export const officers: Term = {
         {
             position: "REX/CPW Chair",
             name: "Farin Liani",
-            affiliation: "McCormick",
-            year: 2025,
+            affiliation: "Random + McCormick",
+            year: 2024,
             kerb: "dormcon-cpw-chairs",
         },
         {
