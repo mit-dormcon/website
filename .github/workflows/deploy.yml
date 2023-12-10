@@ -37,12 +37,12 @@ jobs:
             - name: ✅ Checkout code
               uses: actions/checkout@v4.1.1
             - name: ⚙️ Configure GitHub Pages
-              uses: actions/configure-pages@v3.0.6
+              uses: actions/configure-pages@v4.0.0
 
             - name: 🚧 Setup Node
               uses: actions/setup-node@v4.0.0
               with:
-                  node-version: "18.x"
+                  node-version: "20.x"
                   cache: yarn
 
             - name: 🛍 Get Packages
@@ -65,4 +65,4 @@ jobs:
         steps:
             - name: Deploy to GitHub Pages
               id: deployment
-              uses: actions/deploy-pages@v2
+              uses: actions/deploy-pages@v3
