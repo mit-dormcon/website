@@ -52,7 +52,7 @@ jobs:
             - name: 🛠 Build Site
               run: yarn run build
             - name: 📤 Upload Build
-              uses: actions/upload-pages-artifact@v2
+              uses: actions/upload-pages-artifact@v3
               with:
                   path: build
     deploy:
