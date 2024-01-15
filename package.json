@@ -59,7 +59,7 @@
         "@docusaurus/tsconfig": "3.1.0",
         "@docusaurus/types": "3.1.0",
         "@types/gtag.js": "^0.0.18",
-        "@types/react": "^18.2.47",
+        "@types/react": "^18.2.48",
         "prettier": "^3.2.2",
         "typescript": "^5.3.3"
     },
