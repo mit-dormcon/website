@@ -33,4 +33,5 @@ module.exports = {
             { ignoredStrings: ["·", "—", "×"] },
         ],
     },
+    settings: { react: { version: "detect" } },
 };

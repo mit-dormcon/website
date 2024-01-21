@@ -1,14 +1,14 @@
-import React from "react";
 import clsx from "clsx";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
-import { Timeline } from "react-twitter-widgets";
-import { useColorMode } from "@docusaurus/theme-common";
+// import { Timeline } from "react-twitter-widgets";
+// import { useColorMode } from "@docusaurus/theme-common";
 import { meetings } from "../../data/meetings";
-import RexEventChart from "../../components/t-rex/RexEventChart";
+// import RexEventChart from "../../components/t-rex/RexEventChart";
+import Heading from "@theme/Heading";
 
 function Feature(props: {
     imageUrl?: string;
@@ -28,15 +28,15 @@ function Feature(props: {
                     />
                 </div>
             )}
-            <h3>{title}</h3>
+            <Heading as="h3">{title}</Heading>
             {children}
         </div>
     );
 }
 
 function FeatureRow() {
-    const { colorMode } = useColorMode();
-    const isDarkTheme = colorMode === "dark";
+    // const { colorMode } = useColorMode();
+    // const isDarkTheme = colorMode === "dark";
 
     const features = [
         {
@@ -65,12 +65,12 @@ function FeatureRow() {
                         .
                     </p>
                     <p>
-                        If you are not a resident in one of MIT's eleven
+                        If you are not a resident in one of MIT&apos;s eleven
                         dormitories but would like to attend a DormCon meeting,
                         please email us (
-                        <a href="mailto:dormcon-exec@mit.edu">
+                        <Link href="mailto:dormcon-exec@mit.edu">
                             dormcon-exec@mit.edu
-                        </a>
+                        </Link>
                         ).
                     </p>
                 </div>
@@ -128,7 +128,9 @@ function FeatureRow() {
                     <div className="container">
                         <div className="row">
                             {features.map((props, idx) => (
+                                // eslint-disable-next-line react/prop-types
                                 <Feature key={idx} title={props.title}>
+                                    {/* eslint-disable-next-line react/prop-types */}
                                     {props.children}
                                 </Feature>
                             ))}
@@ -161,7 +163,9 @@ export default function Home() {
                     {/* <span className="badge badge--secondary">
                         Happening Now
                     </span> */}
-                    <h1 className="hero__title">{header.title}</h1>
+                    <Heading as="h1" className="hero__title">
+                        {header.title}
+                    </Heading>
                     <p className="hero__subtitle">{header.subtitle}</p>
                     <div className={styles.buttons}>
                         <Link

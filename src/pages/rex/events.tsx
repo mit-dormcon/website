@@ -9,6 +9,8 @@ import {
     lightGradient,
 } from "../../../components/t-rex/TRexApp";
 import "./events.css";
+import type { TRexAPIResponse, TRexEvent } from "@site/components/t-rex/types";
+import Heading from "@theme/Heading";
 
 export async function fetchEvents(): Promise<TRexAPIResponse> {
     const api_url = "https://rex.mit.edu/api.json";
@@ -81,8 +83,8 @@ function TRexHeadline(props: { children: React.ReactNode }) {
     };
 
     return (
-        <h1 style={headlineStyle} key={0}>
+        <Heading as="h1" style={headlineStyle} key={0}>
             {props.children}
-        </h1>
+        </Heading>
     );
 }
