@@ -1,4 +1,5 @@
 import { DormConMember } from "../data/types";
+import Link from "@docusaurus/Link";
 
 export default function VotingMembersTable(props: { data: DormConMember[] }) {
     const { data } = props;
@@ -15,20 +16,20 @@ export default function VotingMembersTable(props: { data: DormConMember[] }) {
                 {data.map((m, idx) => (
                     <tr key={idx}>
                         <td>
-                            <a href={m.url} target="_blank" rel="noopener">
+                            <Link to={m.url} target="_blank" rel="noreferrer">
                                 {m.dorm}
-                            </a>
+                            </Link>
                         </td>
                         <td>{m.president}</td>
                         <td>
                             {m.kerbs.map((k, idx) => (
-                                <a
+                                <Link
                                     key={idx}
-                                    href={`mailto:${k}@mit.edu`}
+                                    to={`mailto:${k}@mit.edu`}
                                     style={{ marginInline: "2px" }}
                                 >
                                     {k}
-                                </a>
+                                </Link>
                             ))}
                         </td>
                     </tr>

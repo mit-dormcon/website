@@ -1,4 +1,6 @@
 import { Officer } from "../data/types";
+import Heading from "@theme/Heading";
+import Link from "@docusaurus/Link";
 
 export default function OfficersAvatars(props: { data: Officer[] }) {
     const { data } = props;
@@ -8,17 +10,21 @@ export default function OfficersAvatars(props: { data: Officer[] }) {
                 <div
                     className="avatar col col--4 avatar--vertical"
                     style={{ marginBottom: "20px" }}
+                    key={idx}
                 >
                     <div className="avatar__intro">
-                        <h4 className="avatar__name">
+                        <Heading as="h4" className="avatar__name">
                             {p.name}, {p.year}
-                        </h4>
+                        </Heading>
                         <small className="avatar__subtitle">{p.position}</small>
                         <small className="avatar__subtitle">
                             {p.affiliation}
                         </small>
                         <small className="avatar__subtitle">
-                            📧 <a href={`mailto:${p.kerb}@mit.edu`}>{p.kerb}</a>
+                            📧{" "}
+                            <Link to={`mailto:${p.kerb}@mit.edu`}>
+                                {p.kerb}
+                            </Link>
                         </small>
                     </div>
                 </div>

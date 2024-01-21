@@ -1,5 +1,6 @@
-/// <reference types="gtag.js" />
 import { useState } from "react";
+import Link from "@docusaurus/Link";
+import Heading from "@theme/Heading";
 
 declare const gtag: Gtag.Gtag;
 
@@ -32,9 +33,9 @@ export function BookmarkDropdownItem(props: {
     }
 
     return (
-        <a href="#" className="dropdown__link" onClick={handleClick}>
+        <Link to="#" className="dropdown__link" onClick={handleClick}>
             {props.isSaved ? removeBookmarkText : bookmarkText}
-        </a>
+        </Link>
     );
 }
 
@@ -85,7 +86,7 @@ export function BookmarksTool() {
                     📋 Copy To Clipboard
                 </button>
             </div>
-            <h4>Currently saved bookmarks:</h4>
+            <Heading as="h4">Currently saved bookmarks:</Heading>
             <pre style={{ userSelect: "all" }}>{saved}</pre>
         </div>
     );

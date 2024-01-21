@@ -2,6 +2,7 @@ import { useColorMode } from "@docusaurus/theme-common";
 import Fuse from "fuse.js";
 import { useContext, useEffect } from "react";
 import { FilterContext, TimeFilter, unsetFilter } from "./filter";
+import { TRexEvent } from "./types";
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,

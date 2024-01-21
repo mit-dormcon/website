@@ -1,4 +1,4 @@
-type TRexAPIResponse = {
+export type TRexAPIResponse = {
     /** The title of the current experience, such as "REX 2023" */
     name: string;
     /** ISO Date string of when the current JSON of events was published */
@@ -12,12 +12,12 @@ type TRexAPIResponse = {
     end: string;
 };
 
-type TRexAPIColors = {
+export type TRexAPIColors = {
     dorms: Map<string, string>;
     tags: Map<string, string>;
 };
 
-type TRexEvent = {
+export type TRexEvent = {
     name: string;
     dorm: string;
     /** The subcommunity or living group hosting this event, if any */

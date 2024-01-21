@@ -1,4 +1,5 @@
 import { Officer } from "../data/types";
+import Link from "@docusaurus/Link";
 
 export default function OfficersTable(props: { data: Officer[] }) {
     const { data } = props;
@@ -21,9 +22,9 @@ export default function OfficersTable(props: { data: Officer[] }) {
                         <td>{p.affiliation}</td>
                         <td>{p.year}</td>
                         <td>
-                            <a href={`mailto:${p.kerb}@mit.edu`}>
+                            <Link to={`mailto:${p.kerb}@mit.edu`}>
                                 {p.kerb}@mit.edu
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                 ))}

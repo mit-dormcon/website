@@ -17,6 +17,8 @@ import {
 import { useColorMode } from "@docusaurus/theme-common";
 import styles from "../../src/pages/styles.module.css";
 import { useLocation } from "@docusaurus/router";
+import type { TRexAPIResponse, TRexAPIColors, TRexEvent } from "./types";
+import Heading from "@theme/Heading";
 
 declare const gtag: Gtag.Gtag;
 
@@ -38,8 +40,8 @@ export function TRexApp(props: TRexAppProps) {
             <div>
                 <p>Loading...</p>
                 <p>
-                    <b>Stuck on this page?</b> Make sure you're connected to a
-                    network and have JavaScript enabled.
+                    <b>Stuck on this page?</b> Make sure you&apos;re connected
+                    to a network and have JavaScript enabled.
                 </p>
             </div>
         );
@@ -214,10 +216,13 @@ function EventCard(props: EventCardProps) {
                 style={{ display: "flex", justifyContent: "space-between" }}
             >
                 <div>
-                    <h4 className="margin-vert--none margin-right--sm">
+                    <Heading
+                        as="h4"
+                        className="margin-vert--none margin-right--sm"
+                    >
                         {props.isSaved && "⭐️ "}
                         {props.event.name}
-                    </h4>
+                    </Heading>
                     <div>
                         {props.event.tags.map((tag, idx) => (
                             <ColoredBadge
@@ -384,16 +389,16 @@ function ExpandableText(props: {
             {props.text.length > expandAmount && (
                 <span>
                     {expanded && props.text.substring(truncatePoint)}{" "}
-                    <a
+                    <Link
                         onClick={(e) => {
                             e.preventDefault();
                             setExpanded(!expanded);
                         }}
-                        href="#"
+                        to="#"
                         style={{ fontStyle: "italic" }}
                     >
                         {expanded ? "show less" : "show more"}
-                    </a>
+                    </Link>
                 </span>
             )}
         </p>

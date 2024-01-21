@@ -1,4 +1,5 @@
 import { Meeting } from "../data/types";
+import Link from "@docusaurus/Link";
 
 export default function MeetingsComponent(props: { meetings: Meeting[] }) {
     const { meetings } = props;
@@ -11,15 +12,15 @@ export default function MeetingsComponent(props: { meetings: Meeting[] }) {
                         <div>
                             <b>{m.name}</b>&ensp;
                             {minutesLink && (
-                                <a
-                                    href={minutesLink}
+                                <Link
+                                    to={minutesLink}
                                     target="_blank"
-                                    rel="noopener"
+                                    rel="noreferrer"
                                 >
                                     <span className="badge badge--primary">
                                         📝 Minutes
                                     </span>
-                                </a>
+                                </Link>
                             )}
                         </div>
                         <small style={{ color: "gray" }}>@ {m.location}</small>
