@@ -1,3 +1,4 @@
-export default {
-    presets: ["@docusaurus/core/lib/babel/preset"],
+/* eslint-disable no-undef */
+module.exports = {
+    presets: [require.resolve("@docusaurus/core/lib/babel/preset")],
 };
