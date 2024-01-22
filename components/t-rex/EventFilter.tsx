@@ -1,6 +1,6 @@
 import { useColorMode } from "@docusaurus/theme-common";
 import Fuse from "fuse.js";
-import { useCallback, useContext, useEffect, useRef } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import {
     FilterContext,
     FilterSettings,
@@ -90,7 +90,7 @@ export function EventFilter(props: {
         [props.fuse, props.events, props.saved],
     );
 
-    const debouncedSearch = debounce(search, 2000);
+    const debouncedSearch = debounce(search, 500);
     const searchForEventsDebounced = useCallback(debouncedSearch, []);
     const handleSearch = (filterNew: FilterSettings, instant = false) => {
         setFilter(filterNew);
@@ -102,13 +102,12 @@ export function EventFilter(props: {
     };
 
     // code to run search on first run
-    const _isMounted = useRef(false);
+    const [hasRun, setHasRun] = useState(false);
     useEffect(() => {
-        handleSearch(filter, true);
-        _isMounted.current = true;
-        return () => {
-            _isMounted.current = false;
-        };
+        if (!hasRun) {
+            handleSearch(filter, true);
+            setHasRun(true);
+        }
     });
 
     return (
@@ -132,7 +131,10 @@ export function EventFilter(props: {
             <div className="margin-bottom--xs">
                 <select
                     onChange={(e) => {
-                        handleSearch({ ...filter, dormFilter: e.target.value });
+                        handleSearch(
+                            { ...filter, dormFilter: e.target.value },
+                            true,
+                        );
                     }}
                     value={dormFilter}
                 >
@@ -147,10 +149,13 @@ export function EventFilter(props: {
                 </select>
                 <select
                     onChange={(e) => {
-                        handleSearch({
-                            ...filter,
-                            timeFilter: e.target.value as TimeFilter,
-                        });
+                        handleSearch(
+                            {
+                                ...filter,
+                                timeFilter: e.target.value as TimeFilter,
+                            },
+                            true,
+                        );
                     }}
                     value={timeFilter}
                 >
@@ -169,7 +174,10 @@ export function EventFilter(props: {
                 </select>
                 <select
                     onChange={(e) => {
-                        handleSearch({ ...filter, tagFilter: e.target.value });
+                        handleSearch(
+                            { ...filter, tagFilter: e.target.value },
+                            true,
+                        );
                     }}
                     value={tagFilter}
                 >
@@ -188,10 +196,13 @@ export function EventFilter(props: {
                         id="showBookmarks"
                         checked={bookmarksOnly}
                         onChange={(e) => {
-                            handleSearch({
-                                ...filter,
-                                bookmarksOnly: e.target.checked,
-                            });
+                            handleSearch(
+                                {
+                                    ...filter,
+                                    bookmarksOnly: e.target.checked,
+                                },
+                                true,
+                            );
                         }}
                     />
                     <label htmlFor="showBookmarks">⭐️ only</label>
@@ -201,7 +212,7 @@ export function EventFilter(props: {
                     <button
                         className="button button--sm button--outline button--primary"
                         onClick={() => {
-                            handleSearch(unsetFilter);
+                            handleSearch(unsetFilter, true);
                         }}
                     >
                         ❌ Clear
