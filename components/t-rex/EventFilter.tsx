@@ -1,8 +1,14 @@
 import { useColorMode } from "@docusaurus/theme-common";
 import Fuse from "fuse.js";
-import { useContext, useEffect } from "react";
-import { FilterContext, TimeFilter, unsetFilter } from "./filter";
+import { useCallback, useContext, useEffect, useRef } from "react";
+import {
+    FilterContext,
+    FilterSettings,
+    TimeFilter,
+    unsetFilter,
+} from "./filter";
 import { TRexEvent } from "./types";
+import { debounce } from "lodash";
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,
@@ -24,7 +30,6 @@ export function EventFilter(props: {
     setRelativeTime: (val: boolean) => void;
 }) {
     const { filter, setFilter } = useContext(FilterContext);
-
     const { searchValue, dormFilter, timeFilter, tagFilter, bookmarksOnly } =
         filter;
 
@@ -34,45 +39,77 @@ export function EventFilter(props: {
     const timeEmoji = "⏰";
     const tagEmoji = "🏷";
 
+    const search = useCallback(
+        (filterProp: FilterSettings) => {
+            const {
+                searchValue,
+                dormFilter,
+                timeFilter,
+                tagFilter,
+                bookmarksOnly,
+            } = filterProp;
+
+            let events: TRexEvent[] = [];
+            const now = new Date();
+            if (!searchValue) events = props.events;
+            else {
+                events = props.fuse
+                    .search(searchValue)
+                    .map((result) => result.item);
+            }
+            if (dormFilter !== unsetFilter.dormFilter)
+                events = events.filter((ev) => ev.dorm === dormFilter);
+            if (timeFilter === TimeFilter.Upcoming)
+                events = events.filter((ev) => ev.start >= now);
+            else if (timeFilter === TimeFilter.Ongoing)
+                events = events.filter((ev) => ev.start < now && ev.end >= now);
+            else if (timeFilter === TimeFilter.OngoingUpcoming)
+                events = events.filter((ev) => ev.end >= now);
+            if (tagFilter !== unsetFilter.tagFilter)
+                events = events.filter((ev) => ev.tags.includes(tagFilter));
+            if (bookmarksOnly)
+                events = events.filter((ev) => props.saved.includes(ev.name));
+
+            // Don't sort if there's a search query, so the most relevant events appear at the top
+            if (!searchValue) {
+                // Partition and sort events based on whether they have started.
+                // Events that have started => events that end sooner show up first
+                // Events that have yet to start => events that start sooner show up first
+                const startedEvents = events.filter((ev) => ev.start < now);
+                startedEvents.sort((a, b) => a.end.valueOf() - b.end.valueOf());
+
+                const upcomingEvents = events.filter((ev) => ev.start >= now);
+                upcomingEvents.sort(
+                    (a, b) => a.start.valueOf() - b.start.valueOf(),
+                );
+
+                events = Array.of(...startedEvents, ...upcomingEvents);
+            }
+            props.setEvents(events);
+        },
+        [props.fuse, props.events, props.saved],
+    );
+
+    const debouncedSearch = debounce(search, 2000);
+    const searchForEventsDebounced = useCallback(debouncedSearch, []);
+    const handleSearch = (filterNew: FilterSettings, instant = false) => {
+        setFilter(filterNew);
+        if (instant) {
+            search(filterNew);
+        } else {
+            searchForEventsDebounced(filterNew);
+        }
+    };
+
+    // code to run search on first run
+    const _isMounted = useRef(false);
     useEffect(() => {
-        let events: TRexEvent[] = [];
-        const now = new Date();
-        if (!searchValue) events = props.events;
-        else {
-            events = props.fuse
-                .search(searchValue)
-                .map((result) => result.item);
-        }
-        if (dormFilter !== unsetFilter.dormFilter)
-            events = events.filter((ev) => ev.dorm === dormFilter);
-        if (timeFilter === TimeFilter.Upcoming)
-            events = events.filter((ev) => ev.start >= now);
-        else if (timeFilter === TimeFilter.Ongoing)
-            events = events.filter((ev) => ev.start < now && ev.end >= now);
-        else if (timeFilter === TimeFilter.OngoingUpcoming)
-            events = events.filter((ev) => ev.end >= now);
-        if (tagFilter !== unsetFilter.tagFilter)
-            events = events.filter((ev) => ev.tags.includes(tagFilter));
-        if (bookmarksOnly)
-            events = events.filter((ev) => props.saved.includes(ev.name));
-
-        // Don't sort if there's a search query, so the most relevant events appear at the top
-        if (!searchValue) {
-            // Partition and sort events based on whether they have started.
-            // Events that have started => events that end sooner show up first
-            // Events that have yet to start => events that start sooner show up first
-            const startedEvents = events.filter((ev) => ev.start < now);
-            startedEvents.sort((a, b) => a.end.valueOf() - b.end.valueOf());
-
-            const upcomingEvents = events.filter((ev) => ev.start >= now);
-            upcomingEvents.sort(
-                (a, b) => a.start.valueOf() - b.start.valueOf(),
-            );
-
-            events = Array.of(...startedEvents, ...upcomingEvents);
-        }
-        props.setEvents(events);
-    }, [filter, props.saved]);
+        handleSearch(filter, true);
+        _isMounted.current = true;
+        return () => {
+            _isMounted.current = false;
+        };
+    });
 
     return (
         <div
@@ -94,9 +131,9 @@ export function EventFilter(props: {
         >
             <div className="margin-bottom--xs">
                 <select
-                    onChange={(e) =>
-                        setFilter({ ...filter, dormFilter: e.target.value })
-                    }
+                    onChange={(e) => {
+                        handleSearch({ ...filter, dormFilter: e.target.value });
+                    }}
                     value={dormFilter}
                 >
                     <option value={unsetFilter.dormFilter}>
@@ -109,12 +146,12 @@ export function EventFilter(props: {
                     ))}
                 </select>
                 <select
-                    onChange={(e) =>
-                        setFilter({
+                    onChange={(e) => {
+                        handleSearch({
                             ...filter,
                             timeFilter: e.target.value as TimeFilter,
-                        })
-                    }
+                        });
+                    }}
                     value={timeFilter}
                 >
                     <option value={TimeFilter.AllEvents}>
@@ -131,9 +168,9 @@ export function EventFilter(props: {
                     </option>
                 </select>
                 <select
-                    onChange={(e) =>
-                        setFilter({ ...filter, tagFilter: e.target.value })
-                    }
+                    onChange={(e) => {
+                        handleSearch({ ...filter, tagFilter: e.target.value });
+                    }}
                     value={tagFilter}
                 >
                     <option value={unsetFilter.tagFilter}>
@@ -150,12 +187,12 @@ export function EventFilter(props: {
                         type="checkbox"
                         id="showBookmarks"
                         checked={bookmarksOnly}
-                        onChange={(e) =>
-                            setFilter({
+                        onChange={(e) => {
+                            handleSearch({
                                 ...filter,
                                 bookmarksOnly: e.target.checked,
-                            })
-                        }
+                            });
+                        }}
                     />
                     <label htmlFor="showBookmarks">⭐️ only</label>
                     &ensp;
@@ -163,7 +200,9 @@ export function EventFilter(props: {
                 <div style={{ display: "inline-block" }}>
                     <button
                         className="button button--sm button--outline button--primary"
-                        onClick={() => setFilter(unsetFilter)}
+                        onClick={() => {
+                            handleSearch(unsetFilter);
+                        }}
                     >
                         ❌ Clear
                     </button>
@@ -181,9 +220,9 @@ export function EventFilter(props: {
             <input
                 type="text"
                 value={searchValue}
-                onChange={(e) =>
-                    setFilter({ ...filter, searchValue: e.target.value })
-                }
+                onChange={(e) => {
+                    handleSearch({ ...filter, searchValue: e.target.value });
+                }}
                 style={{ fontSize: "2rem", width: "100%" }}
                 placeholder="🔍 Search"
             />
