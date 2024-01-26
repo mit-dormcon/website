@@ -58,7 +58,7 @@
     "devDependencies": {
         "@docusaurus/eslint-plugin": "^3.1.0",
         "@docusaurus/module-type-aliases": "3.1.0",
-        "@docusaurus/tsconfig": "3.1.0",
+        "@docusaurus/tsconfig": "3.1.1",
         "@docusaurus/types": "3.1.0",
         "@types/gtag.js": "^0.0.18",
         "@types/react": "^18.2.48",
