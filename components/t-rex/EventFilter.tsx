@@ -40,7 +40,7 @@ export function EventFilter(props: {
     const tagEmoji = "🏷";
 
     const search = useCallback(
-        (filterProp: FilterSettings) => {
+        async (filterProp: FilterSettings) => {
             const {
                 searchValue,
                 dormFilter,
@@ -90,25 +90,12 @@ export function EventFilter(props: {
         [props.fuse, props.events, props.saved],
     );
 
-    const debouncedSearch = debounce(search, 500);
-    const searchForEventsDebounced = useCallback(debouncedSearch, []);
-    const handleSearch = (filterNew: FilterSettings, instant = false) => {
-        setFilter(filterNew);
-        if (instant) {
-            search(filterNew);
-        } else {
-            searchForEventsDebounced(filterNew);
-        }
-    };
+    const searchForEventsDebounced = useCallback(debounce(search, 200), []);
 
-    // code to run search on first run
-    const [hasRun, setHasRun] = useState(false);
+    // runs search when filter changes
     useEffect(() => {
-        if (!hasRun) {
-            handleSearch(filter, true);
-            setHasRun(true);
-        }
-    });
+        searchForEventsDebounced(filter);
+    }, [filter]);
 
     return (
         <div
@@ -130,12 +117,9 @@ export function EventFilter(props: {
         >
             <div className="margin-bottom--xs">
                 <select
-                    onChange={(e) => {
-                        handleSearch(
-                            { ...filter, dormFilter: e.target.value },
-                            true,
-                        );
-                    }}
+                    onChange={(e) =>
+                        setFilter({ ...filter, dormFilter: e.target.value })
+                    }
                     value={dormFilter}
                 >
                     <option value={unsetFilter.dormFilter}>
@@ -148,15 +132,12 @@ export function EventFilter(props: {
                     ))}
                 </select>
                 <select
-                    onChange={(e) => {
-                        handleSearch(
-                            {
-                                ...filter,
-                                timeFilter: e.target.value as TimeFilter,
-                            },
-                            true,
-                        );
-                    }}
+                    onChange={(e) =>
+                        setFilter({
+                            ...filter,
+                            timeFilter: e.target.value as TimeFilter,
+                        })
+                    }
                     value={timeFilter}
                 >
                     <option value={TimeFilter.AllEvents}>
@@ -173,12 +154,9 @@ export function EventFilter(props: {
                     </option>
                 </select>
                 <select
-                    onChange={(e) => {
-                        handleSearch(
-                            { ...filter, tagFilter: e.target.value },
-                            true,
-                        );
-                    }}
+                    onChange={(e) =>
+                        setFilter({ ...filter, tagFilter: e.target.value })
+                    }
                     value={tagFilter}
                 >
                     <option value={unsetFilter.tagFilter}>
@@ -195,15 +173,12 @@ export function EventFilter(props: {
                         type="checkbox"
                         id="showBookmarks"
                         checked={bookmarksOnly}
-                        onChange={(e) => {
-                            handleSearch(
-                                {
-                                    ...filter,
-                                    bookmarksOnly: e.target.checked,
-                                },
-                                true,
-                            );
-                        }}
+                        onChange={(e) =>
+                            setFilter({
+                                ...filter,
+                                bookmarksOnly: e.target.checked,
+                            })
+                        }
                     />
                     <label htmlFor="showBookmarks">⭐️ only</label>
                     &ensp;
@@ -211,9 +186,7 @@ export function EventFilter(props: {
                 <div style={{ display: "inline-block" }}>
                     <button
                         className="button button--sm button--outline button--primary"
-                        onClick={() => {
-                            handleSearch(unsetFilter, true);
-                        }}
+                        onClick={() => setFilter(unsetFilter)}
                     >
                         ❌ Clear
                     </button>
@@ -231,9 +204,9 @@ export function EventFilter(props: {
             <input
                 type="text"
                 value={searchValue}
-                onChange={(e) => {
-                    handleSearch({ ...filter, searchValue: e.target.value });
-                }}
+                onChange={(e) =>
+                    setFilter({ ...filter, searchValue: e.target.value })
+                }
                 style={{ fontSize: "2rem", width: "100%" }}
                 placeholder="🔍 Search"
             />
