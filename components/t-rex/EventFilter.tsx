@@ -1,8 +1,14 @@
 import { useColorMode } from "@docusaurus/theme-common";
 import Fuse from "fuse.js";
-import { useContext, useEffect } from "react";
-import { FilterContext, TimeFilter, unsetFilter } from "./filter";
+import { useCallback, useContext, useEffect, useState } from "react";
+import {
+    FilterContext,
+    FilterSettings,
+    TimeFilter,
+    unsetFilter,
+} from "./filter";
 import { TRexEvent } from "./types";
+import { debounce } from "lodash";
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,
@@ -24,7 +30,6 @@ export function EventFilter(props: {
     setRelativeTime: (val: boolean) => void;
 }) {
     const { filter, setFilter } = useContext(FilterContext);
-
     const { searchValue, dormFilter, timeFilter, tagFilter, bookmarksOnly } =
         filter;
 
@@ -34,45 +39,63 @@ export function EventFilter(props: {
     const timeEmoji = "⏰";
     const tagEmoji = "🏷";
 
+    const search = useCallback(
+        async (filterProp: FilterSettings) => {
+            const {
+                searchValue,
+                dormFilter,
+                timeFilter,
+                tagFilter,
+                bookmarksOnly,
+            } = filterProp;
+
+            let events: TRexEvent[] = [];
+            const now = new Date();
+            if (!searchValue) events = props.events;
+            else {
+                events = props.fuse
+                    .search(searchValue)
+                    .map((result) => result.item);
+            }
+            if (dormFilter !== unsetFilter.dormFilter)
+                events = events.filter((ev) => ev.dorm === dormFilter);
+            if (timeFilter === TimeFilter.Upcoming)
+                events = events.filter((ev) => ev.start >= now);
+            else if (timeFilter === TimeFilter.Ongoing)
+                events = events.filter((ev) => ev.start < now && ev.end >= now);
+            else if (timeFilter === TimeFilter.OngoingUpcoming)
+                events = events.filter((ev) => ev.end >= now);
+            if (tagFilter !== unsetFilter.tagFilter)
+                events = events.filter((ev) => ev.tags.includes(tagFilter));
+            if (bookmarksOnly)
+                events = events.filter((ev) => props.saved.includes(ev.name));
+
+            // Don't sort if there's a search query, so the most relevant events appear at the top
+            if (!searchValue) {
+                // Partition and sort events based on whether they have started.
+                // Events that have started => events that end sooner show up first
+                // Events that have yet to start => events that start sooner show up first
+                const startedEvents = events.filter((ev) => ev.start < now);
+                startedEvents.sort((a, b) => a.end.valueOf() - b.end.valueOf());
+
+                const upcomingEvents = events.filter((ev) => ev.start >= now);
+                upcomingEvents.sort(
+                    (a, b) => a.start.valueOf() - b.start.valueOf(),
+                );
+
+                events = Array.of(...startedEvents, ...upcomingEvents);
+            }
+            props.setEvents(events);
+        },
+        [props.fuse, props.events, props.saved],
+    );
+
+    const searchForEventsDebounced = useCallback(debounce(search, 200), []);
+
+    // runs search when filter changes
     useEffect(() => {
-        let events: TRexEvent[] = [];
-        const now = new Date();
-        if (!searchValue) events = props.events;
-        else {
-            events = props.fuse
-                .search(searchValue)
-                .map((result) => result.item);
-        }
-        if (dormFilter !== unsetFilter.dormFilter)
-            events = events.filter((ev) => ev.dorm === dormFilter);
-        if (timeFilter === TimeFilter.Upcoming)
-            events = events.filter((ev) => ev.start >= now);
-        else if (timeFilter === TimeFilter.Ongoing)
-            events = events.filter((ev) => ev.start < now && ev.end >= now);
-        else if (timeFilter === TimeFilter.OngoingUpcoming)
-            events = events.filter((ev) => ev.end >= now);
-        if (tagFilter !== unsetFilter.tagFilter)
-            events = events.filter((ev) => ev.tags.includes(tagFilter));
-        if (bookmarksOnly)
-            events = events.filter((ev) => props.saved.includes(ev.name));
-
-        // Don't sort if there's a search query, so the most relevant events appear at the top
-        if (!searchValue) {
-            // Partition and sort events based on whether they have started.
-            // Events that have started => events that end sooner show up first
-            // Events that have yet to start => events that start sooner show up first
-            const startedEvents = events.filter((ev) => ev.start < now);
-            startedEvents.sort((a, b) => a.end.valueOf() - b.end.valueOf());
-
-            const upcomingEvents = events.filter((ev) => ev.start >= now);
-            upcomingEvents.sort(
-                (a, b) => a.start.valueOf() - b.start.valueOf(),
-            );
-
-            events = Array.of(...startedEvents, ...upcomingEvents);
-        }
-        props.setEvents(events);
-    }, [filter, props.saved]);
+        searchForEventsDebounced(filter);
+    }, [filter]);
 
     return (
         <div
