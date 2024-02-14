@@ -45,8 +45,15 @@ function FeatureRow() {
                 <div>
                     <ul>
                         <li>
-                            We have no more meetings for the fall semester, but
-                            keep an eye out for the spring meeting schedule!
+                            Our next meeting is on Thursday, February 15th, in
+                            Simmons @ 7:00 pm!
+                        </li>
+                        <li>
+                            Fill out the housing intent form through your{" "}
+                            <Link to="http://tinyurl.com/mit-housing">
+                                housing portal
+                            </Link>{" "}
+                            by <i>noon</i> on February 28th!
                         </li>
                     </ul>
                 </div>
