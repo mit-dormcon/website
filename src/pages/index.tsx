@@ -76,7 +76,7 @@ function FeatureRow() {
                         dormitories but would like to attend a DormCon meeting,
                         please email us (
                         <Link href="mailto:dormcon-exec@mit.edu">
-                            dormcon-exec@mit.edu
+                            dormcon-exec [at] mit [dot] edu
                         </Link>
                         ).
                     </p>
