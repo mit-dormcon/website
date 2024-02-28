@@ -11,7 +11,7 @@ export const meetings: MeetingSchedule = {
         },
         {
             name: "Thursday, February 29th, 2024 at 7:00pm",
-            location: "New House",
+            location: "East Campus (Stud Space)",
         },
         {
             name: "Thursday, March 14th, 2024 at 7:00pm",

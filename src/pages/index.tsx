@@ -45,8 +45,8 @@ function FeatureRow() {
                 <div>
                     <ul>
                         <li>
-                            Our next meeting is on Thursday, February 15th, in
-                            Simmons @ 7:00 pm!
+                            Our next meeting is on Thursday, February 29th, in
+                            the EC Stud Space @ 7:00 pm!
                         </li>
                         <li>
                             Fill out the housing intent form through your{" "}
