@@ -22,7 +22,7 @@
     "dependencies": {
         "@babel/core": "7.23.9",
         "@babel/helpers": "7.23.9",
-        "@docusaurus/core": "^3.1.1",
+        "@docusaurus/core": "3.1.1",
         "@docusaurus/cssnano-preset": "3.1.1",
         "@docusaurus/plugin-debug": "3.1.1",
         "@docusaurus/plugin-google-analytics": "3.1.1",
@@ -57,12 +57,12 @@
         ]
     },
     "devDependencies": {
-        "@types/lodash": "^4.14.202",
-        "@docusaurus/eslint-plugin": "^3.1.1",
+        "@docusaurus/eslint-plugin": "3.1.1",
         "@docusaurus/module-type-aliases": "3.1.1",
         "@docusaurus/tsconfig": "3.1.1",
         "@docusaurus/types": "3.1.1",
         "@types/gtag.js": "^0.0.19",
+        "@types/lodash": "^4.14.202",
         "@types/react": "^18.2.55",
         "@typescript-eslint/eslint-plugin": "^7.0.0",
         "@typescript-eslint/parser": "^6.21.0",
