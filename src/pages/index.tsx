@@ -48,13 +48,6 @@ function FeatureRow() {
                             Our next meeting is on Thursday, February 29th, in
                             the EC Stud Space @ 7:00 pm!
                         </li>
-                        <li>
-                            Fill out the housing intent form through your{" "}
-                            <Link to="http://tinyurl.com/mit-housing">
-                                housing portal
-                            </Link>{" "}
-                            by <i>noon</i> on February 28th!
-                        </li>
                     </ul>
                 </div>
             ),

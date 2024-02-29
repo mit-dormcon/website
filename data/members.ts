@@ -3,19 +3,19 @@ import type { DormConMember } from "./types";
 export const members: DormConMember[] = [
     {
         dorm: "Baker",
-        president: "Chloe Swanson & Katie Crowley",
+        president: "Sofia Lara & Camila Pierce",
         kerbs: ["baker-prez"],
         url: "https://baker.mit.edu/",
     },
     {
         dorm: "Burton-Conner",
-        president: "Cameron Kleiman",
+        president: "Kyna McGill",
         kerbs: ["bc-president"],
         url: "https://bc.mit.edu/",
     },
     {
         dorm: "East Campus",
-        president: "Jordan Tierney",
+        president: "River Adkins",
         kerbs: ["ec-president"],
         url: "https://ec.mit.edu/",
     },
@@ -27,13 +27,13 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "Maseeh Hall",
-        president: "Mark Mosser",
+        president: "Kennedy Adkinson",
         kerbs: ["maseeh_president"],
         url: "https://maseeh.mit.edu/",
     },
     {
         dorm: "McCormick",
-        president: "Maria Garcia-Garcia & Zitong Chen",
+        president: "Tilly Swanson, Jyotsna Nair, & Rose Alsalman",
         kerbs: ["mccormick-president"],
         url: "https://mccormick.mit.edu/",
     },
@@ -45,19 +45,19 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "Next House",
-        president: "Sruthi Parthasarathi",
+        president: "Shorna Alam",
         kerbs: ["next-president"],
         url: "https://next.mit.edu/",
     },
     {
         dorm: "Random Hall",
-        president: "Sara Manos",
+        president: "Bianca Santi & Lauren Shrack",
         kerbs: ["random-president"],
         url: "http://www.mit.edu/~random-hall/",
     },
     {
         dorm: "Simmons Hall",
-        president: "Ananda Santos",
+        president: "Gabbie Girard",
         kerbs: ["simmons-president"],
         url: "http://simmons.mit.edu/",
     },
