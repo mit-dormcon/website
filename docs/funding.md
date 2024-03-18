@@ -7,11 +7,11 @@ description: Fund your event with money from DormCon!
 
 DormCon is committed to supporting events in the dorm community through funding
 and advisory roles.
-[The following funding guidelines](/pdf/DormconFundingF23.pdf) were adopted as
-of fall 2023; if you plan to apply for event funding, you must read these
+[The following funding guidelines](/pdf/DormconFundingS24.pdf) were adopted as
+of spring 2024; if you plan to apply for event funding, you must read these
 updated guidelines. Some important facts are noted below:
 
--   Funding applications must be submitted at least 48 hours before the meeting
+-   Funding applications must be submitted at least one week before the meeting
     at which the application is to be discussed.
 
 -   If possible, event applications should be submitted by the second DormCon
@@ -24,7 +24,12 @@ updated guidelines. Some important facts are noted below:
     in order to allow sufficient time for DormCon review and potential approval.
 
 -   No event will be funded beyond 50% of its total event budget, up to a
-    maximum of $1,750.
+    maximum of $500 for parties and $2000 for all other events. Party organizers
+    can email dormcon-treasurer@mit.edu with an explanation to request that
+    their event be considered for the full $2000.
+
+-   In order to actually get the funding transferred into your account, you must
+    fill out a post-event report.
 
 -   Events must be classified into one of four categories; in general,
     preference will be given to events which are advertised to the entire dorm
@@ -35,3 +40,8 @@ updated guidelines. Some important facts are noted below:
 
 **To apply for event funding, please fill out
 [our application](https://forms.gle/fRBN2P9PVy2jpeSKA).**
+
+## Post-Event Report
+
+**Once the event is over, please fill out a
+[post-event report](https://forms.gle/onmGx4fsTE82Jdq97).**
