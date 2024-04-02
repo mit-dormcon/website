@@ -63,7 +63,7 @@
     "@docusaurus/types": "3.2.0",
     "@types/gtag.js": "^0.0.19",
     "@types/lodash": "^4.17.0",
-    "@types/react": "^18.2.73",
+    "@types/react": "^18.2.74",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.57.0",
