@@ -1302,6 +1302,16 @@
     postcss-sort-media-queries "^4.4.1"
     tslib "^2.6.0"
 
+"@docusaurus/cssnano-preset@3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@docusaurus/cssnano-preset/-/cssnano-preset-3.2.1.tgz#b36041004e837574d0147fcc4932210cdb1efbc1"
+  integrity sha512-wTL9KuSSbMJjKrfu385HZEzAoamUsbKqwscAQByZw4k6Ja/RWpqgVvt/CbAC+aYEH6inLzOt+MjuRwMOrD3VBA==
+  dependencies:
+    cssnano-preset-advanced "^5.3.10"
+    postcss "^8.4.26"
+    postcss-sort-media-queries "^4.4.1"
+    tslib "^2.6.0"
+
 "@docusaurus/eslint-plugin@3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@docusaurus/eslint-plugin/-/eslint-plugin-3.2.0.tgz#a988a1225153dbbf4a916fec2562a136d57bcd19"
