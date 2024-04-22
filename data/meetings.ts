@@ -27,7 +27,7 @@ export const meetings: MeetingSchedule = {
         },
         {
             name: "Thursday, May 9th, 2024 at 7:00pm",
-            location: "TBD",
+            location: "1-190",
         },
     ],
     gcalLink:
