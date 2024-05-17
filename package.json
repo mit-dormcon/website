@@ -33,7 +33,7 @@
         "@docusaurus/theme-classic": "3.3.2",
         "@docusaurus/theme-search-algolia": "3.3.2",
         "@mdx-js/react": "^3.0.1",
-        "chart.js": "^4.4.2",
+        "chart.js": "^4.4.3",
         "clsx": "^2.1.1",
         "dayjs": "^1.11.11",
         "fuse.js": "^7.0.0",
