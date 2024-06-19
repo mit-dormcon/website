@@ -36,23 +36,25 @@ export default function RexEventChart() {
             setApi(d);
             const byDorm = new Map<string, number>();
             for (const event of d.events) {
-                let dorm = event.dorm;
-                if (
-                    [
-                        "La Casa",
-                        "German House",
-                        "French House",
-                        "iHouse",
-                        "Juniper",
-                        "Chocolate City",
-                    ].includes(dorm)
-                )
-                    dorm = "New House";
-                else if (dorm === "New Vassar") dorm = "West Garage";
-                else if (dorm === "Campus Wide!") continue;
+                for (let dorm in event.dorm) {
+                    if (
+                        [
+                            "La Casa",
+                            "German House",
+                            "French House",
+                            "iHouse",
+                            "Juniper",
+                            "Chocolate City",
+                        ].includes(dorm)
+                    )
+                        dorm = "New House";
+                    else if (dorm === "New Vassar") dorm = "West Garage";
+                    else if (dorm === "Campus Wide!") continue;
 
-                if (byDorm.has(dorm)) byDorm.set(dorm, byDorm.get(dorm) + 1);
-                else byDorm.set(dorm, 1);
+                    if (byDorm.has(dorm))
+                        byDorm.set(dorm, byDorm.get(dorm) + 1);
+                    else byDorm.set(dorm, 1);
+                }
             }
             setEventsByDorm(byDorm);
         });
