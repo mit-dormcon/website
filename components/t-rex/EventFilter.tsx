@@ -1,6 +1,6 @@
 import { useColorMode } from "@docusaurus/theme-common";
 import Fuse from "fuse.js";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import {
     FilterContext,
     FilterSettings,

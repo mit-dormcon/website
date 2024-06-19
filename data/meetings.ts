@@ -1,6 +1,6 @@
 import type { MeetingSchedule } from "./types";
 
-const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
+// const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
 export const meetings: MeetingSchedule = {
     year: "Spring 2024",
