@@ -267,15 +267,21 @@ function EventCard(props: EventCardProps) {
                 className="card__footer"
                 style={{ display: "flex", flexWrap: "wrap" }}
             >
-                <ColoredBadge
-                    className="badge badge--primary margin-right--sm"
-                    color={props.colors.dorms.get(props.event.dorm)}
-                    onClick={() =>
-                        setFilter({ ...filter, dormFilter: props.event.dorm })
-                    }
-                >
-                    {props.event.dorm}
-                </ColoredBadge>
+                {props.event.dorm.map((dorm) => (
+                    <ColoredBadge
+                        className="badge badge--primary margin-right--sm"
+                        key={dorm}
+                        color={props.colors.dorms.get(dorm)}
+                        onClick={() =>
+                            setFilter({
+                                ...filter,
+                                dormFilter: dorm,
+                            })
+                        }
+                    >
+                        {dorm}
+                    </ColoredBadge>
+                ))}
                 {props.event.group && (
                     <div className="margin-right--sm">
                         🏘️ {props.event.group}

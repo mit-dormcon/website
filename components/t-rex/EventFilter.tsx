@@ -58,7 +58,9 @@ export function EventFilter(props: {
                     .map((result) => result.item);
             }
             if (dormFilter !== unsetFilter.dormFilter)
-                events = events.filter((ev) => ev.dorm === dormFilter);
+                events = events.filter((ev) =>
+                    ev.dorm.some((dorm) => dorm === dormFilter),
+                );
             if (timeFilter === TimeFilter.Upcoming)
                 events = events.filter((ev) => ev.start >= now);
             else if (timeFilter === TimeFilter.Ongoing)
