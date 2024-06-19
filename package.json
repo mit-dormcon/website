@@ -20,7 +20,7 @@
         "node": ">=18.0"
     },
     "dependencies": {
-        "@babel/core": "7.24.5",
+        "@babel/core": "7.24.7",
         "@babel/helpers": "7.24.7",
         "@docusaurus/core": "3.3.2",
         "@docusaurus/cssnano-preset": "3.3.2",
