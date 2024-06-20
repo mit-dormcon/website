@@ -2266,6 +2266,16 @@
     "@docusaurus/utils-validation" "3.3.2"
     tslib "^2.6.0"
 
+"@docusaurus/plugin-google-tag-manager@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-google-tag-manager/-/plugin-google-tag-manager-3.4.0.tgz#cebb03a5ffa1e70b37d95601442babea251329ff"
+  integrity sha512-O9tX1BTwxIhgXpOLpFDueYA9DWk69WCbDRrjYoMQtFHSkTyE7RhNgyjSPREUWJb9i+YUg3OrsvrBYRl64FCPCQ==
+  dependencies:
+    "@docusaurus/core" "3.4.0"
+    "@docusaurus/types" "3.4.0"
+    "@docusaurus/utils-validation" "3.4.0"
+    tslib "^2.6.0"
+
 "@docusaurus/plugin-sitemap@3.3.2":
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-sitemap/-/plugin-sitemap-3.3.2.tgz#f64fba6f03ebc14fdf55434aa2219bf80f752a13"
