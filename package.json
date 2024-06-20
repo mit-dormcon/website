@@ -29,7 +29,7 @@
         "@docusaurus/plugin-google-gtag": "3.4.0",
         "@docusaurus/plugin-google-tag-manager": "3.3.2",
         "@docusaurus/plugin-sitemap": "3.3.2",
-        "@docusaurus/preset-classic": "3.3.2",
+        "@docusaurus/preset-classic": "3.4.0",
         "@docusaurus/theme-classic": "3.3.2",
         "@docusaurus/theme-search-algolia": "3.3.2",
         "@mdx-js/react": "^3.0.1",
