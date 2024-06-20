@@ -2234,6 +2234,16 @@
     "@docusaurus/utils-validation" "3.3.2"
     tslib "^2.6.0"
 
+"@docusaurus/plugin-google-analytics@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-google-analytics/-/plugin-google-analytics-3.4.0.tgz#5f59fc25329a59decc231936f6f9fb5663da3c55"
+  integrity sha512-mCArluxEGi3cmYHqsgpGGt3IyLCrFBxPsxNZ56Mpur0xSlInnIHoeLDH7FvVVcPJRPSQ9/MfRqLsainRw+BojA==
+  dependencies:
+    "@docusaurus/core" "3.4.0"
+    "@docusaurus/types" "3.4.0"
+    "@docusaurus/utils-validation" "3.4.0"
+    tslib "^2.6.0"
+
 "@docusaurus/plugin-google-gtag@3.3.2":
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-google-gtag/-/plugin-google-gtag-3.3.2.tgz#f8126dfe1dfa6e722157d7301430da40b97354ba"
