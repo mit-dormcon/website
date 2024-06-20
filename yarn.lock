@@ -2224,6 +2224,18 @@
     react-json-view-lite "^1.2.0"
     tslib "^2.6.0"
 
+"@docusaurus/plugin-debug@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@docusaurus/plugin-debug/-/plugin-debug-3.4.0.tgz#74e4ec5686fa314c26f3ac150bacadbba7f06948"
+  integrity sha512-uV7FDUNXGyDSD3PwUaf5YijX91T5/H9SX4ErEcshzwgzWwBtK37nUWPU3ZLJfeTavX3fycTOqk9TglpOLaWkCg==
+  dependencies:
+    "@docusaurus/core" "3.4.0"
+    "@docusaurus/types" "3.4.0"
+    "@docusaurus/utils" "3.4.0"
+    fs-extra "^11.1.1"
+    react-json-view-lite "^1.2.0"
+    tslib "^2.6.0"
+
 "@docusaurus/plugin-google-analytics@3.3.2":
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-google-analytics/-/plugin-google-analytics-3.3.2.tgz#6e51ee8593c79172ed2b2ac4d33e300f04bfbc87"
