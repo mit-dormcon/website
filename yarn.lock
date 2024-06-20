@@ -2153,6 +2153,19 @@
     react-helmet-async "*"
     react-loadable "npm:@docusaurus/react-loadable@6.0.0"
 
+"@docusaurus/module-type-aliases@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@docusaurus/module-type-aliases/-/module-type-aliases-3.4.0.tgz#2653bde58fc1aa3dbc626a6c08cfb63a37ae1bb8"
+  integrity sha512-A1AyS8WF5Bkjnb8s+guTDuYmUiwJzNrtchebBHpc0gz0PyHJNMaybUlSrmJjHVcGrya0LKI4YcR3lBDQfXRYLw==
+  dependencies:
+    "@docusaurus/types" "3.4.0"
+    "@types/history" "^4.7.11"
+    "@types/react" "*"
+    "@types/react-router-config" "*"
+    "@types/react-router-dom" "*"
+    react-helmet-async "*"
+    react-loadable "npm:@docusaurus/react-loadable@6.0.0"
+
 "@docusaurus/plugin-content-blog@3.3.2":
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-content-blog/-/plugin-content-blog-3.3.2.tgz#6496714b071447687ead1472e5756bfb1ae065d0"
