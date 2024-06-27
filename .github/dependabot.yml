@@ -4,6 +4,10 @@ updates:
       directory: "/"
       schedule:
           interval: daily
+      groups:
+          docusaurus:
+              patterns:
+                - '@docusaurus/*' # Make sure all docusaurus packages are updated together
       open-pull-requests-limit: 10
     - package-ecosystem: github-actions
       directory: "/"
