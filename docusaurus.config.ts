@@ -168,7 +168,7 @@ const config: Config = {
                     showReadingTime: true,
                     // Please change this to your repo.
                     editUrl:
-                        "https://github.com/mit-dormcon/website/edit/master/blog/",
+                        "https://github.com/mit-dormcon/website/edit/main/blog/",
                 },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),

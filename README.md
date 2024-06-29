@@ -15,7 +15,7 @@ committing your code.
 ## Folder structure
 
 -   `.github/workflows` - Automated build and deploy scripts the site. Pushing
-    to master automatically deploys the site (and changes go live!) to GitHub
+    to main automatically deploys the site (and changes go live!) to GitHub
     Pages.
 -   `components` - React components for displaying dynamic data, like the list
     of officers or list of meetings
