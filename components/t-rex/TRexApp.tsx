@@ -493,8 +493,14 @@ function GCalButton(props: { event: TRexEvent }) {
     );
 }
 
-export const lightGradient = ["orangered", "var(--ifm-color-primary-darkest)"];
-export const darkGradient = ["orange", "var(--ifm-color-primary-lightest)"];
+export const lightGradient = [
+    "var(--ifm-color-primary-darkest)",
+    "var(--ifm-color-secondary-darkest)",
+];
+export const darkGradient = [
+    "var(--ifm-color-primary-lightest)",
+    "var(--ifm-color-secondary-lightest)",
+];
 
 /**
  * A big fancy button that used to draw users to the REX events page
