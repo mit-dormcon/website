@@ -123,6 +123,7 @@ export function EventFilter(props: {
                         setFilter({ ...filter, dormFilter: e.target.value })
                     }
                     value={dormFilter}
+                    className="margin-right--sm"
                 >
                     <option value={unsetFilter.dormFilter}>
                         {dormEmoji} {unsetFilter.dormFilter}
@@ -141,6 +142,7 @@ export function EventFilter(props: {
                         })
                     }
                     value={timeFilter}
+                    className="margin-right--sm"
                 >
                     <option value={TimeFilter.AllEvents}>
                         {timeEmoji} {TimeFilter.AllEvents}
@@ -160,6 +162,7 @@ export function EventFilter(props: {
                         setFilter({ ...filter, tagFilter: e.target.value })
                     }
                     value={tagFilter}
+                    className="margin-right--sm"
                 >
                     <option value={unsetFilter.tagFilter}>
                         {tagEmoji} {unsetFilter.tagFilter}
@@ -170,7 +173,7 @@ export function EventFilter(props: {
                         </option>
                     ))}
                 </select>
-                <div style={{ display: "inline-block" }}>
+                <div style={{ display: "inline-block" }} className="margin-right--sm">
                     <input
                         type="checkbox"
                         id="showBookmarks"
@@ -187,13 +190,13 @@ export function EventFilter(props: {
                 </div>
                 <div style={{ display: "inline-block" }}>
                     <button
-                        className="button button--sm button--outline button--primary"
+                        className="button button--sm button--outline button--primary margin-right--sm"
                         onClick={() => setFilter(unsetFilter)}
                     >
                         ❌ Clear
                     </button>
                     <button
-                        className="button button--sm button--outline button--primary"
+                        className="button button--sm button--outline button--primary margin-right--sm"
                         onClick={() =>
                             props.setRelativeTime(!props.showRelativeTime)
                         }

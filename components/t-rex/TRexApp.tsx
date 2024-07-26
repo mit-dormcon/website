@@ -97,8 +97,8 @@ export function TRexApp(props: TRexAppProps) {
         <FilterContext.Provider value={{ filter, setFilter }}>
             <div className="margin-vert--md">
                 <p className="margin-bottom--sm">
-                    <Link to="/rex/toolbox">🧰</Link>&emsp;
-                    <Link to="/rex/help">❓</Link>&emsp;
+                    <Link className="button button--primary button--sm margin-right--sm" to="/rex/toolbox">🧰 Toolbox</Link>
+                    <Link className="button button--primary button--sm margin-right--sm" to="/rex/help">❓ Help</Link>
                     <b>{events.length}</b>/{props.data.events.length} events,
                     published {new Date(props.data.published).toLocaleString()}
                 </p>
