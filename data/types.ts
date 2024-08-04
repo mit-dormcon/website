@@ -25,7 +25,7 @@ export type Officer = {
     /** The dorm the DormCon officer belongs to */
     affiliation: string;
     /** The class year of the DormCon officer, as a calendar year */
-    year: number;
+    year?: number;
     kerb: string;
 };
 

@@ -34,7 +34,7 @@ export default function RexEventChart() {
     useEffect(() => {
         if (!data || isLoading) return;
         setApi(data);
-        api.colors.dorms.set(
+        api?.colors.dorms.set(
             "West Garage",
             data.colors.dorms.get("New Vassar") ?? "",
         );

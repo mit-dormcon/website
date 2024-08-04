@@ -105,7 +105,7 @@ export function TRexApp() {
     const { search } = useLocation();
     const { data, isLoading, error } = useRexData();
     const [events, setEvents] = useState<TRexProcessedEvent[] | undefined>(
-        data?.events ?? [],
+        isLoading ? undefined : data?.events,
     );
     const [savedEvents, setSavedEvents] = useState<string[]>([]);
     const [showRelativeTime, setShowRelativeTime] = useState(true);
@@ -114,7 +114,7 @@ export function TRexApp() {
         timeFilter: TimeFilter.OngoingUpcoming,
     });
 
-    const fuse = new Fuse(data?.events ?? [], {
+    const fuse = new Fuse(isLoading ? [] : (data?.events ?? []), {
         keys: [
             { name: "name", weight: 2 },
             "dorm",
@@ -126,11 +126,13 @@ export function TRexApp() {
     });
 
     useEffect(() => {
+        if (isLoading) return;
         const savedStorage = localStorage.getItem("savedEvents");
         if (savedStorage) setSavedEvents(JSON.parse(savedStorage));
     }, [isLoading]);
 
     useEffect(() => {
+        if (isLoading) return;
         localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
     }, [savedEvents, isLoading]);
 
@@ -139,6 +141,8 @@ export function TRexApp() {
     useEffect(() => {
         const params = new URLSearchParams(search);
         const paramsFilter: Partial<FilterSettings> = {};
+
+        if (isLoading) return;
 
         if (data?.tags.includes(params.get("tag") ?? ""))
             paramsFilter.tagFilter = params.get("tag") ?? undefined;
@@ -182,7 +186,7 @@ export function TRexApp() {
         );
     }
 
-    if (isLoading || !events)
+    if (isLoading)
         return (
             <div>
                 <p>Loading...</p>
@@ -234,11 +238,11 @@ export function TRexApp() {
 }
 
 type EventLayoutProps = {
-    events: TRexProcessedEvent[];
+    events?: TRexProcessedEvent[];
     saved: string[];
     setSaved: (saved: string[]) => void;
     showRelativeTime: boolean;
-    isBookmarkFilterOn: boolean;
+    isBookmarkFilterOn?: boolean;
     setEvents: (events: TRexProcessedEvent[]) => void;
 };
 
@@ -250,7 +254,7 @@ function EventLayout(props: EventLayoutProps) {
     const unsaveFunc = (n: string) => {
         const events_remaining = props.saved.filter((name) => name !== n);
         props.setSaved(events_remaining);
-        if (props.isBookmarkFilterOn) {
+        if (props.isBookmarkFilterOn && props.events) {
             props.setEvents(
                 props.events.filter((ev) => events_remaining.includes(ev.name)),
             );
@@ -321,7 +325,6 @@ function EventCard(props: EventCardProps) {
     const { data, isLoading } = useRexData();
 
     const { filter, setFilter } = useContext(FilterContext);
-    if (isLoading || !data) return;
 
     const cardStyle: CSSProperties = {};
     if (props.event.tags.includes("signature")) {
@@ -342,6 +345,7 @@ function EventCard(props: EventCardProps) {
         );
         return () => clearInterval(intervalId);
     }, [props]);
+    if (isLoading) return;
 
     return (
         <div className="card margin-vert--sm" style={cardStyle}>

@@ -37,4 +37,4 @@ export const unsetFilter: FilterSettings = {
 export const FilterContext = createContext<{
     filter: FilterSettings;
     setFilter: (f: FilterSettings) => void;
-}>(null);
+}>({} as { filter: FilterSettings; setFilter: (f: FilterSettings) => void });

@@ -19,7 +19,7 @@ import { useRexData } from "./TRexApp";
  * back up through the `setEvents` prop.
  */
 export function EventFilter(props: {
-    events: TRexProcessedEvent[];
+    events?: TRexProcessedEvent[];
     /** Fuse.js search object */
     fuse: Fuse<TRexProcessedEvent>;
     saved: string[];
@@ -52,6 +52,7 @@ export function EventFilter(props: {
 
             let events: TRexProcessedEvent[] = [];
             const now = new Date();
+            if (isLoading) return;
             if (!searchValue) events = data?.events ?? [];
             else {
                 events = props.fuse
@@ -93,7 +94,7 @@ export function EventFilter(props: {
                 events = Array.of(...startedEvents, ...upcomingEvents);
             }
 
-            setPreviousSearchValue(searchValue);
+            setPreviousSearchValue(searchValue ?? "");
 
             props.setEvents(events);
         },
@@ -143,7 +144,7 @@ export function EventFilter(props: {
                         {dormEmoji} {unsetFilter.dormFilter}
                     </option>
                     {!isLoading &&
-                        data?.dorms?.map((dorm, idx) => (
+                        data?.dorms.map((dorm, idx) => (
                             <option key={idx} value={dorm}>
                                 {dormEmoji} {dorm}
                             </option>
