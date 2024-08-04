@@ -34,7 +34,7 @@ export function EventFilter(props: {
 
     const { colorMode } = useColorMode();
     const { data, isLoading } = useRexData();
-    const [previousSearchValue, setPreviousSearchValue] = useState<string>();
+    const [previousSearchValue, setPreviousSearchValue] = useState<string>("");
 
     const dormEmoji = "🏠";
     const timeEmoji = "⏰";
@@ -210,7 +210,10 @@ export function EventFilter(props: {
                 <div style={{ display: "inline-block" }}>
                     <button
                         className="button button--sm button--outline button--primary margin-right--sm"
-                        onClick={() => setFilter(unsetFilter)}
+                        onClick={() => {
+                            setPreviousSearchValue(""); // makes search instant
+                            setFilter(unsetFilter);
+                        }}
                     >
                         ❌ Clear
                     </button>
