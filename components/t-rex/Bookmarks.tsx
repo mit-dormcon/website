@@ -19,7 +19,7 @@ export function BookmarkDropdownItem(props: {
     const bookmarkText = "⭐️ Bookmark";
     const removeBookmarkText = "❌ Unbookmark";
 
-    function handleClick(e) {
+    function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
         e.preventDefault();
         if (props.isSaved) props.unsave(props.name);
         else {
@@ -44,7 +44,7 @@ export function BookmarkDropdownItem(props: {
  * import a new set of bookmarks.
  */
 export function BookmarksTool() {
-    const [saved, setSaved] = useState<string>(
+    const [saved, setSaved] = useState<string | null>(
         localStorage.getItem("savedEvents"),
     );
 
@@ -81,7 +81,7 @@ export function BookmarksTool() {
                 </button>
                 <button
                     className="button button--outline button--primary"
-                    onClick={() => navigator.clipboard.writeText(saved)}
+                    onClick={() => navigator.clipboard.writeText(saved ?? "")}
                 >
                     📋 Copy To Clipboard
                 </button>

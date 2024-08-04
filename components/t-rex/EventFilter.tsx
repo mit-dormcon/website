@@ -1,14 +1,15 @@
 import { useColorMode } from "@docusaurus/theme-common";
 import Fuse from "fuse.js";
-import { useCallback, useContext, useEffect } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import {
     FilterContext,
     FilterSettings,
     TimeFilter,
     unsetFilter,
 } from "./filter";
-import { TRexEvent } from "./types";
+import { TRexProcessedEvent } from "./types";
 import { debounce } from "lodash";
+import { useRexData } from "./TRexApp";
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,
@@ -18,13 +19,11 @@ import { debounce } from "lodash";
  * back up through the `setEvents` prop.
  */
 export function EventFilter(props: {
-    events: TRexEvent[];
+    events: TRexProcessedEvent[];
     /** Fuse.js search object */
-    fuse: Fuse<TRexEvent>;
+    fuse: Fuse<TRexProcessedEvent>;
     saved: string[];
-    setEvents: (events: TRexEvent[]) => void;
-    dorms: string[];
-    tags: string[];
+    setEvents: (events: TRexProcessedEvent[]) => void;
     /** Determines whether to show a human-readable time on the event card */
     showRelativeTime: boolean;
     setRelativeTime: (val: boolean) => void;
@@ -34,6 +33,8 @@ export function EventFilter(props: {
         filter;
 
     const { colorMode } = useColorMode();
+    const { data, isLoading } = useRexData();
+    const [previousSearchValue, setPreviousSearchValue] = useState<string>();
 
     const dormEmoji = "🏠";
     const timeEmoji = "⏰";
@@ -49,9 +50,9 @@ export function EventFilter(props: {
                 bookmarksOnly,
             } = filterProp;
 
-            let events: TRexEvent[] = [];
+            let events: TRexProcessedEvent[] = [];
             const now = new Date();
-            if (!searchValue) events = props.events;
+            if (!searchValue) events = data?.events ?? [];
             else {
                 events = props.fuse
                     .search(searchValue)
@@ -62,15 +63,19 @@ export function EventFilter(props: {
                     ev.dorm.some((dorm) => dorm === dormFilter),
                 );
             if (timeFilter === TimeFilter.Upcoming)
-                events = events.filter((ev) => ev.start >= now);
+                events = events?.filter((ev) => ev.start >= now);
             else if (timeFilter === TimeFilter.Ongoing)
                 events = events.filter((ev) => ev.start < now && ev.end >= now);
             else if (timeFilter === TimeFilter.OngoingUpcoming)
                 events = events.filter((ev) => ev.end >= now);
             if (tagFilter !== unsetFilter.tagFilter)
-                events = events.filter((ev) => ev.tags.includes(tagFilter));
-            if (bookmarksOnly)
+                events = events.filter((ev) =>
+                    ev.tags.includes(tagFilter ?? ""),
+                );
+            if (bookmarksOnly) {
+                console.log(props.saved);
                 events = events.filter((ev) => props.saved.includes(ev.name));
+            }
 
             // Don't sort if there's a search query, so the most relevant events appear at the top
             if (!searchValue) {
@@ -87,16 +92,25 @@ export function EventFilter(props: {
 
                 events = Array.of(...startedEvents, ...upcomingEvents);
             }
+
+            setPreviousSearchValue(searchValue);
+
             props.setEvents(events);
         },
         [props.fuse, props.events, props.saved],
     );
 
-    const searchForEventsDebounced = useCallback(debounce(search, 200), []);
+    const searchForEventsDebounced = useCallback(debounce(search, 1000), [
+        props.saved,
+    ]);
 
     // runs search when filter changes
     useEffect(() => {
-        searchForEventsDebounced(filter);
+        if (searchValue == previousSearchValue) {
+            search(filter);
+        } else {
+            searchForEventsDebounced(filter);
+        }
     }, [filter]);
 
     return (
@@ -122,17 +136,18 @@ export function EventFilter(props: {
                     onChange={(e) =>
                         setFilter({ ...filter, dormFilter: e.target.value })
                     }
-                    value={dormFilter}
+                    value={dormFilter ?? ""}
                     className="margin-right--sm"
                 >
-                    <option value={unsetFilter.dormFilter}>
+                    <option value={unsetFilter.dormFilter ?? ""}>
                         {dormEmoji} {unsetFilter.dormFilter}
                     </option>
-                    {props.dorms.map((dorm, idx) => (
-                        <option key={idx} value={dorm}>
-                            {dormEmoji} {dorm}
-                        </option>
-                    ))}
+                    {!isLoading &&
+                        data?.dorms?.map((dorm, idx) => (
+                            <option key={idx} value={dorm}>
+                                {dormEmoji} {dorm}
+                            </option>
+                        ))}
                 </select>
                 <select
                     onChange={(e) =>
@@ -141,7 +156,7 @@ export function EventFilter(props: {
                             timeFilter: e.target.value as TimeFilter,
                         })
                     }
-                    value={timeFilter}
+                    value={timeFilter ?? ""}
                     className="margin-right--sm"
                 >
                     <option value={TimeFilter.AllEvents}>
@@ -161,23 +176,27 @@ export function EventFilter(props: {
                     onChange={(e) =>
                         setFilter({ ...filter, tagFilter: e.target.value })
                     }
-                    value={tagFilter}
+                    value={tagFilter ?? ""}
                     className="margin-right--sm"
                 >
-                    <option value={unsetFilter.tagFilter}>
+                    <option value={unsetFilter.tagFilter ?? ""}>
                         {tagEmoji} {unsetFilter.tagFilter}
                     </option>
-                    {props.tags.map((tag, idx) => (
-                        <option key={idx} value={tag}>
-                            {tagEmoji} {tag}
-                        </option>
-                    ))}
+                    {!isLoading &&
+                        data?.tags.map((tag, idx) => (
+                            <option key={idx} value={tag}>
+                                {tagEmoji} {tag}
+                            </option>
+                        ))}
                 </select>
-                <div style={{ display: "inline-block" }} className="margin-right--sm">
+                <div
+                    style={{ display: "inline-block" }}
+                    className="margin-right--sm"
+                >
                     <input
                         type="checkbox"
                         id="showBookmarks"
-                        checked={bookmarksOnly}
+                        checked={bookmarksOnly ?? false}
                         onChange={(e) =>
                             setFilter({
                                 ...filter,
@@ -208,7 +227,7 @@ export function EventFilter(props: {
             </div>
             <input
                 type="text"
-                value={searchValue}
+                value={searchValue ?? ""}
                 onChange={(e) =>
                     setFilter({ ...filter, searchValue: e.target.value })
                 }

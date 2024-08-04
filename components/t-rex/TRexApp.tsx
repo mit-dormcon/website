@@ -17,37 +17,96 @@ import {
 import { useColorMode } from "@docusaurus/theme-common";
 import styles from "../../src/pages/styles.module.css";
 import { useLocation } from "@docusaurus/router";
-import type { TRexAPIResponse, TRexAPIColors, TRexEvent } from "./types";
+import type {
+    TRexAPIResponse,
+    TRexRawEvent,
+    TRexProcessedEvent,
+    TRexProcessedData,
+} from "./types";
 import Heading from "@theme/Heading";
+import useSWR from "swr";
 
 declare const gtag: Gtag.Gtag;
 
 dayjs.extend(relativeTime);
 dayjs.extend(duration);
 
-type TRexAppProps = {
-    data?: TRexAPIResponse;
-    fuse?: Fuse<TRexEvent>;
+const api_url = "https://rex.mit.edu/api.json";
+
+export const useRexData = () => {
+    const { data, isLoading, error, isValidating } = useSWR<TRexProcessedData>(
+        api_url,
+        async (url: string) => {
+            const res = await fetch(url);
+            const json: TRexAPIResponse = await res.json();
+            // return json;
+
+            return {
+                name: json.name,
+                published: new Date(json.published),
+                events: json.events.map((ev: TRexRawEvent) => {
+                    const newEvent: TRexProcessedEvent = {
+                        ...ev,
+                        start: new Date(ev.start),
+                        end: new Date(ev.end),
+                    };
+                    return newEvent;
+                }),
+                dorms: json.dorms,
+                tags: json.tags,
+                colors: {
+                    dorms: new Map<string, string>(
+                        Object.entries(json.colors.dorms),
+                    ),
+                    tags: new Map<string, string>(
+                        Object.entries(json.colors.tags),
+                    ),
+                },
+                start: new Date(json.start),
+                end: new Date(json.end),
+            };
+        },
+    );
+
+    return { data, isLoading, error, isValidating };
 };
+
+export function TRexHeadline() {
+    const { data, isLoading } = useRexData();
+    const { colorMode } = useColorMode();
+
+    const headlineStyle: CSSProperties = {
+        backgroundImage: `linear-gradient(45deg, ${
+            colorMode === "light"
+                ? lightGradient.join(", ")
+                : darkGradient.join(", ")
+        })`,
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        display: "inline-block",
+        marginBottom: 0,
+        color: "transparent",
+    };
+
+    return (
+        !isLoading && (
+            <Heading as="h1" style={headlineStyle} key={0}>
+                {data?.name}
+            </Heading>
+        )
+    );
+}
 
 /**
  * Top-level T-REX component containing all the event filtering and display
  * logic
  */
-export function TRexApp(props: TRexAppProps) {
-    if (!props.data)
-        return (
-            <div>
-                <p>Loading...</p>
-                <p>
-                    <b>Stuck on this page?</b> Make sure you&apos;re connected
-                    to a network and have JavaScript enabled.
-                </p>
-            </div>
-        );
-
+export function TRexApp() {
     const { search } = useLocation();
-    const [events, setEvents] = useState(props.data.events);
+    const { data, isLoading, error } = useRexData();
+    const [events, setEvents] = useState<TRexProcessedEvent[] | undefined>(
+        data?.events ?? [],
+    );
     const [savedEvents, setSavedEvents] = useState<string[]>([]);
     const [showRelativeTime, setShowRelativeTime] = useState(true);
     const [filter, setFilter] = useState<FilterSettings>({
@@ -55,13 +114,25 @@ export function TRexApp(props: TRexAppProps) {
         timeFilter: TimeFilter.OngoingUpcoming,
     });
 
+    const fuse = new Fuse(data?.events ?? [], {
+        keys: [
+            { name: "name", weight: 2 },
+            "dorm",
+            "group",
+            "location",
+            "tags",
+            { name: "description", weight: 0.5 },
+        ],
+    });
+
     useEffect(() => {
         const savedStorage = localStorage.getItem("savedEvents");
         if (savedStorage) setSavedEvents(JSON.parse(savedStorage));
-    }, []);
+    }, [isLoading]);
+
     useEffect(() => {
         localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
-    }, [savedEvents]);
+    }, [savedEvents, isLoading]);
 
     // Allow for filtering based on URL Search Params
     // This feature is documented on the toolbox page.
@@ -69,45 +140,82 @@ export function TRexApp(props: TRexAppProps) {
         const params = new URLSearchParams(search);
         const paramsFilter: Partial<FilterSettings> = {};
 
-        if (props.data.tags.includes(params.get("tag")))
-            paramsFilter.tagFilter = params.get("tag");
-        if (props.data.dorms.includes(params.get("dorm")))
-            paramsFilter.dormFilter = params.get("dorm");
-        if (["true", "false"].includes(params.get("bookmarks_only")))
+        if (data?.tags.includes(params.get("tag") ?? ""))
+            paramsFilter.tagFilter = params.get("tag") ?? undefined;
+        if (data?.dorms.includes(params.get("dorm") ?? ""))
+            paramsFilter.dormFilter = params.get("dorm") ?? undefined;
+        if (["true", "false"].includes(params.get("bookmarks_only") ?? ""))
             paramsFilter.bookmarksOnly =
                 params.get("bookmarks_only") === "true";
-        if (params.get("q")) paramsFilter.searchValue = params.get("q");
+        if (params.get("q"))
+            paramsFilter.searchValue = params.get("q") ?? undefined;
 
-        const timeFilterMap = {
+        const timeFilterMap: Record<string, TimeFilter> = {
             all: TimeFilter.AllEvents,
             ongoing: TimeFilter.Ongoing,
             not_ended: TimeFilter.OngoingUpcoming,
             upcoming: TimeFilter.Upcoming,
         };
-        if (Object.keys(timeFilterMap).includes(params.get("time_filter")))
-            paramsFilter.timeFilter = timeFilterMap[params.get("time_filter")];
+
+        const time_filter_param = params.get("time_filter") ?? undefined;
+        if (
+            time_filter_param &&
+            time_filter_param in Object.keys(timeFilterMap)
+        )
+            paramsFilter.timeFilter = timeFilterMap[time_filter_param];
 
         setFilter({ ...filter, ...paramsFilter });
 
-        if (["true", "false"].includes(params.get("relative_time")))
+        if (["true", "false"].includes(params.get("relative_time") ?? ""))
             setShowRelativeTime(params.get("relative_time") === "true");
-    }, [search]);
+    }, [search, isLoading]);
+
+    if (error) {
+        return (
+            <div>
+                <p>There was an error loading the REX data.</p>
+                <p>
+                    <b>Stuck on this page?</b> Make sure you&#x27;re connected
+                    to a network and have JavaScript enabled.
+                </p>
+            </div>
+        );
+    }
+
+    if (isLoading || !events)
+        return (
+            <div>
+                <p>Loading...</p>
+                <p>
+                    <b>Stuck on this page?</b> Make sure you&#x27;re connected
+                    to a network and have JavaScript enabled.
+                </p>
+            </div>
+        );
 
     return (
         <FilterContext.Provider value={{ filter, setFilter }}>
             <div className="margin-vert--md">
                 <p className="margin-bottom--sm">
-                    <Link className="button button--primary button--sm margin-right--sm" to="/rex/toolbox">🧰 Toolbox</Link>
-                    <Link className="button button--primary button--sm margin-right--sm" to="/rex/help">❓ Help</Link>
-                    <b>{events.length}</b>/{props.data.events.length} events,
-                    published {new Date(props.data.published).toLocaleString()}
+                    <Link
+                        className="button button--primary button--sm margin-right--sm"
+                        to="/rex/toolbox"
+                    >
+                        🧰 Toolbox
+                    </Link>
+                    <Link
+                        className="button button--primary button--sm margin-right--sm"
+                        to="/rex/help"
+                    >
+                        ❓ Help
+                    </Link>
+                    <b>{events?.length}</b>/{data?.events.length} events,
+                    published {new Date(data?.published ?? "").toLocaleString()}
                 </p>
                 <EventFilter
-                    fuse={props.fuse}
-                    events={props.data.events}
+                    fuse={fuse}
                     setEvents={setEvents}
-                    dorms={props.data.dorms}
-                    tags={props.data.tags}
+                    events={events}
                     saved={savedEvents}
                     showRelativeTime={showRelativeTime}
                     setRelativeTime={setShowRelativeTime}
@@ -116,8 +224,9 @@ export function TRexApp(props: TRexAppProps) {
                     events={events}
                     saved={savedEvents}
                     setSaved={setSavedEvents}
-                    colors={props.data.colors}
                     showRelativeTime={showRelativeTime}
+                    setEvents={setEvents}
+                    isBookmarkFilterOn={filter.bookmarksOnly}
                 />
             </div>
         </FilterContext.Provider>
@@ -125,11 +234,12 @@ export function TRexApp(props: TRexAppProps) {
 }
 
 type EventLayoutProps = {
-    events: TRexEvent[];
+    events: TRexProcessedEvent[];
     saved: string[];
     setSaved: (saved: string[]) => void;
-    colors: TRexAPIColors;
     showRelativeTime: boolean;
+    isBookmarkFilterOn: boolean;
+    setEvents: (events: TRexProcessedEvent[]) => void;
 };
 
 /**
@@ -137,23 +247,30 @@ type EventLayoutProps = {
  * there are no events.
  */
 function EventLayout(props: EventLayoutProps) {
-    const unsaveFunc = (n: string) =>
-        props.setSaved(props.saved.filter((name) => name !== n));
-    const saveFunc = (n: string) =>
-        !props.saved.includes(n) && props.setSaved(props.saved.concat([n]));
+    const unsaveFunc = (n: string) => {
+        const events_remaining = props.saved.filter((name) => name !== n);
+        props.setSaved(events_remaining);
+        if (props.isBookmarkFilterOn) {
+            props.setEvents(
+                props.events.filter((ev) => events_remaining.includes(ev.name)),
+            );
+        }
+    };
+    const saveFunc = (n: string) => {
+        if (!props.saved.includes(n)) props.setSaved([...props.saved, n]);
+    };
 
     return (
         <div className="container margin-top--sm">
-            {props.events.length ? (
+            {props.events?.length ? (
                 <div className="row">
-                    {props.events.map((e, idx) => (
+                    {props?.events?.map((e, idx) => (
                         <div key={idx} className="col col--4">
                             <EventCard
                                 event={e}
                                 isSaved={props.saved.includes(e.name)}
                                 unsave={unsaveFunc}
                                 save={saveFunc}
-                                colors={props.colors}
                                 showRelativeTime={props.showRelativeTime}
                             />
                         </div>
@@ -170,12 +287,25 @@ function EventLayout(props: EventLayoutProps) {
 }
 
 type EventCardProps = {
-    event: TRexEvent;
+    event: TRexProcessedEvent;
     isSaved: boolean;
     unsave: (name: string) => void;
     save: (name: string) => void;
-    colors: TRexAPIColors;
     showRelativeTime: boolean;
+};
+
+// Helper function to get a value from a Map or Object (just in case types are being weird)
+const map_or_object = (
+    obj: Map<string, string> | Record<string, string> | undefined,
+    key: string,
+) => {
+    if (!obj) return undefined;
+
+    if (obj instanceof Map) {
+        return obj.get(key);
+    } else {
+        return obj[key];
+    }
 };
 
 /**
@@ -187,14 +317,18 @@ function EventCard(props: EventCardProps) {
         timeContext: "",
         timeContextExact: "",
     });
+
+    const { data, isLoading } = useRexData();
+
     const { filter, setFilter } = useContext(FilterContext);
+    if (isLoading || !data) return;
 
     const cardStyle: CSSProperties = {};
     if (props.event.tags.includes("signature")) {
-        cardStyle.border = `2px solid ${props.colors.tags.get("signature")}`;
-        cardStyle.boxShadow = `0px 0px 6px 1px ${props.colors.tags.get(
-            "signature",
-        )}`;
+        const signature_color = map_or_object(data?.colors.tags, "signature");
+
+        cardStyle.border = `2px solid ${signature_color}`;
+        cardStyle.boxShadow = `0px 0px 6px 1px ${signature_color}`;
     }
 
     useEffect(() => {
@@ -224,11 +358,11 @@ function EventCard(props: EventCardProps) {
                         {props.event.name}
                     </Heading>
                     <div>
-                        {props.event.tags.map((tag, idx) => (
+                        {props.event?.tags?.map((tag, idx) => (
                             <ColoredBadge
                                 key={idx}
                                 className="badge badge--secondary margin-right--sm"
-                                color={props.colors.tags.get(tag)}
+                                color={map_or_object(data?.colors.tags, tag)}
                                 onClick={() =>
                                     setFilter({ ...filter, tagFilter: tag })
                                 }
@@ -255,7 +389,7 @@ function EventCard(props: EventCardProps) {
             </div>
             <div className="card__body">
                 <ExpandableText
-                    text={props.event.description}
+                    text={props.event?.description}
                     className="margin-bottom--sm"
                 />
                 <DateDisplay
@@ -267,11 +401,11 @@ function EventCard(props: EventCardProps) {
                 className="card__footer"
                 style={{ display: "flex", flexWrap: "wrap" }}
             >
-                {props.event.dorm.map((dorm) => (
+                {props.event?.dorm?.map((dorm) => (
                     <ColoredBadge
                         className="badge badge--primary margin-right--sm"
                         key={dorm}
-                        color={props.colors.dorms.get(dorm)}
+                        color={map_or_object(data?.colors.dorms, dorm)}
                         onClick={() =>
                             setFilter({
                                 ...filter,
@@ -297,7 +431,7 @@ function EventCard(props: EventCardProps) {
                     📍{" "}
                     <Link
                         to={`https://mobi.mit.edu/default/map/search?filter=${encodeURIComponent(
-                            props.event.location,
+                            props.event?.location,
                         )}`}
                     >
                         {props.event.location}
@@ -343,7 +477,7 @@ function ColoredBadge(props: {
     onClick?: React.MouseEventHandler;
     children: React.ReactNode;
 }) {
-    let textColor: string;
+    let textColor: string = "";
 
     if (props.color !== undefined) {
         const r = parseInt(props.color.substring(1, 3), 16);
@@ -385,14 +519,14 @@ function ExpandableText(props: {
     let truncated = props.text;
     const expandAmount = props.expandAmount || 140;
     let truncatePoint = 0;
-    if (props.text.length > expandAmount) {
+    if (props.text?.length > expandAmount) {
         truncatePoint = props.text.lastIndexOf(" ", 140);
         truncated = props.text.substring(0, truncatePoint);
     }
     return (
         <p className={props.className}>
             {truncated}
-            {props.text.length > expandAmount && (
+            {props.text?.length > expandAmount && (
                 <span>
                     {expanded && props.text.substring(truncatePoint)}{" "}
                     <Link
@@ -461,20 +595,23 @@ function eventDateDisplay(start: Date, end: Date): DateDisplayInfo {
 /**
  * A dropdown link for adding an event to a Google Calendar
  */
-function GCalButton(props: { event: TRexEvent }) {
+function GCalButton(props: { event: TRexProcessedEvent }) {
     function logAnalytics() {
         if (typeof gtag !== "undefined") {
             gtag("event", "calendar", { event_label: props.event.name });
         }
     }
     const padNumber = (num: number) => num.toString().padStart(2, "0");
-    const formatGCalDate = (date: Date) =>
-        `${date.getUTCFullYear()}${padNumber(date.getUTCMonth() + 1)}` +
-        `${padNumber(date.getUTCDate())}T${padNumber(
-            date.getUTCHours(),
-        )}${padNumber(date.getUTCMinutes())}` +
-        `${padNumber(date.getUTCSeconds())}Z`;
-
+    const formatGCalDate = (paramData: Date) => {
+        const date = new Date(paramData);
+        return (
+            `${date.getUTCFullYear()}${padNumber(date.getUTCMonth() + 1)}` +
+            `${padNumber(date.getUTCDate())}T${padNumber(
+                date.getUTCHours(),
+            )}${padNumber(date.getUTCMinutes())}` +
+            `${padNumber(date.getUTCSeconds())}Z`
+        );
+    };
     // This URL syntax was sourced from https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/main/services/google.md
     const buttonLink =
         `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.event.dorm}: ${props.event.name}` +

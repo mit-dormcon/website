@@ -15,11 +15,11 @@ const everything = "Everything";
  * Filter options for the T-REX app
  */
 export type FilterSettings = {
-    dormFilter: string;
-    timeFilter: TimeFilter;
-    tagFilter: string;
-    bookmarksOnly: boolean;
-    searchValue: string;
+    dormFilter?: string;
+    timeFilter?: TimeFilter;
+    tagFilter?: string;
+    bookmarksOnly?: boolean;
+    searchValue?: string;
 };
 
 /**
