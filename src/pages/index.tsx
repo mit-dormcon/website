@@ -45,8 +45,8 @@ function FeatureRow() {
                 <div>
                     <ul>
                         <li>
-                            Our final meeting of the semester (elections!!!!) is
-                            on Thursday, May 9th, at 7:00pm in 1-190!
+                            <Link to="/rex">REX 2024</Link> runs from August 25,
+                            2024 to August 28, 2024.
                         </li>
                     </ul>
                 </div>
