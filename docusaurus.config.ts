@@ -150,7 +150,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} MIT DormCon. Built with Docusaurus.`,
+            copyright: `Copyright © ${new Date().getFullYear().toString()} MIT DormCon. Built with Docusaurus.`,
         },
         colorMode: {
             respectPrefersColorScheme: true,

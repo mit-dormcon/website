@@ -1,25 +1,25 @@
-export type Meeting = {
+export interface Meeting {
     name: string;
     location: string;
     /** An external link to the pdf of minutes, perhaps on Athena */
     minutesLink?: string;
-};
+}
 
-export type MeetingSchedule = {
+export interface MeetingSchedule {
     year: string;
     list: Meeting[];
     /** Link to add the meeting schedule to your Google Calendar */
     gcalLink?: string;
-};
+}
 
-export type Term = {
+export interface Term {
     year: string;
     /** A list of DormCon officers.
      * The position field can be repeated for multiple officers holding the same position. */
     list: Officer[];
-};
+}
 
-export type Officer = {
+export interface Officer {
     position: string;
     name: string;
     /** The dorm the DormCon officer belongs to */
@@ -27,9 +27,9 @@ export type Officer = {
     /** The class year of the DormCon officer, as a calendar year */
     year?: number;
     kerb: string;
-};
+}
 
-export type DormConMember = {
+export interface DormConMember {
     dorm: string;
     /** The name(s) of the dorm's president(s) */
     president: string;
@@ -37,4 +37,4 @@ export type DormConMember = {
     kerbs: string[];
     /** A link to the dorm's website */
     url: string;
-};
+}

@@ -123,7 +123,7 @@ function FeatureRow() {
 
     return (
         <main>
-            {features && features.length > 0 && (
+            {features.length > 0 && (
                 <section className={styles.features}>
                     <div className="container">
                         <div className="row">

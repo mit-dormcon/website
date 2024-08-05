@@ -52,14 +52,15 @@ export function BookmarksTool() {
         const bookmarks = prompt("Paste your exported bookmarks here:");
         if (bookmarks !== null) {
             try {
-                const bookmarksList: string[] = JSON.parse(bookmarks);
+                const bookmarksList = JSON.parse(bookmarks) as string[];
                 if (!(bookmarksList instanceof Array))
                     throw new Error("Bookmarks list needs to be an Array!");
                 const stringBookmarks = JSON.stringify(bookmarksList);
                 localStorage.setItem("savedEvents", stringBookmarks);
                 setSaved(stringBookmarks);
                 alert(
-                    bookmarksList.length + " bookmarks imported successfully.",
+                    bookmarksList.length.toString() +
+                        " bookmarks imported successfully.",
                 );
             } catch (error) {
                 alert(
@@ -81,7 +82,15 @@ export function BookmarksTool() {
                 </button>
                 <button
                     className="button button--outline button--primary"
-                    onClick={() => navigator.clipboard.writeText(saved ?? "")}
+                    onClick={() => {
+                        const handler = async () => {
+                            await navigator.clipboard.writeText(saved ?? "");
+                        };
+
+                        handler().catch((error: unknown) => {
+                            console.log(error);
+                        });
+                    }}
                 >
                     📋 Copy To Clipboard
                 </button>

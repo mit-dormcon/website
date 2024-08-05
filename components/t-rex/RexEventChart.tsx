@@ -40,7 +40,7 @@ export default function RexEventChart() {
         );
         const byDorm = new Map<string, number>();
         for (const event of data.events) {
-            for (let dorm in event.dorm) {
+            event.dorm.forEach((dorm) => {
                 if (
                     [
                         "La Casa",
@@ -53,10 +53,11 @@ export default function RexEventChart() {
                 )
                     dorm = "New House";
                 else if (dorm === "New Vassar") dorm = "West Garage";
-                else if (dorm === "Campus Wide!") continue;
-
+                else if (dorm !== "Campus Wide!") {
+                    /* empty */
+                }
                 byDorm.set(dorm, (byDorm.get(dorm) ?? 0) + 1);
-            }
+            });
         }
         setEventsByDorm(byDorm);
     }, [data]);

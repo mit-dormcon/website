@@ -41,7 +41,7 @@ export function EventFilter(props: {
     const tagEmoji = "🏷";
 
     const search = useCallback(
-        async (filterProp: FilterSettings) => {
+        (filterProp: FilterSettings) => {
             const {
                 searchValue,
                 dormFilter,
@@ -64,7 +64,7 @@ export function EventFilter(props: {
                     ev.dorm.some((dorm) => dorm === dormFilter),
                 );
             if (timeFilter === TimeFilter.Upcoming)
-                events = events?.filter((ev) => ev.start >= now);
+                events = events.filter((ev) => ev.start >= now);
             else if (timeFilter === TimeFilter.Ongoing)
                 events = events.filter((ev) => ev.start < now && ev.end >= now);
             else if (timeFilter === TimeFilter.OngoingUpcoming)
@@ -134,9 +134,9 @@ export function EventFilter(props: {
         >
             <div className="margin-bottom--xs">
                 <select
-                    onChange={(e) =>
-                        setFilter({ ...filter, dormFilter: e.target.value })
-                    }
+                    onChange={(e) => {
+                        setFilter({ ...filter, dormFilter: e.target.value });
+                    }}
                     value={dormFilter ?? ""}
                     className="margin-right--sm"
                 >
@@ -151,12 +151,12 @@ export function EventFilter(props: {
                         ))}
                 </select>
                 <select
-                    onChange={(e) =>
+                    onChange={(e) => {
                         setFilter({
                             ...filter,
                             timeFilter: e.target.value as TimeFilter,
-                        })
-                    }
+                        });
+                    }}
                     value={timeFilter ?? ""}
                     className="margin-right--sm"
                 >
@@ -174,9 +174,9 @@ export function EventFilter(props: {
                     </option>
                 </select>
                 <select
-                    onChange={(e) =>
-                        setFilter({ ...filter, tagFilter: e.target.value })
-                    }
+                    onChange={(e) => {
+                        setFilter({ ...filter, tagFilter: e.target.value });
+                    }}
                     value={tagFilter ?? ""}
                     className="margin-right--sm"
                 >
@@ -198,12 +198,12 @@ export function EventFilter(props: {
                         type="checkbox"
                         id="showBookmarks"
                         checked={bookmarksOnly ?? false}
-                        onChange={(e) =>
+                        onChange={(e) => {
                             setFilter({
                                 ...filter,
                                 bookmarksOnly: e.target.checked,
-                            })
-                        }
+                            });
+                        }}
                     />
                     <label htmlFor="showBookmarks">⭐️ only</label>
                     &ensp;
@@ -220,9 +220,9 @@ export function EventFilter(props: {
                     </button>
                     <button
                         className="button button--sm button--outline button--primary margin-right--sm"
-                        onClick={() =>
-                            props.setRelativeTime(!props.showRelativeTime)
-                        }
+                        onClick={() => {
+                            props.setRelativeTime(!props.showRelativeTime);
+                        }}
                     >
                         {props.showRelativeTime ? "⏰" : "⏱"}&ensp; Switch to{" "}
                         {props.showRelativeTime ? "exact" : "relative"} times
@@ -232,9 +232,9 @@ export function EventFilter(props: {
             <input
                 type="text"
                 value={searchValue ?? ""}
-                onChange={(e) =>
-                    setFilter({ ...filter, searchValue: e.target.value })
-                }
+                onChange={(e) => {
+                    setFilter({ ...filter, searchValue: e.target.value });
+                }}
                 style={{ fontSize: "2rem", width: "100%" }}
                 placeholder="🔍 Search"
             />

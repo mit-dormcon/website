@@ -34,41 +34,36 @@ dayjs.extend(duration);
 const api_url = "https://rex.mit.edu/api.json";
 
 export const useRexData = () => {
-    const { data, isLoading, error, isValidating } = useSWR<TRexProcessedData>(
-        api_url,
-        async (url: string) => {
-            const res = await fetch(url);
-            const json: TRexAPIResponse = await res.json();
-            // return json;
+    const swr = useSWR<TRexProcessedData>(api_url, async (url: string) => {
+        const res = await fetch(url);
+        const json = (await res.json()) as TRexAPIResponse;
+        // return json;
 
-            return {
-                name: json.name,
-                published: new Date(json.published),
-                events: json.events.map((ev: TRexRawEvent) => {
-                    const newEvent: TRexProcessedEvent = {
-                        ...ev,
-                        start: new Date(ev.start),
-                        end: new Date(ev.end),
-                    };
-                    return newEvent;
-                }),
-                dorms: json.dorms,
-                tags: json.tags,
-                colors: {
-                    dorms: new Map<string, string>(
-                        Object.entries(json.colors.dorms),
-                    ),
-                    tags: new Map<string, string>(
-                        Object.entries(json.colors.tags),
-                    ),
-                },
-                start: new Date(json.start),
-                end: new Date(json.end),
-            };
-        },
-    );
+        return {
+            name: json.name,
+            published: new Date(json.published),
+            events: json.events.map((ev: TRexRawEvent) => {
+                const newEvent: TRexProcessedEvent = {
+                    ...ev,
+                    start: new Date(ev.start),
+                    end: new Date(ev.end),
+                };
+                return newEvent;
+            }),
+            dorms: json.dorms,
+            tags: json.tags,
+            colors: {
+                dorms: new Map<string, string>(
+                    Object.entries(json.colors.dorms),
+                ),
+                tags: new Map<string, string>(Object.entries(json.colors.tags)),
+            },
+            start: new Date(json.start),
+            end: new Date(json.end),
+        };
+    });
 
-    return { data, isLoading, error, isValidating };
+    return swr;
 };
 
 export function TRexHeadline() {
@@ -103,7 +98,7 @@ export function TRexHeadline() {
  */
 export function TRexApp() {
     const { search } = useLocation();
-    const { data, isLoading, error } = useRexData();
+    const { data, isLoading } = useRexData();
     const [events, setEvents] = useState<TRexProcessedEvent[] | undefined>(
         isLoading ? undefined : data?.events,
     );
@@ -128,7 +123,7 @@ export function TRexApp() {
     useEffect(() => {
         if (isLoading) return;
         const savedStorage = localStorage.getItem("savedEvents");
-        if (savedStorage) setSavedEvents(JSON.parse(savedStorage));
+        if (savedStorage) setSavedEvents(JSON.parse(savedStorage) as string[]);
     }, [isLoading]);
 
     useEffect(() => {
@@ -174,17 +169,17 @@ export function TRexApp() {
             setShowRelativeTime(params.get("relative_time") === "true");
     }, [search, isLoading]);
 
-    if (error) {
-        return (
-            <div>
-                <p>There was an error loading the REX data.</p>
-                <p>
-                    <b>Stuck on this page?</b> Make sure you&#x27;re connected
-                    to a network and have JavaScript enabled.
-                </p>
-            </div>
-        );
-    }
+    // if (error) {
+    //     return (
+    //         <div>
+    //             <p>There was an error loading the REX data.</p>
+    //             <p>
+    //                 <b>Stuck on this page?</b> Make sure you&#x27;re connected
+    //                 to a network and have JavaScript enabled.
+    //             </p>
+    //         </div>
+    //     );
+    // }
 
     if (isLoading)
         return (
@@ -237,14 +232,14 @@ export function TRexApp() {
     );
 }
 
-type EventLayoutProps = {
+interface EventLayoutProps {
     events?: TRexProcessedEvent[];
     saved: string[];
     setSaved: (saved: string[]) => void;
     showRelativeTime: boolean;
     isBookmarkFilterOn?: boolean;
     setEvents: (events: TRexProcessedEvent[]) => void;
-};
+}
 
 /**
  * Lays out EventCards in a responsive-friendly way, or shows a message when
@@ -268,7 +263,7 @@ function EventLayout(props: EventLayoutProps) {
         <div className="container margin-top--sm">
             {props.events?.length ? (
                 <div className="row">
-                    {props?.events?.map((e, idx) => (
+                    {props.events.map((e, idx) => (
                         <div key={idx} className="col col--4">
                             <EventCard
                                 event={e}
@@ -290,13 +285,13 @@ function EventLayout(props: EventLayoutProps) {
     );
 }
 
-type EventCardProps = {
+interface EventCardProps {
     event: TRexProcessedEvent;
     isSaved: boolean;
     unsave: (name: string) => void;
     save: (name: string) => void;
     showRelativeTime: boolean;
-};
+}
 
 // Helper function to get a value from a Map or Object (just in case types are being weird)
 const map_or_object = (
@@ -330,20 +325,20 @@ function EventCard(props: EventCardProps) {
     if (props.event.tags.includes("signature")) {
         const signature_color = map_or_object(data?.colors.tags, "signature");
 
-        cardStyle.border = `2px solid ${signature_color}`;
-        cardStyle.boxShadow = `0px 0px 6px 1px ${signature_color}`;
+        cardStyle.border = `2px solid ${signature_color ?? ""}`;
+        cardStyle.boxShadow = `0px 0px 6px 1px ${signature_color ?? ""}`;
     }
 
     useEffect(() => {
         setDateStrings(eventDateDisplay(props.event.start, props.event.end));
-        const intervalId = setInterval(
-            () =>
-                setDateStrings(
-                    eventDateDisplay(props.event.start, props.event.end),
-                ),
-            60 * 1000,
-        );
-        return () => clearInterval(intervalId);
+        const intervalId = setInterval(() => {
+            setDateStrings(
+                eventDateDisplay(props.event.start, props.event.end),
+            );
+        }, 60 * 1000);
+        return () => {
+            clearInterval(intervalId);
+        };
     }, [props]);
     if (isLoading) return;
 
@@ -362,14 +357,14 @@ function EventCard(props: EventCardProps) {
                         {props.event.name}
                     </Heading>
                     <div>
-                        {props.event?.tags?.map((tag, idx) => (
+                        {props.event.tags.map((tag, idx) => (
                             <ColoredBadge
                                 key={idx}
                                 className="badge badge--secondary margin-right--sm"
                                 color={map_or_object(data?.colors.tags, tag)}
-                                onClick={() =>
-                                    setFilter({ ...filter, tagFilter: tag })
-                                }
+                                onClick={() => {
+                                    setFilter({ ...filter, tagFilter: tag });
+                                }}
                             >
                                 {tag}
                             </ColoredBadge>
@@ -393,7 +388,7 @@ function EventCard(props: EventCardProps) {
             </div>
             <div className="card__body">
                 <ExpandableText
-                    text={props.event?.description}
+                    text={props.event.description}
                     className="margin-bottom--sm"
                 />
                 <DateDisplay
@@ -405,17 +400,17 @@ function EventCard(props: EventCardProps) {
                 className="card__footer"
                 style={{ display: "flex", flexWrap: "wrap" }}
             >
-                {props.event?.dorm?.map((dorm) => (
+                {props.event.dorm.map((dorm) => (
                     <ColoredBadge
                         className="badge badge--primary margin-right--sm"
                         key={dorm}
                         color={map_or_object(data?.colors.dorms, dorm)}
-                        onClick={() =>
+                        onClick={() => {
                             setFilter({
                                 ...filter,
                                 dormFilter: dorm,
-                            })
-                        }
+                            });
+                        }}
                     >
                         {dorm}
                     </ColoredBadge>
@@ -435,7 +430,7 @@ function EventCard(props: EventCardProps) {
                     📍{" "}
                     <Link
                         to={`https://mobi.mit.edu/default/map/search?filter=${encodeURIComponent(
-                            props.event?.location,
+                            props.event.location,
                         )}`}
                     >
                         {props.event.location}
@@ -478,10 +473,10 @@ function ColoredBadge(props: {
     /** Badge background color, must be in 6 digit hex format, like `#123abc` */
     color?: string;
     className: string;
-    onClick?: React.MouseEventHandler;
+    onClick?: () => void;
     children: React.ReactNode;
 }) {
-    let textColor: string = "";
+    let textColor = "";
 
     if (props.color !== undefined) {
         const r = parseInt(props.color.substring(1, 3), 16);
@@ -501,6 +496,13 @@ function ColoredBadge(props: {
                 cursor: props.onClick && "pointer",
             }}
             onClick={props.onClick}
+            onKeyDown={({ key }) => {
+                if (key === "Enter" && props.onClick) {
+                    props.onClick();
+                }
+            }}
+            role="button"
+            tabIndex={0}
         >
             {props.children}
         </div>
@@ -521,16 +523,16 @@ function ExpandableText(props: {
 }) {
     const [expanded, setExpanded] = useState(false);
     let truncated = props.text;
-    const expandAmount = props.expandAmount || 140;
+    const expandAmount = props.expandAmount ?? 140;
     let truncatePoint = 0;
-    if (props.text?.length > expandAmount) {
+    if (props.text.length > expandAmount) {
         truncatePoint = props.text.lastIndexOf(" ", 140);
         truncated = props.text.substring(0, truncatePoint);
     }
     return (
         <p className={props.className}>
             {truncated}
-            {props.text?.length > expandAmount && (
+            {props.text.length > expandAmount && (
                 <span>
                     {expanded && props.text.substring(truncatePoint)}{" "}
                     <Link
@@ -552,13 +554,13 @@ function ExpandableText(props: {
 /**
  * Contains all strings necessary to display datetime strings on the EventCard
  */
-type DateDisplayInfo = {
+interface DateDisplayInfo {
     duration: string;
     /** A human-readable relative time representation of the event's start/end */
     timeContext: string;
     /** An exact time representation of the event's start/end */
     timeContextExact: string;
-};
+}
 
 /**
  * Displays a "relevant" time string to the user for a given event.
@@ -609,7 +611,7 @@ function GCalButton(props: { event: TRexProcessedEvent }) {
     const formatGCalDate = (paramData: Date) => {
         const date = new Date(paramData);
         return (
-            `${date.getUTCFullYear()}${padNumber(date.getUTCMonth() + 1)}` +
+            `${date.getUTCFullYear().toString()}${padNumber(date.getUTCMonth() + 1)}` +
             `${padNumber(date.getUTCDate())}T${padNumber(
                 date.getUTCHours(),
             )}${padNumber(date.getUTCMinutes())}` +
@@ -618,7 +620,7 @@ function GCalButton(props: { event: TRexProcessedEvent }) {
     };
     // This URL syntax was sourced from https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/main/services/google.md
     const buttonLink =
-        `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.event.dorm}: ${props.event.name}` +
+        `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.event.dorm.join(", ")}: ${props.event.name}` +
         `&dates=${formatGCalDate(props.event.start)}/${formatGCalDate(
             props.event.end,
         )}&ctz=America/New_York&details=${props.event.description}` +
@@ -663,7 +665,7 @@ export function TRexEntryButton() {
                     backgroundImage: `linear-gradient(45deg, ${[
                         ...gradient,
                         gradient[0],
-                    ]})`,
+                    ].join(",")})`,
                     transition: "0.5s",
                     border: "none",
                 }}

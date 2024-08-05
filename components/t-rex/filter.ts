@@ -14,13 +14,13 @@ const everything = "Everything";
 /**
  * Filter options for the T-REX app
  */
-export type FilterSettings = {
+export interface FilterSettings {
     dormFilter?: string;
     timeFilter?: TimeFilter;
     tagFilter?: string;
     bookmarksOnly?: boolean;
     searchValue?: string;
-};
+}
 
 /**
  * Unset settings for the Event Filter.
