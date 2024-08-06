@@ -7,7 +7,15 @@ EVENTFUL_URL.searchParams.append("event", EVENTFUL_SCHEDULE_ID)
 
 export function EventfulEmbed() {
     return (<div>
-        <Link className={styles.fullscreen_link} to={EVENTFUL_URL.toString()}>fullscreen <span>&#x26F6;</span></Link>
-        <iframe title="REX Events - Eventful" className={styles.embed} src={EVENTFUL_URL.toString() + "&is_embed"} />
+        <Link
+            className={styles.fullscreen_link}
+            target="_self"
+            to={EVENTFUL_URL.toString()}
+        >fullscreen <span>&#x26F6;</span></Link>
+        <iframe
+            title="REX Events - Eventful"
+            className={styles.embed}
+            src={EVENTFUL_URL.toString() + "&is_embed"}
+        />
     </div>)
 }
