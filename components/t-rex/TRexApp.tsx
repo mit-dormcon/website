@@ -66,16 +66,15 @@ export const useRexData = () => {
     return swr;
 };
 
-export function TRexHeadline() {
-    const { data, isLoading } = useRexData();
+export function TRexHeadline({ is_timeline }: { is_timeline?: boolean }) {
+    const { data } = useRexData();
     const { colorMode } = useColorMode();
 
+    const gradient = colorMode === "light"
+        ? lightGradient
+        : darkGradient;
     const headlineStyle: CSSProperties = {
-        backgroundImage: `linear-gradient(45deg, ${
-            colorMode === "light"
-                ? lightGradient.join(", ")
-                : darkGradient.join(", ")
-        })`,
+        backgroundImage: `linear-gradient(45deg, ${gradient.join(", ")})`,
         WebkitBackgroundClip: "text",
         backgroundClip: "text",
         display: "inline-block",
@@ -83,12 +82,37 @@ export function TRexHeadline() {
         color: "transparent",
     };
 
+
     return (
-        !isLoading && (
+        <div style={{
+            display: "contents",
+        }}>
             <Heading as="h1" style={headlineStyle} key={0}>
-                {data?.name}
+                {data?.name ?? "loading..."} {is_timeline ? "[Timeline]" : ""}
             </Heading>
-        )
+            <Link
+                to={is_timeline ? "/rex/events" : "/rex/timeline"}
+                className={clsx(
+                    "button button--primary button--lg",
+                    styles.heroButton,
+                )}
+                style={{
+                    backgroundImage: `linear-gradient(45deg, ${[
+                        ...gradient,
+                        gradient[0],
+                    ].join(",")})`,
+                    transition: "0.5s",
+                    border: "none",
+                    ...is_timeline ? {
+                        verticalAlign: "initial",
+                        marginLeft: "2em",
+                    } : {
+                        marginTop: "1.5em",
+                        float: "right",
+                    },
+                }}
+            >View as {is_timeline ? "List" : "Timeline"}</Link>
+        </div>
     );
 }
 
