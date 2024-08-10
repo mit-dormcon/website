@@ -66,13 +66,12 @@ export const useRexData = () => {
     return swr;
 };
 
-export function TRexHeadline({ is_timeline }: { is_timeline?: boolean }) {
-    const { data } = useRexData();
+export function TRexHeadline(props: { isTimeline?: boolean }) {
+    const { data, isLoading } = useRexData();
     const { colorMode } = useColorMode();
 
-    const gradient = colorMode === "light"
-        ? lightGradient
-        : darkGradient;
+    const gradient = colorMode === "light" ? lightGradient : darkGradient;
+
     const headlineStyle: CSSProperties = {
         backgroundImage: `linear-gradient(45deg, ${gradient.join(", ")})`,
         WebkitBackgroundClip: "text",
@@ -82,37 +81,40 @@ export function TRexHeadline({ is_timeline }: { is_timeline?: boolean }) {
         color: "transparent",
     };
 
-
     return (
-        <div style={{
-            display: "contents",
-        }}>
-            <Heading as="h1" style={headlineStyle} key={0}>
-                {data?.name ?? "loading..."} {is_timeline ? "[Timeline]" : ""}
-            </Heading>
-            <Link
-                to={is_timeline ? "/rex/events" : "/rex/timeline"}
-                className={clsx(
-                    "button button--primary button--lg",
-                    styles.heroButton,
-                )}
-                style={{
-                    backgroundImage: `linear-gradient(45deg, ${[
-                        ...gradient,
-                        gradient[0],
-                    ].join(",")})`,
-                    transition: "0.5s",
-                    border: "none",
-                    ...is_timeline ? {
-                        verticalAlign: "initial",
-                        marginLeft: "2em",
-                    } : {
-                        marginTop: "1.5em",
-                        float: "right",
-                    },
-                }}
-            >View as {is_timeline ? "List" : "Timeline"}</Link>
-        </div>
+        !isLoading && (
+            <>
+                <Heading as="h1" style={headlineStyle} key={0}>
+                    {data?.name} {props.isTimeline ? "Timeline" : "Events"}
+                </Heading>
+                <Link
+                    to={props.isTimeline ? "/rex/events" : "/rex/timeline"}
+                    className={clsx(
+                        "button button--primary button--lg",
+                        styles.heroButton,
+                    )}
+                    style={{
+                        backgroundImage: `linear-gradient(45deg, ${[
+                            ...gradient,
+                            gradient[0],
+                        ].join(",")})`,
+                        transition: "0.5s",
+                        border: "none",
+                        ...(props.isTimeline
+                            ? {
+                                  verticalAlign: "initial",
+                                  marginLeft: "2em",
+                              }
+                            : {
+                                  marginTop: "1.5em",
+                                  float: "right",
+                              }),
+                    }}
+                >
+                    View as {props.isTimeline ? "List" : "Timeline"}
+                </Link>
+            </>
+        )
     );
 }
 
@@ -367,19 +369,24 @@ function EventCard(props: EventCardProps) {
     if (isLoading) return;
 
     return (
-        <div className="card margin-vert--sm" style={cardStyle}>
+        <div className="card margin-vert--sm shadow--md" style={cardStyle}>
             <div
                 className="card__header"
                 style={{ display: "flex", justifyContent: "space-between" }}
             >
-                <div>
-                    <Heading
-                        as="h4"
+                <div className="padding-right--sm">
+                    <span
+                        style={{
+                            fontFamily: "var(--ifm-heading-font-family)",
+                            fontWeight: "var(--ifm-heading-font-weight)",
+                            fontSize: "var(--ifm-h4-font-size)",
+                            lineHeight: "var(--ifm-heading-line-height)",
+                        }}
                         className="margin-vert--none margin-right--sm"
                     >
                         {props.isSaved && "⭐️ "}
                         {props.event.name}
-                    </Heading>
+                    </span>
                     <div>
                         {props.event.tags.map((tag, idx) => (
                             <ColoredBadge
@@ -445,12 +452,12 @@ function EventCard(props: EventCardProps) {
                     </div>
                 )}
                 <div
-                    style={{ color: "var(--ifm-color-secondary-darkest)" }}
+                    style={{ color: "var(--ifm-color-emphasis-700)" }}
                     className="margin-right--sm margin-left--sm"
                 >
                     🕒 {dateStrings.duration}
                 </div>
-                <div style={{ color: "var(--ifm-color-secondary-darkest)" }}>
+                <div>
                     📍{" "}
                     <Link
                         to={`https://mobi.mit.edu/default/map/search?filter=${encodeURIComponent(
@@ -487,6 +494,38 @@ function DateDisplay(props: {
     );
 }
 
+// https://www.w3.org/TR/WCAG20/#relativeluminancedef
+function getOptimalForegroundColor(bgColor: string, WCAG20 = true) {
+    const r = parseInt(bgColor.substring(1, 3), 16);
+    const g = parseInt(bgColor.substring(3, 5), 16);
+    const b = parseInt(bgColor.substring(5), 16);
+
+    if (WCAG20) {
+        const RsRGB = r / 255;
+        const GsRGB = g / 255;
+        const BsRGB = b / 255;
+
+        const R =
+            RsRGB <= 0.03928
+                ? RsRGB / 12.92
+                : Math.pow((RsRGB + 0.055) / 1.055, 2.4);
+        const G =
+            GsRGB <= 0.03928
+                ? GsRGB / 12.92
+                : Math.pow((GsRGB + 0.055) / 1.055, 2.4);
+        const B =
+            BsRGB <= 0.03928
+                ? BsRGB / 12.92
+                : Math.pow((BsRGB + 0.055) / 1.055, 2.4);
+
+        const L = 0.2126 * R + 0.7152 * G + 0.0722 * B;
+
+        return L > Math.sqrt(1.05 * 0.05) - 0.05 ? "#000" : "#fff";
+    } else {
+        return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? "#000" : "#fff";
+    }
+}
+
 /**
  * A badge component with an optional background color
  *
@@ -502,11 +541,8 @@ function ColoredBadge(props: {
 }) {
     let textColor = "";
 
-    if (props.color !== undefined) {
-        const r = parseInt(props.color.substring(1, 3), 16);
-        const g = parseInt(props.color.substring(3, 5), 16);
-        const b = parseInt(props.color.substring(5), 16);
-        textColor = r * 0.299 + g * 0.587 + b * 0.114 > 186 ? "#000" : "#fff";
+    if (props.color) {
+        textColor = getOptimalForegroundColor(props.color);
     }
 
     return (
