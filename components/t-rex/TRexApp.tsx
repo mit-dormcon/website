@@ -495,7 +495,7 @@ function DateDisplay(props: {
 }
 
 // https://www.w3.org/TR/WCAG20/#relativeluminancedef
-function getOptimalForegroundColor(bgColor: string, WCAG20 = true) {
+function getOptimalForegroundColor(bgColor: string, WCAG20 = false) {
     const r = parseInt(bgColor.substring(1, 3), 16);
     const g = parseInt(bgColor.substring(3, 5), 16);
     const b = parseInt(bgColor.substring(5), 16);
