@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@babel/core": "7.25.2",
-        "@babel/helpers": "7.25.0",
+        "@babel/helpers": "7.25.6",
         "@docusaurus/core": "3.5.2",
         "@docusaurus/cssnano-preset": "3.5.2",
         "@docusaurus/plugin-debug": "3.5.2",
