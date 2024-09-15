@@ -159,24 +159,39 @@ export default function Home() {
             description={siteConfig.tagline}
         >
             <header className={clsx("hero hero--primary", styles.heroBanner)}>
-                <div className="container">
-                    {/* <span className="badge badge--secondary">
-                        Happening Now
-                    </span> */}
-                    <Heading as="h1" className="hero__title">
-                        {header.title}
-                    </Heading>
-                    <p className="hero__subtitle">{header.subtitle}</p>
-                    <div className={styles.buttons}>
-                        <Link
-                            className={clsx(
-                                "button button--secondary button--lg",
-                                styles.getStarted,
-                            )}
-                            to={header.buttonLink}
-                        >
-                            {header.button}
-                        </Link>
+                <div className="container padding-top--lg padding-bottom--lg">
+                    <div className="row">
+                        <div className={clsx(styles.leftHero, "col")}>
+                            <Heading as="h1" className="hero__title">
+                                {header.title}
+                            </Heading>
+                            <p
+                                className={clsx(
+                                    "hero__subtitle",
+                                    styles.heroSubtitle,
+                                )}
+                            >
+                                {header.subtitle}
+                            </p>
+                            <div className={styles.buttons}>
+                                <Link
+                                    className="button button--secondary button--lg"
+                                    to={header.buttonLink}
+                                >
+                                    {header.button}
+                                </Link>
+                            </div>
+                        </div>
+
+                        <div className="col">
+                            <img
+                                className={styles.featureSvg}
+                                alt="DormCon!"
+                                src={"img/dormcon-sticker.svg"}
+                                height="80%"
+                                style={{ paddingTop: "20px" }}
+                            />
+                        </div>
                     </div>
                 </div>
             </header>

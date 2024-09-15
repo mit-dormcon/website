@@ -3,7 +3,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
     title: "DormCon",
-    tagline: "MIT's Dormitory Council",
+    tagline: "Welcome to MIT's Dormitory Council!",
     url: "https://dormcon.mit.edu",
     baseUrl: "/",
     onBrokenLinks: "throw",
