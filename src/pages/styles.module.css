@@ -6,15 +6,38 @@
  */
 
 .heroBanner {
-    padding: 4rem 0;
+    padding: 4rem 12rem 0rem 12rem;
     text-align: center;
     position: relative;
     overflow: hidden;
+    display: flex;
 }
 
 @media screen and (max-width: 966px) {
     .heroBanner {
         padding: 2rem;
+    }
+}
+
+.heroSubtitle {
+    text-align: left;
+}
+@media screen and (max-width: 966px) {
+    .heroSubtitle {
+        text-align: center;
+    }
+}
+
+.leftHero {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+@media screen and (max-width: 966px) {
+    .leftHero {
+        text-align: center;
+        align-items: center;
     }
 }
 
@@ -34,14 +57,4 @@
 .featureImage {
     height: 200px;
     width: 200px;
-}
-
-.heroButton {
-    background-position: 0%;
-    background-size: 200% 100%;
-}
-
-.heroButton:hover {
-    background-position-x: 100%;
-    transform: scale(1.1);
 }
