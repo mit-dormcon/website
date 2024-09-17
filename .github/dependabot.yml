@@ -3,14 +3,12 @@ updates:
     - package-ecosystem: npm
       directory: "/"
       schedule:
-          interval: daily
+          interval: weekly
       groups:
           docusaurus:
               patterns:
                   - "@docusaurus/*" # Make sure all docusaurus packages are updated together
-      open-pull-requests-limit: 10
     - package-ecosystem: github-actions
       directory: "/"
       schedule:
-          interval: daily
-      open-pull-requests-limit: 10
+          interval: weekly
