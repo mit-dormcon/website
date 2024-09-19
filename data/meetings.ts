@@ -6,27 +6,28 @@ export const meetings: MeetingSchedule = {
     year: "Fall 2024",
     list: [
         {
-            name: "Thursday, September 12th, 2024 at 7:00pm",
+            name: "Thursday, September 12th, 2024 at 7:30pm",
             location: "Simmons",
+            minutesLink: minutesFolder + "2024-09-12.pdf",
         },
         {
-            name: "Thursday, September 26th, 2024 at 7:00pm",
+            name: "Thursday, September 26th, 2024 at 7:30pm",
             location: "New House",
         },
         {
-            name: "Thursday, October 10th, 2024 at 7:00pm",
+            name: "Thursday, October 10th, 2024 at 7:30pm",
             location: "New Vassar",
         },
         {
-            name: "Thursday, October 24th, 2024 at 7:00pm",
+            name: "Thursday, October 24th, 2024 at 7:30pm",
             location: "Next House",
         },
         {
-            name: "Thursday, November 7th, 2024 at 7:00pm",
+            name: "Thursday, November 7th, 2024 at 7:30pm",
             location: "McCormick",
         },
         {
-            name: "Thursday, December 5th, 2024 at 7:00pm",
+            name: "Thursday, December 5th, 2024 at 7:30pm",
             location: "Random",
         },
     ],
