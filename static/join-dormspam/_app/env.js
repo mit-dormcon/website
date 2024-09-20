@@ -1,0 +1,1 @@
+export const env={"PUBLIC_MOIRA_API":"https://moira-api.mit.edu"}
