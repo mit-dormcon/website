@@ -26,8 +26,8 @@ export const officers: Term = {
         },
         {
             position: "Secretary",
-            name: "David Kwabi-Addo",
-            affiliation: "New House",
+            name: "Lauren Shrack",
+            affiliation: "Random Hall",
             year: 2025,
             kerb: "dormcon-secretary",
         },
@@ -82,16 +82,16 @@ export const officers: Term = {
         },
         {
             position: "Underclassmen Representative",
-            name: "This could be you!",
-            affiliation: "Come to DormCon and run!",
-            year: 2027.5,
+            name: "Eugenie Cha",
+            affiliation: "Simmons",
+            year: 2028,
             kerb: "dormcon-uc-rep",
         },
         {
             position: "Dining Chair",
-            name: "Tyra Espedal",
+            name: "Gabriel Rodríguez",
             affiliation: "East Campus + MacGregor",
-            year: 2026,
+            year: 2025,
             kerb: "dormcon-dining-chair",
         },
         {
