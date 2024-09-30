@@ -9,6 +9,7 @@ const config: Config = {
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
+    plugins: ["docusaurus-node-polyfills"],
     markdown: {
         mdx1Compat: {
             comments: false,
