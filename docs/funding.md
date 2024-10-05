@@ -1,7 +1,8 @@
 ---
-title: Event Funding
 description: Fund your event with money from DormCon!
 ---
+
+# Event Funding
 
 ## Funding Guidelines
 

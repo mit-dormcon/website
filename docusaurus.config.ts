@@ -1,5 +1,7 @@
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import type * as Plugin from "@docusaurus/types/src/plugin";
+import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
     title: "DormCon",
@@ -9,7 +11,9 @@ const config: Config = {
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
-    plugins: ["docusaurus-node-polyfills"],
+    organizationName: "mit-dormcon",
+    projectName: "website",
+    trailingSlash: false,
     markdown: {
         mdx1Compat: {
             comments: false,
@@ -162,15 +166,11 @@ const config: Config = {
             "classic",
             {
                 docs: {
-                    sidebarPath: require.resolve("./sidebars.js"),
+                    sidebarPath: "./sidebars.ts",
+                    docItemComponent: "@theme/ApiItem",
                     routeBasePath: "/about",
                 },
-                blog: {
-                    showReadingTime: true,
-                    // Please change this to your repo.
-                    editUrl:
-                        "https://github.com/mit-dormcon/website/edit/main/blog/",
-                },
+                blog: false,
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
                 },
@@ -180,6 +180,27 @@ const config: Config = {
             } satisfies Preset.Options,
         ],
     ],
+    plugins: [
+        [
+            "docusaurus-plugin-openapi-docs",
+            {
+                id: "api", // plugin id
+                docsPluginId: "classic", // configured for preset-classic
+                config: {
+                    rex: {
+                        specPath: "http://rex.mit.edu/openapi.yaml",
+                        outputDir: "docs/rex",
+                        sidebarOptions: {
+                            groupPathsBy: "tag",
+                            categoryLinkSource: "info",
+                        },
+                        showSchemas: true,
+                    } satisfies OpenApiPlugin.Options,
+                },
+            } satisfies Plugin.PluginOptions,
+        ],
+    ],
+    themes: ["docusaurus-theme-openapi-docs"],
 };
 
 export default config;

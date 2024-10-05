@@ -1,7 +1,9 @@
 ---
-title: Elections
 description: Information on elections for DormCon officers
+draft: true
 ---
+
+# Elections
 
 This page contains information on the upcoming elections for DormCon's executive
 team.
@@ -10,9 +12,9 @@ team.
 
 Do you want to…
 
--   _…work on improving student life?_
--   _…be in the room where all the dorm life tea is spilled?_
--   _…join a student government that doesn’t take itself too seriously?_
+-   _...work on improving student life?_
+-   _...be in the room where all the dorm life tea is spilled?_
+-   _...join a student government that doesn’t take itself too seriously?_
 
 Then run for a 🦈DormCon🦈 exec position at the next DormCon GBM on **Thursday,
 November 30th at 7:30 pm in Random Hall!**

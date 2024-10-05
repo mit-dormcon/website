@@ -1,7 +1,8 @@
 ---
-title: About DormCon
 slug: /
 ---
+
+# About DormCon
 
 ## Mission and Constitution
 
