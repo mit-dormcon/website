@@ -192,7 +192,7 @@ const config: Config = {
                         outputDir: "docs/rex",
                         sidebarOptions: {
                             groupPathsBy: "tag",
-                            categoryLinkSource: "info",
+                            categoryLinkSource: "auto",
                         },
                         showSchemas: true,
                     } satisfies OpenApiPlugin.Options,
