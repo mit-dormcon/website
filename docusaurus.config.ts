@@ -41,37 +41,37 @@ const config: Config = {
                             {
                                 type: "doc",
                                 label: "About DormCon",
-                                docId: "about",
+                                docId: "about/index",
                             },
                             {
                                 type: "doc",
                                 label: "Event Funding",
-                                docId: "funding",
+                                docId: "about/funding",
                             },
                             {
                                 type: "doc",
                                 label: "Meetings",
-                                docId: "meetings",
+                                docId: "about/meetings",
                             },
                             {
                                 type: "doc",
                                 label: "Officers",
-                                docId: "officers",
+                                docId: "about/officers",
                             },
                             {
                                 type: "doc",
                                 label: "Voting Members",
-                                docId: "voting-members",
+                                docId: "about/voting-members",
                             },
                             // {
                             //     type: "doc",
                             //     label: "Elections",
-                            //     docId: "elections",
+                            //     docId: "about/elections",
                             // },
                             {
                                 type: "doc",
                                 label: "Archive",
-                                docId: "archive",
+                                docId: "about/archive",
                             },
                         ],
                         to: "about",
@@ -166,9 +166,10 @@ const config: Config = {
             "classic",
             {
                 docs: {
+                    sidebarCollapsible: true,
                     sidebarPath: "./sidebars.ts",
                     docItemComponent: "@theme/ApiItem",
-                    routeBasePath: "/about",
+                    routeBasePath: "/",
                 },
                 blog: false,
                 theme: {
@@ -189,7 +190,7 @@ const config: Config = {
                 config: {
                     rex: {
                         specPath: "http://rex.mit.edu/openapi.yaml",
-                        outputDir: "docs/rex",
+                        outputDir: "docs/rex/api",
                         sidebarOptions: {
                             groupPathsBy: "tag",
                             categoryLinkSource: "auto",

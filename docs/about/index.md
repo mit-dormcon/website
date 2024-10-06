@@ -1,5 +1,4 @@
 ---
-slug: /
 ---
 
 # About DormCon
