@@ -90,7 +90,7 @@ export const officers: Term = {
         {
             position: "Dining Chair",
             name: "Gabriel Rodríguez",
-            affiliation: "East Campus + MacGregor",
+            affiliation: "East Campus",
             year: 2025,
             kerb: "dormcon-dining-chair",
         },
@@ -109,9 +109,9 @@ export const officers: Term = {
             kerb: "dormcon-i3-rac-chair",
         },
         {
-            position: "🌎 Tech Chair",
+            position: "Tech Chair",
             name: "Gabriel Rodríguez",
-            affiliation: "East Campus + MacGregor",
+            affiliation: "East Campus",
             year: 2025,
             kerb: "dormcon-tech-chair",
         },

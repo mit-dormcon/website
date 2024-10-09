@@ -45,7 +45,7 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "Next House",
-        president: "Shorna Alam",
+        president: "Leo Yao",
         kerbs: ["next-president"],
         url: "https://next.mit.edu/",
     },
@@ -53,7 +53,7 @@ export const members: DormConMember[] = [
         dorm: "Random Hall",
         president: "Bianca Santi & Lauren Shrack",
         kerbs: ["random-president"],
-        url: "http://www.mit.edu/~random-hall/",
+        url: "https://random-hall.mit.edu/",
     },
     {
         dorm: "Simmons Hall",
@@ -62,7 +62,7 @@ export const members: DormConMember[] = [
         url: "http://simmons.mit.edu/",
     },
     {
-        dorm: "West Garage",
+        dorm: "New Vassar",
         president: "Shiqi Cheng",
         kerbs: ["nv-prez"],
         url: "https://newvassar.mit.edu/",
