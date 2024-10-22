@@ -13,10 +13,12 @@ export const meetings: MeetingSchedule = {
         {
             name: "Thursday, September 26th, 2024 at 7:30pm",
             location: "New House",
+            minutesLink: minutesFolder + "2024-09-26.pdf",
         },
         {
             name: "Thursday, October 10th, 2024 at 7:30pm",
             location: "New Vassar",
+            minutesLink: minutesFolder + "2024-10-10.pdf",
         },
         {
             name: "Thursday, October 24th, 2024 at 7:30pm",
