@@ -23,6 +23,7 @@ export const meetings: MeetingSchedule = {
         {
             name: "Thursday, October 24th, 2024 at 7:30pm",
             location: "Next House",
+            minutesLink: minutesFolder + "2024-10-24.pdf",
         },
         {
             name: "Thursday, November 7th, 2024 at 7:30pm",
