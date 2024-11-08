@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import globals from "globals";
 import eslint from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";

@@ -17,7 +17,7 @@
         "gen-api-docs": "docusaurus gen-api-docs all",
         "clean-api-docs": "docusaurus clean-api-docs all",
         "api-docs": "yarn run clean-api-docs && yarn run gen-api-docs",
-        "format": "prettier --write '**/*.{ts,tsx,js,json,css,md,mdx,yml}'",
+        "format": "prettier --write '**/*.{ts,tsx,js,mjs,cjs,html,json,css,md,mdx,yml}'",
         "lint": "prettier --check . && eslint .",
         "check-types": "tsc"
     },
