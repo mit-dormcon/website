@@ -2899,6 +2899,13 @@ algoliasearch@^4.18.0, algoliasearch@^4.19.1:
     "@algolia/requester-node-http" "4.24.0"
     "@algolia/transporter" "4.24.0"
 
+allof-merge@^0.6.6:
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/allof-merge/-/allof-merge-0.6.6.tgz#1c675c7170e1b24bd3dc96db9c3459c0e7cfbea2"
+  integrity sha512-116eZBf2he0/J4Tl7EYMz96I5Anaeio+VL0j/H2yxW9CoYQAMMv8gYcwkVRoO7XfIOv/qzSTfVzDVGAYxKFi3g==
+  dependencies:
+    json-crawl "^0.5.3"
+
 ansi-align@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-3.0.1.tgz#0cdf12e111ace773a86e9a1fad1225c43cb19a59"
@@ -4364,21 +4371,21 @@ doctrine@^2.1.0:
   dependencies:
     esutils "^2.0.2"
 
-docusaurus-plugin-openapi-docs@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/docusaurus-plugin-openapi-docs/-/docusaurus-plugin-openapi-docs-4.1.0.tgz#7af4577c05872573365d990ade76767c548cc2a6"
-  integrity sha512-QBoRDFlRGJBKNyHi+4+wuSUlVPF4KrFR5sNyEr/s4eoPPVpaViB/Fwh8DmWbVXvWopNZ0UR1nk1r3Kwls6Qg2Q==
+docusaurus-plugin-openapi-docs@^4.1.0, docusaurus-plugin-openapi-docs@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/docusaurus-plugin-openapi-docs/-/docusaurus-plugin-openapi-docs-4.2.0.tgz#80fc3c3a7eafe6d613b9cd4f42b595641ceaa300"
+  integrity sha512-6G8LtpQlb4nCTyDnjkRwxg/oq3WIZ05GCFQFfTqbdiI5D8d9Glya0vp6TF9InEyXtAkc8ozi1HP8It2zEUwNGw==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^11.5.4"
     "@docusaurus/plugin-content-docs" "^3.5.0"
     "@docusaurus/utils" "^3.5.0"
     "@docusaurus/utils-validation" "^3.5.0"
     "@redocly/openapi-core" "^1.10.5"
+    allof-merge "^0.6.6"
     chalk "^4.1.2"
     clsx "^1.1.1"
     fs-extra "^9.0.1"
     json-pointer "^0.6.2"
-    json-schema-merge-allof "^0.8.1"
     json5 "^2.2.3"
     lodash "^4.17.20"
     mustache "^4.2.0"
@@ -6678,6 +6685,11 @@ json-buffer@3.0.1:
   resolved "https://registry.yarnpkg.com/json-buffer/-/json-buffer-3.0.1.tgz#9338802a30d3b6605fbe0613e094008ca8c05a13"
   integrity sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==
 
+json-crawl@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/json-crawl/-/json-crawl-0.5.3.tgz#3a2e1d308d4fc5a444902f1f94f4a9e03d584c6b"
+  integrity sha512-BEjjCw8c7SxzNK4orhlWD5cXQh8vCk2LqDr4WgQq4CV+5dvopeYwt1Tskg67SuSLKvoFH5g0yuYtg7rcfKV6YA==
+
 json-parse-even-better-errors@^2.3.0, json-parse-even-better-errors@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"
@@ -6697,7 +6709,7 @@ json-schema-compare@^0.2.2:
   dependencies:
     lodash "^4.17.4"
 
-json-schema-merge-allof@0.8.1, json-schema-merge-allof@^0.8.1:
+json-schema-merge-allof@0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/json-schema-merge-allof/-/json-schema-merge-allof-0.8.1.tgz#ed2828cdd958616ff74f932830a26291789eaaf2"
   integrity sha512-CTUKmIlPJbsWfzRRnOXz+0MjIqvnleIXwFTzz+t9T86HnYX/Rozria6ZVGLktAU9e+NygNljveP+yxqtQp/Q4w==
