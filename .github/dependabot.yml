@@ -8,6 +8,9 @@ updates:
           docusaurus:
               patterns:
                   - "@docusaurus/*" # Make sure all docusaurus packages are updated together
+          docusaurus-api:
+              patterns:
+                  - "*-openapi-docs" # Make sure all api docs plugins are updated together
     - package-ecosystem: github-actions
       directory: "/"
       schedule:
