@@ -31,6 +31,10 @@ export const meetings: MeetingSchedule = {
             minutesLink: minutesFolder + "2024-11-07.pdf",
         },
         {
+            name: "Chat with Concord Market: Nov 21 @ 7:30 pm",
+            location: "9-255",
+        },
+        {
             name: "Thursday, December 5th, 2024 at 7:30pm",
             location: "Random",
         },
