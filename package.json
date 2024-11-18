@@ -63,7 +63,7 @@
         "@docusaurus/tsconfig": "3.6.1",
         "@docusaurus/types": "3.6.1",
         "@eslint/eslintrc": "^3.1.0",
-        "@eslint/js": "^9.14.0",
+        "@eslint/js": "^9.15.0",
         "@types/eslint": "^9.6.1",
         "@types/eslint__eslintrc": "^2.1.2",
         "@types/eslint__js": "^8.42.3",
