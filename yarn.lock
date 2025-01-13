@@ -10172,10 +10172,10 @@ react-is@^18.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
 
-react-json-view-lite@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/react-json-view-lite/-/react-json-view-lite-2.1.0.tgz#6fa02c92f34d85766b0219633597924c5ac02888"
-  integrity sha512-4JdlXC+dWPRXPL4fK/NsK6W103+mmpXDeWCHJGhgjPSvuyHnpwQUJ+ClUj4MFlLb4cPxi3T0/PW414JlTKMCJg==
+react-json-view-lite@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-json-view-lite/-/react-json-view-lite-2.3.0.tgz#872e36202c00711bf3f8582e0ae6c5cf63bbaac0"
+  integrity sha512-btGE+nynBIPRPLWMkE7ASOeF7QzzG6S3bTOTL0FLFNvprMsODmv8eUMFCUK9SOJqV8GCOW/avCpDJnMSchTafQ==
 
 react-json-view-lite@^1.2.0:
   version "1.5.0"
