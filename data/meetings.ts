@@ -1,46 +1,48 @@
-import type { MeetingSchedule } from "./types";
+import type { Meeting, MeetingSchedule } from "./types";
 
 const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
+/// Note that months in `Date` objects are zero-indexed.
+
 export const meetings: MeetingSchedule = {
-    year: "Fall 2024",
+    year: "Spring 2025",
     list: [
-        {
-            name: "Thursday, September 12th, 2024 at 7:30pm",
-            location: "Simmons",
-            minutesLink: minutesFolder + "2024-09-12.pdf",
-        },
-        {
-            name: "Thursday, September 26th, 2024 at 7:30pm",
-            location: "New House",
-            minutesLink: minutesFolder + "2024-09-26.pdf",
-        },
-        {
-            name: "Thursday, October 10th, 2024 at 7:30pm",
-            location: "New Vassar",
-            minutesLink: minutesFolder + "2024-10-10.pdf",
-        },
-        {
-            name: "Thursday, October 24th, 2024 at 7:30pm",
-            location: "Next House",
-            minutesLink: minutesFolder + "2024-10-24.pdf",
-        },
-        {
-            name: "Thursday, November 7th, 2024 at 7:30pm",
-            location: "Random",
-            minutesLink: minutesFolder + "2024-11-07.pdf",
-        },
-        {
-            name: "Chat with Concord Market: Nov 21 @ 7:30 pm",
-            location: "9-255",
-            minutesLink: minutesFolder + "2024-11-21.pdf",
-        },
-        {
-            name: "Thursday, December 5th, 2024 at 7:30pm",
-            location: "McCormick",
-            minutesLink: minutesFolder + "2024-12-05.pdf",
-        },
+        generateMeetingSchedule(new Date(2025, 1, 13, 19, 0), "Simmons", true),
     ],
     // gcalLink:
     //     "https://calendar.google.com/calendar/u/0?cid=NjMxYzZiMjI4Zjg0Y2QzNmVhMjhlYzU4M2JlZmE5OGEwMWRlODIwY2MwMzNjMzI4ZDU5ZDYzYjA1MjM2NjM5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
 };
+
+function generateName(date: Date): string {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        year: "numeric",
+        hour12: true,
+    });
+    return formatter.format(date);
+}
+
+function generateMinutesUrl(date: Date): string {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // LLM
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${minutesFolder}${year}-${month}-${day}.pdf`;
+}
+
+// Of course, you can make it manually if you want a custom description like
+// "Chat with Concord Market"
+function generateMeetingSchedule(
+    date: Date,
+    location: string,
+    minutesUploaded: boolean,
+): Meeting {
+    return {
+        name: generateName(date),
+        location,
+        minutesLink: minutesUploaded ? undefined : generateMinutesUrl(date),
+    };
+}
