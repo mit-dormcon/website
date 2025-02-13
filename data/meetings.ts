@@ -7,7 +7,7 @@ const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 export const meetings: MeetingSchedule = {
     year: "Spring 2025",
     list: [
-        generateMeetingSchedule(new Date(2025, 1, 13, 19, 0), "Simmons", true),
+        generateMeetingSchedule("Simmons", new Date(2025, 1, 13, 19, 0), false),
     ],
     gcalLink:
         "https://calendar.google.com/calendar/u/0?cid=YmQyNmM4MzhlMjExMzhmMDNhNmY2MmRjMDk2NjMxYTQxOGYxMzU4YTlkNGFhYmI3MTA1MjIwODM3NTNjZGIzZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
@@ -36,13 +36,13 @@ function generateMinutesUrl(date: Date): string {
 // Of course, you can make it manually if you want a custom description like
 // "Chat with Concord Market"
 function generateMeetingSchedule(
-    date: Date,
     location: string,
+    date: Date,
     minutesUploaded: boolean,
 ): Meeting {
     return {
         name: generateName(date),
         location,
-        minutesLink: minutesUploaded ? undefined : generateMinutesUrl(date),
+        minutesLink: minutesUploaded ? generateMinutesUrl(date) : undefined,
     };
 }
