@@ -9,8 +9,8 @@ export const meetings: MeetingSchedule = {
     list: [
         generateMeetingSchedule(new Date(2025, 1, 13, 19, 0), "Simmons", true),
     ],
-    // gcalLink:
-    //     "https://calendar.google.com/calendar/u/0?cid=NjMxYzZiMjI4Zjg0Y2QzNmVhMjhlYzU4M2JlZmE5OGEwMWRlODIwY2MwMzNjMzI4ZDU5ZDYzYjA1MjM2NjM5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
+    gcalLink:
+        "https://calendar.google.com/calendar/u/0?cid=YmQyNmM4MzhlMjExMzhmMDNhNmY2MmRjMDk2NjMxYTQxOGYxMzU4YTlkNGFhYmI3MTA1MjIwODM3NTNjZGIzZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
 };
 
 function generateName(date: Date): string {
