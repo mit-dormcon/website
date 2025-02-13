@@ -8,6 +8,23 @@ export const meetings: MeetingSchedule = {
     year: "Spring 2025",
     list: [
         generateMeetingSchedule("Simmons", new Date(2025, 1, 13, 19, 0), false),
+        generateMeetingSchedule("Maseeh", new Date(2025, 1, 27, 19, 0), false),
+        generateMeetingSchedule(
+            "MacGregor",
+            new Date(2025, 2, 13, 19, 0),
+            false,
+        ),
+        generateMeetingSchedule("Baker", new Date(2025, 3, 3, 19, 0), false),
+        generateMeetingSchedule(
+            "Burton-Conner",
+            new Date(2025, 3, 17, 19, 0),
+            false,
+        ),
+        generateMeetingSchedule(
+            "TBD Elections!",
+            new Date(2025, 4, 1, 19, 0),
+            false,
+        ),
     ],
     gcalLink:
         "https://calendar.google.com/calendar/u/0?cid=YmQyNmM4MzhlMjExMzhmMDNhNmY2MmRjMDk2NjMxYTQxOGYxMzU4YTlkNGFhYmI3MTA1MjIwODM3NTNjZGIzZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
