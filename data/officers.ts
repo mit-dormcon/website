@@ -33,16 +33,16 @@ export const officers: Term = {
         },
         {
             position: "REX/CPW Chair",
-            name: "Farin Liani",
-            affiliation: "Random + McCormick",
-            year: undefined,
+            name: "Gabriel Gomez",
+            affiliation: "MacGregor",
+            year: 2027,
             kerb: "dormcon-cpw-chairs",
         },
         {
             position: "REX/CPW Chair",
-            name: "Maddy Laws",
-            affiliation: "Baker",
-            year: 2027,
+            name: "Anthony Donegan",
+            affiliation: "???", // TODO
+            year: 2028, // TODO
             kerb: "dormcon-cpw-chairs",
         },
         {
@@ -75,9 +75,9 @@ export const officers: Term = {
         },
         {
             position: "Underclassmen Representative",
-            name: "Cayetano (Guy) Sanchez IV",
-            affiliation: "Baker",
-            year: 2027,
+            name: "Jamie Lim",
+            affiliation: "???", // TODO
+            year: 2028, // TODO
             kerb: "dormcon-uc-rep",
         },
         {
@@ -103,9 +103,9 @@ export const officers: Term = {
         },
         {
             position: "i3 Chair",
-            name: "Felicity Zhou",
-            affiliation: "Maseeh",
-            year: 2027,
+            name: "Jackson Hamilton",
+            affiliation: "Simmons",
+            year: 2028,
             kerb: "dormcon-i3-rac-chair",
         },
         {
