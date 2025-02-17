@@ -41,8 +41,8 @@ export const officers: Term = {
         {
             position: "REX/CPW Chair",
             name: "Anthony Donegan",
-            affiliation: "???", // TODO
-            year: 2028, // TODO
+            affiliation: "MacGregor",
+            year: 2028,
             kerb: "dormcon-cpw-chairs",
         },
         {
@@ -76,8 +76,8 @@ export const officers: Term = {
         {
             position: "Underclassmen Representative",
             name: "Jamie Lim",
-            affiliation: "???", // TODO
-            year: 2028, // TODO
+            affiliation: "MacGregor",
+            year: 2028,
             kerb: "dormcon-uc-rep",
         },
         {
