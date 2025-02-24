@@ -95,6 +95,11 @@ const config: Config = {
                     position: "left",
                 },
                 {
+                    to: "https://join-dormspam.mit.edu",
+                    label: "Join Dormspam!",
+                    position: "left",
+                },
+                {
                     href: "http://web.mit.edu/dormcon/index.old.shtml",
                     label: "Old Site",
                     position: "right",
