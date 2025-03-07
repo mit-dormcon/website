@@ -110,9 +110,9 @@ export const officers: Term = {
         },
         {
             position: "Tech Chair",
-            name: "Gabriel Rodríguez",
-            affiliation: "East Campus",
-            year: 2025,
+            name: "Haylea Brock",
+            affiliation: "Burton Conner",
+            year: 2027,
             kerb: "dormcon-tech-chair",
         },
     ],
