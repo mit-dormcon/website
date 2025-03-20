@@ -12,7 +12,7 @@ export const meetings: MeetingSchedule = {
         generateMeetingSchedule(
             "MacGregor",
             new Date(2025, 2, 13, 19, 0),
-            false,
+            true,
         ),
         generateMeetingSchedule("Baker", new Date(2025, 3, 3, 19, 0), false),
         generateMeetingSchedule(
