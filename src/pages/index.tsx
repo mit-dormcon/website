@@ -45,8 +45,11 @@ function FeatureRow() {
                 <div>
                     <ul>
                         <li>
-                            <Link to="/rex">REX 2024</Link> runs from August 25,
-                            2024 to August 28, 2024.
+                            Concord Market is now open in the Student Center! 
+                            Share your feedback <Link to="/concord">here.</Link>
+                        </li>
+                        <li>
+                            CPW 2025 runs from August 17, 2025 to August 20, 2025.
                         </li>
                     </ul>
                 </div>
