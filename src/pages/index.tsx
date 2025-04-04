@@ -46,7 +46,6 @@ function FeatureRow() {
                     <ul>
                         <li>
                             Concord Market is now open in the Student Center! 
-                            Share your feedback <Link to="/concord">here.</Link>
                         </li>
                         <li>
                             CPW 2025 runs from August 17, 2025 to August 20, 2025.
