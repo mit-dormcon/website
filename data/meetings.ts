@@ -9,16 +9,12 @@ export const meetings: MeetingSchedule = {
     list: [
         generateMeetingSchedule("Simmons", new Date(2025, 1, 13, 19, 0), true),
         generateMeetingSchedule("Maseeh", new Date(2025, 1, 27, 19, 0), true),
-        generateMeetingSchedule(
-            "MacGregor",
-            new Date(2025, 2, 13, 19, 0),
-            true,
-        ),
-        generateMeetingSchedule("Baker", new Date(2025, 3, 3, 19, 0), false),
+        generateMeetingSchedule("MacGregor", new Date(2025, 2, 13, 19, 0), true),
+        generateMeetingSchedule("Baker", new Date(2025, 3, 3, 19, 0), true),
         generateMeetingSchedule(
             "Burton-Conner",
             new Date(2025, 3, 24, 19, 0),
-            false,
+            true,
         ),
         generateMeetingSchedule(
             "TBD Elections!",
