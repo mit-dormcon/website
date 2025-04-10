@@ -14,7 +14,7 @@ export const meetings: MeetingSchedule = {
         generateMeetingSchedule(
             "Burton-Conner",
             new Date(2025, 3, 24, 19, 0),
-            true,
+            false,
         ),
         generateMeetingSchedule(
             "TBD Elections!",
