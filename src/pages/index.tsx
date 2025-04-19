@@ -45,10 +45,13 @@ function FeatureRow() {
                 <div>
                     <ul>
                         <li>
-                            Concord Market is now open in the Student Center! 
+                            Concord Market is now open in the Student Center!
+                            Share your feedback{" "}
+                            <Link to="pathname:///concord">here.</Link>
                         </li>
                         <li>
-                            CPW 2025 runs from August 17, 2025 to August 20, 2025.
+                            CPW 2025 runs from August 17, 2025 to August 20,
+                            2025.
                         </li>
                     </ul>
                 </div>
@@ -89,7 +92,7 @@ function FeatureRow() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="http://bit.ly/dining23">
+                            <Link to="https://bit.ly/dining23">
                                 Give feedback to a dining hall.
                             </Link>
                         </li>
