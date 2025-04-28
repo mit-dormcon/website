@@ -50,8 +50,7 @@ function FeatureRow() {
                             <Link to="pathname:///concord">here.</Link>
                         </li>
                         <li>
-                            CPW 2025 runs from August 17, 2025 to August 20,
-                            2025.
+                            Dormcon elections will be May 1st, at 7pm in 4-163.
                         </li>
                     </ul>
                 </div>
