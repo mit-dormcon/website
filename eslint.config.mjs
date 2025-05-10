@@ -10,23 +10,21 @@ const compat = new FlatCompat({
 
 import reactPlugin from "eslint-plugin-react";
 import tseslint from "typescript-eslint";
+import reactHooks from "eslint-plugin-react-hooks";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 
 export default tseslint.config(
     eslint.configs.recommended,
     ...tseslint.configs.recommendedTypeChecked,
     ...tseslint.configs.stylisticTypeChecked,
     reactPlugin.configs.flat.recommended,
-    ...compat.extends(
-        "plugin:@docusaurus/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-    ),
+    reactHooks.configs["recommended-latest"],
+    jsxA11y.flatConfigs.recommended,
+    ...compat.extends("plugin:@docusaurus/recommended"),
     reactPlugin.configs.flat["jsx-runtime"],
     {
         files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
-        ...reactPlugin.configs.flat.recommended,
         languageOptions: {
-            ...reactPlugin.configs.flat.recommended.languageOptions,
             globals: {
                 ...globals.serviceworker,
                 ...globals.browser,
@@ -35,6 +33,9 @@ export default tseslint.config(
             parserOptions: {
                 projectService: true,
                 tsconfigRootDir: import.meta.dirname,
+                ecmaFeatures: {
+                    jsx: true,
+                },
             },
         },
         settings: {

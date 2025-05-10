@@ -12,9 +12,9 @@ team.
 
 Do you want to…
 
--   _...work on improving student life?_
--   _...be in the room where all the dorm life tea is spilled?_
--   _...join a student government that doesn’t take itself too seriously?_
+- _...work on improving student life?_
+- _...be in the room where all the dorm life tea is spilled?_
+- _...join a student government that doesn’t take itself too seriously?_
 
 Then run for a 🦈DormCon🦈 exec position at the next DormCon GBM on **Thursday,
 November 30th at 7:30 pm in Random Hall!**
@@ -46,8 +46,8 @@ advance of the meeting at [dormcon-exec@mit.edu](mailto:dormcon-exec@mit.edu).
 Your proxy should be able to speak to your platform and provide brief answers to
 the following questions:
 
--   What will be your workload over the next year?
--   Can you make weekly Thursday night meetings?
+- What will be your workload over the next year?
+- Can you make weekly Thursday night meetings?
 
 **Come to the DormCon GBM on November 30th if you want to run for any
 position!**

@@ -63,6 +63,7 @@
         "@eslint/eslintrc": "^3.3.1",
         "@eslint/js": "^9.26.0",
         "@types/eslint": "^9.6.1",
+        "@types/eslint-plugin-jsx-a11y": "^6.10.0",
         "@types/gtag.js": "^0.0.20",
         "@types/lodash": "^4.17.15",
         "@types/react": "^19.1.3",
