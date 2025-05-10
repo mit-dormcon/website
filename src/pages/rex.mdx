@@ -1,9 +1,61 @@
 ---
 title: REX, by DormCon
-description: 2024 Residence Exploration, by DormCon
+description: Residence Exploration, by DormCon
 ---
 
-# REX 2024, by DormCon
+import { TRexEntryButton } from "../../components/t-rex/TRexApp";
+import { useState, useEffect } from "react";
+
+export const REXName = () => {
+    const [rexData, setRexData] = useState(null);
+    useEffect(() => {
+        const fetchRexData = () => {
+            fetch("https://rex.mit.edu/api.json")
+                .then((result) => result.json())
+                .then((data) => setRexData(data));
+        };
+        fetchRexData();
+    }, []);
+    if (!rexData) {
+        return "REX";
+    }
+    return `${rexData.name}`;
+};
+
+export const REXEventDates = () => {
+    const [rexData, setRexData] = useState(null);
+    useEffect(() => {
+        const fetchRexData = () => {
+            fetch("https://rex.mit.edu/api.json")
+                .then((result) => result.json())
+                .then((data) => setRexData(data));
+        };
+        fetchRexData();
+    }, []);
+    if (!rexData) {
+        return "";
+    }
+
+    const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        timeZone: "UTC",
+    };
+
+    const start = Date.parse(rexData.start);
+    const end = Date.parse(rexData.end);
+
+    const inThePast = end < Date.now();
+    const startDate = new Date(start).toLocaleDateString("en-US", options);
+    const endDate = new Date(end).toLocaleDateString("en-US", options);
+
+    return `${rexData.name} ${inThePast ? "ran" : "run"} from ${startDate} to ${endDate}, though some events ${inThePast ? "occured" : "will occur"} before and after these dates.`;
+
+};
+
+# <REXName />, by DormCon
 
 First years, welcome to MIT, and welcome to DormCon REX! We hope you have a
 blast while getting to learn more about all of our awesome dorms.
@@ -13,16 +65,14 @@ blast while getting to learn more about all of our awesome dorms.
 All REX events can be viewed on the [REX Events page](/rex/events), though
 physical REX booklets with the events are also available.
 
-import { TRexEntryButton } from "../../components/t-rex/TRexApp";
-
 <TRexEntryButton />
 
 The [REX Events page](/rex/events) is a project of the DormCon Tech Chair.
 Please email all bugs and feedback to dormcon-tech-chair@mit.edu. You can view
 the documentation for the REX API [here](/rex/api).
 
-**REX 2024 runs from Sunday August 25, 2024 to Wednesday August 28, 2024**,
-though some events may occur before and after these dates.
+**<REXEventDates />** Next year's events will be available around August, so
+stay tuned!
 
 ## About REX
 
