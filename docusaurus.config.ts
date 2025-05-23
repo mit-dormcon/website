@@ -14,13 +14,6 @@ const config: Config = {
     organizationName: "mit-dormcon",
     projectName: "website",
     trailingSlash: false,
-    markdown: {
-        mdx1Compat: {
-            comments: false,
-            admonitions: false,
-            headingIds: false,
-        },
-    },
     themeConfig: {
         navbar: {
             title: "MIT DormCon",
@@ -85,18 +78,13 @@ const config: Config = {
                     specialPage: "about",
                 },
                 {
-                    to: "piazza",
-                    label: "Piazza",
+                    to: "resources",
+                    label: "Resources",
                     position: "left",
                 },
                 {
                     to: "rex",
                     label: "REX",
-                    position: "left",
-                },
-                {
-                    to: "https://join-dormspam.mit.edu",
-                    label: "Join Dormspam!",
                     position: "left",
                 },
                 {
@@ -176,7 +164,24 @@ const config: Config = {
                     docItemComponent: "@theme/ApiItem",
                     routeBasePath: "/",
                 },
-                blog: false,
+                blog: {
+                    path: "resources",
+                    editUrl: ({ blogDirPath, blogPath }) =>
+                        `https://github.com/mit-dormcon/website/edit/main/${blogDirPath}/${blogPath}`,
+                    blogTitle: "DormCon Resources",
+                    blogDescription:
+                        "Resources for dorm execs and dormitory life at MIT",
+                    blogSidebarTitle: "All our posts",
+                    routeBasePath: "resources",
+                    include: ["**/*.{md,mdx}"],
+                    exclude: [
+                        "**/_*.{js,jsx,ts,tsx,md,mdx}",
+                        "**/_*/**",
+                        "**/*.test.{js,jsx,ts,tsx}",
+                        "**/__tests__/**",
+                    ],
+                    truncateMarker: /<!--\s*(truncate)\s*-->/,
+                },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
                 },
