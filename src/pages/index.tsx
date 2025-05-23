@@ -86,7 +86,7 @@ function FeatureRow() {
                 <div>
                     <ul>
                         <li>
-                            <Link to="/piazza">
+                            <Link to="/resources/piazza">
                                 Ask a question on the DormCon Piazza.
                             </Link>
                         </li>
