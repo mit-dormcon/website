@@ -1,5 +1,6 @@
 ---
 description: Fund your event with money from DormCon!
+sidebar_position: 2
 ---
 
 # Event Funding

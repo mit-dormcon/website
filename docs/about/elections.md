@@ -1,6 +1,7 @@
 ---
 description: Information on elections for DormCon officers
 draft: true
+sidebar_position: 6
 ---
 
 # Elections
