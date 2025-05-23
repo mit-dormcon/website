@@ -3,6 +3,11 @@ import Link from "@docusaurus/Link";
 
 export default function MeetingsComponent(props: { meetings: Meeting[] }) {
     const { meetings } = props;
+
+    if (meetings.length === 0) {
+        return <p>No meetings scheduled (yet). Check back later!</p>;
+    }
+
     return (
         <ul>
             {meetings.map((m, idx) => {

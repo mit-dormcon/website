@@ -32,7 +32,7 @@ export interface Officer {
 export interface DormConMember {
     dorm: string;
     /** The name(s) of the dorm's president(s) */
-    president: string;
+    president: string[];
     /** A list with the mailing list of the dorm's president without @mit.edu */
     kerbs: string[];
     /** A link to the dorm's website */
