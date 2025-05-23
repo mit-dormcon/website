@@ -9,6 +9,7 @@ import type {
     Props as DropdownWithMobileProps,
 } from "@theme/NavbarItem/DropdownNavbarItem";
 import useIsBrowser from "@docusaurus/useIsBrowser";
+import { ReactNode } from "react";
 
 export interface Props {
     readonly dropdownProps: DropdownNavbarItemProps;
@@ -17,7 +18,7 @@ export interface Props {
     readonly mobile?: boolean;
 }
 
-export default function DropdownExceptOnPage(props: Props): JSX.Element {
+export default function DropdownExceptOnPage(props: Props): ReactNode {
     const dropdownProps: DropdownWithMobileProps = {
         ...props.dropdownProps,
         mobile: props.mobile,
