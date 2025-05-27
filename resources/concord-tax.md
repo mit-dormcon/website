@@ -12,6 +12,8 @@ clubs you are a part of who may be interested. Please note that you still cannot
 claim a sales tax exemption for your group at Concord Market through the
 standard RFP process:
 
+<!-- truncate -->
+
 In order to claim a sales tax exemption at Concord Market, your group needs to
 have a CVC (controlled value card) holder, and your CVC card holder must make
 the purchase. For dorms, multiple members of exec can be CVC card holders, but

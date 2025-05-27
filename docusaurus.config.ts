@@ -153,6 +153,11 @@ const config: Config = {
         colorMode: {
             respectPrefersColorScheme: true,
         },
+        blog: {
+            sidebar: {
+                groupByYear: false,
+            },
+        },
     } satisfies Preset.ThemeConfig,
     presets: [
         [
@@ -171,7 +176,7 @@ const config: Config = {
                     blogTitle: "DormCon Resources",
                     blogDescription:
                         "Resources for dorm execs and dormitory life at MIT",
-                    blogSidebarTitle: "All our posts",
+                    blogSidebarTitle: "Resources",
                     routeBasePath: "resources",
                     include: ["**/*.{md,mdx}"],
                     exclude: [
