@@ -100,12 +100,16 @@ const config: Config = {
                     title: "Community",
                     items: [
                         {
-                            label: "MIT Housing",
-                            href: "https://studentlife.mit.edu/housing",
+                            label: "MIT Living Communities",
+                            href: "https://studentlife.mit.edu/living-communities/",
                         },
                         {
                             label: "MIT Guide to Residences",
                             href: "https://mitguidetoresidences.mit.edu/",
+                        },
+                        {
+                            label: "Housing Policies",
+                            href: "https://studentlife.mit.edu/policies-and-resources/housing-policies/",
                         },
                     ],
                 },
@@ -122,11 +126,11 @@ const config: Config = {
                         },
                         {
                             label: "Panhel",
-                            href: "https://www.panhel.mit.edu/",
+                            href: "https://www.mitpanhel.com/",
                         },
                         {
                             label: "LGC",
-                            href: "http://lgc.mit.edu/",
+                            href: "https://lgc.mit.edu/",
                         },
                         {
                             label: "GSC",
