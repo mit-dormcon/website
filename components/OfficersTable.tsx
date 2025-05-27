@@ -11,7 +11,7 @@ export default function OfficersTable(props: { data: Officer[] }) {
                     <th>Name</th>
                     <th>Affiliation</th>
                     <th>Year</th>
-                    <th>Email</th>
+                    <th>Kerb</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,7 +23,7 @@ export default function OfficersTable(props: { data: Officer[] }) {
                         <td>{p.year}</td>
                         <td>
                             <Link to={`mailto:${p.kerb}@mit.edu`}>
-                                {p.kerb}@mit.edu
+                                {p.kerb}
                             </Link>
                         </td>
                     </tr>
