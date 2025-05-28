@@ -28,7 +28,7 @@ function Feature(props: {
                     />
                 </div>
             )}
-            <Heading as="h3">{title}</Heading>
+            <Heading as="h2">{title}</Heading>
             {children}
         </div>
     );
