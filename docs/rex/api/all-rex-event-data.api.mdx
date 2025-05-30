@@ -1,0 +1,63 @@
+---
+id: all-rex-event-data
+title: "All REX Event data"
+description: "Returns a JSON object with all REX data. This includes data about the REX API, a list of all events, and more."
+sidebar_label: "All REX Event data"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVUuP4zYM/isatocu4NhpDwWaU4PZ2WJ7aAfZFFjASLGMzMSaWpJHouaBwP+9oO08O4cNWqAnGxL18ePH1w4qijqYlo13MIMFcQouKlS/fvr9N+XXD6RZPRuuFTaNWtx9VhUy5mpZm6iM002qKPZnCtc+seKaerP5/cdMoWpMZOU3/Wt6IscxU+gqZX2gHDJg3EaYlbDAZ/UeGWGVQaDYehcpwmwHP0yn8jmn+SlpTTFuUqMCPSaKfAMZaO+YHIs5tm1jNIp58RDlzQ6irsmi/PFrSzCDITrIoA2+pcBm8OjQ0olV5GDcFroM2rRuTKyp+udtBhsfLDLMoEKmCRtL8mQI+cQeQ8BXyMAw2fgvuFQ+2K+A3T/oMmj8oMebcJEx8BVhuSs0OEvdG76HErgmlG3wqT1elUcGLjUNrISh9Q/mGtRO6u4xmSDpLQfhR5lPtNsrNUhwHtsYyZ7eKgM23IiTO6mCnrngXRns9fJo3/jwFcV1SeZghlVlJCRs7s8eXOa7RWYK0pB/flNOJz/hZDOffFjtfuy+fYv6f4x/kbEhmtHpifi3osatdxszqPNGlo+NfejY7BzvIOqq63rPlrj2FcxgSzwwrWEGBbYm7+dNBpHCE0kayh2k0MAMauY2zooi0EtuDedUJehWGRi38X34I+PlZHH3WRCStRhe5aQm9d4He+vdfrjeXFSfGJkoN6r2kWM/iCOHpDkFqsYR7Sol3qRNjXdq40NvVwpoX6VRtbil1Xd7rqKC9m7PV7gXg0TvcvWBqFGbQKTYqxRJGe4hX30Kyj871abQ+kjxRi1P2chCELf9jjFRVV4nS46pUhjVl+WCXub3HxfjGviijFOl1EbMOR6pbQ3XaZ1rbwtreDIyLZ5pHQ1TsW78urBoXKG9bb0TzgVPJIA91jtBFiJidhB4BFCBWh8N+/Aqi0pyOej8fT7Np+O6Qc3HMQ17hCXpWt3WaIIUlEUj2R/5TZh0PdFy+fOhCGS5+MgW3QnafFy4fV76/F2mfHdcef/D5h6alemFi7ZB42SW94W+G9uhhEM7rDKQqpSz3W6Nkf4ITdfJ8WMiKfFylcETBoNraYFSRnhNWFHo++cvki6Ya02tdNsTNqmfhZdbXrrp0Jm/3C2h6/4G/9cGdw==
+sidebar_class_name: "get api-method"
+info_path: rex/api/t-rex
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"All REX Event data"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api.json"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a JSON object with all REX data. This includes data about the REX API, a list of all events, and more.
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful request!","content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"published":{"type":"string","format":"date-time"},"events":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"dorm":{"type":"array","items":{"type":"string"}},"location":{"type":"string"},"start":{"type":"string","format":"date-time"},"end":{"type":"string","format":"date-time"},"description":{"type":"string"},"tags":{"type":"array","items":{"type":"string"}},"group":{"type":["string","null"]},"emoji":{"type":"array","items":{"type":"string"}}},"required":["name","dorm","location","start","end","description","tags","group"],"title":"Event"}},"dorms":{"type":"array","items":{"type":"string"}},"tags":{"type":"array","items":{"type":"string"}},"colors":{"type":"object","properties":{"dorms":{"type":"object","additionalProperties":{"type":"string","pattern":"^#[0-9a-fA-F]{6}$"}},"tags":{"type":"object","additionalProperties":{"type":"string","pattern":"^#[0-9a-fA-F]{6}$"}}},"required":["dorms","tags"],"title":"ColorConfig"}},"required":["name","published","events","dorms","tags","colors"]}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
