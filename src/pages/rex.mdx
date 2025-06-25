@@ -4,56 +4,7 @@ description: Residence Exploration, by DormCon
 ---
 
 import { TRexEntryButton } from "../../components/t-rex/TRexApp";
-import { useState, useEffect } from "react";
-
-export const REXName = () => {
-    const [rexData, setRexData] = useState(null);
-    useEffect(() => {
-        const fetchRexData = () => {
-            fetch("https://rex.mit.edu/api.json")
-                .then((result) => result.json())
-                .then((data) => setRexData(data));
-        };
-        fetchRexData();
-    }, []);
-    if (!rexData) {
-        return "REX";
-    }
-    return `${rexData.name}`;
-};
-
-export const REXEventDates = () => {
-    const [rexData, setRexData] = useState(null);
-    useEffect(() => {
-        const fetchRexData = () => {
-            fetch("https://rex.mit.edu/api.json")
-                .then((result) => result.json())
-                .then((data) => setRexData(data));
-        };
-        fetchRexData();
-    }, []);
-    if (!rexData) {
-        return "";
-    }
-
-    const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        timeZone: "UTC",
-    };
-
-    const start = Date.parse(rexData.start);
-    const end = Date.parse(rexData.end);
-
-    const inThePast = end < Date.now();
-    const startDate = new Date(start).toLocaleDateString("en-US", options);
-    const endDate = new Date(end).toLocaleDateString("en-US", options);
-
-    return `${rexData.name} ${inThePast ? "ran" : "runs"} from ${startDate} to ${endDate}, though some events ${inThePast ? "occured" : "will occur"} before and after these dates.`;
-
-};
+import { REXName, REXEventDates } from "./rexContent";
 
 # <REXName />, by DormCon
 
