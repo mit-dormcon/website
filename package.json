@@ -26,9 +26,9 @@
     "dependencies": {
         "@babel/core": "7.27.4",
         "@babel/helpers": "7.27.1",
-        "@docusaurus/core": "^3.8.0",
-        "@docusaurus/cssnano-preset": "^3.8.0",
-        "@docusaurus/preset-classic": "^3.8.0",
+        "@docusaurus/core": "^3.8.1",
+        "@docusaurus/cssnano-preset": "^3.8.1",
+        "@docusaurus/preset-classic": "^3.8.1",
         "@mdx-js/react": "^3.1.0",
         "chart.js": "^4.4.9",
         "clsx": "^2.1.1",
@@ -55,10 +55,10 @@
         ]
     },
     "devDependencies": {
-        "@docusaurus/eslint-plugin": "^3.8.0",
-        "@docusaurus/module-type-aliases": "^3.8.0",
-        "@docusaurus/tsconfig": "^3.8.0",
-        "@docusaurus/types": "^3.8.0",
+        "@docusaurus/eslint-plugin": "^3.8.1",
+        "@docusaurus/module-type-aliases": "^3.8.1",
+        "@docusaurus/tsconfig": "^3.8.1",
+        "@docusaurus/types": "^3.8.1",
         "@eslint/eslintrc": "^3.3.1",
         "@eslint/js": "^9.27.0",
         "@types/eslint": "^9.6.1",
