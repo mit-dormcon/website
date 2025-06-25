@@ -50,7 +50,8 @@ function FeatureRow() {
                             <Link to="pathname:///concord">here.</Link>
                         </li>
                         <li>
-                            Dormcon elections will be May 1st, at 7pm in 4-163.
+                            REX 2025 will run from Sunday, August 23 to
+                            Wednesday, August 27!
                         </li>
                     </ul>
                 </div>
