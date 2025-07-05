@@ -26,7 +26,13 @@
     --ifm-color-primary-lightest: #7bb2cc;
 }
 
-a {
+a:not(.navbar__link) {
+    font-weight: bold;
+}
+
+.theme-announcement-bar {
+    font-size: 20px;
+    background-color: var(--ifm-color-secondary-lightest);
     font-weight: bold;
 }
 

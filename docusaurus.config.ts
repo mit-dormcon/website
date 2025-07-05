@@ -22,6 +22,9 @@ const config: Config = {
         },
     },
     themeConfig: {
+        announcementBar: {
+            content: `REX 2025 is happening soon! Check out the <a href='/rex'>REX page</a> for more information.`,
+        },
         navbar: {
             title: "MIT DormCon",
             hideOnScroll: true,
