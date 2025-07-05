@@ -58,3 +58,13 @@
     height: 200px;
     width: 200px;
 }
+
+.heroButton {
+    background-position: 0%;
+    background-size: 200% 100%;
+}
+
+.heroButton:hover {
+    background-position-x: 100%;
+    transform: scale(1.1);
+}

@@ -10,6 +10,7 @@ import type {
 } from "@theme/NavbarItem/DropdownNavbarItem";
 import useIsBrowser from "@docusaurus/useIsBrowser";
 import { ReactNode } from "react";
+import { useLocation } from "@docusaurus/router";
 
 export interface Props {
     readonly dropdownProps: DropdownNavbarItemProps;
@@ -28,8 +29,13 @@ export default function DropdownExceptOnPage(props: Props): ReactNode {
         mobile: props.mobile,
     };
 
-    return !useIsBrowser() ||
-        window.location.pathname.startsWith(`/${props.specialPage}`)
-        ? DefaultNavbarItem(defaultProps)
-        : DropdownNavbarItem(dropdownProps);
+    const location = useLocation();
+    const isBrowser = useIsBrowser();
+
+    return !isBrowser ||
+        location.pathname.startsWith(`/${props.specialPage}`) ? (
+        <DefaultNavbarItem {...defaultProps} />
+    ) : (
+        <DropdownNavbarItem {...dropdownProps} />
+    );
 }

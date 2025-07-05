@@ -7,9 +7,12 @@ import DocNavbarItem from "@theme/NavbarItem/DocNavbarItem";
 import DocSidebarNavbarItem from "@theme/NavbarItem/DocSidebarNavbarItem";
 import DocsVersionNavbarItem from "@theme/NavbarItem/DocsVersionNavbarItem";
 import DocsVersionDropdownNavbarItem from "@theme/NavbarItem/DocsVersionDropdownNavbarItem";
+
+import type { ComponentTypesObject } from "@theme/NavbarItem/ComponentTypes";
+
 import DropdownExceptOnPage from "@site/components/DropdownExceptOnPage";
 
-const ComponentTypes = {
+const ComponentTypes: ComponentTypesObject = {
     default: DefaultNavbarItem,
     localeDropdown: LocaleDropdownNavbarItem,
     search: SearchNavbarItem,
@@ -21,4 +24,5 @@ const ComponentTypes = {
     docsVersionDropdown: DocsVersionDropdownNavbarItem,
     "custom-dropdown": DropdownExceptOnPage,
 };
+
 export default ComponentTypes;

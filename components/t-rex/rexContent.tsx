@@ -1,3 +1,4 @@
+import Interpolate from "@docusaurus/Interpolate";
 import { useRexData } from "@site/components/t-rex/TRexApp";
 
 export const REXName = () => {
@@ -6,7 +7,16 @@ export const REXName = () => {
     if (isLoading || data === undefined) {
         return "REX";
     }
-    return `${data.name}`;
+
+    return (
+        <Interpolate
+            values={{
+                name: isLoading || data === undefined ? "REX" : data.name,
+            }}
+        >
+            {"{name}"}
+        </Interpolate>
+    );
 };
 
 export const REXEventDates = () => {
@@ -28,5 +38,19 @@ export const REXEventDates = () => {
     const startDate = data.start.toLocaleDateString("en-US", options);
     const endDate = data.end.toLocaleDateString("en-US", options);
 
-    return `${data.name} ${inThePast ? "ran" : "runs"} from ${startDate} to ${endDate}, though some events ${inThePast ? "occured" : "will occur"} before and after these dates.`;
+    return (
+        <Interpolate
+            values={{
+                inThePastRan: inThePast ? "ran" : "runs",
+                inThePastOccured: inThePast ? "occured" : "will occur",
+                start: startDate,
+                end: endDate,
+                name: isLoading || data === undefined ? "REX" : data.name,
+            }}
+        >
+            {
+                "{name} {inThePastRan} from {start} to {end}, though some events {inThePastOccured} before and after these dates."
+            }
+        </Interpolate>
+    );
 };

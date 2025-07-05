@@ -3,5 +3,6 @@
     "compilerOptions": {
         "baseUrl": ".",
         "strict": true
-    }
+    },
+    "exclude": [".docusaurus", "build"]
 }

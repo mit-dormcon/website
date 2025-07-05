@@ -19,8 +19,7 @@ const sidebars: SidebarsConfig = {
                     "Automatically generated documentation for the REX API. Click below to see various aspects of the API.",
                 slug: "/rex/api",
             },
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            items: rexItems,
+            items: rexItems as SidebarsConfig[string],
         },
     ],
 };
