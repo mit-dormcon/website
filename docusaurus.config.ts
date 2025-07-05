@@ -23,6 +23,9 @@ const config: Config = {
     },
     themeConfig: {
         announcementBar: {
+            id: "rex_2025",
+            backgroundColor: "var(--ifm-color-secondary-contrast-background)",
+            textColor: "var(--ifm-color-secondary-contrast-foreground)",
             content: `REX 2025 is happening soon! Check out the <a href='/rex'>REX page</a> for more information.`,
         },
         navbar: {

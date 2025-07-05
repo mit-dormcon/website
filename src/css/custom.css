@@ -30,12 +30,6 @@ a:not(.navbar__link) {
     font-weight: bold;
 }
 
-.theme-announcement-bar {
-    font-size: 20px;
-    background-color: var(--ifm-color-secondary-lightest);
-    font-weight: bold;
-}
-
 .docusaurus-highlight-code-line {
     background-color: rgb(72, 77, 91);
     display: block;
