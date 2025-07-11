@@ -14,11 +14,13 @@ a common format, so you can move them between devices and browsers. For example,
 you could save events to your bookmarks on your laptop and move them to your
 phone, or vice versa with this tool.
 
-<div class="alert alert--warning margin-bottom--md" role="alert">
-    <b>⚠️ Be careful!</b> It might be possible to break the REX events viewer
-    with importing some bad data. If you find that the events page isn't
-    working, you can import <code>[]</code> to clear your bookmarks.
-</div>
+:::warning[Be careful!]
+
+It might be possible to break the REX events viewer with importing some bad
+data. If you find that the events page isn't working, you can import `[]` to
+clear your bookmarks.
+
+:::
 
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import { BookmarksTool } from "@site/components/t-rex/Bookmarks";
