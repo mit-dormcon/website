@@ -3,7 +3,16 @@ description: Fund your event with money from DormCon!
 sidebar_position: 2
 ---
 
-# Event Funding
+# Budget and Event Funding
+
+## Budget
+
+DormCon maintains a budget in order to help fund events in the dorm community
+and for operational expenses. We are committed to keeping extraneous costs low
+in order to maximize the amount of money available for events that enhance the
+residential experience. As
+[approved by dorm presidents](https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf),
+DormCon receives $10 of house tax from every dorm resident.
 
 ## Funding Guidelines
 
@@ -26,9 +35,9 @@ updated guidelines. Some important facts are noted below:
   allow sufficient time for DormCon review and potential approval.
 
 - No event will be funded beyond 50% of its total event budget, up to a maximum
-  of $500 for parties and $2000 for all other events. Party organizers can email
-  dormcon-treasurer@mit.edu with an explanation to request that their event be
-  considered for the full $2000.
+  of $500 for parties and $2000 for all other events. Party organizers
+  [can email the DormCon Treasurer](mailto:dormcon-treasurer@mit.edu) with an
+  explanation to request that their event be considered for the full $2000.
 
 - In order to actually get the funding transferred into your account, you must
   fill out a post-event report.

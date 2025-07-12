@@ -1,6 +1,6 @@
 export interface Meeting {
     name: string;
-    location: string;
+    location?: string;
     /** An external link to the pdf of minutes, perhaps on Athena */
     minutesLink?: string;
 }

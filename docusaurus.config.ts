@@ -219,7 +219,7 @@ const config: Config = {
     themes: ["docusaurus-theme-openapi-docs"],
     future: {
         experimental_faster: true,
-        v4: true
+        v4: true,
     },
 };
 

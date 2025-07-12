@@ -6,6 +6,7 @@ sidebar_position: 7
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import Link from "@docusaurus/Link";
 import OfficersTable from "../../components/OfficersTable";
 import MeetingsComponent from "../../components/MeetingsComponent";
 import { officers, meetings } from "../../data/archive";
@@ -38,7 +39,49 @@ More meeting minutes are available at the
 >
     {meetings.map((m, idx) => (
         <TabItem value={idx}>
-            <MeetingsComponent meetings={m.list} />
+            {m.list ? (
+                <MeetingsComponent meetings={m.list} />
+            ) : (
+                <Link to={m.href}>{m.text}</Link>
+            )}
         </TabItem>
     ))}
 </Tabs>
+
+## Old, Archived, or Historical Documents
+
+Note that some of these documents may be out of date or no longer relevant.
+
+- [Fall 2017 Event Funding Guidelines](https://web-cert.mit.edu/dormcon/funding/DormconFundingF17.pdf)
+- [MetX Student Advisers' Report](https://web-cert.mit.edu/dormcon/docs/MetXStudentAdvisersReport.pdf)
+- [Security Survey Results](https://web-cert.mit.edu/dormcon/docs/SecuritySurvey.pdf)
+- [DormCon Constitution](https://web-cert.mit.edu/dormcon/docs/constitution.pdf)
+  (amended 31 March 2016)
+- [REX 2013 Event Guide](http://web.mit.edu/dormcon/docs/REX2013.pdf)
+  (Spring 2013)
+- [Fall 2013 Event Funding Guidelines](http://web.mit.edu/dormcon/funding/DormconFundingF13.pdf)
+  (Fall 2013)
+- [Letter from Past Dorm Presidents About Bexley Hall](https://web-cert.mit.edu/dormcon/docs/BexleyLetter.pdf)
+  (Spring 2013)
+- [Tax Agreement](https://web-cert.mit.edu/dormcon/docs/tax-agreement.pdf)
+  (agreed upon between Housing and DormCon in Spring 2012)
+- Pet Policies
+    - [Cat Policy Text](https://web-cert.mit.edu/dormcon/pets/petpol.pdf)
+    - [Cat Registration Form](https://web-cert.mit.edu/dormcon/pets/petreg.pdf)
+    - [Roommate Consent Form](https://web-cert.mit.edu/dormcon/pets/petcon.pdf)
+    - [Cat Approval Form](https://web-cert.mit.edu/dormcon/pets/petapp.pdf)
+    - [Cat Registration Transfer Form](https://web-cert.mit.edu/dormcon/pets/pettra.pdf)
+- [REX 2012 Event Guide](https://web-cert.mit.edu/dormcon/docs/REX2012.pdf)
+  (posted 26 February 2012)
+- [i3 Possible Revision Suggestions](https://web-cert.mit.edu/dormcon/docs/KIC000001.pdf)
+  (posted 2 October 2011)
+- [Freshman Lottery statistics for 2011](https://web-cert.mit.edu/dormcon/docs/FreshmanLottery%20dormcon%202011.pdf)
+  (posted 28 September 2011)
+- 2008 Cultural House Reports:
+    - [Spanish House](http://web.mit.edu/dormcon/docs/cultural-reports/spanish08.pdf)
+    - [French House](http://web.mit.edu/dormcon/docs/cultural-reports/french08.pdf)
+    - [Chocolate City](http://web.mit.edu/dormcon/docs/cultural-reports/cc08.pdf)
+    - [German House](http://web.mit.edu/dormcon/docs/cultural-reports/german08.pdf)
+    - [iHouse](http://web.mit.edu/dormcon/docs/cultural-reports/ihouse08.pdf)
+- [Letter from the past presidents of DormCon to President Hockfield](https://web-cert.mit.edu/dormcon/docs/alum-letter-march2005.pdf)
+  (posted 05 March 2005)

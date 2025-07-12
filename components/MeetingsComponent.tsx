@@ -28,7 +28,11 @@ export default function MeetingsComponent(props: { meetings: Meeting[] }) {
                                 </Link>
                             )}
                         </div>
-                        <small style={{ color: "gray" }}>@ {m.location}</small>
+                        {m.location && (
+                            <small style={{ color: "gray" }}>
+                                @ {m.location}
+                            </small>
+                        )}
                     </li>
                 );
             })}
