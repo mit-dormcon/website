@@ -51,7 +51,7 @@ const config: Config = {
                             },
                             {
                                 type: "doc",
-                                label: "Event Funding",
+                                label: "Budget and Event Funding",
                                 docId: "about/funding",
                             },
                             {
