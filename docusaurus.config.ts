@@ -24,9 +24,9 @@ const config: Config = {
     themeConfig: {
         announcementBar: {
             id: "rex_2025",
-            backgroundColor: "var(--ifm-color-secondary-contrast-background)",
-            textColor: "var(--ifm-color-secondary-contrast-foreground)",
-            content: `REX 2025 is happening soon! Check out the <a href='/rex'>REX page</a> for more information.`,
+            backgroundColor: "var(--ifm-color-primary-contrast-background)",
+            textColor: "var(--ifm-color-primary-contrast-foreground)",
+            content: `<strong>🥳 <a href='/rex'>REX 2025</a> is happening soon! 🎉</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
