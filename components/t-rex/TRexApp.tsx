@@ -427,26 +427,52 @@ function EventCard(props: EventCardProps) {
             </div>
             <div
                 className="card__footer"
-                style={{ display: "flex", flexWrap: "wrap" }}
+                style={{ display: "inline-flex", flexWrap: "wrap" }}
             >
                 {props.event.dorm.map((dorm) => (
-                    <ColoredBadge
-                        className="badge badge--primary margin-right--sm"
-                        key={dorm}
-                        color={map_or_object(data?.colors.dorms, dorm)}
-                        onClick={() => {
-                            setFilter({
-                                ...filter,
-                                dormFilter: dorm,
-                            });
-                        }}
-                    >
-                        {dorm}
-                    </ColoredBadge>
+                    <div key={dorm}>
+                        <ColoredBadge
+                            className="badge badge--primary margin-right--sm"
+                            color={map_or_object(data?.colors.dorms, dorm)}
+                            onClick={() => {
+                                setFilter({
+                                    ...filter,
+                                    dormFilter: dorm,
+                                    groupFilter: undefined,
+                                });
+                            }}
+                        >
+                            {dorm}
+                        </ColoredBadge>
+                    </div>
                 ))}
                 {props.event.group && (
-                    <div className="margin-right--sm">
-                        🏘️ {props.event.group}
+                    <div>
+                        <ColoredBadge
+                            className="badge badge--primary margin-right--sm"
+                            onClick={() => {
+                                setFilter({
+                                    ...filter,
+                                    dormFilter: props.event.dorm.find((d) =>
+                                        data?.groups[d]?.includes(
+                                            props.event.group!,
+                                        ),
+                                    ),
+                                    groupFilter: props.event.group!,
+                                });
+                            }}
+                            color={map_or_object(
+                                data?.colors.dorms,
+                                props.event.dorm.find((d) =>
+                                    data?.groups[d]?.includes(
+                                        props.event.group!,
+                                    ),
+                                ) ?? "",
+                            )}
+                            outline={true}
+                        >
+                            {props.event.group}
+                        </ColoredBadge>
                     </div>
                 )}
                 <div
@@ -536,6 +562,7 @@ function ColoredBadge(props: {
     className: string;
     onClick?: () => void;
     children: React.ReactNode;
+    outline?: boolean;
 }) {
     let textColor = "";
 
@@ -547,9 +574,9 @@ function ColoredBadge(props: {
         <div
             className={props.className}
             style={{
-                backgroundColor: props.color,
+                backgroundColor: props.outline ? "transparent" : props.color,
                 borderColor: props.color,
-                color: textColor,
+                color: props.outline ? undefined : textColor,
                 // Set cursor to pointer only when tag is clickable
                 cursor: props.onClick && "pointer",
             }}
@@ -592,7 +619,7 @@ function ExpandableText(props: {
             {truncated}
             {props.text.length > expandAmount && (
                 <span>
-                    {expanded && props.text.substring(truncatePoint)}{" "}
+                    {expanded ? props.text.substring(truncatePoint) : "…"}{" "}
                     <Link
                         onClick={(e) => {
                             e.preventDefault();

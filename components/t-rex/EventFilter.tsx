@@ -154,6 +154,7 @@ export function EventFilter(props: {
                     value={dormFilter ?? ""}
                     className="margin-right--sm"
                     aria-label="Dorm"
+                    name="dorm"
                 >
                     <option value={unsetFilter.dormFilter ?? ""}>
                         {dormEmoji} {unsetFilter.dormFilter}
@@ -176,6 +177,7 @@ export function EventFilter(props: {
                         value={groupFilter ?? ""}
                         className="margin-right--sm"
                         aria-label="Group"
+                        name="group"
                     >
                         <option value={unsetFilter.groupFilter ?? ""}>
                             {groupEmoji} {unsetFilter.groupFilter}
@@ -198,6 +200,7 @@ export function EventFilter(props: {
                     value={timeFilter ?? ""}
                     className="margin-right--sm"
                     aria-label="Time"
+                    name="time"
                 >
                     <option value={TimeFilter.AllEvents}>
                         {timeEmoji} {TimeFilter.AllEvents}
@@ -219,6 +222,7 @@ export function EventFilter(props: {
                     value={tagFilter ?? ""}
                     className="margin-right--sm"
                     aria-label="Tags"
+                    name="tags"
                 >
                     <option value={unsetFilter.tagFilter ?? ""}>
                         {tagEmoji} {unsetFilter.tagFilter}
@@ -270,7 +274,8 @@ export function EventFilter(props: {
                 </div>
             </div>
             <input
-                type="text"
+                type="search"
+                name="search"
                 value={searchValue ?? ""}
                 onChange={(e) => {
                     setFilter({ ...filter, searchValue: e.target.value });
