@@ -21,6 +21,11 @@
     padding-left: 1em;
     padding-right: 0.3em;
 }
+button.fullscreen_link {
+    border: 0;
+    font-size: medium;
+    /* padding: 0; */
+}
 
 .embed {
     /* position: absolute; */
