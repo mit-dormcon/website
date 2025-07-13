@@ -1,4 +1,3 @@
-/// <reference types="gtag.js" />
 import { CSSProperties, useContext, useEffect, useState } from "react";
 import { EventFilter } from "./EventFilter";
 import Link from "@docusaurus/Link";
@@ -519,7 +518,7 @@ function DateDisplay(props: {
 }
 
 // https://www.w3.org/TR/WCAG20/#relativeluminancedef
-function getOptimalForegroundColor(bgColor: string, WCAG20 = false) {
+function getOptimalForegroundColor(bgColor: string, WCAG20 = true) {
     const r = parseInt(bgColor.substring(1, 3), 16);
     const g = parseInt(bgColor.substring(3, 5), 16);
     const b = parseInt(bgColor.substring(5), 16);
