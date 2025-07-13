@@ -35,8 +35,9 @@ const api_url = "https://rex.mit.edu/api.json";
 
 export const useRexData = () => {
     const swr = useSWR<TRexProcessedData>(api_url, async (url: string) => {
-        const res = await fetch(url);
-        const json = (await res.json()) as TRexAPIResponse;
+        // const res = await fetch(url);
+        // const json = (await res.json()) as TRexAPIResponse;
+        const json = (await import("./api.json")) as TRexAPIResponse;
         // return json;
 
         return {
