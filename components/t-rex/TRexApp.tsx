@@ -432,7 +432,7 @@ function EventCard(props: EventCardProps) {
                 {props.event.dorm.map((dorm) => (
                     <div key={dorm}>
                         <ColoredBadge
-                            className="badge badge--primary margin-right--sm"
+                            className="badge margin-right--sm"
                             color={map_or_object(data?.colors.dorms, dorm)}
                             onClick={() => {
                                 setFilter({
@@ -449,7 +449,7 @@ function EventCard(props: EventCardProps) {
                 {props.event.group && (
                     <div>
                         <ColoredBadge
-                            className="badge badge--primary margin-right--sm"
+                            className="badge margin-right--sm"
                             onClick={() => {
                                 setFilter({
                                     ...filter,
@@ -484,7 +484,7 @@ function EventCard(props: EventCardProps) {
                 <div>
                     📍{" "}
                     <Link
-                        to={`https://mobi.mit.edu/default/map/search?filter=${encodeURIComponent(
+                        to={`https://whereis.mit.edu/?q=${encodeURIComponent(
                             props.event.location,
                         )}`}
                     >
@@ -570,16 +570,28 @@ function ColoredBadge(props: {
         textColor = getOptimalForegroundColor(props.color);
     }
 
+    if (props.outline) {
+        textColor = "var(--ifm-font-color-base)";
+    }
+
     return (
         <div
             className={props.className}
-            style={{
-                backgroundColor: props.outline ? "transparent" : props.color,
-                borderColor: props.color,
-                color: props.outline ? undefined : textColor,
-                // Set cursor to pointer only when tag is clickable
-                cursor: props.onClick && "pointer",
-            }}
+            style={
+                {
+                    "--ifm-badge-background-color": props.outline
+                        ? "transparent"
+                        : props.color,
+                    "--ifm-badge-border-color": props.color,
+                    "--ifm-badge-color": textColor,
+                    color: props.color && "var(--ifm-badge-color)",
+                    backgroundColor:
+                        props.color && "var(--ifm-badge-background-color)",
+                    borderColor: props.color && "var(--ifm-badge-border-color)",
+                    // Set cursor to pointer only when tag is clickable
+                    cursor: props.onClick && "pointer",
+                } as React.CSSProperties & Record<string, string>
+            }
             onClick={props.onClick}
             onKeyDown={({ key }) => {
                 if (key === "Enter" && props.onClick) {
