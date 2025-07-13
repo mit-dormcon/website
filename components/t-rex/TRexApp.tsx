@@ -40,7 +40,7 @@ export const useRexData = () => {
         // return json;
 
         return {
-            name: json.name,
+            ...json,
             published: new Date(json.published),
             events: json.events.map((ev: TRexRawEvent) => {
                 const newEvent: TRexProcessedEvent = {
@@ -50,8 +50,6 @@ export const useRexData = () => {
                 };
                 return newEvent;
             }),
-            dorms: json.dorms,
-            tags: json.tags,
             colors: {
                 dorms: new Map<string, string>(
                     Object.entries(json.colors.dorms),

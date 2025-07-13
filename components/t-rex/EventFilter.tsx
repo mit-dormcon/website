@@ -29,22 +29,30 @@ export function EventFilter(props: {
     setRelativeTime: (val: boolean) => void;
 }) {
     const { filter, setFilter } = useContext(FilterContext);
-    const { searchValue, dormFilter, timeFilter, tagFilter, bookmarksOnly } =
-        filter;
+    const {
+        searchValue,
+        dormFilter,
+        groupFilter,
+        timeFilter,
+        tagFilter,
+        bookmarksOnly,
+    } = filter;
 
     const { colorMode } = useColorMode();
     const { data, isLoading } = useRexData();
     const [previousSearchValue, setPreviousSearchValue] = useState<string>("");
 
     const dormEmoji = "🏠";
+    const groupEmoji = "👥";
     const timeEmoji = "⏰";
-    const tagEmoji = "🏷";
+    const tagEmoji = "🏷️";
 
     const search = useCallback(
         (filterProp: FilterSettings) => {
             const {
                 searchValue,
                 dormFilter,
+                groupFilter,
                 timeFilter,
                 tagFilter,
                 bookmarksOnly,
@@ -63,6 +71,8 @@ export function EventFilter(props: {
                 events = events.filter((ev) =>
                     ev.dorm.some((dorm) => dorm === dormFilter),
                 );
+            if (groupFilter && groupFilter !== unsetFilter.groupFilter)
+                events = events.filter((ev) => ev.group === groupFilter);
             if (timeFilter === TimeFilter.Upcoming)
                 events = events.filter((ev) => ev.start >= now);
             else if (timeFilter === TimeFilter.Ongoing)
@@ -135,7 +145,11 @@ export function EventFilter(props: {
             <div className="margin-bottom--xs">
                 <select
                     onChange={(e) => {
-                        setFilter({ ...filter, dormFilter: e.target.value });
+                        setFilter({
+                            ...filter,
+                            dormFilter: e.target.value,
+                            groupFilter: unsetFilter.groupFilter,
+                        });
                     }}
                     value={dormFilter ?? ""}
                     className="margin-right--sm"
@@ -151,6 +165,29 @@ export function EventFilter(props: {
                             </option>
                         ))}
                 </select>
+                {data?.groups[dormFilter ?? ""] && (
+                    <select
+                        onChange={(e) => {
+                            setFilter({
+                                ...filter,
+                                groupFilter: e.target.value,
+                            });
+                        }}
+                        value={groupFilter ?? ""}
+                        className="margin-right--sm"
+                        aria-label="Group"
+                    >
+                        <option value={unsetFilter.groupFilter ?? ""}>
+                            {groupEmoji} {unsetFilter.groupFilter}
+                        </option>
+                        {!isLoading &&
+                            data.groups[dormFilter ?? ""].map((group, idx) => (
+                                <option key={idx} value={group}>
+                                    {groupEmoji} {group}
+                                </option>
+                            ))}
+                    </select>
+                )}
                 <select
                     onChange={(e) => {
                         setFilter({

@@ -16,6 +16,7 @@ const everything = "Everything";
  */
 export interface FilterSettings {
     dormFilter?: string;
+    groupFilter?: string;
     timeFilter?: TimeFilter;
     tagFilter?: string;
     bookmarksOnly?: boolean;
@@ -28,6 +29,7 @@ export interface FilterSettings {
  */
 export const unsetFilter: FilterSettings = {
     dormFilter: allDorms,
+    groupFilter: "All Groups",
     timeFilter: TimeFilter.AllEvents,
     tagFilter: everything,
     bookmarksOnly: false,

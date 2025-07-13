@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"dorms":{"type":"object","additionalProperties":{"type":"string","pattern":"^#[0-9a-fA-F]{6}$"}},"tags":{"type":"object","additionalProperties":{"type":"string","pattern":"^#[0-9a-fA-F]{6}$"}}},"required":["dorms","tags"],"title":"ColorConfig"}}
+  schema={{"type":"object","properties":{"dorms":{"type":"object","additionalProperties":{"type":"string","pattern":"^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$"}},"tags":{"type":"object","additionalProperties":{"type":"string","pattern":"^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$"}}},"required":["dorms","tags"],"title":"ColorConfig"}}
   schemaType={"response"}
 >
   

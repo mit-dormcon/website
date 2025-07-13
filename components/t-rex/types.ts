@@ -4,6 +4,7 @@ export interface TRexAPIResponse {
     published: string; // ISO Date string of when the current JSON of events was published
     events: TRexRawEvent[];
     dorms: string[];
+    groups: Record<string, string[]>; // Living groups or subcommunities
     tags: string[];
     colors: {
         dorms: Record<string, string>;
@@ -36,6 +37,7 @@ export interface TRexProcessedData {
     published: Date;
     events: TRexProcessedEvent[];
     dorms: string[];
+    groups: Record<string, string[]>;
     tags: string[];
     colors: TRexProcessedAPIColors;
     start: Date;
