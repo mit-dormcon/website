@@ -18,7 +18,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "rex/api/all-rex-event-data",
-          label: "All REX Event data",
+          label: "All REX event data",
           className: "api-method get",
         },
       ],
@@ -29,14 +29,20 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "rex/api/schemas/event",
-          label: "Event",
+          id: "rex/api/schemas/apiresponse",
+          label: "APIResponse",
           className: "schema",
         },
         {
           type: "doc",
-          id: "rex/api/schemas/colorconfig",
-          label: "ColorConfig",
+          id: "rex/api/schemas/colorsapiresponse",
+          label: "ColorsAPIResponse",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rex/api/schemas/event",
+          label: "Event",
           className: "schema",
         },
       ],
