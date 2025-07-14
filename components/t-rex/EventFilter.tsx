@@ -72,7 +72,9 @@ export function EventFilter(props: {
                     ev.dorm.some((dorm) => dorm === dormFilter),
                 );
             if (groupFilter && groupFilter !== unsetFilter.groupFilter)
-                events = events.filter((ev) => ev.group === groupFilter);
+                events = events.filter((ev) =>
+                    ev.group?.some((group) => group === groupFilter),
+                );
             if (timeFilter === TimeFilter.Upcoming)
                 events = events.filter((ev) => ev.start >= now);
             else if (timeFilter === TimeFilter.Ongoing)
