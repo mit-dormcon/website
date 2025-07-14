@@ -513,11 +513,24 @@ function DateDisplay(props: {
     );
 }
 
+function standardize_color(str: string) {
+    const ctx = document.createElement("canvas").getContext("2d");
+
+    if (!ctx) {
+        throw new Error("Failed to create canvas context");
+    }
+
+    ctx.fillStyle = str;
+    return ctx.fillStyle;
+}
+
 // https://www.w3.org/TR/WCAG20/#relativeluminancedef
 function getOptimalForegroundColor(bgColor: string, WCAG20 = true) {
-    const r = parseInt(bgColor.substring(1, 3), 16);
-    const g = parseInt(bgColor.substring(3, 5), 16);
-    const b = parseInt(bgColor.substring(5), 16);
+    const color = standardize_color(bgColor);
+
+    const r = parseInt(color.substring(1, 3), 16);
+    const g = parseInt(color.substring(3, 5), 16);
+    const b = parseInt(color.substring(5), 16);
 
     if (WCAG20) {
         const RsRGB = r / 255;
