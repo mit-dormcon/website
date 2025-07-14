@@ -445,35 +445,31 @@ function EventCard(props: EventCardProps) {
                         </ColoredBadge>
                     </div>
                 ))}
-                {props.event.group && (
-                    <div>
+                {props.event.group?.map((group) => (
+                    <div key={group}>
                         <ColoredBadge
                             className="badge margin-right--sm"
                             onClick={() => {
                                 setFilter({
                                     ...filter,
                                     dormFilter: props.event.dorm.find((d) =>
-                                        data?.groups[d]?.includes(
-                                            props.event.group!,
-                                        ),
+                                        data?.groups[d]?.includes(group),
                                     ),
-                                    groupFilter: props.event.group!,
+                                    groupFilter: group,
                                 });
                             }}
                             color={map_or_object(
                                 data?.colors.dorms,
                                 props.event.dorm.find((d) =>
-                                    data?.groups[d]?.includes(
-                                        props.event.group!,
-                                    ),
+                                    data?.groups[d]?.includes(group),
                                 ) ?? "",
                             )}
                             outline={true}
                         >
-                            {props.event.group}
+                            {group}
                         </ColoredBadge>
                     </div>
-                )}
+                ))}
                 <div
                     style={{ color: "var(--ifm-color-emphasis-700)" }}
                     className="margin-right--sm margin-left--sm"

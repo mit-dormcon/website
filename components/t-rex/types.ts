@@ -23,7 +23,7 @@ export interface TRexRawEvent {
     end: string; // Convert to ISO Date string!
     tags: string[];
     description: string;
-    group?: string; // The subcommunity or living group hosting this event, if any
+    group?: string[]; // The subcommunities or living groups hosting this event, if any
 }
 
 /** Maps event properties to colors */
@@ -52,7 +52,7 @@ export interface TRexProcessedEvent {
     end: Date;
     tags: string[];
     description: string;
-    group?: string;
+    group?: string[];
 }
 
 export interface TRexProcessedAPIColors {
