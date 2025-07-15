@@ -168,7 +168,7 @@ export function TRexApp() {
                         ❓ Help
                     </Link>
                     <b>{events?.length}</b>/{data?.events.length} events,
-                    published {new Date(data?.published ?? "").toLocaleString()}
+                    published {data?.published.toLocaleString()}
                 </p>
                 <EventFilter
                     fuse={fuse}
