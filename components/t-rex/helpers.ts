@@ -34,11 +34,12 @@ const rexFetcher = async (url: string) => {
     };
 };
 
-void preload(API_URL, rexFetcher);
+const preloadedData = preload(API_URL, rexFetcher);
 
 export const useRexData = () => {
     const swr = useSWR<TRexProcessedData>(API_URL, rexFetcher, {
         suspense: true,
+        fallbackData: preloadedData,
     });
 
     return swr;
