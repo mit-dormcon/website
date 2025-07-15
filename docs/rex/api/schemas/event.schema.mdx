@@ -29,7 +29,11 @@ import Heading from "@theme/Heading";
 <Schema
     schema={{
         properties: {
-            description: { title: "Description", type: "string" },
+            description: {
+                maxLength: 280,
+                title: "Description",
+                type: "string",
+            },
             dorm: { items: { type: "string" }, title: "Dorm", type: "array" },
             end: { format: "date-time", title: "End", type: "string" },
             group: {
@@ -41,11 +45,12 @@ import Heading from "@theme/Heading";
             },
             id: {
                 description: "Unique identifier for the event",
+                maxLength: 16,
                 title: "Id",
                 type: "string",
             },
-            location: { title: "Location", type: "string" },
-            name: { title: "Name", type: "string" },
+            location: { maxLength: 50, title: "Location", type: "string" },
+            name: { maxLength: 100, title: "Name", type: "string" },
             start: { format: "date-time", title: "Start", type: "string" },
             tags: { items: { type: "string" }, title: "Tags", type: "array" },
         },
