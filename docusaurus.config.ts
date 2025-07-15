@@ -115,7 +115,7 @@ const config: Config = {
         footer: {
             links: [
                 {
-                    title: "Community",
+                    title: "Resources",
                     items: [
                         {
                             label: "MIT Living Communities",
@@ -124,6 +124,10 @@ const config: Config = {
                         {
                             label: "MIT Guide to Residences",
                             href: "https://mitguidetoresidences.mit.edu/",
+                        },
+                        {
+                            label: "Housing Portal (Starrez)",
+                            href: "https://mit.starrezhousing.com/StarRezPortalX/",
                         },
                         {
                             label: "Housing Policies",
