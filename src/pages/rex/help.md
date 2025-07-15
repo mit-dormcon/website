@@ -11,7 +11,7 @@ description: A help page for instructions on how to use the REX Events Page.
 
 Using the widget at the top of the page, you can filter for events
 
-- only from a certain 🏠 **Dorm**
+- only from a certain 🏠 **Dorm** (or 👥 **living group** in a dorm)
 - ⏰ **Now** and/or ⏰ **Upcoming**
 - with a certain 🏷️ **tag**
 - only in your ⭐️ **bookmarks**

@@ -123,8 +123,15 @@ export function TRexApp() {
 
         if (data?.tags.includes(params.get("tag") ?? ""))
             paramsFilter.tagFilter = params.get("tag") ?? undefined;
-        if (data?.dorms.includes(params.get("dorm") ?? ""))
+        if (data?.dorms.includes(params.get("dorm") ?? "")) {
             paramsFilter.dormFilter = params.get("dorm") ?? undefined;
+            if (
+                data?.groups[params.get("dorm") ?? ""]?.includes(
+                    params.get("group") ?? "",
+                )
+            )
+                paramsFilter.groupFilter = params.get("group") ?? undefined;
+        }
         if (["true", "false"].includes(params.get("bookmarks_only") ?? ""))
             paramsFilter.bookmarksOnly =
                 params.get("bookmarks_only") === "true";
