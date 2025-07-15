@@ -8,8 +8,8 @@ declare const gtag: Gtag.Gtag;
  * This component displays a dropdown link for saving an event to Bookmarks
  */
 export function BookmarkDropdownItem(props: {
-    /** the name of the event */
-    name: string;
+    /** the id of the event */
+    id: string;
     isSaved: boolean;
     /** A function that removes the event from the list of saved events */
     unsave: (name: string) => void;
@@ -21,12 +21,12 @@ export function BookmarkDropdownItem(props: {
 
     function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
         e.preventDefault();
-        if (props.isSaved) props.unsave(props.name);
+        if (props.isSaved) props.unsave(props.id);
         else {
-            props.save(props.name);
+            props.save(props.id);
             if (typeof gtag !== "undefined") {
                 gtag("event", "bookmark", {
-                    event_label: props.name,
+                    event_label: props.id,
                 });
             }
         }

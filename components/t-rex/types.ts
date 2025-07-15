@@ -24,6 +24,7 @@ export interface TRexRawEvent {
     tags: string[];
     description: string;
     group: string[] | null; // The subcommunities or living groups hosting this event, if any
+    id: string; // Unique identifier for the event
 }
 
 /** Maps event properties to colors */
@@ -53,6 +54,7 @@ export interface TRexProcessedEvent {
     tags: string[];
     description: string;
     group: string[] | null; // The subcommunities or living groups hosting this event, if any
+    id: string; // Unique identifier for the event
 }
 
 export interface TRexProcessedAPIColors {

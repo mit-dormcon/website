@@ -87,7 +87,7 @@ export function EventFilter(props: {
                 );
             if (bookmarksOnly) {
                 console.log(props.saved);
-                events = events.filter((ev) => props.saved.includes(ev.name));
+                events = events.filter((ev) => props.saved.includes(ev.id));
             }
 
             // Don't sort if there's a search query, so the most relevant events appear at the top

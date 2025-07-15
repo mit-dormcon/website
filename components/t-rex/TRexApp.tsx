@@ -274,7 +274,7 @@ function EventLayout(props: EventLayoutProps) {
         props.setSaved(events_remaining);
         if (props.isBookmarkFilterOn && props.events) {
             props.setEvents(
-                props.events.filter((ev) => events_remaining.includes(ev.name)),
+                props.events.filter((ev) => events_remaining.includes(ev.id)),
             );
         }
     };
@@ -290,7 +290,7 @@ function EventLayout(props: EventLayoutProps) {
                         <div key={idx} className="col col--4">
                             <EventCard
                                 event={e}
-                                isSaved={props.saved.includes(e.name)}
+                                isSaved={props.saved.includes(e.id)}
                                 unsave={unsaveFunc}
                                 save={saveFunc}
                                 showRelativeTime={props.showRelativeTime}
@@ -406,7 +406,7 @@ function EventCard(props: EventCardProps) {
                     <ul className="dropdown__menu">
                         <GCalButton event={props.event} />
                         <BookmarkDropdownItem
-                            name={props.event.name}
+                            id={props.event.id}
                             save={props.save}
                             unsave={props.unsave}
                             isSaved={props.isSaved}
