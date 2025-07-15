@@ -23,7 +23,6 @@ import {
     useRexData,
     map_or_object,
     getOptimalForegroundColor,
-    useGradient,
 } from "./helpers";
 
 declare const gtag: Gtag.Gtag;
@@ -33,10 +32,8 @@ dayjs.extend(duration);
 
 export function TRexHeadline(props: { isTimeline?: boolean }) {
     const { data } = useRexData();
-    const gradient = useGradient();
 
     const headlineStyle: CSSProperties = {
-        backgroundImage: `linear-gradient(45deg, ${gradient.join(", ")})`,
         WebkitBackgroundClip: "text",
         backgroundClip: "text",
         display: "inline-block",
@@ -46,7 +43,12 @@ export function TRexHeadline(props: { isTimeline?: boolean }) {
 
     return (
         <>
-            <Heading as="h1" style={headlineStyle} key={0}>
+            <Heading
+                as="h1"
+                style={headlineStyle}
+                className={styles.gradientBackground}
+                key={0}
+            >
                 {data?.name} {props.isTimeline ? "Timeline" : "Events"}
             </Heading>
             <Link
@@ -54,12 +56,9 @@ export function TRexHeadline(props: { isTimeline?: boolean }) {
                 className={clsx(
                     "button button--primary button--lg",
                     styles.heroButton,
+                    styles.gradientBackgroundLoop,
                 )}
                 style={{
-                    backgroundImage: `linear-gradient(45deg, ${[
-                        ...gradient,
-                        gradient[0],
-                    ].join(",")})`,
                     transition: "0.5s",
                     border: "none",
                     ...(props.isTimeline
@@ -622,8 +621,6 @@ function GCalButton(props: { event: TRexProcessedEvent }) {
  * A big fancy button that used to draw users to the REX events page
  */
 export function TRexEntryButton() {
-    const gradient = useGradient();
-
     return (
         <div className="margin-bottom--md" style={{ textAlign: "center" }}>
             <Link
@@ -631,12 +628,9 @@ export function TRexEntryButton() {
                 className={clsx(
                     "button button--primary button--lg",
                     styles.heroButton,
+                    styles.gradientBackgroundLoop,
                 )}
                 style={{
-                    backgroundImage: `linear-gradient(45deg, ${[
-                        ...gradient,
-                        gradient[0],
-                    ].join(",")})`,
                     transition: "0.5s",
                     border: "none",
                 }}

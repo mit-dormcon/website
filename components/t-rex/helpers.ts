@@ -1,4 +1,3 @@
-import { useColorMode } from "@docusaurus/theme-common";
 import useSWR, { preload } from "swr";
 
 import type {
@@ -103,17 +102,3 @@ export function getOptimalForegroundColor(bgColor: string, WCAG20 = true) {
         return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? "#000" : "#fff";
     }
 }
-
-const LIGHT_GRADIENT = [
-    "var(--ifm-color-primary-darkest)",
-    "var(--ifm-color-secondary-darkest)",
-] as const;
-const DARK_GRADIENT = [
-    "var(--ifm-color-primary-lightest)",
-    "var(--ifm-color-secondary-lightest)",
-] as const;
-
-export const useGradient = () => {
-    const { colorMode } = useColorMode();
-    return colorMode === "light" ? LIGHT_GRADIENT : DARK_GRADIENT;
-};

@@ -110,3 +110,7 @@
     color: var(--ifm-color-secondary-contrast-foreground);
     border-color: var(--ifm-color-secondary-dark);
 }
+
+.navbar__logo {
+    width: 2rem;
+}
