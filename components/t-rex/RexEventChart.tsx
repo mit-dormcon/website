@@ -7,8 +7,9 @@ import {
 } from "chart.js";
 import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
-import { useRexData } from "./TRexApp";
-import { TRexProcessedData } from "./types";
+
+import { useRexData } from "./helpers";
+import { type TRexProcessedData } from "./types";
 
 // const dormsCapacity = {
 //     "Baker House": 325,

@@ -1,4 +1,4 @@
-import { Meeting } from "../data/types";
+import { type Meeting } from "../data/types";
 import Link from "@docusaurus/Link";
 
 export default function MeetingsComponent(props: { meetings: Meeting[] }) {

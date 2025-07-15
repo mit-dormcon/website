@@ -1,4 +1,4 @@
-import { Officer } from "../data/types";
+import { type Officer } from "../data/types";
 import Heading from "@theme/Heading";
 import Link from "@docusaurus/Link";
 

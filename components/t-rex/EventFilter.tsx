@@ -1,6 +1,8 @@
+import { useCallback, useContext, useEffect, useState } from "react";
 import { useColorMode } from "@docusaurus/theme-common";
 import Fuse from "fuse.js";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { debounce } from "lodash";
+
 import {
     FilterContext,
     FilterSettings,
@@ -8,8 +10,7 @@ import {
     unsetFilter,
 } from "./filter";
 import { TRexProcessedEvent } from "./types";
-import { debounce } from "lodash";
-import { useRexData } from "./TRexApp";
+import { useRexData } from "./helpers";
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,

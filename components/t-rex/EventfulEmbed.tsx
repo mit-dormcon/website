@@ -1,5 +1,6 @@
-import styles from "./EventfulEmbed.module.css";
 import { useRef } from "react";
+
+import styles from "./EventfulEmbed.module.css";
 
 const EVENTFUL_URL = new URL("https://scidev5.github.io/eventful");
 const EVENTFUL_SCHEDULE_ID = "rex";

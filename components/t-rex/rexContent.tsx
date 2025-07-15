@@ -1,30 +1,29 @@
+import { Suspense } from "react";
 import Interpolate from "@docusaurus/Interpolate";
-import { useRexData } from "@site/components/t-rex/TRexApp";
+import ErrorBoundary from "@docusaurus/ErrorBoundary";
+
+import { useRexData } from "./helpers";
 
 export const REXName = () => {
-    const { data, isLoading } = useRexData();
-
-    if (isLoading || data === undefined) {
-        return "REX";
-    }
+    const { data } = useRexData();
 
     return (
-        <Interpolate
-            values={{
-                name: isLoading || data === undefined ? "REX" : data.name,
-            }}
-        >
-            {"{name}"}
-        </Interpolate>
+        <ErrorBoundary fallback={() => "REX"}>
+            <Suspense fallback={"REX"}>
+                <Interpolate
+                    values={{
+                        name: data!.name,
+                    }}
+                >
+                    {"{name}"}
+                </Interpolate>
+            </Suspense>
+        </ErrorBoundary>
     );
 };
 
 export const REXEventDates = () => {
-    const { data, isLoading } = useRexData();
-
-    if (isLoading || data === undefined) {
-        return "";
-    }
+    const { data } = useRexData();
 
     const options = {
         weekday: "long",
@@ -34,23 +33,27 @@ export const REXEventDates = () => {
         timeZone: "UTC",
     } as const;
 
-    const inThePast = data.end < new Date();
-    const startDate = data.start.toLocaleDateString("en-US", options);
-    const endDate = data.end.toLocaleDateString("en-US", options);
+    const inThePast = data!.end < new Date();
+    const startDate = data!.start.toLocaleDateString("en-US", options);
+    const endDate = data!.end.toLocaleDateString("en-US", options);
 
     return (
-        <Interpolate
-            values={{
-                inThePastRan: inThePast ? "ran" : "runs",
-                inThePastOccured: inThePast ? "occured" : "will occur",
-                start: startDate,
-                end: endDate,
-                name: isLoading || data === undefined ? "REX" : data.name,
-            }}
-        >
-            {
-                "{name} {inThePastRan} from {start} to {end}, though some events {inThePastOccured} before and after these dates."
-            }
-        </Interpolate>
+        <ErrorBoundary fallback={() => ""}>
+            <Suspense fallback="">
+                <Interpolate
+                    values={{
+                        inThePastRan: inThePast ? "ran" : "runs",
+                        inThePastOccured: inThePast ? "occured" : "will occur",
+                        start: startDate,
+                        end: endDate,
+                        name: data!.name,
+                    }}
+                >
+                    {
+                        "{name} {inThePastRan} from {start} to {end}, though some events {inThePastOccured} before and after these dates."
+                    }
+                </Interpolate>
+            </Suspense>
+        </ErrorBoundary>
     );
 };

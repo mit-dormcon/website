@@ -1,4 +1,4 @@
-import { Officer } from "../data/types";
+import { type Officer } from "../data/types";
 import Link from "@docusaurus/Link";
 
 export default function OfficersTable(props: { data: Officer[] }) {

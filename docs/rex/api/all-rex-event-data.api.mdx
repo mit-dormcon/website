@@ -1,7 +1,9 @@
 ---
 id: all-rex-event-data
 title: "All REX event data"
-description: "Returns a JSON object with all REX data. This includes data about the REX API, a list of all events, and more."
+description:
+    "Returns a JSON object with all REX data. This includes data about the REX
+    API, a list of all events, and more."
 sidebar_label: "All REX event data"
 hide_title: true
 hide_table_of_contents: true
@@ -20,44 +22,173 @@ import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
 
 <Heading
-  as={"h1"}
-  className={"openapi__heading"}
-  children={"All REX event data"}
->
-</Heading>
+    as={"h1"}
+    className={"openapi__heading"}
+    children={"All REX event data"}
+></Heading>
 
 <MethodEndpoint
-  method={"get"}
-  path={"/api.json"}
-  context={"endpoint"}
->
-  
-</MethodEndpoint>
+    method={"get"}
+    path={"/api.json"}
+    context={"endpoint"}
+></MethodEndpoint>
 
+Returns a JSON object with all REX data. This includes data about the REX API, a
+list of all events, and more.
 
+<ParamsDetails parameters={undefined}></ParamsDetails>
 
-Returns a JSON object with all REX data. This includes data about the REX API, a list of all events, and more.
-
-<ParamsDetails
-  parameters={undefined}
->
-  
-</ParamsDetails>
-
-<RequestSchema
-  title={"Body"}
-  body={undefined}
->
-  
-</RequestSchema>
+<RequestSchema title={"Body"} body={undefined}></RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"colors":{"properties":{"dorms":{"additionalProperties":{"format":"color","type":"string"},"title":"Dorms","type":"object"},"tags":{"additionalProperties":{"format":"color","type":"string"},"title":"Tags","type":"object"}},"required":["dorms","tags"],"title":"ColorsAPIResponse","type":"object"},"dorms":{"items":{"type":"string"},"title":"Dorms","type":"array"},"end":{"format":"date","title":"End","type":"string"},"events":{"items":{"properties":{"description":{"title":"Description","type":"string"},"dorm":{"items":{"type":"string"},"title":"Dorm","type":"array"},"end":{"format":"date-time","title":"End","type":"string"},"group":{"anyOf":[{"items":{"type":"string"},"type":"array"},{"type":"null"}],"title":"Group"},"id":{"description":"Unique identifier for the event","title":"Id","type":"string"},"location":{"title":"Location","type":"string"},"name":{"title":"Name","type":"string"},"start":{"format":"date-time","title":"Start","type":"string"},"tags":{"items":{"type":"string"},"title":"Tags","type":"array"}},"required":["name","dorm","location","start","end","description","tags","id"],"title":"Event","type":"object"},"title":"Events","type":"array"},"groups":{"additionalProperties":{"items":{"type":"string"},"type":"array"},"title":"Groups","type":"object"},"name":{"title":"Name","type":"string"},"published":{"format":"date-time","title":"Published","type":"string"},"start":{"format":"date","title":"Start","type":"string"},"tags":{"items":{"type":"string"},"title":"Tags","type":"array"}},"required":["name","published","events","dorms","groups","tags","colors","start","end"],"title":"APIResponse","type":"object"}}},"description":"Successful request!"}}}
->
-  
-</StatusCodes>
-
-
-      
+    id={undefined}
+    label={undefined}
+    responses={{
+        "200": {
+            content: {
+                "application/json": {
+                    schema: {
+                        properties: {
+                            colors: {
+                                properties: {
+                                    dorms: {
+                                        additionalProperties: {
+                                            format: "color",
+                                            type: "string",
+                                        },
+                                        title: "Dorms",
+                                        type: "object",
+                                    },
+                                    tags: {
+                                        additionalProperties: {
+                                            format: "color",
+                                            type: "string",
+                                        },
+                                        title: "Tags",
+                                        type: "object",
+                                    },
+                                },
+                                required: ["dorms", "tags"],
+                                title: "ColorsAPIResponse",
+                                type: "object",
+                            },
+                            dorms: {
+                                items: { type: "string" },
+                                title: "Dorms",
+                                type: "array",
+                            },
+                            end: {
+                                format: "date",
+                                title: "End",
+                                type: "string",
+                            },
+                            events: {
+                                items: {
+                                    properties: {
+                                        description: {
+                                            title: "Description",
+                                            type: "string",
+                                        },
+                                        dorm: {
+                                            items: { type: "string" },
+                                            title: "Dorm",
+                                            type: "array",
+                                        },
+                                        end: {
+                                            format: "date-time",
+                                            title: "End",
+                                            type: "string",
+                                        },
+                                        group: {
+                                            anyOf: [
+                                                {
+                                                    items: { type: "string" },
+                                                    type: "array",
+                                                },
+                                                { type: "null" },
+                                            ],
+                                            title: "Group",
+                                        },
+                                        id: {
+                                            description:
+                                                "Unique identifier for the event",
+                                            title: "Id",
+                                            type: "string",
+                                        },
+                                        location: {
+                                            title: "Location",
+                                            type: "string",
+                                        },
+                                        name: { title: "Name", type: "string" },
+                                        start: {
+                                            format: "date-time",
+                                            title: "Start",
+                                            type: "string",
+                                        },
+                                        tags: {
+                                            items: { type: "string" },
+                                            title: "Tags",
+                                            type: "array",
+                                        },
+                                    },
+                                    required: [
+                                        "name",
+                                        "dorm",
+                                        "location",
+                                        "start",
+                                        "end",
+                                        "description",
+                                        "tags",
+                                        "id",
+                                    ],
+                                    title: "Event",
+                                    type: "object",
+                                },
+                                title: "Events",
+                                type: "array",
+                            },
+                            groups: {
+                                additionalProperties: {
+                                    items: { type: "string" },
+                                    type: "array",
+                                },
+                                title: "Groups",
+                                type: "object",
+                            },
+                            name: { title: "Name", type: "string" },
+                            published: {
+                                format: "date-time",
+                                title: "Published",
+                                type: "string",
+                            },
+                            start: {
+                                format: "date",
+                                title: "Start",
+                                type: "string",
+                            },
+                            tags: {
+                                items: { type: "string" },
+                                title: "Tags",
+                                type: "array",
+                            },
+                        },
+                        required: [
+                            "name",
+                            "published",
+                            "events",
+                            "dorms",
+                            "groups",
+                            "tags",
+                            "colors",
+                            "start",
+                            "end",
+                        ],
+                        title: "APIResponse",
+                        type: "object",
+                    },
+                },
+            },
+            description: "Successful request!",
+        },
+    }}
+></StatusCodes>

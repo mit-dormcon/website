@@ -1,73 +1,39 @@
-import { CSSProperties, useContext, useEffect, useState } from "react";
-import { EventFilter } from "./EventFilter";
-import Link from "@docusaurus/Link";
-import { BookmarkDropdownItem } from "./Bookmarks";
+import { type CSSProperties, useContext, useEffect, useState } from "react";
 import Fuse from "fuse.js";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import duration from "dayjs/plugin/duration";
 import clsx from "clsx";
+import { useLocation } from "@docusaurus/router";
+
+import styles from "../../src/pages/styles.module.css";
+import Heading from "@theme/Heading";
+import Link from "@docusaurus/Link";
+
 import {
     FilterContext,
-    FilterSettings,
+    type FilterSettings,
     TimeFilter,
     unsetFilter,
 } from "./filter";
-import { useColorMode } from "@docusaurus/theme-common";
-import styles from "../../src/pages/styles.module.css";
-import { useLocation } from "@docusaurus/router";
-import type {
-    TRexAPIResponse,
-    TRexRawEvent,
-    TRexProcessedEvent,
-    TRexProcessedData,
-} from "./types";
-import Heading from "@theme/Heading";
-import useSWR from "swr";
+import { BookmarkDropdownItem } from "./Bookmarks";
+import type { TRexProcessedEvent } from "./types";
+import { EventFilter } from "./EventFilter";
+import {
+    useRexData,
+    map_or_object,
+    getOptimalForegroundColor,
+    useGradient,
+} from "./helpers";
 
 declare const gtag: Gtag.Gtag;
 
 dayjs.extend(relativeTime);
 dayjs.extend(duration);
 
-const api_url = "https://rex.mit.edu/api.json";
-
-export const useRexData = () => {
-    const swr = useSWR<TRexProcessedData>(api_url, async (url: string) => {
-        const res = await fetch(url);
-        const json = (await res.json()) as TRexAPIResponse;
-        // return json;
-
-        return {
-            ...json,
-            published: new Date(json.published),
-            events: json.events.map((ev: TRexRawEvent) => {
-                const newEvent: TRexProcessedEvent = {
-                    ...ev,
-                    start: new Date(ev.start),
-                    end: new Date(ev.end),
-                };
-                return newEvent;
-            }),
-            colors: {
-                dorms: new Map<string, string>(
-                    Object.entries(json.colors.dorms),
-                ),
-                tags: new Map<string, string>(Object.entries(json.colors.tags)),
-            },
-            start: new Date(json.start),
-            end: new Date(json.end),
-        };
-    });
-
-    return swr;
-};
-
 export function TRexHeadline(props: { isTimeline?: boolean }) {
-    const { data, isLoading } = useRexData();
-    const { colorMode } = useColorMode();
-
-    const gradient = colorMode === "light" ? lightGradient : darkGradient;
+    const { data } = useRexData();
+    const gradient = useGradient();
 
     const headlineStyle: CSSProperties = {
         backgroundImage: `linear-gradient(45deg, ${gradient.join(", ")})`,
@@ -79,39 +45,37 @@ export function TRexHeadline(props: { isTimeline?: boolean }) {
     };
 
     return (
-        !isLoading && (
-            <>
-                <Heading as="h1" style={headlineStyle} key={0}>
-                    {data?.name} {props.isTimeline ? "Timeline" : "Events"}
-                </Heading>
-                <Link
-                    to={props.isTimeline ? "/rex/events" : "/rex/timeline"}
-                    className={clsx(
-                        "button button--primary button--lg",
-                        styles.heroButton,
-                    )}
-                    style={{
-                        backgroundImage: `linear-gradient(45deg, ${[
-                            ...gradient,
-                            gradient[0],
-                        ].join(",")})`,
-                        transition: "0.5s",
-                        border: "none",
-                        ...(props.isTimeline
-                            ? {
-                                  verticalAlign: "initial",
-                                  marginLeft: "2em",
-                              }
-                            : {
-                                  marginTop: "1.5em",
-                                  float: "right",
-                              }),
-                    }}
-                >
-                    View as {props.isTimeline ? "List" : "Timeline"}
-                </Link>
-            </>
-        )
+        <>
+            <Heading as="h1" style={headlineStyle} key={0}>
+                {data?.name} {props.isTimeline ? "Timeline" : "Events"}
+            </Heading>
+            <Link
+                to={props.isTimeline ? "/rex/events" : "/rex/timeline"}
+                className={clsx(
+                    "button button--primary button--lg",
+                    styles.heroButton,
+                )}
+                style={{
+                    backgroundImage: `linear-gradient(45deg, ${[
+                        ...gradient,
+                        gradient[0],
+                    ].join(",")})`,
+                    transition: "0.5s",
+                    border: "none",
+                    ...(props.isTimeline
+                        ? {
+                              verticalAlign: "initial",
+                              marginLeft: "2em",
+                          }
+                        : {
+                              marginTop: "1.5em",
+                              float: "right",
+                          }),
+                }}
+            >
+                View as {props.isTimeline ? "List" : "Timeline"}
+            </Link>
+        </>
     );
 }
 
@@ -121,9 +85,9 @@ export function TRexHeadline(props: { isTimeline?: boolean }) {
  */
 export function TRexApp() {
     const { search } = useLocation();
-    const { data, isLoading } = useRexData();
+    const { data } = useRexData();
     const [events, setEvents] = useState<TRexProcessedEvent[] | undefined>(
-        isLoading ? undefined : data?.events,
+        data?.events,
     );
     const [savedEvents, setSavedEvents] = useState<string[]>([]);
     const [showRelativeTime, setShowRelativeTime] = useState(true);
@@ -132,7 +96,7 @@ export function TRexApp() {
         timeFilter: TimeFilter.OngoingUpcoming,
     });
 
-    const fuse = new Fuse(isLoading ? [] : (data?.events ?? []), {
+    const fuse = new Fuse(data?.events ?? [], {
         keys: [
             { name: "name", weight: 2 },
             "dorm",
@@ -144,23 +108,19 @@ export function TRexApp() {
     });
 
     useEffect(() => {
-        if (isLoading) return;
         const savedStorage = localStorage.getItem("savedEvents");
         if (savedStorage) setSavedEvents(JSON.parse(savedStorage) as string[]);
-    }, [isLoading]);
+    }, []);
 
     useEffect(() => {
-        if (isLoading) return;
         localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
-    }, [savedEvents, isLoading]);
+    }, [savedEvents]);
 
     // Allow for filtering based on URL Search Params
     // This feature is documented on the toolbox page.
     useEffect(() => {
         const params = new URLSearchParams(search);
         const paramsFilter: Partial<FilterSettings> = {};
-
-        if (isLoading) return;
 
         if (data?.tags.includes(params.get("tag") ?? ""))
             paramsFilter.tagFilter = params.get("tag") ?? undefined;
@@ -190,30 +150,7 @@ export function TRexApp() {
 
         if (["true", "false"].includes(params.get("relative_time") ?? ""))
             setShowRelativeTime(params.get("relative_time") === "true");
-    }, [search, isLoading]);
-
-    // if (error) {
-    //     return (
-    //         <div>
-    //             <p>There was an error loading the REX data.</p>
-    //             <p>
-    //                 <b>Stuck on this page?</b> Make sure you&#x27;re connected
-    //                 to a network and have JavaScript enabled.
-    //             </p>
-    //         </div>
-    //     );
-    // }
-
-    if (isLoading)
-        return (
-            <div>
-                <p>Loading...</p>
-                <p>
-                    <b>Stuck on this page?</b> Make sure you&#x27;re connected
-                    to a network and have JavaScript enabled.
-                </p>
-            </div>
-        );
+    }, [search]);
 
     return (
         <FilterContext.Provider value={{ filter, setFilter }}>
@@ -316,20 +253,6 @@ interface EventCardProps {
     showRelativeTime: boolean;
 }
 
-// Helper function to get a value from a Map or Object (just in case types are being weird)
-const map_or_object = (
-    obj: Map<string, string> | Record<string, string> | undefined,
-    key: string,
-) => {
-    if (!obj) return undefined;
-
-    if (obj instanceof Map) {
-        return obj.get(key);
-    } else {
-        return obj[key];
-    }
-};
-
 /**
  * Card component displaying all information about an event in a compact way
  */
@@ -340,7 +263,7 @@ function EventCard(props: EventCardProps) {
         timeContextExact: "",
     });
 
-    const { data, isLoading } = useRexData();
+    const { data } = useRexData();
 
     const { filter, setFilter } = useContext(FilterContext);
 
@@ -363,7 +286,6 @@ function EventCard(props: EventCardProps) {
             clearInterval(intervalId);
         };
     }, [props]);
-    if (isLoading) return;
 
     return (
         <div className="card margin-vert--sm shadow--md" style={cardStyle}>
@@ -511,51 +433,6 @@ function DateDisplay(props: {
             </span>
         </p>
     );
-}
-
-function standardize_color(str: string) {
-    const ctx = document.createElement("canvas").getContext("2d");
-
-    if (!ctx) {
-        throw new Error("Failed to create canvas context");
-    }
-
-    ctx.fillStyle = str;
-    return ctx.fillStyle;
-}
-
-// https://www.w3.org/TR/WCAG20/#relativeluminancedef
-function getOptimalForegroundColor(bgColor: string, WCAG20 = true) {
-    const color = standardize_color(bgColor);
-
-    const r = parseInt(color.substring(1, 3), 16);
-    const g = parseInt(color.substring(3, 5), 16);
-    const b = parseInt(color.substring(5), 16);
-
-    if (WCAG20) {
-        const RsRGB = r / 255;
-        const GsRGB = g / 255;
-        const BsRGB = b / 255;
-
-        const R =
-            RsRGB <= 0.03928
-                ? RsRGB / 12.92
-                : Math.pow((RsRGB + 0.055) / 1.055, 2.4);
-        const G =
-            GsRGB <= 0.03928
-                ? GsRGB / 12.92
-                : Math.pow((GsRGB + 0.055) / 1.055, 2.4);
-        const B =
-            BsRGB <= 0.03928
-                ? BsRGB / 12.92
-                : Math.pow((BsRGB + 0.055) / 1.055, 2.4);
-
-        const L = 0.2126 * R + 0.7152 * G + 0.0722 * B;
-
-        return L > Math.sqrt(1.05 * 0.05) - 0.05 ? "#000" : "#fff";
-    } else {
-        return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? "#000" : "#fff";
-    }
 }
 
 /**
@@ -741,22 +618,11 @@ function GCalButton(props: { event: TRexProcessedEvent }) {
     );
 }
 
-export const lightGradient = [
-    "var(--ifm-color-primary-darkest)",
-    "var(--ifm-color-secondary-darkest)",
-];
-export const darkGradient = [
-    "var(--ifm-color-primary-lightest)",
-    "var(--ifm-color-secondary-lightest)",
-];
-
 /**
  * A big fancy button that used to draw users to the REX events page
  */
 export function TRexEntryButton() {
-    const { colorMode } = useColorMode();
-
-    const gradient = colorMode === "light" ? lightGradient : darkGradient;
+    const gradient = useGradient();
 
     return (
         <div className="margin-bottom--md" style={{ textAlign: "center" }}>

@@ -1,4 +1,4 @@
-import { DormConMember } from "../data/types";
+import { type DormConMember } from "../data/types";
 import Link from "@docusaurus/Link";
 
 const generatePrezString = (presidents: string[]): string => {
