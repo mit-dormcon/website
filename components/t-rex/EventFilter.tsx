@@ -1,5 +1,4 @@
 import { useCallback, useContext, useEffect, useState } from "react";
-import { useColorMode } from "@docusaurus/theme-common";
 import Fuse from "fuse.js";
 import { debounce } from "lodash";
 
@@ -39,7 +38,6 @@ export function EventFilter(props: {
         bookmarksOnly,
     } = filter;
 
-    const { colorMode } = useColorMode();
     const { data, isLoading } = useRexData();
     const [previousSearchValue, setPreviousSearchValue] = useState<string>("");
 
@@ -139,7 +137,7 @@ export function EventFilter(props: {
                 // and add transparency so the blur will show but not be completely see through
                 // Using less transparency for light theme because it looks better
                 backgroundColor:
-                    colorMode === "light" ? "#ffffffcc" : "#1b1b1baa",
+                    "rgb(from var(--ifm-background-color) r g b / 0.667)",
                 zIndex: 10,
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)",
