@@ -19,11 +19,7 @@ import {
 import { BookmarkDropdownItem } from "./Bookmarks";
 import type { TRexProcessedEvent } from "./types";
 import { EventFilter } from "./EventFilter";
-import {
-    useRexData,
-    map_or_object,
-    getOptimalForegroundColor,
-} from "./helpers";
+import { useRexData, map_or_object } from "./helpers";
 
 declare const gtag: Gtag.Gtag;
 
@@ -448,7 +444,7 @@ function DateDisplay(props: {
  * the highest contrast
  */
 function ColoredBadge(props: {
-    /** Badge background color, must be in 6 digit hex format, like `#123abc` */
+    /** Badge background color */
     color?: string;
     className: string;
     onClick?: () => void;
@@ -457,12 +453,11 @@ function ColoredBadge(props: {
 }) {
     let textColor = "";
 
-    if (props.color) {
-        textColor = getOptimalForegroundColor(props.color);
-    }
-
     if (props.outline) {
         textColor = "var(--ifm-font-color-base)";
+    } else if (props.color) {
+        // https://stackoverflow.com/questions/21290669/auto-contrast-font-color-to-background
+        textColor = `hwb(from oklch(from ${props.color} l 0 0) h calc(((b - 50) * 999)) calc(((w - 50) * 999)))`;
     }
 
     return (
