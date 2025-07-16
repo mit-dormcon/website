@@ -6,10 +6,10 @@ import duration from "dayjs/plugin/duration";
 import clsx from "clsx";
 import { useLocation } from "@docusaurus/router";
 
-import styles from "../../src/pages/styles.module.css";
 import Heading from "@theme/Heading";
 import Link from "@docusaurus/Link";
 
+import styles from "./rex.module.css";
 import {
     FilterContext,
     type FilterSettings,

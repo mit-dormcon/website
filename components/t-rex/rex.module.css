@@ -1,0 +1,59 @@
+.input {
+    border-radius: var(--ifm-global-radius);
+    border-style: solid;
+    border-width: var(--ifm-global-border-width);
+    font-size: var(--ifm-font-size-base);
+    padding: 0.5rem;
+}
+
+.inputSmall {
+    border-radius: var(--ifm-global-radius);
+    border-style: solid;
+    border-width: var(--ifm-global-border-width);
+    font-size: calc(var(--ifm-font-size-base) * 0.8);
+    padding: 0.3rem;
+}
+
+.heroButton {
+    background-position: 0%;
+    background-size: 200% 100%;
+}
+
+.heroButton:hover {
+    background-position-x: 100%;
+    transform: scale(1.1);
+}
+
+[data-theme="dark"] .gradientBackground {
+    background-image: linear-gradient(
+        45deg,
+        var(--ifm-color-primary-lightest),
+        var(--ifm-color-secondary-lightest)
+    );
+}
+
+[data-theme="dark"] .gradientBackgroundLoop {
+    background-image: linear-gradient(
+        45deg,
+        var(--ifm-color-primary-lightest),
+        var(--ifm-color-secondary-lightest),
+        var(--ifm-color-primary-lightest)
+    );
+}
+
+[data-theme="light"] .gradientBackground {
+    background-image: linear-gradient(
+        45deg,
+        var(--ifm-color-primary-darkest),
+        var(--ifm-color-secondary-darkest)
+    );
+}
+
+[data-theme="light"] .gradientBackgroundLoop {
+    background-image: linear-gradient(
+        45deg,
+        var(--ifm-color-primary-darkest),
+        var(--ifm-color-secondary-darkest),
+        var(--ifm-color-primary-darkest)
+    );
+}

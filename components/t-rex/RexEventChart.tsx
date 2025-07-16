@@ -5,11 +5,10 @@ import {
     LinearScale,
     Tooltip,
 } from "chart.js";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
 import { useRexData } from "./helpers";
-import { type TRexProcessedData } from "./types";
 
 // const dormsCapacity = {
 //     "Baker House": 325,
@@ -29,34 +28,12 @@ ChartJS.register(BarElement, LinearScale, CategoryScale, Tooltip);
 
 export default function RexEventChart() {
     const [eventsByDorm, setEventsByDorm] = useState<Map<string, number>>();
-    const [api, setApi] = useState<TRexProcessedData>();
-    const { data, isLoading } = useRexData();
+    const { data } = useRexData();
 
     useEffect(() => {
-        if (!data || isLoading) return;
-        setApi(data);
-        api?.colors.dorms.set(
-            "West Garage",
-            data.colors.dorms.get("New Vassar") ?? "",
-        );
         const byDorm = new Map<string, number>();
-        for (const event of data.events) {
+        for (const event of data?.events ?? []) {
             event.dorm.forEach((dorm) => {
-                if (
-                    [
-                        "La Casa",
-                        "German House",
-                        "French House",
-                        "iHouse",
-                        "Juniper",
-                        "Chocolate City",
-                    ].includes(dorm)
-                )
-                    dorm = "New House";
-                else if (dorm === "New Vassar") dorm = "West Garage";
-                else if (dorm !== "Campus Wide!") {
-                    /* empty */
-                }
                 byDorm.set(dorm, (byDorm.get(dorm) ?? 0) + 1);
             });
         }
@@ -67,25 +44,23 @@ export default function RexEventChart() {
 
     return (
         <div>
-            {eventsByDorm ? (
+            <Suspense fallback="Loading...">
                 <Bar
                     data={{
                         labels,
                         datasets: [
                             {
                                 label: "Events",
-                                data: Array.from(eventsByDorm.values()),
+                                data: Array.from(eventsByDorm?.values() ?? []),
                                 backgroundColor: labels.map((l) =>
-                                    api?.colors.dorms.get(l),
+                                    data?.colors.dorms.get(l),
                                 ),
                             },
                         ],
                     }}
                     options={{ plugins: { tooltip: { enabled: true } } }}
                 />
-            ) : (
-                "Loading..."
-            )}
+            </Suspense>
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import Fuse from "fuse.js";
 import { debounce } from "lodash";
+import clsx from "clsx";
 
 import {
     FilterContext,
@@ -10,6 +11,8 @@ import {
 } from "./filter";
 import { TRexProcessedEvent } from "./types";
 import { useRexData } from "./helpers";
+
+import styles from "./rex.module.css";
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,
@@ -38,7 +41,7 @@ export function EventFilter(props: {
         bookmarksOnly,
     } = filter;
 
-    const { data, isLoading } = useRexData();
+    const { data } = useRexData();
     const [previousSearchValue, setPreviousSearchValue] = useState<string>("");
 
     const dormEmoji = "🏠";
@@ -59,7 +62,6 @@ export function EventFilter(props: {
 
             let events: TRexProcessedEvent[] = [];
             const now = new Date();
-            if (isLoading) return;
             if (!searchValue) events = data?.events ?? [];
             else {
                 events = props.fuse
@@ -153,19 +155,18 @@ export function EventFilter(props: {
                         });
                     }}
                     value={dormFilter ?? ""}
-                    className="margin-right--sm"
+                    className={clsx("margin-right--sm", styles.inputSmall)}
                     aria-label="Dorm"
                     name="dorm"
                 >
                     <option value={unsetFilter.dormFilter ?? ""}>
                         {dormEmoji} {unsetFilter.dormFilter}
                     </option>
-                    {!isLoading &&
-                        data?.dorms.map((dorm, idx) => (
-                            <option key={idx} value={dorm}>
-                                {dormEmoji} {dorm}
-                            </option>
-                        ))}
+                    {data?.dorms.map((dorm, idx) => (
+                        <option key={idx} value={dorm}>
+                            {dormEmoji} {dorm}
+                        </option>
+                    ))}
                 </select>
                 {data?.groups[dormFilter ?? ""] && (
                     <select
@@ -176,19 +177,18 @@ export function EventFilter(props: {
                             });
                         }}
                         value={groupFilter ?? ""}
-                        className="margin-right--sm"
+                        className={clsx("margin-right--sm", styles.inputSmall)}
                         aria-label="Group"
                         name="group"
                     >
                         <option value={unsetFilter.groupFilter ?? ""}>
                             {groupEmoji} {unsetFilter.groupFilter}
                         </option>
-                        {!isLoading &&
-                            data.groups[dormFilter ?? ""].map((group, idx) => (
-                                <option key={idx} value={group}>
-                                    {groupEmoji} {group}
-                                </option>
-                            ))}
+                        {data.groups[dormFilter ?? ""].map((group, idx) => (
+                            <option key={idx} value={group}>
+                                {groupEmoji} {group}
+                            </option>
+                        ))}
                     </select>
                 )}
                 <select
@@ -199,41 +199,37 @@ export function EventFilter(props: {
                         });
                     }}
                     value={timeFilter ?? ""}
-                    className="margin-right--sm"
+                    className={clsx("margin-right--sm", styles.inputSmall)}
                     aria-label="Time"
                     name="time"
                 >
-                    <option value={TimeFilter.AllEvents}>
-                        {timeEmoji} {TimeFilter.AllEvents}
-                    </option>
-                    <option value={TimeFilter.Ongoing}>
-                        {timeEmoji} {TimeFilter.Ongoing}
-                    </option>
-                    <option value={TimeFilter.Upcoming}>
-                        {timeEmoji} {TimeFilter.Upcoming}
-                    </option>
-                    <option value={TimeFilter.OngoingUpcoming}>
-                        {timeEmoji} {TimeFilter.OngoingUpcoming}
-                    </option>
+                    {Object.keys(TimeFilter).map((key) => (
+                        <option
+                            key={key}
+                            value={TimeFilter[key as keyof typeof TimeFilter]}
+                        >
+                            {timeEmoji}{" "}
+                            {TimeFilter[key as keyof typeof TimeFilter]}
+                        </option>
+                    ))}
                 </select>
                 <select
                     onChange={(e) => {
                         setFilter({ ...filter, tagFilter: e.target.value });
                     }}
                     value={tagFilter ?? ""}
-                    className="margin-right--sm"
+                    className={clsx("margin-right--sm", styles.inputSmall)}
                     aria-label="Tags"
                     name="tags"
                 >
                     <option value={unsetFilter.tagFilter ?? ""}>
                         {tagEmoji} {unsetFilter.tagFilter}
                     </option>
-                    {!isLoading &&
-                        data?.tags.map((tag, idx) => (
-                            <option key={idx} value={tag}>
-                                {tagEmoji} {tag}
-                            </option>
-                        ))}
+                    {data?.tags.map((tag, idx) => (
+                        <option key={idx} value={tag}>
+                            {tagEmoji} {tag}
+                        </option>
+                    ))}
                 </select>
                 <div
                     style={{ display: "inline-block" }}
@@ -277,6 +273,7 @@ export function EventFilter(props: {
             <input
                 type="search"
                 name="search"
+                className={styles.input}
                 value={searchValue ?? ""}
                 onChange={(e) => {
                     setFilter({ ...filter, searchValue: e.target.value });
