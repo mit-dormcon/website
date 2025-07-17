@@ -6,6 +6,7 @@
         "docusaurus": "docusaurus",
         "prestart": "yarn run api-docs",
         "start": "docusaurus start",
+        "prebuild": "yarn run api-docs",
         "build": "docusaurus build",
         "swizzle": "docusaurus swizzle",
         "deploy": "docusaurus deploy",
