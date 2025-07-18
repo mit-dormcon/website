@@ -235,18 +235,19 @@ export function EventFilter(props: {
                     style={{ display: "inline-block" }}
                     className="margin-right--sm"
                 >
-                    <input
-                        type="checkbox"
-                        id="showBookmarks"
-                        checked={bookmarksOnly ?? false}
-                        onChange={(e) => {
-                            setFilter({
-                                ...filter,
-                                bookmarksOnly: e.target.checked,
-                            });
-                        }}
-                    />
-                    <label htmlFor="showBookmarks">⭐️ only</label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={bookmarksOnly ?? false}
+                            onChange={(e) => {
+                                setFilter({
+                                    ...filter,
+                                    bookmarksOnly: e.target.checked,
+                                });
+                            }}
+                        />
+                        ⭐️ only
+                    </label>
                     &ensp;
                 </div>
                 <div style={{ display: "inline-block" }}>
