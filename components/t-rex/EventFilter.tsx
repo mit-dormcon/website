@@ -13,6 +13,7 @@ import { TRexProcessedEvent } from "./types";
 import { useRexData } from "./helpers";
 
 import styles from "./rex.module.css";
+import { Temporal } from "@js-temporal/polyfill";
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,
@@ -61,7 +62,7 @@ export function EventFilter(props: {
             } = filterProp;
 
             let events: TRexProcessedEvent[] = [];
-            const now = new Date();
+            const now = Temporal.Now.instant();
             if (!searchValue) events = data?.events ?? [];
             else {
                 events = props.fuse
@@ -77,11 +78,19 @@ export function EventFilter(props: {
                     ev.group?.some((group) => group === groupFilter),
                 );
             if (timeFilter === TimeFilter.Upcoming)
-                events = events.filter((ev) => ev.start >= now);
+                events = events.filter(
+                    (ev) => Temporal.Instant.compare(ev.start, now) >= 0,
+                );
             else if (timeFilter === TimeFilter.Ongoing)
-                events = events.filter((ev) => ev.start < now && ev.end >= now);
+                events = events.filter(
+                    (ev) =>
+                        Temporal.Instant.compare(ev.start, now) < 0 &&
+                        Temporal.Instant.compare(ev.end, now) >= 0,
+                );
             else if (timeFilter === TimeFilter.OngoingUpcoming)
-                events = events.filter((ev) => ev.end >= now);
+                events = events.filter(
+                    (ev) => Temporal.Instant.compare(ev.end, now) >= 0,
+                );
             if (tagFilter !== unsetFilter.tagFilter)
                 events = events.filter((ev) =>
                     ev.tags.includes(tagFilter ?? ""),
@@ -96,12 +105,18 @@ export function EventFilter(props: {
                 // Partition and sort events based on whether they have started.
                 // Events that have started => events that end sooner show up first
                 // Events that have yet to start => events that start sooner show up first
-                const startedEvents = events.filter((ev) => ev.start < now);
-                startedEvents.sort((a, b) => a.end.valueOf() - b.end.valueOf());
+                const startedEvents = events.filter(
+                    (ev) => Temporal.Instant.compare(ev.start, now) < 0,
+                );
+                startedEvents.sort((a, b) =>
+                    Temporal.Instant.compare(a.end, b.end),
+                );
 
-                const upcomingEvents = events.filter((ev) => ev.start >= now);
-                upcomingEvents.sort(
-                    (a, b) => a.start.valueOf() - b.start.valueOf(),
+                const upcomingEvents = events.filter(
+                    (ev) => Temporal.Instant.compare(ev.start, now) >= 0,
+                );
+                upcomingEvents.sort((a, b) =>
+                    Temporal.Instant.compare(a.start, b.start),
                 );
 
                 events = Array.of(...startedEvents, ...upcomingEvents);

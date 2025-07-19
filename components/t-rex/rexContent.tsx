@@ -3,6 +3,7 @@ import Interpolate from "@docusaurus/Interpolate";
 import ErrorBoundary from "@docusaurus/ErrorBoundary";
 
 import { useRexData } from "./helpers";
+import { Temporal } from "@js-temporal/polyfill";
 
 export const REXName = () => {
     const { data } = useRexData();
@@ -33,9 +34,10 @@ export const REXEventDates = () => {
         timeZone: "UTC",
     } as const;
 
-    const inThePast = data!.end < new Date();
-    const startDate = data!.start.toLocaleDateString("en-US", options);
-    const endDate = data!.end.toLocaleDateString("en-US", options);
+    const now = Temporal.Now.plainDateISO("America/New_York");
+    const inThePast = Temporal.PlainDate.compare(data!.end, now) < 0;
+    const startDate = data!.start.toLocaleString("en-US", options);
+    const endDate = data!.end.toLocaleString("en-US", options);
 
     return (
         <ErrorBoundary fallback={() => ""}>

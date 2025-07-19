@@ -1,8 +1,8 @@
 import { MeetingSchedule, Term } from "./types";
 import { generateMeetingSchedule } from "./meetings";
 
-const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
-const minutesFolderOld = "https://web-cert.mit.edu/dormcon/minutes/";
+export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
+export const minutesFolderOld = "https://web-cert.mit.edu/dormcon/minutes/";
 
 // Most recent first, since the first tab gets auto-selected and it makes more sense logically
 // Older minutes are in a different order, copied from old website
@@ -17,32 +17,12 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
         year: "Spring 2025",
         list: [
-            generateMeetingSchedule(
-                "Simmons",
-                new Date(2025, 1, 13, 19, 0),
-                true,
-            ),
-            generateMeetingSchedule(
-                "Maseeh",
-                new Date(2025, 1, 27, 19, 0),
-                true,
-            ),
-            generateMeetingSchedule(
-                "MacGregor",
-                new Date(2025, 2, 13, 19, 0),
-                true,
-            ),
-            generateMeetingSchedule("Baker", new Date(2025, 3, 3, 19, 0), true),
-            generateMeetingSchedule(
-                "Burton-Conner",
-                new Date(2025, 3, 24, 19, 0),
-                true,
-            ),
-            generateMeetingSchedule(
-                "Room 4-163 (Elections!!)",
-                new Date(2025, 4, 1, 19, 0),
-                true,
-            ),
+            generateMeetingSchedule("Simmons", "2025-02-13 19:00"),
+            generateMeetingSchedule("Maseeh", "2025-02-27 19:00"),
+            generateMeetingSchedule("MacGregor", "2025-03-13 19:00"),
+            generateMeetingSchedule("Baker", "2025-04-03 19:00"),
+            generateMeetingSchedule("Burton-Conner", "2025-04-24 19:00"),
+            generateMeetingSchedule("Room 4-163 (Elections!!)", "2025-05-01 19:00"),
         ],
         gcalLink:
             "https://calendar.google.com/calendar/u/0?cid=YmQyNmM4MzhlMjExMzhmMDNhNmY2MmRjMDk2NjMxYTQxOGYxMzU4YTlkNGFhYmI3MTA1MjIwODM3NTNjZGIzZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",

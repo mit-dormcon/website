@@ -1,8 +1,5 @@
 import { type CSSProperties, useContext, useEffect, useState } from "react";
 import Fuse from "fuse.js";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-import duration from "dayjs/plugin/duration";
 import clsx from "clsx";
 import { useLocation } from "@docusaurus/router";
 
@@ -21,10 +18,10 @@ import type { TRexProcessedEvent } from "./types";
 import { EventFilter } from "./EventFilter";
 import { useRexData, map_or_object } from "./helpers";
 
-declare const gtag: Gtag.Gtag;
+import { Temporal } from "@js-temporal/polyfill";
+// Date.prototype.toTemporalInstant = toTemporalInstant;
 
-dayjs.extend(relativeTime);
-dayjs.extend(duration);
+declare const gtag: Gtag.Gtag;
 
 export function TRexHeadline(props: { isTimeline?: boolean }) {
     const { data } = useRexData();
@@ -558,22 +555,36 @@ interface DateDisplayInfo {
  * @param end event end
  * @returns the right strings for displaying event start or end on the EventCard
  */
-function eventDateDisplay(start: Date, end: Date): DateDisplayInfo {
-    const duration = dayjs.duration(dayjs(end).diff(start)).humanize();
+function eventDateDisplay(
+    start: Temporal.Instant,
+    end: Temporal.Instant,
+): DateDisplayInfo {
+    const duration = start
+        .until(end)
+        .round({ largestUnit: "hour", smallestUnit: "minute" })
+        .toLocaleString("en-US", { style: "narrow" });
     let timeContext = "";
-    let timeUntil: Date;
-    if (dayjs().isBefore(start)) {
-        timeContext += "Starts ";
+    let timeUntil: Temporal.Instant;
+    const now = Temporal.Now.instant();
+    if (Temporal.Instant.compare(now, start) < 0) {
+        timeContext += "Starts in ";
         timeUntil = start;
-    } else if (dayjs().isBefore(end)) {
-        timeContext += "Ends ";
+    } else if (Temporal.Instant.compare(now, end) < 0) {
+        timeContext += "Ends in ";
         timeUntil = end;
     } else {
         timeContext += "Ended ";
         timeUntil = end;
     }
     const timeContextExact = timeContext + timeUntil.toLocaleString();
-    timeContext += dayjs(timeUntil).fromNow();
+    timeContext += now
+        .until(timeUntil)
+        .abs()
+        .round({ largestUnit: "day", smallestUnit: "minute" })
+        .toLocaleString("en-US", { style: "long" });
+    if (timeContext.startsWith("Ended ")) {
+        timeContext += " ago";
+    }
     return {
         duration,
         timeContext,
@@ -591,14 +602,14 @@ function GCalButton(props: { event: TRexProcessedEvent }) {
         }
     }
     const padNumber = (num: number) => num.toString().padStart(2, "0");
-    const formatGCalDate = (paramData: Date) => {
-        const date = new Date(paramData);
+    const formatGCalDate = (paramData: Temporal.Instant) => {
+        const date = paramData.toZonedDateTimeISO("America/New_York");
         return (
-            `${date.getUTCFullYear().toString()}${padNumber(date.getUTCMonth() + 1)}` +
-            `${padNumber(date.getUTCDate())}T${padNumber(
-                date.getUTCHours(),
-            )}${padNumber(date.getUTCMinutes())}` +
-            `${padNumber(date.getUTCSeconds())}Z`
+            `${date.year.toString()}${padNumber(date.month)}` +
+            `${padNumber(date.day)}T${padNumber(
+                date.hour,
+            )}${padNumber(date.minute)}` +
+            `${padNumber(date.second)}Z`
         );
     };
     // This URL syntax was sourced from https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/main/services/google.md

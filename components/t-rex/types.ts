@@ -1,3 +1,5 @@
+import { type Temporal } from "@js-temporal/polyfill";
+
 /** Raw API output */
 export interface TRexAPIResponse {
     name: string; // The title of the current experience, such as "REX 2023"
@@ -35,22 +37,22 @@ export interface TRexRawColors {
 
 export interface TRexProcessedData {
     name: string;
-    published: Date;
+    published: Temporal.Instant;
     events: TRexProcessedEvent[];
     dorms: string[];
     groups: Record<string, string[]>;
     tags: string[];
     colors: TRexProcessedAPIColors;
-    start: Date;
-    end: Date;
+    start: Temporal.PlainDate;
+    end: Temporal.PlainDate;
 }
 
 export interface TRexProcessedEvent {
     name: string;
     dorm: string[];
     location: string;
-    start: Date;
-    end: Date;
+    start: Temporal.Instant;
+    end: Temporal.Instant;
     tags: string[];
     description: string;
     group: string[] | null; // The subcommunities or living groups hosting this event, if any

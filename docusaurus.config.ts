@@ -2,6 +2,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
+import { Temporal } from "@js-temporal/polyfill";
 
 const config: Config = {
     title: "DormCon",
@@ -174,7 +175,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear().toString()} MIT DormCon. Built with Docusaurus.`,
+            copyright: `Copyright © ${Temporal.Now.plainDateISO().year} MIT DormCon. Built with Docusaurus.`,
         },
         colorMode: {
             respectPrefersColorScheme: true,

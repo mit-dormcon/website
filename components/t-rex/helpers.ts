@@ -1,4 +1,5 @@
 import useSWR, { preload } from "swr";
+import { Temporal } from "@js-temporal/polyfill";
 
 import type {
     TRexAPIResponse,
@@ -15,12 +16,12 @@ const rexFetcher = async (url: string) => {
 
     return {
         ...json,
-        published: new Date(json.published),
+        published: Temporal.Instant.from(json.published),
         events: json.events.map((ev: TRexRawEvent) => {
             const newEvent: TRexProcessedEvent = {
                 ...ev,
-                start: new Date(ev.start),
-                end: new Date(ev.end),
+                start: Temporal.Instant.from(ev.start),
+                end: Temporal.Instant.from(ev.end),
             };
             return newEvent;
         }),
@@ -28,8 +29,8 @@ const rexFetcher = async (url: string) => {
             dorms: new Map<string, string>(Object.entries(json.colors.dorms)),
             tags: new Map<string, string>(Object.entries(json.colors.tags)),
         },
-        start: new Date(json.start),
-        end: new Date(json.end),
+        start: Temporal.PlainDate.from(json.start),
+        end: Temporal.PlainDate.from(json.end),
     };
 };
 
