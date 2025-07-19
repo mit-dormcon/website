@@ -210,7 +210,7 @@ function EventLayout(props: EventLayoutProps) {
         props.setSaved(events_remaining);
         if (props.isBookmarkFilterOn && props.events) {
             props.setEvents(
-                props.events.filter((ev) => events_remaining.includes(ev.id)),
+                props.events.filter((ev) => events_remaining.includes(ev.name)),
             );
         }
     };
@@ -226,7 +226,7 @@ function EventLayout(props: EventLayoutProps) {
                         <div key={idx} className="col col--4">
                             <EventCard
                                 event={e}
-                                isSaved={props.saved.includes(e.id)}
+                                isSaved={props.saved.includes(e.name)}
                                 unsave={unsaveFunc}
                                 save={saveFunc}
                                 showRelativeTime={props.showRelativeTime}
@@ -327,7 +327,7 @@ function EventCard(props: EventCardProps) {
                     <ul className="dropdown__menu">
                         <GCalButton event={props.event} />
                         <BookmarkDropdownItem
-                            id={props.event.id}
+                            id={props.event.name}
                             save={props.save}
                             unsave={props.unsave}
                             isSaved={props.isSaved}
@@ -379,12 +379,24 @@ function EventCard(props: EventCardProps) {
                                     groupFilter: group,
                                 });
                             }}
-                            color={map_or_object(
-                                data?.colors.dorms,
-                                props.event.dorm.find((d) =>
-                                    data?.groups[d]?.includes(group),
-                                ) ?? "",
-                            )}
+                            color={
+                                // look for group color first
+                                map_or_object(
+                                    data?.colors.groups,
+                                    props.event.dorm.find((d) =>
+                                        data?.groups[d]?.includes(group),
+                                    ) ?? "",
+                                )?.get(group) ??
+                                // then look for dorm color
+                                map_or_object(
+                                    data?.colors.dorms,
+                                    props.event.dorm.find((d) =>
+                                        data?.groups[d]?.includes(group),
+                                    ) ?? "",
+                                ) ??
+                                // if no group or dorm color, use default
+                                ""
+                            }
                             outline={true}
                         >
                             {group}

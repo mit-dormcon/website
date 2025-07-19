@@ -8,10 +8,7 @@ export interface TRexAPIResponse {
     dorms: string[];
     groups: Record<string, string[]>; // Living groups or subcommunities
     tags: string[];
-    colors: {
-        dorms: Record<string, string>;
-        tags: Record<string, string>;
-    }; // Convert to Map<string, string>!
+    colors: TRexRawColors; // Convert to Map<string, string>!
     start: string; // Convert to ISO Date string!
     end: string; // Convert to ISO Date string!
 }
@@ -33,6 +30,7 @@ export interface TRexRawEvent {
 export interface TRexRawColors {
     dorms: Record<string, string>;
     tags: Record<string, string>;
+    groups: Record<string, Record<string, string>>;
 }
 
 export interface TRexProcessedData {
@@ -62,4 +60,5 @@ export interface TRexProcessedEvent {
 export interface TRexProcessedAPIColors {
     dorms: Map<string, string>;
     tags: Map<string, string>;
+    groups: Map<string, Map<string, string>>;
 }

@@ -3,8 +3,6 @@ import { Temporal } from "@js-temporal/polyfill";
 
 import type {
     TRexAPIResponse,
-    TRexRawEvent,
-    TRexProcessedEvent,
     TRexProcessedData,
 } from "./types";
 
@@ -17,17 +15,20 @@ const rexFetcher = async (url: string) => {
     return {
         ...json,
         published: Temporal.Instant.from(json.published),
-        events: json.events.map((ev: TRexRawEvent) => {
-            const newEvent: TRexProcessedEvent = {
-                ...ev,
-                start: Temporal.Instant.from(ev.start),
-                end: Temporal.Instant.from(ev.end),
-            };
-            return newEvent;
-        }),
+        events: json.events.map((ev) => ({
+            ...ev,
+            start: Temporal.Instant.from(ev.start),
+            end: Temporal.Instant.from(ev.end),
+        })),
         colors: {
-            dorms: new Map<string, string>(Object.entries(json.colors.dorms)),
-            tags: new Map<string, string>(Object.entries(json.colors.tags)),
+            dorms: new Map(Object.entries(json.colors.dorms)),
+            tags: new Map(Object.entries(json.colors.tags)),
+            groups: new Map(
+                Object.entries(json.colors.groups).map(([group, colors]) => [
+                    group,
+                    new Map(Object.entries(colors)),
+                ]),
+            ),
         },
         start: Temporal.PlainDate.from(json.start),
         end: Temporal.PlainDate.from(json.end),
