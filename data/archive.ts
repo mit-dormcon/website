@@ -1,8 +1,8 @@
 import { MeetingSchedule, Term } from "./types";
 import { generateMeetingSchedule } from "./meetings";
 
-export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
-export const minutesFolderOld = "https://web-cert.mit.edu/dormcon/minutes/";
+const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
+const minutesFolderOld = "https://web-cert.mit.edu/dormcon/minutes/";
 
 // Most recent first, since the first tab gets auto-selected and it makes more sense logically
 // Older minutes are in a different order, copied from old website

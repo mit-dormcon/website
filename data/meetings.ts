@@ -3,7 +3,7 @@ import type { Meeting, MeetingSchedule } from "./types";
 import { Temporal, Intl } from '@js-temporal/polyfill';
 // Date.prototype.toTemporalInstant = toTemporalInstant;
 
-import { minutesFolder, minutesFolderOld } from "./archive";
+export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
 export const meetings: MeetingSchedule = {
     year: "Fall 2025",
@@ -24,11 +24,11 @@ function generateName(date: Temporal.PlainDateTime | Temporal.PlainDate): string
     return formatter.format(date);
 }
 
-function generateMinutesUrl(date: Temporal.PlainDateTime | Temporal.PlainDate, old = false): string {
+function generateMinutesUrl(date: Temporal.PlainDateTime | Temporal.PlainDate): string {
     const year = date.year;
     const month = String(date.month).padStart(2, "0");
     const day = String(date.day).padStart(2, "0");
-    return `${old ? minutesFolderOld : minutesFolder}${year}-${month}-${day}.pdf`;
+    return `${minutesFolder}${year}-${month}-${day}.pdf`;
 }
 
 
@@ -38,7 +38,6 @@ export function generateMeetingSchedule(
     location: string,
     date: Temporal.PlainDateTime | Temporal.PlainDate | string,
     minutesUploaded = true,
-    old = false,
 ): Meeting {
     if (typeof date === "string") {
         try {
@@ -55,6 +54,6 @@ export function generateMeetingSchedule(
     return {
         name: generateName(date),
         location,
-        minutesLink: minutesUploaded ? generateMinutesUrl(date, old) : undefined,
+        minutesLink: minutesUploaded ? generateMinutesUrl(date) : undefined,
     };
 }
