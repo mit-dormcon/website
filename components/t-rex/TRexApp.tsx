@@ -568,35 +568,41 @@ interface DateDisplayInfo {
  * @returns the right strings for displaying event start or end on the EventCard
  */
 function eventDateDisplay(
-    start: Temporal.Instant,
-    end: Temporal.Instant,
+    start: Temporal.ZonedDateTime,
+    end: Temporal.ZonedDateTime,
 ): DateDisplayInfo {
     const duration = start
         .until(end)
         .round({ largestUnit: "hour", smallestUnit: "minute" })
         .toLocaleString("en-US", { style: "narrow" });
     let timeContext = "";
-    let timeUntil: Temporal.Instant;
-    const now = Temporal.Now.instant();
-    if (Temporal.Instant.compare(now, start) < 0) {
-        timeContext += "Starts in ";
+    let timeUntil: Temporal.ZonedDateTime;
+    const now = Temporal.Now.zonedDateTimeISO("America/New_York");
+
+    if (Temporal.ZonedDateTime.compare(now, start) < 0) {
+        timeContext += "Starts ";
         timeUntil = start;
-    } else if (Temporal.Instant.compare(now, end) < 0) {
-        timeContext += "Ends in ";
+    } else if (Temporal.ZonedDateTime.compare(now, end) < 0) {
+        timeContext += "Ends ";
         timeUntil = end;
     } else {
         timeContext += "Ended ";
         timeUntil = end;
     }
-    const timeContextExact = timeContext + timeUntil.toLocaleString();
-    timeContext += now
-        .until(timeUntil)
-        .abs()
-        .round({ largestUnit: "day", smallestUnit: "minute" })
-        .toLocaleString("en-US", { style: "long" });
-    if (timeContext.startsWith("Ended ")) {
-        timeContext += " ago";
-    }
+
+    const timeContextExact = timeContext + " at " + timeUntil.toLocaleString();
+
+    timeContext +=
+        (timeContext.startsWith("Starts ") || timeContext.startsWith("Ends ")
+            ? " in "
+            : "") +
+        now
+            .until(timeUntil)
+            .abs()
+            .round({ largestUnit: "day", smallestUnit: "minute" })
+            .toLocaleString("en-US", { style: "long" }) +
+        (timeContext.startsWith("Ended ") ? " ago" : "");
+
     return {
         duration,
         timeContext,
@@ -614,8 +620,8 @@ function GCalButton(props: { event: TRexProcessedEvent }) {
         }
     }
     const padNumber = (num: number) => num.toString().padStart(2, "0");
-    const formatGCalDate = (paramData: Temporal.Instant) => {
-        const date = paramData.toZonedDateTimeISO("America/New_York");
+    const formatGCalDate = (paramDate: Temporal.ZonedDateTime) => {
+        const date = paramDate.withTimeZone("UTC");
         return (
             `${date.year.toString()}${padNumber(date.month)}` +
             `${padNumber(date.day)}T${padNumber(

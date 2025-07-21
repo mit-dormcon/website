@@ -1,10 +1,7 @@
 import useSWR, { preload } from "swr";
 import { Temporal } from "@js-temporal/polyfill";
 
-import type {
-    TRexAPIResponse,
-    TRexProcessedData,
-} from "./types";
+import type { TRexAPIResponse, TRexProcessedData } from "./types";
 
 const API_URL = "https://rex.mit.edu/api.json";
 
@@ -17,8 +14,12 @@ const rexFetcher = async (url: string) => {
         published: Temporal.Instant.from(json.published),
         events: json.events.map((ev) => ({
             ...ev,
-            start: Temporal.Instant.from(ev.start),
-            end: Temporal.Instant.from(ev.end),
+            start: Temporal.Instant.from(ev.start).toZonedDateTimeISO(
+                "America/New_York",
+            ),
+            end: Temporal.Instant.from(ev.end).toZonedDateTimeISO(
+                "America/New_York",
+            ),
         })),
         colors: {
             dorms: new Map(Object.entries(json.colors.dorms)),

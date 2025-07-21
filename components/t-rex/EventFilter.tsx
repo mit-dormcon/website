@@ -62,7 +62,7 @@ export function EventFilter(props: {
             } = filterProp;
 
             let events: TRexProcessedEvent[] = [];
-            const now = Temporal.Now.instant();
+            const now = Temporal.Now.zonedDateTimeISO("America/New_York");
             if (!searchValue) events = data?.events ?? [];
             else {
                 events = props.fuse
@@ -79,17 +79,17 @@ export function EventFilter(props: {
                 );
             if (timeFilter === TimeFilter.Upcoming)
                 events = events.filter(
-                    (ev) => Temporal.Instant.compare(ev.start, now) >= 0,
+                    (ev) => Temporal.ZonedDateTime.compare(ev.start, now) >= 0,
                 );
             else if (timeFilter === TimeFilter.Ongoing)
                 events = events.filter(
                     (ev) =>
-                        Temporal.Instant.compare(ev.start, now) < 0 &&
-                        Temporal.Instant.compare(ev.end, now) >= 0,
+                        Temporal.ZonedDateTime.compare(ev.start, now) < 0 &&
+                        Temporal.ZonedDateTime.compare(ev.end, now) >= 0,
                 );
             else if (timeFilter === TimeFilter.OngoingUpcoming)
                 events = events.filter(
-                    (ev) => Temporal.Instant.compare(ev.end, now) >= 0,
+                    (ev) => Temporal.ZonedDateTime.compare(ev.end, now) >= 0,
                 );
             if (tagFilter !== unsetFilter.tagFilter)
                 events = events.filter((ev) =>
@@ -106,17 +106,17 @@ export function EventFilter(props: {
                 // Events that have started => events that end sooner show up first
                 // Events that have yet to start => events that start sooner show up first
                 const startedEvents = events.filter(
-                    (ev) => Temporal.Instant.compare(ev.start, now) < 0,
+                    (ev) => Temporal.ZonedDateTime.compare(ev.start, now) < 0,
                 );
                 startedEvents.sort((a, b) =>
-                    Temporal.Instant.compare(a.end, b.end),
+                    Temporal.ZonedDateTime.compare(a.end, b.end),
                 );
 
                 const upcomingEvents = events.filter(
-                    (ev) => Temporal.Instant.compare(ev.start, now) >= 0,
+                    (ev) => Temporal.ZonedDateTime.compare(ev.start, now) >= 0,
                 );
                 upcomingEvents.sort((a, b) =>
-                    Temporal.Instant.compare(a.start, b.start),
+                    Temporal.ZonedDateTime.compare(a.start, b.start),
                 );
 
                 events = Array.of(...startedEvents, ...upcomingEvents);
