@@ -575,33 +575,36 @@ function eventDateDisplay(
         .until(end)
         .round({ largestUnit: "hour", smallestUnit: "minute" })
         .toLocaleString("en-US", { style: "narrow" });
-    let timeContext = "";
     let timeUntil: Temporal.ZonedDateTime;
     const now = Temporal.Now.zonedDateTimeISO("America/New_York");
 
+    let timeContextBuilder: (time: string) => string;
+    let timeContextExactBuilder: (time: string) => string;
+
     if (Temporal.ZonedDateTime.compare(now, start) < 0) {
-        timeContext += "Starts ";
+        timeContextBuilder = (time) => `Starts in ${time}`;
+        timeContextExactBuilder = (time) => `Starts at ${time}`;
         timeUntil = start;
     } else if (Temporal.ZonedDateTime.compare(now, end) < 0) {
-        timeContext += "Ends ";
+        timeContextBuilder = (time) => `Ends in ${time}`;
+        timeContextExactBuilder = (time) => `Ends at ${time}`;
         timeUntil = end;
     } else {
-        timeContext += "Ended ";
+        timeContextBuilder = (time) => `Ended ${time} ago`;
+        timeContextExactBuilder = (time) => `Ended at ${time}`;
         timeUntil = end;
     }
 
-    const timeContextExact = timeContext + " at " + timeUntil.toLocaleString();
-
-    timeContext +=
-        (timeContext.startsWith("Starts ") || timeContext.startsWith("Ends ")
-            ? " in "
-            : "") +
+    const timeContext = timeContextBuilder(
         now
             .until(timeUntil)
             .abs()
             .round({ largestUnit: "day", smallestUnit: "minute" })
-            .toLocaleString("en-US", { style: "long" }) +
-        (timeContext.startsWith("Ended ") ? " ago" : "");
+            .toLocaleString("en-US", { style: "long" }),
+    );
+    const timeContextExact = timeContextExactBuilder(
+        timeUntil.toLocaleString(),
+    );
 
     return {
         duration,
