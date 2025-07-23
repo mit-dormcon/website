@@ -14,12 +14,8 @@ const rexFetcher = async (url: string): Promise<TRexProcessedData> => {
         published: Temporal.Instant.from(json.published),
         events: json.events.map((ev) => ({
             ...ev,
-            start: Temporal.Instant.from(ev.start).toZonedDateTimeISO(
-                "America/New_York",
-            ),
-            end: Temporal.Instant.from(ev.end).toZonedDateTimeISO(
-                "America/New_York",
-            ),
+            start: Temporal.Instant.from(ev.start),
+            end: Temporal.Instant.from(ev.end),
         })),
         colors: {
             dorms: new Map(Object.entries(json.colors.dorms)),

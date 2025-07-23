@@ -568,24 +568,24 @@ interface DateDisplayInfo {
  * @returns the right strings for displaying event start or end on the EventCard
  */
 function eventDateDisplay(
-    start: Temporal.ZonedDateTime,
-    end: Temporal.ZonedDateTime,
+    start: Temporal.Instant,
+    end: Temporal.Instant,
 ): DateDisplayInfo {
     const duration = start
         .until(end)
         .round({ largestUnit: "hour", smallestUnit: "minute" })
         .toLocaleString("en-US", { style: "narrow" });
-    let timeUntil: Temporal.ZonedDateTime;
-    const now = Temporal.Now.zonedDateTimeISO("America/New_York");
+    let timeUntil: Temporal.Instant;
+    const now = Temporal.Now.instant();
 
     let timeContextBuilder: (time: string) => string;
     let timeContextExactBuilder: (time: string) => string;
 
-    if (Temporal.ZonedDateTime.compare(now, start) < 0) {
+    if (Temporal.Instant.compare(now, start) < 0) {
         timeContextBuilder = (time) => `Starts in ${time}`;
         timeContextExactBuilder = (time) => `Starts at ${time}`;
         timeUntil = start;
-    } else if (Temporal.ZonedDateTime.compare(now, end) < 0) {
+    } else if (Temporal.Instant.compare(now, end) < 0) {
         timeContextBuilder = (time) => `Ends in ${time}`;
         timeContextExactBuilder = (time) => `Ends at ${time}`;
         timeUntil = end;
@@ -623,8 +623,8 @@ function GCalButton(props: { event: TRexProcessedEvent }) {
         }
     }
     const padNumber = (num: number) => num.toString().padStart(2, "0");
-    const formatGCalDate = (paramDate: Temporal.ZonedDateTime) => {
-        const date = paramDate.withTimeZone("UTC");
+    const formatGCalDate = (paramDate: Temporal.Instant) => {
+        const date = paramDate.toZonedDateTimeISO("UTC");
         return (
             `${date.year.toString()}${padNumber(date.month)}` +
             `${padNumber(date.day)}T${padNumber(

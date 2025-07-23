@@ -49,8 +49,8 @@ export interface TRexProcessedEvent {
     name: string;
     dorm: string[];
     location: string;
-    start: Temporal.ZonedDateTime;
-    end: Temporal.ZonedDateTime;
+    start: Temporal.Instant;
+    end: Temporal.Instant;
     tags: string[];
     description: string;
     group: string[] | null; // The subcommunities or living groups hosting this event, if any
