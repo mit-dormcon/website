@@ -1,17 +1,19 @@
 ---
-title: DormCon Piazza
+title: DormCon has a Piazza!
+title_meta: DormCon Piazza
+sidebar_label: DormCon Piazza
 description: DormCon's forum for student questions and answers.
+date: 9/30/2021
+tags: [covid]
 ---
 
-# DormCon has a Piazza!
-
-## About
+[piazza]: https://piazza.com/mit/fall2021/dormcon
 
 The DormCon Piazza is your forum for questions and answers on everything related
-to MIT housing, dining, and in between. You can register by following [this
-link][piazza]: [piazza.com/mit/fall2021/dormcon][piazza]
+to MIT housing, dining, and in between. You can register by going to
+[piazza.com/mit/fall2021/dormcon][piazza]
 
-[piazza]: https://piazza.com/mit/fall2021/dormcon
+<!-- truncate -->
 
 All questions on the Piazza are private by default for moderation reasons, but
 we'll make them public once we have the chance to review them.
