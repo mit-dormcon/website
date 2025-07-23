@@ -5,7 +5,7 @@ import type { TRexAPIResponse, TRexProcessedData } from "./types";
 
 const API_URL = "https://rex.mit.edu/api.json";
 
-const rexFetcher = async (url: string) => {
+const rexFetcher = async (url: string): Promise<TRexProcessedData> => {
     const res = await fetch(url);
     const json = (await res.json()) as TRexAPIResponse;
 
