@@ -522,7 +522,7 @@ function ExpandableText(props: {
         truncated = props.text.substring(0, truncatePoint);
     }
     return (
-        <p className={props.className}>
+        <p className={props.className} style={{ whiteSpace: "pre-wrap" }}>
             {truncated}
             {props.text.length > expandAmount && (
                 <span>
