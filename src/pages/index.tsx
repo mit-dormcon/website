@@ -82,7 +82,7 @@ function FeatureRow() {
             ),
         },
         {
-            title: "Resources",
+            title: "Quick Links",
             children: (
                 <div>
                     <ul>
