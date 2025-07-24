@@ -16,7 +16,11 @@ import {
 import { BookmarkDropdownItem } from "./Bookmarks";
 import type { TRexProcessedEvent } from "./types";
 import { EventFilter } from "./EventFilter";
-import { useRexData, map_or_object } from "./helpers";
+import {
+    useRexData,
+    map_or_object,
+    getOptimalForegroundColor,
+} from "./helpers";
 
 import { Temporal } from "@js-temporal/polyfill";
 // Date.prototype.toTemporalInstant = toTemporalInstant;
@@ -460,13 +464,18 @@ function ColoredBadge(props: {
     children: React.ReactNode;
     outline?: boolean;
 }) {
-    let textColor = "";
+    let backgroundColor = "var(--ifm-badge-background-color)";
+    let color = "var(--ifm-badge-color)";
+    let borderColor = "var(--ifm-badge-border-color)";
 
     if (props.outline) {
-        textColor = "var(--ifm-font-color-base)";
+        backgroundColor = "transparent";
+        color = "var(--ifm-font-color-base)";
+        borderColor = props.color ?? "var(--ifm-badge-border-color)";
     } else if (props.color) {
-        // https://stackoverflow.com/questions/21290669/auto-contrast-font-color-to-background
-        textColor = `hwb(from oklch(from ${props.color} l 0 0) h calc(((b - 50) * 999)) calc(((w - 50) * 999)))`;
+        backgroundColor = props.color;
+        color = getOptimalForegroundColor(props.color);
+        borderColor = props.color;
     }
 
     return (
@@ -474,15 +483,9 @@ function ColoredBadge(props: {
             className={props.className}
             style={
                 {
-                    "--ifm-badge-background-color": props.outline
-                        ? "transparent"
-                        : props.color,
-                    "--ifm-badge-border-color": props.color,
-                    "--ifm-badge-color": textColor,
-                    color: props.color && "var(--ifm-badge-color)",
-                    backgroundColor:
-                        props.color && "var(--ifm-badge-background-color)",
-                    borderColor: props.color && "var(--ifm-badge-border-color)",
+                    color: color,
+                    backgroundColor: backgroundColor,
+                    border: `var(--ifm-badge-border-width) solid ${borderColor}`,
                     // Set cursor to pointer only when tag is clickable
                     cursor: props.onClick && "pointer",
                 } as React.CSSProperties & Record<string, string>
