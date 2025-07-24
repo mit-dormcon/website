@@ -104,7 +104,7 @@ const config: Config = {
         footer: {
             links: [
                 {
-                    title: "Resources",
+                    title: "Housing",
                     items: [
                         {
                             label: "MIT Living Communities",
