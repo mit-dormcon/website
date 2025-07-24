@@ -82,7 +82,7 @@ export function TRexHeadline(props: { isTimeline?: boolean }) {
  */
 export function TRexApp() {
     const { search } = useLocation();
-    const { data } = useRexData();
+    const { data, isLoading } = useRexData();
     const [events, setEvents] = useState<TRexProcessedEvent[] | undefined>(
         data?.events,
     );
@@ -91,17 +91,6 @@ export function TRexApp() {
     const [filter, setFilter] = useState<FilterSettings>({
         ...unsetFilter,
         timeFilter: TimeFilter.OngoingUpcoming,
-    });
-
-    const fuse = new Fuse(data?.events ?? [], {
-        keys: [
-            { name: "name", weight: 2 },
-            "dorm",
-            "group",
-            "location",
-            "tags",
-            { name: "description", weight: 0.5 },
-        ],
     });
 
     useEffect(() => {
@@ -155,6 +144,20 @@ export function TRexApp() {
         if (["true", "false"].includes(params.get("relative_time") ?? ""))
             setShowRelativeTime(params.get("relative_time") === "true");
     }, [search]);
+
+    if (isLoading) return <LoadingFallback />;
+    if (!data) return <Error />;
+
+    const fuse = new Fuse(data.events, {
+        keys: [
+            { name: "name", weight: 2 },
+            "dorm",
+            "group",
+            "location",
+            "tags",
+            { name: "description", weight: 0.5 },
+        ],
+    });
 
     return (
         <FilterContext.Provider value={{ filter, setFilter }}>
@@ -262,12 +265,12 @@ interface EventCardProps {
  */
 function EventCard(props: EventCardProps) {
     const [dateStrings, setDateStrings] = useState<DateDisplayInfo>({
-        duration: "",
+        duration: "...",
         timeContext: "...",
         timeContextExact: "...",
     });
 
-    const { data, isLoading } = useRexData();
+    const { data } = useRexData();
 
     const { filter, setFilter } = useContext(FilterContext);
 
@@ -290,9 +293,6 @@ function EventCard(props: EventCardProps) {
             clearInterval(intervalId);
         };
     }, [props]);
-
-    if (isLoading) return <LoadingFallback />;
-    if (!isLoading && !data) return <Error />;
 
     return (
         <div className="card margin-vert--sm shadow--md" style={cardStyle}>
