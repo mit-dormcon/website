@@ -10,11 +10,6 @@ import { EventfulEmbed } from "../../../components/t-rex/EventfulEmbed";
 import { Suspense } from "react";
 import ErrorBoundary from "@docusaurus/ErrorBoundary";
 
-<ErrorBoundary fallback={() => "REX Timeline"}>
-    <Suspense fallback={"REX Timeline"}>
-        <TRexHeadline isTimeline />
-    </Suspense>
-</ErrorBoundary>
-<EventfulEmbed />
+<TRexHeadline isTimeline />
 
 [Maintained by SciDev (skylarh@mit.edu) on GitHub.](https://github.com/SciDev5/eventful)

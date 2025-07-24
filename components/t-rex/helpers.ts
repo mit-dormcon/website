@@ -31,17 +31,14 @@ const rexConverter = (json: TRexAPIResponse): TRexProcessedData => {
     };
 };
 
-const preloadedData = preload<TRexAPIResponse>(API_URL, fetcher);
 
 export const useRexData = () => {
-    const { data } = useSWR<TRexAPIResponse>(API_URL, fetcher, {
-        suspense: true,
-        fallbackData: preloadedData,
-    })
+    void preload<TRexAPIResponse>(API_URL, fetcher);
 
-    const rexData = data ? rexConverter(data) : undefined;
+    const swr = useSWR<TRexAPIResponse>(API_URL, fetcher);
+    const rexData = swr.data ? rexConverter(swr.data) : undefined;
 
-    return { data: rexData };
+    return { ...swr, data: rexData };
 };
 
 // Helper function to get a value from a Map or Object (just in case types are being weird)

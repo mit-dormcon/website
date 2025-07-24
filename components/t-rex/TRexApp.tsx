@@ -23,6 +23,7 @@ import {
 } from "./helpers";
 
 import { Temporal } from "@js-temporal/polyfill";
+import { Error, LoadingFallback } from "./rexContent";
 // Date.prototype.toTemporalInstant = toTemporalInstant;
 
 declare const gtag: Gtag.Gtag;
@@ -46,7 +47,7 @@ export function TRexHeadline(props: { isTimeline?: boolean }) {
                 className={styles.gradientBackground}
                 key={0}
             >
-                {data?.name} {props.isTimeline ? "Timeline" : "Events"}
+                {data?.name ?? "REX"} {props.isTimeline ? "Timeline" : "Events"}
             </Heading>
             <Link
                 to={props.isTimeline ? "/rex/events" : "/rex/timeline"}
@@ -266,7 +267,7 @@ function EventCard(props: EventCardProps) {
         timeContextExact: "...",
     });
 
-    const { data } = useRexData();
+    const { data, isLoading } = useRexData();
 
     const { filter, setFilter } = useContext(FilterContext);
 
@@ -289,6 +290,9 @@ function EventCard(props: EventCardProps) {
             clearInterval(intervalId);
         };
     }, [props]);
+
+    if (isLoading) return <LoadingFallback />;
+    if (!isLoading && !data) return <Error />;
 
     return (
         <div className="card margin-vert--sm shadow--md" style={cardStyle}>

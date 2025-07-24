@@ -5,7 +5,7 @@ import {
     LinearScale,
     Tooltip,
 } from "chart.js";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
 import { useRexData } from "./helpers";
@@ -44,23 +44,21 @@ export default function RexEventChart() {
 
     return (
         <div>
-            <Suspense fallback="Loading...">
-                <Bar
-                    data={{
-                        labels,
-                        datasets: [
-                            {
-                                label: "Events",
-                                data: Array.from(eventsByDorm?.values() ?? []),
-                                backgroundColor: labels.map((l) =>
-                                    data?.colors.dorms.get(l),
-                                ),
-                            },
-                        ],
-                    }}
-                    options={{ plugins: { tooltip: { enabled: true } } }}
-                />
-            </Suspense>
+            <Bar
+                data={{
+                    labels,
+                    datasets: [
+                        {
+                            label: "Events",
+                            data: Array.from(eventsByDorm?.values() ?? []),
+                            backgroundColor: labels.map((l) =>
+                                data?.colors.dorms.get(l),
+                            ),
+                        },
+                    ],
+                }}
+                options={{ plugins: { tooltip: { enabled: true } } }}
+            />
         </div>
     );
 }

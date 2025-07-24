@@ -1,6 +1,4 @@
-import { Suspense } from "react";
 import Interpolate from "@docusaurus/Interpolate";
-import ErrorBoundary from "@docusaurus/ErrorBoundary";
 
 import { useRexData } from "./helpers";
 import { Temporal, Intl } from "@js-temporal/polyfill";
@@ -9,17 +7,13 @@ export const REXName = () => {
     const { data } = useRexData();
 
     return (
-        <ErrorBoundary fallback={() => "REX"}>
-            <Suspense fallback={"REX"}>
-                <Interpolate
-                    values={{
-                        name: data!.name,
-                    }}
-                >
-                    {"{name}"}
-                </Interpolate>
-            </Suspense>
-        </ErrorBoundary>
+        <Interpolate
+            values={{
+                name: data?.name ?? "REX",
+            }}
+        >
+            {"{name}"}
+        </Interpolate>
     );
 };
 
@@ -37,27 +31,49 @@ export const REXEventDates = () => {
     const formatter = new Intl.DateTimeFormat("en-US", options);
 
     const now = Temporal.Now.plainDateISO("America/New_York");
-    const inThePast = Temporal.PlainDate.compare(data!.end, now) < 0;
-    const startDate = formatter.format(data!.start);
-    const endDate = formatter.format(data!.end);
+    const inThePast = data
+        ? Temporal.PlainDate.compare(data.end, now) < 0
+        : false;
+    const startDate = formatter.format(data?.start);
+    const endDate = formatter.format(data?.end);
 
     return (
-        <ErrorBoundary fallback={() => ""}>
-            <Suspense fallback="">
-                <Interpolate
-                    values={{
-                        inThePastRan: inThePast ? "ran" : "runs",
-                        inThePastOccured: inThePast ? "occured" : "will occur",
-                        start: startDate,
-                        end: endDate,
-                        name: data!.name,
-                    }}
-                >
-                    {
-                        "{name} {inThePastRan} from {start} to {end}, though some events {inThePastOccured} before and after these dates."
-                    }
-                </Interpolate>
-            </Suspense>
-        </ErrorBoundary>
+        <Interpolate
+            values={{
+                inThePastRan: inThePast ? "ran" : "runs",
+                inThePastOccured: inThePast ? "occured" : "will occur",
+                start: startDate,
+                end: endDate,
+                name: data?.name ?? "REX",
+            }}
+        >
+            {
+                "{name} {inThePastRan} from {start} to {end}, though some events {inThePastOccured} before and after these dates."
+            }
+        </Interpolate>
     );
 };
+
+export function LoadingFallback() {
+    return (
+        <div>
+            <p>Loading...</p>
+            <p>
+                <b>Stuck on this page?</b> Make sure you&#x27;re connected to a
+                network and have JavaScript enabled.
+            </p>
+        </div>
+    );
+}
+
+export function Error() {
+    return (
+        <div>
+            <p>There was an error loading the REX data.</p>
+            <p>
+                <b>Stuck on this page?</b> Make sure you&#x27;re connected to a
+                network and have JavaScript enabled.
+            </p>
+        </div>
+    );
+}
