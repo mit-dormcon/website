@@ -5,10 +5,9 @@ import type { TRexAPIResponse, TRexProcessedData } from "./types";
 
 const API_URL = "https://rex.mit.edu/api.json";
 
-const rexFetcher = async (url: string): Promise<TRexProcessedData> => {
-    const res = await fetch(url);
-    const json = (await res.json()) as TRexAPIResponse;
+const fetcher = async <T>(url: string) => fetch(url).then((res) => res.json() as T);
 
+const rexConverter = (json: TRexAPIResponse): TRexProcessedData => {
     return {
         ...json,
         published: Temporal.Instant.from(json.published),
@@ -32,15 +31,17 @@ const rexFetcher = async (url: string): Promise<TRexProcessedData> => {
     };
 };
 
-const preloadedData = preload(API_URL, rexFetcher);
+const preloadedData = preload<TRexAPIResponse>(API_URL, fetcher);
 
 export const useRexData = () => {
-    const swr = useSWR<TRexProcessedData>(API_URL, rexFetcher, {
+    const { data } = useSWR<TRexAPIResponse>(API_URL, fetcher, {
         suspense: true,
         fallbackData: preloadedData,
-    });
+    })
 
-    return swr;
+    const rexData = data ? rexConverter(data) : undefined;
+
+    return { data: rexData };
 };
 
 // Helper function to get a value from a Map or Object (just in case types are being weird)
