@@ -1,4 +1,10 @@
-import { type CSSProperties, useContext, useEffect, useState } from "react";
+import {
+    type CSSProperties,
+    useContext,
+    useEffect,
+    useMemo,
+    useState,
+} from "react";
 import Fuse from "fuse.js";
 import clsx from "clsx";
 import { useLocation } from "@docusaurus/router";
@@ -93,6 +99,21 @@ export function TRexApp() {
         timeFilter: TimeFilter.OngoingUpcoming,
     });
 
+    const fuse = useMemo(
+        () =>
+            new Fuse(data?.events ?? [], {
+                keys: [
+                    { name: "name", weight: 2 },
+                    "dorm",
+                    "group",
+                    "location",
+                    "tags",
+                    { name: "description", weight: 0.5 },
+                ],
+            }),
+        [data?.events],
+    );
+
     useEffect(() => {
         const savedStorage = localStorage.getItem("savedEvents");
         if (savedStorage) setSavedEvents(JSON.parse(savedStorage) as string[]);
@@ -147,17 +168,6 @@ export function TRexApp() {
 
     if (isLoading) return <LoadingFallback />;
     if (!data) return <Error />;
-
-    const fuse = new Fuse(data.events, {
-        keys: [
-            { name: "name", weight: 2 },
-            "dorm",
-            "group",
-            "location",
-            "tags",
-            { name: "description", weight: 0.5 },
-        ],
-    });
 
     return (
         <FilterContext.Provider value={{ filter, setFilter }}>
