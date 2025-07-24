@@ -262,8 +262,8 @@ interface EventCardProps {
 function EventCard(props: EventCardProps) {
     const [dateStrings, setDateStrings] = useState<DateDisplayInfo>({
         duration: "",
-        timeContext: "",
-        timeContextExact: "",
+        timeContext: "...",
+        timeContextExact: "...",
     });
 
     const { data } = useRexData();
