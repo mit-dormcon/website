@@ -7,6 +7,7 @@ import {
 } from "chart.js";
 import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
+import { useHistory } from "@docusaurus/router";
 
 import { useRexData } from "./helpers";
 
@@ -29,6 +30,7 @@ ChartJS.register(BarElement, LinearScale, CategoryScale, Tooltip);
 export default function RexEventChart() {
     const [eventsByDorm, setEventsByDorm] = useState<Map<string, number>>();
     const { data } = useRexData();
+    const history = useHistory();
 
     useEffect(() => {
         const byDorm = new Map<string, number>();
@@ -60,7 +62,18 @@ export default function RexEventChart() {
                         },
                     ],
                 }}
-                options={{ plugins: { tooltip: { enabled: true } } }}
+                options={{
+                    plugins: { tooltip: { enabled: true } },
+                    onClick: (_, elements) => {
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            const dorm = labels[index];
+                            history.push(
+                                `/rex/events?dorm=${encodeURIComponent(dorm)}`,
+                            );
+                        }
+                    },
+                }}
             />
         </div>
     );
