@@ -314,7 +314,7 @@ function ShareButton(props: FilterSettings) {
             url.searchParams.set("dorm", props.dormFilter);
         if (props.groupFilter && props.groupFilter !== unsetFilter.groupFilter)
             url.searchParams.set("group", props.groupFilter);
-        if (props.timeFilter && props.timeFilter !== unsetFilter.timeFilter)
+        if (props.timeFilter && props.timeFilter !== TimeFilter.OngoingUpcoming)
             url.searchParams.set("time_filter", props.timeFilter);
         if (props.tagFilter && props.tagFilter !== unsetFilter.tagFilter)
             url.searchParams.set(
@@ -323,10 +323,14 @@ function ShareButton(props: FilterSettings) {
                     ([_, value]) => value === props.tagFilter,
                 )?.[0] ?? "",
             );
-        url.searchParams.set(
-            "bookmarks_only",
-            props.bookmarksOnly ? "true" : "false",
-        );
+        if (
+            props.bookmarksOnly &&
+            props.bookmarksOnly !== unsetFilter.bookmarksOnly
+        )
+            url.searchParams.set(
+                "bookmarks_only",
+                props.bookmarksOnly ? "true" : "false",
+            );
         navigator.clipboard
             .writeText(url.toString())
             .then(() => {
