@@ -34,7 +34,10 @@ export default function RexEventChart() {
         const byDorm = new Map<string, number>();
         for (const event of data?.events ?? []) {
             event.dorm.forEach((dorm) => {
-                byDorm.set(dorm, (byDorm.get(dorm) ?? 0) + 1);
+                if (dorm !== "Campus Wide!") {
+                    // skip dormcon events
+                    byDorm.set(dorm, (byDorm.get(dorm) ?? 0) + 1);
+                }
             });
         }
         setEventsByDorm(byDorm);

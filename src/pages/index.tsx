@@ -7,7 +7,7 @@ import styles from "./styles.module.css";
 // import { Timeline } from "react-twitter-widgets";
 // import { useColorMode } from "@docusaurus/theme-common";
 import { meetings } from "../../data/meetings";
-// import RexEventChart from "../../components/t-rex/RexEventChart";
+import RexEventChart from "../../components/t-rex/RexEventChart";
 import Heading from "@theme/Heading";
 
 function Feature(props: {
@@ -81,30 +81,30 @@ function FeatureRow() {
                 </div>
             ),
         },
-        {
-            title: "Quick Links",
-            children: (
-                <div>
-                    <ul>
-                        <li>
-                            <Link to="/resources/piazza">
-                                Ask a question on the DormCon Piazza.
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="https://bit.ly/dining23">
-                                Give feedback to a dining hall.
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/about/meetings">
-                                View the meeting schedule.
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            ),
-        },
+        // {
+        //     title: "Quick Links",
+        //     children: (
+        //         <div>
+        //             <ul>
+        //                 <li>
+        //                     <Link to="/resources/piazza">
+        //                         Ask a question on the DormCon Piazza.
+        //                     </Link>
+        //                 </li>
+        //                 <li>
+        //                     <Link to="https://bit.ly/dining23">
+        //                         Give feedback to a dining hall.
+        //                     </Link>
+        //                 </li>
+        //                 <li>
+        //                     <Link to="/about/meetings">
+        //                         View the meeting schedule.
+        //                     </Link>
+        //                 </li>
+        //             </ul>
+        //         </div>
+        //     ),
+        // },
         // {
         //     title: "DormCon Twitter",
         //     children: (
@@ -120,10 +120,10 @@ function FeatureRow() {
         //         ></Timeline>
         //     ),
         // },
-        // {
-        //     title: "REX Events Per Dorm",
-        //     children: <RexEventChart />,
-        // },
+        {
+            title: "REX Events Per Dorm",
+            children: <RexEventChart />,
+        },
     ];
 
     return (
