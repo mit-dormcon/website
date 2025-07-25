@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import Fuse from "fuse.js";
-import { debounce } from "lodash";
+import { debounce, isEqual } from "lodash";
 import clsx from "clsx";
 
 import {
@@ -285,7 +285,13 @@ export function EventFilter(props: {
                         {props.showRelativeTime ? "⏰" : "⏱"}&ensp; Switch to{" "}
                         {props.showRelativeTime ? "exact" : "relative"} times
                     </button>
-                    <ShareButton {...filter} />
+                    {!isEqual(filter, {
+                        ...unsetFilter,
+                        timeFilter: TimeFilter.OngoingUpcoming,
+                    }) && (
+                        // Only show share button if the filter is not default
+                        <ShareButton {...filter} />
+                    )}
                 </div>
             </div>
             <input
