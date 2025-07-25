@@ -15,7 +15,6 @@ import { useRexData } from "./helpers";
 
 import styles from "./rex.module.css";
 import { Temporal } from "@js-temporal/polyfill";
-import { useLocation } from "@docusaurus/router";
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,
@@ -137,7 +136,7 @@ export function EventFilter(props: {
 
     // runs search when filter changes
     useEffect(() => {
-        if (searchValue == previousSearchValue || !searchValue) {
+        if (searchValue == previousSearchValue) {
             search(filter);
         } else {
             searchForEventsDebounced(filter);
@@ -309,7 +308,6 @@ function ShareButton(props: FilterSettings) {
 
     const handleShare = () => {
         const url = new URL(window.location.origin + window.location.pathname);
-        url.searchParams.delete;
         if (props.searchValue)
             url.searchParams.set("search", props.searchValue);
         if (props.dormFilter && props.dormFilter !== unsetFilter.dormFilter)
@@ -329,10 +327,15 @@ function ShareButton(props: FilterSettings) {
             "bookmarks_only",
             props.bookmarksOnly ? "true" : "false",
         );
-        navigator.clipboard.writeText(url.toString()).then(() => {
-            setText("✅ Filters Copied!");
-            setTimeout(() => setText("🔗 Copy Filters"), 2000);
-        });
+        navigator.clipboard
+            .writeText(url.toString())
+            .then(() => {
+                setText("✅ Filters Copied!");
+                setTimeout(() => setText("🔗 Copy Filters"), 2000);
+            })
+            .catch((err) => {
+                console.error("Failed to copy filters: ", err);
+            });
     };
 
     return (
