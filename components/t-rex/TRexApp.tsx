@@ -232,8 +232,8 @@ function EventLayout(props: EventLayoutProps) {
         <div className="container margin-top--sm">
             {props.events?.length ? (
                 <div className="row">
-                    {props.events.map((e, idx) => (
-                        <div key={idx} className="col col--4">
+                    {props.events.map((e) => (
+                        <div key={e.id} className="col col--4">
                             <EventCard
                                 event={e}
                                 isSaved={props.saved.includes(e.id)}
@@ -297,7 +297,11 @@ function EventCard(props: EventCardProps) {
     }, [props]);
 
     return (
-        <div className="card margin-vert--sm shadow--md" style={cardStyle}>
+        <div
+            className="card margin-vert--sm shadow--md"
+            style={cardStyle}
+            id={props.event.id}
+        >
             <div
                 className="card__header"
                 style={{ display: "flex", justifyContent: "space-between" }}
