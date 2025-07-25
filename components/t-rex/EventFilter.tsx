@@ -136,7 +136,7 @@ export function EventFilter(props: {
 
     // runs search when filter changes
     useEffect(() => {
-        if (searchValue == previousSearchValue) {
+        if (searchValue == previousSearchValue || !searchValue) {
             search(filter);
         } else {
             searchForEventsDebounced(filter);

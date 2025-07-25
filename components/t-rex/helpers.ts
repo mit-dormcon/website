@@ -2,11 +2,13 @@ import useSWR, { preload } from "swr";
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { TRexAPIResponse, TRexProcessedData } from "./types";
-import { useMemo } from "react";
 
 const API_URL = "https://rex.mit.edu/api.json";
 
-const fetcher = async <T>(url: string) => fetch(url).then((res) => res.json() as T);
+const fetcher = async (url: string) =>
+    fetch(url)
+        .then((res) => res.json() as Promise<TRexAPIResponse>)
+        .then((data) => rexConverter(data));
 
 const rexConverter = (json: TRexAPIResponse): TRexProcessedData => {
     return {
@@ -32,14 +34,9 @@ const rexConverter = (json: TRexAPIResponse): TRexProcessedData => {
     };
 };
 
-
 export const useRexData = () => {
-    void preload<TRexAPIResponse>(API_URL, fetcher);
-
-    const swr = useSWR<TRexAPIResponse>(API_URL, fetcher);
-    const rexData = useMemo(() => swr.data ? rexConverter(swr.data) : undefined, [swr.data]);
-
-    return { ...swr, data: rexData };
+    void preload<TRexProcessedData>(API_URL, fetcher);
+    return useSWR<TRexProcessedData>(API_URL, fetcher);
 };
 
 // Helper function to get a value from a Map or Object (just in case types are being weird)
@@ -68,7 +65,7 @@ function standardize_color(str: string) {
 }
 
 // https://www.w3.org/TR/WCAG20/#relativeluminancedef
-export function getOptimalForegroundColor(bgColor: string, WCAG20 = true) {
+export function getOptimalForegroundColor(bgColor: string, WCAG20 = false) {
     const color = standardize_color(bgColor);
 
     const r = parseInt(color.substring(1, 3), 16);
