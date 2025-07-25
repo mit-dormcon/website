@@ -40,3 +40,10 @@ export const FilterContext = createContext<{
     filter: FilterSettings;
     setFilter: (f: FilterSettings) => void;
 }>({} as { filter: FilterSettings; setFilter: (f: FilterSettings) => void });
+
+export const timeFilterMap: Record<string, TimeFilter> = {
+    all: TimeFilter.AllEvents,
+    ongoing: TimeFilter.Ongoing,
+    not_ended: TimeFilter.OngoingUpcoming,
+    upcoming: TimeFilter.Upcoming,
+};

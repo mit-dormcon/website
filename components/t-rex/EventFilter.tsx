@@ -7,6 +7,7 @@ import {
     FilterContext,
     FilterSettings,
     TimeFilter,
+    timeFilterMap,
     unsetFilter,
 } from "./filter";
 import { TRexProcessedEvent } from "./types";
@@ -14,6 +15,7 @@ import { useRexData } from "./helpers";
 
 import styles from "./rex.module.css";
 import { Temporal } from "@js-temporal/polyfill";
+import { useLocation } from "@docusaurus/router";
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,
@@ -284,6 +286,7 @@ export function EventFilter(props: {
                         {props.showRelativeTime ? "⏰" : "⏱"}&ensp; Switch to{" "}
                         {props.showRelativeTime ? "exact" : "relative"} times
                     </button>
+                    <ShareButton {...filter} />
                 </div>
             </div>
             <input
@@ -298,5 +301,46 @@ export function EventFilter(props: {
                 placeholder="🔍 Search"
             />
         </div>
+    );
+}
+
+function ShareButton(props: FilterSettings) {
+    const [text, setText] = useState("🔗 Copy Filters");
+
+    const handleShare = () => {
+        const url = new URL(window.location.origin + window.location.pathname);
+        url.searchParams.delete;
+        if (props.searchValue)
+            url.searchParams.set("search", props.searchValue);
+        if (props.dormFilter && props.dormFilter !== unsetFilter.dormFilter)
+            url.searchParams.set("dorm", props.dormFilter);
+        if (props.groupFilter && props.groupFilter !== unsetFilter.groupFilter)
+            url.searchParams.set("group", props.groupFilter);
+        if (props.timeFilter && props.timeFilter !== unsetFilter.timeFilter)
+            url.searchParams.set("time_filter", props.timeFilter);
+        if (props.tagFilter && props.tagFilter !== unsetFilter.tagFilter)
+            url.searchParams.set(
+                "tag",
+                Object.entries(timeFilterMap).find(
+                    ([_, value]) => value === props.tagFilter,
+                )?.[0] ?? "",
+            );
+        url.searchParams.set(
+            "bookmarks_only",
+            props.bookmarksOnly ? "true" : "false",
+        );
+        navigator.clipboard.writeText(url.toString()).then(() => {
+            setText("✅ Filters Copied!");
+            setTimeout(() => setText("🔗 Copy Filters"), 2000);
+        });
+    };
+
+    return (
+        <button
+            className="button button--sm button--outline button--primary"
+            onClick={handleShare}
+        >
+            {text}
+        </button>
     );
 }

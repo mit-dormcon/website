@@ -17,6 +17,7 @@ import {
     FilterContext,
     type FilterSettings,
     TimeFilter,
+    timeFilterMap,
     unsetFilter,
 } from "./filter";
 import { BookmarkDropdownItem } from "./Bookmarks";
@@ -146,25 +147,16 @@ export function TRexApp() {
         if (params.get("q"))
             paramsFilter.searchValue = params.get("q") ?? undefined;
 
-        const timeFilterMap: Record<string, TimeFilter> = {
-            all: TimeFilter.AllEvents,
-            ongoing: TimeFilter.Ongoing,
-            not_ended: TimeFilter.OngoingUpcoming,
-            upcoming: TimeFilter.Upcoming,
-        };
-
         const time_filter_param = params.get("time_filter") ?? undefined;
-        if (
-            time_filter_param &&
-            time_filter_param in Object.keys(timeFilterMap)
-        )
+
+        if (time_filter_param && time_filter_param in timeFilterMap)
             paramsFilter.timeFilter = timeFilterMap[time_filter_param];
 
-        setFilter({ ...filter, ...paramsFilter });
+        setFilter((f) => ({ ...f, ...paramsFilter }));
 
         if (["true", "false"].includes(params.get("relative_time") ?? ""))
             setShowRelativeTime(params.get("relative_time") === "true");
-    }, [search]);
+    }, [data?.dorms, data?.groups, data?.tags, search]);
 
     if (isLoading) return <LoadingFallback />;
     if (!data) return <Error />;

@@ -2,6 +2,7 @@ import useSWR, { preload } from "swr";
 import { Temporal } from "@js-temporal/polyfill";
 
 import type { TRexAPIResponse, TRexProcessedData } from "./types";
+import { useMemo } from "react";
 
 const API_URL = "https://rex.mit.edu/api.json";
 
@@ -36,7 +37,7 @@ export const useRexData = () => {
     void preload<TRexAPIResponse>(API_URL, fetcher);
 
     const swr = useSWR<TRexAPIResponse>(API_URL, fetcher);
-    const rexData = swr.data ? rexConverter(swr.data) : undefined;
+    const rexData = useMemo(() => swr.data ? rexConverter(swr.data) : undefined, [swr.data]);
 
     return { ...swr, data: rexData };
 };
