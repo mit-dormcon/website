@@ -131,13 +131,13 @@ export function EventFilter(props: {
         [props.fuse, props.events, props.saved],
     );
 
-    const searchForEventsDebounced = useCallback(debounce(search, 1000), [
+    const searchForEventsDebounced = useCallback(debounce(search, 500), [
         props.saved,
     ]);
 
     // runs search when filter changes
     useEffect(() => {
-        if (searchValue == previousSearchValue) {
+        if (searchValue == previousSearchValue || !searchValue) {
             search(filter);
         } else {
             searchForEventsDebounced(filter);
