@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
 import { debounce, isEqual } from "lodash";
 import clsx from "clsx";
@@ -24,15 +24,14 @@ import { Temporal } from "@js-temporal/polyfill";
  * back up through the `setEvents` prop.
  */
 export function EventFilter(props: {
-    events?: TRexProcessedEvent[];
     /** Fuse.js search object */
-    fuse: Fuse<TRexProcessedEvent>;
     saved: string[];
     setEvents: (events: TRexProcessedEvent[]) => void;
     /** Determines whether to show a human-readable time on the event card */
     showRelativeTime: boolean;
     setRelativeTime: (val: boolean) => void;
 }) {
+    const { saved, setEvents, showRelativeTime, setRelativeTime } = props;
     const { filter, setFilter } = useContext(FilterContext);
     const {
         searchValue,
@@ -45,6 +44,21 @@ export function EventFilter(props: {
 
     const { data } = useRexData();
     const [previousSearchValue, setPreviousSearchValue] = useState<string>("");
+
+    const fuse = useMemo(
+        () =>
+            new Fuse(data?.events ?? [], {
+                keys: [
+                    { name: "name", weight: 2 },
+                    "dorm",
+                    "group",
+                    "location",
+                    "tags",
+                    { name: "description", weight: 0.5 },
+                ],
+            }),
+        [data?.events],
+    );
 
     const dormEmoji = "🏠";
     const groupEmoji = "👥";
@@ -62,14 +76,11 @@ export function EventFilter(props: {
                 bookmarksOnly,
             } = filterProp;
 
-            let events: TRexProcessedEvent[] = [];
+            let events: TRexProcessedEvent[] = searchValue
+                ? fuse.search(searchValue).map((result) => result.item)
+                : (data?.events ?? []);
             const now = Temporal.Now.instant();
-            if (!searchValue) events = data?.events ?? [];
-            else {
-                events = props.fuse
-                    .search(searchValue)
-                    .map((result) => result.item);
-            }
+
             if (dormFilter !== unsetFilter.dormFilter)
                 events = events.filter((ev) =>
                     ev.dorm.some((dorm) => dorm === dormFilter),
@@ -97,8 +108,8 @@ export function EventFilter(props: {
                     ev.tags.includes(tagFilter ?? ""),
                 );
             if (bookmarksOnly) {
-                console.log(props.saved);
-                events = events.filter((ev) => props.saved.includes(ev.id));
+                console.log(saved);
+                events = events.filter((ev) => saved.includes(ev.id));
             }
 
             // Don't sort if there's a search query, so the most relevant events appear at the top
@@ -124,15 +135,15 @@ export function EventFilter(props: {
             }
 
             setPreviousSearchValue(searchValue ?? "");
-
-            props.setEvents(events);
+            setEvents(events);
         },
-        [props.fuse, props.events, props.saved],
+        [fuse, data?.events, setEvents, saved],
     );
 
-    const searchForEventsDebounced = useCallback(debounce(search, 500), [
-        props.saved,
-    ]);
+    const searchForEventsDebounced = useCallback(
+        (filter: FilterSettings) => debounce(search, 500)(filter),
+        [search],
+    );
 
     // runs search when filter changes
     useEffect(() => {
@@ -163,13 +174,13 @@ export function EventFilter(props: {
         >
             <div className="margin-bottom--xs">
                 <select
-                    onChange={(e) => {
-                        setFilter({
-                            ...filter,
+                    onChange={(e) =>
+                        setFilter((f) => ({
+                            ...f,
                             dormFilter: e.target.value,
                             groupFilter: unsetFilter.groupFilter,
-                        });
-                    }}
+                        }))
+                    }
                     value={dormFilter ?? ""}
                     className={clsx("margin-right--sm", styles.inputSmall)}
                     aria-label="Dorm"
@@ -186,12 +197,12 @@ export function EventFilter(props: {
                 </select>
                 {data?.groups[dormFilter ?? ""] && (
                     <select
-                        onChange={(e) => {
-                            setFilter({
-                                ...filter,
+                        onChange={(e) =>
+                            setFilter((f) => ({
+                                ...f,
                                 groupFilter: e.target.value,
-                            });
-                        }}
+                            }))
+                        }
                         value={groupFilter ?? ""}
                         className={clsx("margin-right--sm", styles.inputSmall)}
                         aria-label="Group"
@@ -208,12 +219,12 @@ export function EventFilter(props: {
                     </select>
                 )}
                 <select
-                    onChange={(e) => {
-                        setFilter({
-                            ...filter,
+                    onChange={(e) =>
+                        setFilter((f) => ({
+                            ...f,
                             timeFilter: e.target.value as TimeFilter,
-                        });
-                    }}
+                        }))
+                    }
                     value={timeFilter ?? ""}
                     className={clsx("margin-right--sm", styles.inputSmall)}
                     aria-label="Time"
@@ -230,9 +241,9 @@ export function EventFilter(props: {
                     ))}
                 </select>
                 <select
-                    onChange={(e) => {
-                        setFilter({ ...filter, tagFilter: e.target.value });
-                    }}
+                    onChange={(e) =>
+                        setFilter((f) => ({ ...f, tagFilter: e.target.value }))
+                    }
                     value={tagFilter ?? ""}
                     className={clsx("margin-right--sm", styles.inputSmall)}
                     aria-label="Tags"
@@ -255,12 +266,12 @@ export function EventFilter(props: {
                         <input
                             type="checkbox"
                             checked={bookmarksOnly ?? false}
-                            onChange={(e) => {
-                                setFilter({
-                                    ...filter,
+                            onChange={(e) =>
+                                setFilter((f) => ({
+                                    ...f,
                                     bookmarksOnly: e.target.checked,
-                                });
-                            }}
+                                }))
+                            }
                         />
                         ⭐️ only
                     </label>
@@ -279,11 +290,11 @@ export function EventFilter(props: {
                     <button
                         className="button button--sm button--outline button--primary margin-right--sm"
                         onClick={() => {
-                            props.setRelativeTime(!props.showRelativeTime);
+                            setRelativeTime(!showRelativeTime);
                         }}
                     >
-                        {props.showRelativeTime ? "⏰" : "⏱"}&ensp; Switch to{" "}
-                        {props.showRelativeTime ? "exact" : "relative"} times
+                        {showRelativeTime ? "⏰" : "⏱"}&ensp; Switch to{" "}
+                        {showRelativeTime ? "exact" : "relative"} times
                     </button>
                     {!isEqual(filter, {
                         ...unsetFilter,
@@ -299,9 +310,9 @@ export function EventFilter(props: {
                 name="search"
                 className={styles.input}
                 value={searchValue ?? ""}
-                onChange={(e) => {
-                    setFilter({ ...filter, searchValue: e.target.value });
-                }}
+                onChange={(e) =>
+                    setFilter((f) => ({ ...f, searchValue: e.target.value }))
+                }
                 style={{ fontSize: "2rem", width: "100%" }}
                 placeholder="🔍 Search"
             />

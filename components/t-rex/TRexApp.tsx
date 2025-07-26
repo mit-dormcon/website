@@ -1,11 +1,4 @@
-import {
-    type CSSProperties,
-    useContext,
-    useEffect,
-    useMemo,
-    useState,
-} from "react";
-import Fuse from "fuse.js";
+import { type CSSProperties, useContext, useEffect, useState } from "react";
 import clsx from "clsx";
 import { useLocation } from "@docusaurus/router";
 
@@ -90,9 +83,7 @@ export function TRexHeadline(props: { isTimeline?: boolean }) {
 export function TRexApp() {
     const { search } = useLocation();
     const { data, isLoading } = useRexData();
-    const [events, setEvents] = useState<TRexProcessedEvent[] | undefined>(
-        data?.events,
-    );
+    const [events, setEvents] = useState<TRexProcessedEvent[] | undefined>();
     const [savedEvents, setSavedEvents] = useState<string[]>([]);
     const [showRelativeTime, setShowRelativeTime] = useState(true);
     const [filter, setFilter] = useState<FilterSettings>({
@@ -100,20 +91,14 @@ export function TRexApp() {
         timeFilter: TimeFilter.OngoingUpcoming,
     });
 
-    const fuse = useMemo(
-        () =>
-            new Fuse(data?.events ?? [], {
-                keys: [
-                    { name: "name", weight: 2 },
-                    "dorm",
-                    "group",
-                    "location",
-                    "tags",
-                    { name: "description", weight: 0.5 },
-                ],
-            }),
-        [data?.events],
-    );
+    useEffect(() => {
+        setEvents((e) => {
+            if (e === undefined && data?.events) {
+                return data.events;
+            }
+            return e;
+        });
+    }, [data?.events, setEvents]);
 
     useEffect(() => {
         const savedStorage = localStorage.getItem("savedEvents");
@@ -181,9 +166,7 @@ export function TRexApp() {
                     published {data?.published.toLocaleString()}
                 </p>
                 <EventFilter
-                    fuse={fuse}
                     setEvents={setEvents}
-                    events={events}
                     saved={savedEvents}
                     showRelativeTime={showRelativeTime}
                     setRelativeTime={setShowRelativeTime}
