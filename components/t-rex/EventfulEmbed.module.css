@@ -1,26 +1,26 @@
 .fullscreen_link {
     box-sizing: border-box;
     display: block;
-    background: #040408;
+    background: #090616;
     color: #fff;
-    width: 20em;
+    width: 23em;
     float: right;
     text-align: center;
     padding: 0.3em 0.5em;
-    clip-path: polygon(
-        0% 5em,
-        5em 0%,
-        calc(100% - 5em) 0%,
-        100% 5em,
-        100% 100%,
-        0% 100%
-    );
+    clip-path: polygon(0% 5em,
+            5em 0%,
+            calc(100% - 5em) 0%,
+            100% 5em,
+            100% 100%,
+            0% 100%);
     margin-bottom: -2px;
 }
-.fullscreen_link > span {
+
+.fullscreen_link>span {
     padding-left: 1em;
     padding-right: 0.3em;
 }
+
 button.fullscreen_link {
     border: 0;
     font-size: medium;
@@ -32,4 +32,5 @@ button.fullscreen_link {
     width: 90vw;
     margin-left: calc(50% - 45vw);
     height: calc(100vh - 14em);
+    background: #090616;
 }
