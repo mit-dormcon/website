@@ -78,57 +78,55 @@ export function EventFilter(props: {
                     : (data?.events ?? []);
             const now = Temporal.Now.instant();
 
-            if (dormFilter !== unsetFilter.dormFilter)
-                events = events.filter((ev) =>
-                    ev.dorm.some((dorm) => dorm === dormFilter),
-                );
-            if (groupFilter && groupFilter !== unsetFilter.groupFilter)
-                events = events.filter((ev) =>
-                    ev.group?.some((group) => group === groupFilter),
-                );
-            if (timeFilter === TimeFilter.Upcoming)
-                events = events.filter(
-                    (ev) => Temporal.Instant.compare(ev.start, now) >= 0,
-                );
-            else if (timeFilter === TimeFilter.Ongoing)
-                events = events.filter(
-                    (ev) =>
-                        Temporal.Instant.compare(ev.start, now) < 0 &&
-                        Temporal.Instant.compare(ev.end, now) >= 0,
-                );
-            else if (timeFilter === TimeFilter.OngoingUpcoming)
-                events = events.filter(
-                    (ev) => Temporal.Instant.compare(ev.end, now) >= 0,
-                );
-            if (tagFilter !== unsetFilter.tagFilter)
-                events = events.filter((ev) =>
-                    ev.tags.includes(tagFilter ?? ""),
-                );
-            if (bookmarksOnly) {
-                console.log(saved);
-                events = events.filter((ev) => saved.includes(ev.id));
-            }
+            events = events.filter((ev) => {
+                if (dormFilter !== unsetFilter.dormFilter)
+                    if (!ev.dorm.some((dorm) => dorm === dormFilter))
+                        return false;
+
+                if (groupFilter && groupFilter !== unsetFilter.groupFilter)
+                    if (!ev.group?.some((group) => group === groupFilter))
+                        return false;
+
+                if (timeFilter === TimeFilter.Upcoming) {
+                    if (!(Temporal.Instant.compare(ev.start, now) >= 0))
+                        return false;
+                } else if (timeFilter === TimeFilter.Ongoing) {
+                    if (
+                        !(
+                            Temporal.Instant.compare(ev.start, now) < 0 &&
+                            Temporal.Instant.compare(ev.end, now) >= 0
+                        )
+                    )
+                        return false;
+                } else if (timeFilter === TimeFilter.OngoingUpcoming) {
+                    if (!(Temporal.Instant.compare(ev.end, now) >= 0))
+                        return false;
+                }
+
+                if (tagFilter !== unsetFilter.tagFilter)
+                    if (!ev.tags.includes(tagFilter ?? "")) return false;
+
+                if (bookmarksOnly) if (!saved.includes(ev.id)) return false;
+
+                return true;
+            });
 
             // Don't sort if there's a search query, so the most relevant events appear at the top
             if (!searchValue) {
                 // Partition and sort events based on whether they have started.
                 // Events that have started => events that end sooner show up first
                 // Events that have yet to start => events that start sooner show up first
-                const startedEvents = events.filter(
-                    (ev) => Temporal.Instant.compare(ev.start, now) < 0,
-                );
-                startedEvents.sort((a, b) =>
-                    Temporal.Instant.compare(a.end, b.end),
-                );
+                const startedEvents = events
+                    .filter((ev) => Temporal.Instant.compare(ev.start, now) < 0)
+                    .sort((a, b) => Temporal.Instant.compare(a.end, b.end));
 
-                const upcomingEvents = events.filter(
-                    (ev) => Temporal.Instant.compare(ev.start, now) >= 0,
-                );
-                upcomingEvents.sort((a, b) =>
-                    Temporal.Instant.compare(a.start, b.start),
-                );
+                const upcomingEvents = events
+                    .filter(
+                        (ev) => Temporal.Instant.compare(ev.start, now) >= 0,
+                    )
+                    .sort((a, b) => Temporal.Instant.compare(a.start, b.start));
 
-                events = Array.of(...startedEvents, ...upcomingEvents);
+                events = [...startedEvents, ...upcomingEvents];
             }
 
             setPreviousSearchValue(searchValue ?? "");
