@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import Fuse from "fuse.js";
 import { debounce, isEqual } from "lodash";
 import clsx from "clsx";
@@ -33,32 +33,26 @@ export function EventFilter(props: {
 }) {
     const { saved, setEvents, showRelativeTime, setRelativeTime } = props;
     const { filter, setFilter } = useContext(FilterContext);
-    const {
-        searchValue,
-        dormFilter,
-        groupFilter,
-        timeFilter,
-        tagFilter,
-        bookmarksOnly,
-    } = filter;
 
     const { data } = useRexData();
     const [previousSearchValue, setPreviousSearchValue] = useState<string>("");
 
-    const fuse = useMemo(
-        () =>
-            new Fuse(data?.events ?? [], {
-                keys: [
-                    { name: "name", weight: 2 },
-                    "dorm",
-                    "group",
-                    "location",
-                    "tags",
-                    { name: "description", weight: 0.5 },
-                ],
-            }),
-        [data?.events],
-    );
+    const fuse = useRef<Fuse<TRexProcessedEvent>>(undefined);
+
+    useEffect(() => {
+        if (!data?.events) return;
+
+        fuse.current = new Fuse(data.events, {
+            keys: [
+                { name: "name", weight: 2 },
+                "dorm",
+                "group",
+                "location",
+                "tags",
+                { name: "description", weight: 0.5 },
+            ],
+        });
+    }, [fuse, data?.events]);
 
     const dormEmoji = "🏠";
     const groupEmoji = "👥";
@@ -76,9 +70,12 @@ export function EventFilter(props: {
                 bookmarksOnly,
             } = filterProp;
 
-            let events: TRexProcessedEvent[] = searchValue
-                ? fuse.search(searchValue).map((result) => result.item)
-                : (data?.events ?? []);
+            let events: TRexProcessedEvent[] =
+                searchValue && fuse.current
+                    ? fuse.current
+                          .search(searchValue)
+                          .map((result) => result.item)
+                    : (data?.events ?? []);
             const now = Temporal.Now.instant();
 
             if (dormFilter !== unsetFilter.dormFilter)
@@ -147,7 +144,7 @@ export function EventFilter(props: {
 
     // runs search when filter changes
     useEffect(() => {
-        if (searchValue == previousSearchValue || !searchValue) {
+        if (filter.searchValue == previousSearchValue || !filter.searchValue) {
             search(filter);
         } else {
             searchForEventsDebounced(filter);
@@ -181,7 +178,7 @@ export function EventFilter(props: {
                             groupFilter: unsetFilter.groupFilter,
                         }))
                     }
-                    value={dormFilter ?? ""}
+                    value={filter.dormFilter ?? ""}
                     className={clsx("margin-right--sm", styles.inputSmall)}
                     aria-label="Dorm"
                     name="dorm"
@@ -195,7 +192,7 @@ export function EventFilter(props: {
                         </option>
                     ))}
                 </select>
-                {data?.groups[dormFilter ?? ""] && (
+                {data?.groups[filter.dormFilter ?? ""] && (
                     <select
                         onChange={(e) =>
                             setFilter((f) => ({
@@ -203,7 +200,7 @@ export function EventFilter(props: {
                                 groupFilter: e.target.value,
                             }))
                         }
-                        value={groupFilter ?? ""}
+                        value={filter.groupFilter ?? ""}
                         className={clsx("margin-right--sm", styles.inputSmall)}
                         aria-label="Group"
                         name="group"
@@ -211,11 +208,13 @@ export function EventFilter(props: {
                         <option value={unsetFilter.groupFilter ?? ""}>
                             {groupEmoji} {unsetFilter.groupFilter}
                         </option>
-                        {data.groups[dormFilter ?? ""].map((group, idx) => (
-                            <option key={idx} value={group}>
-                                {groupEmoji} {group}
-                            </option>
-                        ))}
+                        {data.groups[filter.dormFilter ?? ""].map(
+                            (group, idx) => (
+                                <option key={idx} value={group}>
+                                    {groupEmoji} {group}
+                                </option>
+                            ),
+                        )}
                     </select>
                 )}
                 <select
@@ -225,7 +224,7 @@ export function EventFilter(props: {
                             timeFilter: e.target.value as TimeFilter,
                         }))
                     }
-                    value={timeFilter ?? ""}
+                    value={filter.timeFilter ?? ""}
                     className={clsx("margin-right--sm", styles.inputSmall)}
                     aria-label="Time"
                     name="time"
@@ -244,7 +243,7 @@ export function EventFilter(props: {
                     onChange={(e) =>
                         setFilter((f) => ({ ...f, tagFilter: e.target.value }))
                     }
-                    value={tagFilter ?? ""}
+                    value={filter.tagFilter ?? ""}
                     className={clsx("margin-right--sm", styles.inputSmall)}
                     aria-label="Tags"
                     name="tags"
@@ -265,7 +264,7 @@ export function EventFilter(props: {
                     <label>
                         <input
                             type="checkbox"
-                            checked={bookmarksOnly ?? false}
+                            checked={filter.bookmarksOnly ?? false}
                             onChange={(e) =>
                                 setFilter((f) => ({
                                     ...f,
@@ -309,7 +308,7 @@ export function EventFilter(props: {
                 type="search"
                 name="search"
                 className={styles.input}
-                value={searchValue ?? ""}
+                value={filter.searchValue ?? ""}
                 onChange={(e) =>
                     setFilter((f) => ({ ...f, searchValue: e.target.value }))
                 }
