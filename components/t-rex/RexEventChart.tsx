@@ -5,7 +5,7 @@ import {
     LinearScale,
     Tooltip,
 } from "chart.js";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { useHistory } from "@docusaurus/router";
 
@@ -45,7 +45,14 @@ export default function RexEventChart() {
         setEventsByDorm(byDorm);
     }, [data]);
 
-    const labels = Array.from(eventsByDorm?.keys() ?? []);
+    const [values, labels] = useMemo(() => {
+        const entries = Array.from(eventsByDorm?.entries() ?? []);
+        entries.sort((a, b) => (a[0] > b[0] ? 1 : -1)); // Sort by dorm name
+        const values = Array.from(entries, (e) => e[1]);
+        const labels = Array.from(entries, (e) => e[0]);
+
+        return [values, labels];
+    }, [eventsByDorm]);
 
     return (
         <div>
@@ -55,7 +62,7 @@ export default function RexEventChart() {
                     datasets: [
                         {
                             label: "Events",
-                            data: Array.from(eventsByDorm?.values() ?? []),
+                            data: values,
                             backgroundColor: labels.map((l) =>
                                 data?.colors.dorms.get(l),
                             ),
