@@ -83,7 +83,9 @@ export function TRexHeadline(props: { isTimeline?: boolean }) {
 export function TRexApp() {
     const { search } = useLocation();
     const { data, isLoading } = useRexData();
-    const [events, setEvents] = useState<TRexProcessedEvent[] | undefined>();
+    const [events, setEvents] = useState<TRexProcessedEvent[] | undefined>(
+        data?.events,
+    );
     const [savedEvents, setSavedEvents] = useState<string[]>([]);
     const [showRelativeTime, setShowRelativeTime] = useState(true);
     const [filter, setFilter] = useState<FilterSettings>({
