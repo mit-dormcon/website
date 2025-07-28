@@ -200,6 +200,7 @@ interface EventLayoutProps {
  * there are no events.
  */
 function EventLayout(props: EventLayoutProps) {
+    const { data } = useRexData();
     const unsaveFunc = (n: string) => {
         const events_remaining = props.saved.filter((name) => name !== n);
         props.setSaved(events_remaining);
@@ -231,8 +232,18 @@ function EventLayout(props: EventLayoutProps) {
                 </div>
             ) : (
                 <div className="alert alert--secondary" role="alert">
-                    💀 <b>No events match this filter.</b> Try adjusting the
-                    filters above to see more events.
+                    💀{" "}
+                    {(data?.events.length ?? 0) > 0 ? (
+                        <>
+                            <b>No events match this filter.</b> Try adjusting
+                            the filters above to see more events.
+                        </>
+                    ) : (
+                        <>
+                            <b>No events are currently available.</b> Check back
+                            later!
+                        </>
+                    )}
                 </div>
             )}
         </div>
