@@ -183,6 +183,8 @@ const config: Config = {
                     sidebarPath: "./sidebars.ts",
                     docItemComponent: "@theme/ApiItem",
                     routeBasePath: "/",
+                    editUrl: ({docPath}) =>
+                        `https://github.com/mit-dormcon/website/edit/main/${docPath}`,
                 },
                 blog: {
                     path: "resources",
