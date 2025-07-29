@@ -182,7 +182,7 @@ const config: Config = {
                     sidebarCollapsible: true,
                     sidebarPath: "./sidebars.ts",
                     docItemComponent: "@theme/ApiItem",
-                    routeBasePath: "docs",
+                    routeBasePath: "/",
                     editUrl: ({ versionDocsDirPath, docPath }) =>
                         `https://github.com/mit-dormcon/website/edit/main/${versionDocsDirPath}/${docPath}`,
                 },
