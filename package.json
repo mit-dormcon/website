@@ -43,12 +43,12 @@
         "fuse.js": "^7.1.0",
         "lodash": "^4.17.21",
         "prism-react-renderer": "^2.4.1",
-        "react": "^19.1.0",
+        "react": "^19.1.1",
         "react-chartjs-2": "^5.3.0",
-        "react-dom": "^19.1.0",
+        "react-dom": "^19.1.1",
         "react-loadable": "^5.5.0",
         "sass": "^1.89.2",
-        "swr": "^2.3.2"
+        "swr": "^2.3.4"
     },
     "browserslist": {
         "production": [
@@ -68,12 +68,12 @@
         "@docusaurus/tsconfig": "^3.8.1",
         "@docusaurus/types": "^3.8.1",
         "@eslint/eslintrc": "^3.3.1",
-        "@eslint/js": "^9.31.0",
+        "@eslint/js": "^9.32.0",
         "@types/eslint-plugin-jsx-a11y": "^6.10.0",
         "@types/gtag.js": "^0.0.20",
-        "@types/lodash": "^4.17.17",
-        "@types/react": "^19.1.8",
-        "eslint": "^9.31.0",
+        "@types/lodash": "^4.17.20",
+        "@types/react": "^19.1.9",
+        "eslint": "^9.32.0",
         "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^5.2.0",
