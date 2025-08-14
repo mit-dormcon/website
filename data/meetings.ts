@@ -13,8 +13,7 @@ export const meetings: MeetingSchedule = {
         generateMeetingSchedule("TBD", "2025-10-09", false),
         generateMeetingSchedule("TBD", "2025-10-23", false),
         generateMeetingSchedule("TBD", "2025-11-06", false),
-        generateMeetingSchedule("TBD", "2025-11-20", false),
-        generateMeetingSchedule("TBD", "2025-12-04", false),
+        generateMeetingSchedule("TBD", "2025-11-27", false),
     ],
     gcalLink: "",
 };
