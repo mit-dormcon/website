@@ -47,8 +47,8 @@
         "react-chartjs-2": "^5.3.0",
         "react-dom": "^19.1.1",
         "react-loadable": "^5.5.0",
-        "sass": "^1.89.2",
-        "swr": "^2.3.4"
+        "sass": "^1.90.0",
+        "swr": "^2.3.6"
     },
     "browserslist": {
         "production": [
@@ -68,19 +68,19 @@
         "@docusaurus/tsconfig": "^3.8.1",
         "@docusaurus/types": "^3.8.1",
         "@eslint/eslintrc": "^3.3.1",
-        "@eslint/js": "^9.32.0",
+        "@eslint/js": "^9.34.0",
         "@types/eslint-plugin-jsx-a11y": "^6.10.0",
         "@types/gtag.js": "^0.0.20",
         "@types/lodash": "^4.17.20",
-        "@types/react": "^19.1.9",
-        "eslint": "^9.32.0",
+        "@types/react": "^19.1.11",
+        "eslint": "^9.34.0",
         "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^5.2.0",
         "globals": "^16.3.0",
         "prettier": "^3.6.2",
-        "typescript": "^5.8.3",
-        "typescript-eslint": "^8.38.0"
+        "typescript": "^5.9.2",
+        "typescript-eslint": "^8.40.0"
     },
     "prettier": {
         "tabWidth": 4,

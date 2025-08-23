@@ -8,13 +8,13 @@ export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 export const meetings: MeetingSchedule = {
     year: "Fall 2025",
     list: [
-        generateMeetingSchedule("TBD", "2025-09-11", false),
-        generateMeetingSchedule("TBD", "2025-09-25", false),
-        generateMeetingSchedule("TBD", "2025-10-09", false),
-        generateMeetingSchedule("TBD", "2025-10-23", false),
-        generateMeetingSchedule("TBD", "2025-11-06", false),
-        generateMeetingSchedule("TBD", "2025-11-20", false),
-        generateMeetingSchedule("TBD", "2025-12-04", false),
+        generateMeetingSchedule("East Campus", "2025-09-11 19:00", false),
+        generateMeetingSchedule("McCormick", "2025-09-25 19:00", false),
+        generateMeetingSchedule("New House", "2025-10-09 19:00", false),
+        generateMeetingSchedule("New Vassar", "2025-10-23 19:00", false),
+        generateMeetingSchedule("Next House", "2025-11-06 19:00", false),
+        generateMeetingSchedule("Random", "2025-11-20 19:00", false),
+        generateMeetingSchedule("Simmons", "2025-12-04 19:00", false),
     ],
     gcalLink: "",
 };

@@ -14,15 +14,15 @@ import { useRexData } from "./helpers";
 // const dormsCapacity = {
 //     "Baker House": 325,
 //     "Burton Conner": 388,
-//     "East Campus": 383,
+//     "East Campus": 375,
 //     "MacGregor House": 313,
-//     "Maseeh Hall": 500,
+//     "Maseeh Hall": 501,
 //     "McCormick Hall": 255,
 //     "New House": 290,
 //     "West Garage": 450,
 //     "Next House": 368,
-//     "Simmons Hall": 369,
 //     "Random Hall": 93,
+//     "Simmons Hall": 368,
 // };
 
 ChartJS.register(BarElement, LinearScale, CategoryScale, Tooltip);
