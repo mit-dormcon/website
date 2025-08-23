@@ -20,7 +20,7 @@ const config: Config = {
             id: "rex_2025",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            content: `<strong>🥳 <a href='/rex'>REX 2025</a> is happening soon! 🎉</strong>`,
+            content: `<strong>🥳 <a href='/rex'>REX 2025</a> has begun! 🎉</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
