@@ -20,7 +20,7 @@ const config: Config = {
             id: "gbm_f25",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            content: `<strong>Our first GBM will be in East Campus on 9/11/2025 at 7:30pm!</strong>`,
+            content: `<strong>Our first GBM will be in East Campus on 9/11/2025 at 7pm!</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
