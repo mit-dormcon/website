@@ -17,10 +17,10 @@ const config: Config = {
     trailingSlash: false,
     themeConfig: {
         announcementBar: {
-            id: "rex_2025",
+            id: "gbm_f25",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            content: `<strong>🥳 <a href='/rex'>REX 2025</a> has begun! 🎉</strong>`,
+            content: `<strong>Our first GBM will be in East Campus on 9/11/2025 at 7:30pm!</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
