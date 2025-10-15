@@ -10,7 +10,7 @@ export const meetings: MeetingSchedule = {
     list: [
         generateMeetingSchedule("East Campus", "2025-09-11 19:00", true),
         generateMeetingSchedule("McCormick", "2025-09-25 19:00", true),
-        generateMeetingSchedule("New House", "2025-10-09 19:00", false),
+        generateMeetingSchedule("New House", "2025-10-09 19:00", true),
         generateMeetingSchedule("New Vassar", "2025-10-23 19:00", false),
         generateMeetingSchedule("Next House", "2025-11-06 19:00", false),
         generateMeetingSchedule("Random", "2025-11-20 19:00", false),
