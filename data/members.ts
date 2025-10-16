@@ -3,7 +3,7 @@ import type { DormConMember } from "./types";
 export const members: DormConMember[] = [
     {
         dorm: "Baker",
-        president: ["Sofia Lara", "Camila Pierce"],
+        president: ["Sydney Smith", "Pauline Vien"],
         kerbs: ["baker-prez"],
         url: "https://baker.mit.edu/",
     },
@@ -21,7 +21,7 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "MacGregor",
-        president: ["Brandon Murphy"],
+        president: ["Brendon Murphy"],
         kerbs: ["mac-prez"],
         url: "http://macgregor.mit.edu/",
     },
@@ -39,13 +39,13 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "New House",
-        president: ["Paola Namphy", "Zabian Strom"],
+        president: ["Paola Namphy", "Zavian Strom"],
         kerbs: ["nh-president"],
         url: "https://newhouse.mit.edu/",
     },
     {
         dorm: "Next House",
-        president: ["Zakiya Smith"],
+        president: ["Ricardo Marin"],
         kerbs: ["next-president"],
         url: "https://next.mit.edu/",
     },
@@ -63,7 +63,7 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "New Vassar",
-        president: ["Michaela Olimene", "Shiqi Cheng"],
+        president: ["Michaela Olimene"],
         kerbs: ["nv-prez"],
         url: "https://newvassar.mit.edu/",
     },
