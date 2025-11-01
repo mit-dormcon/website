@@ -35,7 +35,7 @@
         "@docusaurus/utils-validation": "^3.8.1",
         "@js-temporal/polyfill": "^0.5.1",
         "@mdx-js/react": "^3.1.0",
-        "chart.js": "^4.5.0",
+        "chart.js": "^4.5.1",
         "clsx": "^2.1.1",
         "docusaurus-plugin-openapi-docs": "^4.5.1",
         "docusaurus-plugin-sass": "^0.2.6",
