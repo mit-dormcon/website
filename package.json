@@ -68,7 +68,7 @@
         "@docusaurus/tsconfig": "^3.9.1",
         "@docusaurus/types": "^3.8.1",
         "@eslint/eslintrc": "^3.3.1",
-        "@eslint/js": "^9.34.0",
+        "@eslint/js": "^9.39.0",
         "@types/eslint-plugin-jsx-a11y": "^6.10.1",
         "@types/gtag.js": "^0.0.20",
         "@types/lodash": "^4.17.20",
