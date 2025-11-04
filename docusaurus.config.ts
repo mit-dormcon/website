@@ -107,12 +107,8 @@ const config: Config = {
                     title: "Housing",
                     items: [
                         {
-                            label: "MIT Living Communities",
-                            href: "https://studentlife.mit.edu/living-communities/",
-                        },
-                        {
-                            label: "MIT Guide to Residences",
-                            href: "https://mitguidetoresidences.mit.edu/",
+                            label: "MIT Undergraduate Housing",
+                            href: "https://housing.mit.edu/",
                         },
                         {
                             label: "Housing Portal (Starrez)",
