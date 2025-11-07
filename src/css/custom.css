@@ -30,6 +30,19 @@
     --ifm-background-color: #ffffff;
 }
 
+html {
+    font-family: proxima-nova, system-ui;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: proxima-nova, system-ui;
+}
+
 .docusaurus-highlight-code-line {
     background-color: rgb(72, 77, 91);
     display: block;

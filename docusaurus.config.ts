@@ -15,6 +15,15 @@ const config: Config = {
     organizationName: "mit-dormcon",
     projectName: "website",
     trailingSlash: false,
+    headTags: [
+        {
+            tagName: "link",
+            attributes: {
+                rel: "stylesheet",
+                href: "https://use.typekit.net/qxe5rxu.css",
+            }
+        }
+    ],
     themeConfig: {
         announcementBar: {
             id: "gbm_f25",
