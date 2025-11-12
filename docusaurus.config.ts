@@ -15,6 +15,15 @@ const config: Config = {
     organizationName: "mit-dormcon",
     projectName: "website",
     trailingSlash: false,
+    headTags: [
+        {
+            tagName: "link",
+            attributes: {
+                rel: "stylesheet",
+                href: "https://use.typekit.net/qxe5rxu.css",
+            }
+        }
+    ],
     themeConfig: {
         announcementBar: {
             id: "gbm_f25",
@@ -107,12 +116,8 @@ const config: Config = {
                     title: "Housing",
                     items: [
                         {
-                            label: "MIT Living Communities",
-                            href: "https://studentlife.mit.edu/living-communities/",
-                        },
-                        {
-                            label: "MIT Guide to Residences",
-                            href: "https://mitguidetoresidences.mit.edu/",
+                            label: "MIT Undergraduate Housing",
+                            href: "https://housing.mit.edu/",
                         },
                         {
                             label: "Housing Portal (Starrez)",
