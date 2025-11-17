@@ -56,4 +56,4 @@ updated guidelines. Some important facts are noted below:
 ## Post-Event Report
 
 **Once the event is over, please fill out a
-[post-event report](https://forms.gle/qsRESsZkDqE6V1cy9).**
+[post-event report](https://forms.gle/V2FF6xMPhSp1ntpUA).**
