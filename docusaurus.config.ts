@@ -21,8 +21,8 @@ const config: Config = {
             attributes: {
                 rel: "stylesheet",
                 href: "https://use.typekit.net/qxe5rxu.css",
-            }
-        }
+            },
+        },
     ],
     themeConfig: {
         announcementBar: {

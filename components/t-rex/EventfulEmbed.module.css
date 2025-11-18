@@ -7,16 +7,18 @@
     float: right;
     text-align: center;
     padding: 0.3em 0.5em;
-    clip-path: polygon(0% 5em,
-            5em 0%,
-            calc(100% - 5em) 0%,
-            100% 5em,
-            100% 100%,
-            0% 100%);
+    clip-path: polygon(
+        0% 5em,
+        5em 0%,
+        calc(100% - 5em) 0%,
+        100% 5em,
+        100% 100%,
+        0% 100%
+    );
     margin-bottom: -2px;
 }
 
-.fullscreen_link>span {
+.fullscreen_link > span {
     padding-left: 1em;
     padding-right: 0.3em;
 }

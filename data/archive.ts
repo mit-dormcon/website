@@ -22,7 +22,10 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
             generateMeetingSchedule("MacGregor", "2025-03-13 19:00"),
             generateMeetingSchedule("Baker", "2025-04-03 19:00"),
             generateMeetingSchedule("Burton-Conner", "2025-04-24 19:00"),
-            generateMeetingSchedule("Room 4-163 (Elections!!)", "2025-05-01 19:00"),
+            generateMeetingSchedule(
+                "Room 4-163 (Elections!!)",
+                "2025-05-01 19:00",
+            ),
         ],
         gcalLink:
             "https://calendar.google.com/calendar/u/0?cid=YmQyNmM4MzhlMjExMzhmMDNhNmY2MmRjMDk2NjMxYTQxOGYxMzU4YTlkNGFhYmI3MTA1MjIwODM3NTNjZGIzZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
