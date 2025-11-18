@@ -10,7 +10,6 @@ const config: Config = {
     url: "https://dormcon.mit.edu",
     baseUrl: "/",
     onBrokenLinks: "throw",
-    onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
     organizationName: "mit-dormcon",
     projectName: "website",
