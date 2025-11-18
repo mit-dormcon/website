@@ -1,6 +1,9 @@
+// @ts-check
+
 import globals from "globals";
 import eslint from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
+import { defineConfig } from "eslint/config";
 
 const compat = new FlatCompat({
     baseDirectory: import.meta.dirname,
@@ -13,12 +16,12 @@ import tseslint from "typescript-eslint";
 import reactHooks from "eslint-plugin-react-hooks";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 
-export default tseslint.config(
+export default defineConfig(
     eslint.configs.recommended,
-    ...tseslint.configs.recommendedTypeChecked,
-    ...tseslint.configs.stylisticTypeChecked,
+    tseslint.configs.recommendedTypeChecked,
+    tseslint.configs.stylisticTypeChecked,
     reactPlugin.configs.flat.recommended,
-    reactHooks.configs["recommended-latest"],
+    reactHooks.configs.flat.recommended,
     jsxA11y.flatConfigs.recommended,
     ...compat.extends("plugin:@docusaurus/recommended"),
     reactPlugin.configs.flat["jsx-runtime"],
