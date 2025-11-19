@@ -10,7 +10,6 @@ const config: Config = {
     url: "https://dormcon.mit.edu",
     baseUrl: "/",
     onBrokenLinks: "throw",
-    onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
     organizationName: "mit-dormcon",
     projectName: "website",
@@ -21,8 +20,8 @@ const config: Config = {
             attributes: {
                 rel: "stylesheet",
                 href: "https://use.typekit.net/qxe5rxu.css",
-            }
-        }
+            },
+        },
     ],
     themeConfig: {
         announcementBar: {

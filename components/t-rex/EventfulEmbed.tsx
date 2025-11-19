@@ -17,7 +17,7 @@ export function EventfulEmbed() {
                 onClick={(e) => {
                     const is_ios = navigator.userAgent.includes("WebKit");
                     if (!is_ios) {
-                        e.preventDefault()
+                        e.preventDefault();
                         void iframeRef.current?.requestFullscreen?.();
                     }
                 }}
