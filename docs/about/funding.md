@@ -15,15 +15,15 @@ of money available for events that enhance the residential experience. As
 [approved by dorm presidents](https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf),
 DormCon receives $10 of house tax from every dorm resident.
 
-In addition, beginning Spring 2026, DormCon is receiving ~$12k per semester to
-distribute to residence halls for large events from the MIT Division of Student
-Life in lieu of (now defunct) LEF/ARCADE funding. This is in recognition of the
-value that undergraduate residence halls have on the student experience, and is
-fully distributed directly to dorms every semester based on request.
-Furthermore, DormCon annually funds campus-wide events such as Campus Preview
-Weekend (CPW), Residential Exploration (REX), and DormCon Apple Picking, as well
-as individual dorm events, inter-dorm events, and events sponsored by individual
-dorm residents.
+In addition, beginning Spring 2026, DormCon is receiving funding to distribute
+to residence halls for large events from the MIT Division of Student Life in
+lieu of (now defunct) LEF/ARCADE grants. This is in recognition of the value
+that undergraduate residence halls have on the student experience, and is fully
+distributed directly to dorms every semester based on request. Furthermore,
+DormCon annually funds campus-wide events such as Campus Preview Weekend (CPW),
+Residential Exploration (REX), and DormCon Apple Picking, as well as individual
+dorm events, inter-dorm events, and events sponsored by individual dorm
+residents.
 
 All funding requests are first reviewed by the DormCon Treasurer then voted on
 by the dorm presidents at a general body meeting, and a representative of the
