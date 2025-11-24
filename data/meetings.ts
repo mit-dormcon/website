@@ -13,7 +13,7 @@ export const meetings: MeetingSchedule = {
         generateMeetingSchedule("New House", "2025-10-09 19:00", true),
         generateMeetingSchedule("New Vassar", "2025-10-23 19:00", true),
         generateMeetingSchedule("Next House", "2025-11-06 19:00", true),
-        generateMeetingSchedule("Random", "2025-11-20 19:00", false),
+        generateMeetingSchedule("Random", "2025-11-20 19:00", true),
         generateMeetingSchedule("Simmons", "2025-12-04 19:00", false),
     ],
     gcalLink: "",

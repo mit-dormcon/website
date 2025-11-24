@@ -10,6 +10,7 @@ const config: Config = {
     url: "https://dormcon.mit.edu",
     baseUrl: "/",
     onBrokenLinks: "throw",
+    onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
     organizationName: "mit-dormcon",
     projectName: "website",
@@ -28,7 +29,7 @@ const config: Config = {
             id: "gbm_f25",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            content: `<strong>Our next GBM will be in Random on 11/20/2025 at 7pm!</strong>`,
+            content: `<strong>Our next GBM will be in Simmons on 12/4/2025 at 7pm!</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
