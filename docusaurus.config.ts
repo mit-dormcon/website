@@ -29,7 +29,7 @@ const config: Config = {
             id: "gbm_f25",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            content: `<strong>Our next GBM will be in Simmons on 12/4/2025 at 7pm!</strong>`,
+            content: `<strong>Our next GBM will next semester, check back for updates!</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
