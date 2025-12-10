@@ -26,10 +26,10 @@ const config: Config = {
     ],
     themeConfig: {
         announcementBar: {
-            id: "gbm_f25",
+            id: "gbm_i26",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            content: `<strong>Our next GBM will next semester, check back for updates!</strong>`,
+            content: `<strong>Our next GBM will be next semester, check back for updates!</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
