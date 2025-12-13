@@ -104,7 +104,7 @@ const config: Config = {
                     position: "left",
                 },
                 {
-                    href: "http://web.mit.edu/dormcon/index.old.shtml",
+                    href: "https://web.mit.edu/dormcon/index.old.shtml",
                     label: "Old Site",
                     position: "right",
                 },
