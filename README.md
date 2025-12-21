@@ -3,13 +3,13 @@
 [Cameron Kleiman](https://github.com/camtheman256), DormCon Tech Chair Spring
 2021
 
-This website is built using [Docusaurus 3](https://docusaurus.io/), a modern
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern
 static website generator based on React using [Infima](https://infima.dev) for
 UI. Visit docusaurus.io for complete documentation of how the site works.
 
 This site uses TypeScript for static checking to ensure proper formatting and
 increase site reliability. Website builds will run `tsc` to manually check that
-types are correct, and you can run `pnpm exec tsc` to check the types before
+types are correct, and you can run `yarn exec tsc` to check the types before
 committing your code.
 
 ## Folder structure
@@ -40,13 +40,13 @@ committing your code.
 ## Installation
 
 ```console
-pnpm install
+yarn install
 ```
 
 ## Local Development
 
 ```console
-pnpm run start
+yarn start
 ```
 
 This command starts a local development server and open up a browser window.
@@ -55,7 +55,7 @@ Most changes are reflected live without having to restart the server.
 ## Build
 
 ```console
-pnpm run build
+yarn build
 ```
 
 This command generates static content into the `build` directory and can be
