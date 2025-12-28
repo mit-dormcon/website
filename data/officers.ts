@@ -12,7 +12,7 @@ export const officers: Term = {
         },
         {
             position: "Vice President",
-            name: "Farin Liani",
+            name: "",
             affiliation: "McCormick",
             year: undefined,
             kerb: "liani",
