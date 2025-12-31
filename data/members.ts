@@ -9,19 +9,19 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "Burton-Conner",
-        president: ["Rishika Bansal"],
+        president: ["Haylea Brock"],
         kerbs: ["bc-president"],
         url: "https://bc.mit.edu/",
     },
     {
         dorm: "East Campus",
-        president: ["Hanu Snyder"],
+        president: ["Joshua Oki"],
         kerbs: ["ec-president"],
         url: "https://ec.mit.edu/",
     },
     {
         dorm: "MacGregor",
-        president: ["Brendon Murphy"],
+        president: ["Gabriel Gomez"],
         kerbs: ["mac-prez"],
         url: "http://macgregor.mit.edu/",
     },
