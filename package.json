@@ -43,12 +43,12 @@
         "fuse.js": "^7.1.0",
         "lodash": "^4.17.21",
         "prism-react-renderer": "^2.4.1",
-        "react": "^19.2.0",
+        "react": "^19.2.1",
         "react-chartjs-2": "^5.3.1",
-        "react-dom": "^19.2.0",
+        "react-dom": "^19.2.1",
         "react-loadable": "^5.5.0",
-        "sass": "^1.94.1",
-        "swr": "^2.3.6"
+        "sass": "^1.95.1",
+        "swr": "^2.3.7"
     },
     "browserslist": {
         "production": [
@@ -67,20 +67,21 @@
         "@docusaurus/module-type-aliases": "^3.9.2",
         "@docusaurus/tsconfig": "^3.9.2",
         "@docusaurus/types": "^3.9.2",
-        "@eslint/eslintrc": "^3.3.1",
+        "@eslint/compat": "^2.0.0",
+        "@eslint/eslintrc": "^3.3.3",
         "@eslint/js": "^9.39.1",
         "@types/eslint-plugin-jsx-a11y": "^6.10.1",
         "@types/gtag.js": "^0.0.20",
-        "@types/lodash": "^4.17.20",
-        "@types/react": "^19.2.6",
+        "@types/lodash": "^4.17.21",
+        "@types/react": "^19.2.7",
         "eslint": "^9.39.1",
         "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^7.0.1",
         "globals": "^16.5.0",
-        "prettier": "^3.6.2",
+        "prettier": "^3.7.4",
         "typescript": "^5.9.3",
-        "typescript-eslint": "^8.47.0"
+        "typescript-eslint": "^8.49.0"
     },
     "prettier": {
         "tabWidth": 4,

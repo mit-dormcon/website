@@ -12,7 +12,7 @@ export const officers: Term = {
         },
         {
             position: "Vice President",
-            name: "Farin Liani",
+            name: "",
             affiliation: "McCormick",
             year: undefined,
             kerb: "liani",
@@ -40,10 +40,10 @@ export const officers: Term = {
         },
         {
             position: "REX/CPW Chair",
-            name: "",
-            affiliation: "",
-            year: undefined,
-            kerb: "",
+            name: "Miranda Zhao",
+            affiliation: "Random",
+            year: 2029,
+            kerb: "mhz",
         },
         {
             position: "Housing Chair",

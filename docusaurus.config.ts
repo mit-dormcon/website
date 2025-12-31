@@ -14,6 +14,11 @@ const config: Config = {
     organizationName: "mit-dormcon",
     projectName: "website",
     trailingSlash: false,
+    markdown: {
+        hooks: {
+            onBrokenMarkdownLinks: "warn",
+        }
+    },
     headTags: [
         {
             tagName: "link",
@@ -25,10 +30,10 @@ const config: Config = {
     ],
     themeConfig: {
         announcementBar: {
-            id: "gbm_f25",
+            id: "gbm_i26",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            content: `<strong>Our next GBM will be in Random on 11/20/2025 at 7pm!</strong>`,
+            content: `<strong>Our next GBM will be next semester, check back for updates!</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
@@ -103,7 +108,7 @@ const config: Config = {
                     position: "left",
                 },
                 {
-                    href: "http://web.mit.edu/dormcon/index.old.shtml",
+                    href: "https://web.mit.edu/dormcon/index.old.shtml",
                     label: "Old Site",
                     position: "right",
                 },

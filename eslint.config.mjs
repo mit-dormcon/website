@@ -2,8 +2,16 @@
 
 import globals from "globals";
 import eslint from "@eslint/js";
+
 import { FlatCompat } from "@eslint/eslintrc";
 import { defineConfig } from "eslint/config";
+import { includeIgnoreFile } from "@eslint/compat";
+import { fileURLToPath } from "node:url";
+
+import reactPlugin from "eslint-plugin-react";
+import tseslint from "typescript-eslint";
+// import reactHooks from "eslint-plugin-react-hooks";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 
 const compat = new FlatCompat({
     baseDirectory: import.meta.dirname,
@@ -11,17 +19,15 @@ const compat = new FlatCompat({
     allConfig: eslint.configs.all,
 });
 
-import reactPlugin from "eslint-plugin-react";
-import tseslint from "typescript-eslint";
-import reactHooks from "eslint-plugin-react-hooks";
-import jsxA11y from "eslint-plugin-jsx-a11y";
+const gitignorePath = fileURLToPath(new URL(".gitignore", import.meta.url));
 
 export default defineConfig(
+    includeIgnoreFile(gitignorePath),
     eslint.configs.recommended,
     tseslint.configs.recommendedTypeChecked,
     tseslint.configs.stylisticTypeChecked,
     reactPlugin.configs.flat.recommended,
-    reactHooks.configs.flat.recommended,
+    // reactHooks.configs.flat.recommended,
     jsxA11y.flatConfigs.recommended,
     ...compat.extends("plugin:@docusaurus/recommended"),
     reactPlugin.configs.flat["jsx-runtime"],
