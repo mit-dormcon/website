@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Budget and Event Funding
 
-_These guidelines were last updated on 11/20/2025._
+_These guidelines were last updated on 12/31/2025._
 
 DormCon
 [maintains a budget](https://docs.google.com/spreadsheets/d/1UPuOOGkemUujGznduOHi4RSK1Wza2Hxgu3fIhYua50Q/edit?usp=sharing)
@@ -15,17 +15,17 @@ of money available for events that enhance the residential experience. As
 [approved by dorm presidents](https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf),
 DormCon receives $10 of house tax from every dorm resident.
 
-In addition, beginning Spring 2026, DormCon is receiving funding to distribute
-to residence halls for large events from the MIT Division of Student Life in
-lieu of (now defunct) LEF/ARCADE grants. This is in recognition of the value
-that undergraduate residence halls have on the student experience, and is fully
-distributed directly to dorms every semester based on request. Furthermore,
-DormCon annually funds campus-wide events such as Campus Preview Weekend (CPW),
-Residential Exploration (REX), and DormCon Apple Picking, as well as individual
-dorm events, inter-dorm events, and events sponsored by individual dorm
-residents.
+In addition, beginning Spring 2026, DormCon is receiving additional semesterly
+funding to distribute to residence halls for large events from the MIT Division
+of Student Life, in lieu of (now defunct) LEF/ARCADE grants. This is in
+recognition of the value that undergraduate residence halls have on the student
+experience, and is fully distributed directly to dorms every semester based on
+request. Furthermore, DormCon annually funds campus-wide events such as Campus
+Preview Weekend (CPW), Residential Exploration (REX), and DormCon Apple Picking,
+as well as individual dorm events, inter-dorm events, and events sponsored by
+individual dorm residents.
 
-All funding requests are first reviewed by the DormCon Treasurer then voted on
+All funding requests are first reviewed by the DormCon Treasurer, then voted on
 by the dorm presidents at a general body meeting, and a representative of the
 group/organization requesting funding may be requested to attend as needed. This
 is to ensure a spirit of transparency, collaboration, and fiscal responsibility.
@@ -37,7 +37,7 @@ Any questions should be directed to the DormCon Treasurer by emailing
 ### Definition
 
 Events that are sponsored by one dorm and are open and advertised to all
-undergraduate residents
+undergraduate residents.
 
 ### Examples
 
@@ -68,14 +68,13 @@ discussed. Funding will be transferred into dorm accounts after the
 
 ### Event Funding Application Form
 
-1. Which category does your event fall under?
-2. What is your event and how does it involve dorm culture? (100 words minimum)
-3. Sponsors (i.e. the dorms involved)
-4. Location
-5. Date and time
-6. Number of people the event can accommodate (at one time and total)
-7. Expected attendance (at one time and total)
-8. Comprehensive budget of entire event that follows the following guidelines:
+1. What is your event and how does it involve dorm culture? (100 words minimum)
+2. Dorm sponsor (i.e. the dorm involved)
+3. Location
+4. Date and time
+5. Number of people the event can accommodate (at one time and total)
+6. Expected attendance (at one time and total)
+7. Comprehensive budget of entire event that follows the following guidelines:
     1. Itemized (as much as is reasonable)
     2. Expected alternative/extra funding sources
     3. Expected cover charge/tickets, if applicable. Indicate which items that
@@ -84,20 +83,20 @@ discussed. Funding will be transferred into dorm accounts after the
 
 ### Post-Event Report
 
-1. After the event, you are required to submit a post event report, which should
-   detail final expenses and the number of attendees, as well as any other
-   relevant notes.
-2. DormCon reserves the right to rescind or reduce funding if this report is not
-   submitted, or if the final reported expenses are significantly different from
-   the budget submitted on the funding application. In such a case, dorm
-   presidents will vote to approve the reduction in funding at the next possible
-   GBM.
+- After the event, you are required to submit a post event report, which should
+  detail final expenses and the number of attendees, as well as any other
+  relevant notes.
+- DormCon reserves the right to rescind or reduce funding if this report is not
+  submitted, or if the final reported expenses are significantly different from
+  the budget submitted on the funding application. In such a case, dorm
+  presidents will vote to approve the reduction in funding at the next possible
+  GBM.
 
 ## Inter-Dorm Events
 
 ### Definition
 
-Events that are sponsored by multiple dorms
+Events that are sponsored by multiple dorms.
 
 ### Examples
 
@@ -107,8 +106,6 @@ Spring Picnic, Fall Carnival, Multi-dorm formal
 
 **Events that are to be funded by DormCon must follow certain guidelines.**
 
-- All DormCon-funded individual dorm events must be open to all undergraduate
-  dorm residents.
 - Events will not be given funding exceeding 50% of the eligible budget for said
   event
 - Line items for publicity, giveaways (besides event food), or alcohol are not
@@ -128,14 +125,13 @@ discussed. Funding will be transferred into dorm accounts after the
 
 ### Event Funding Application Form
 
-1. Which category does your event fall under?
-2. What is your event and how does it involve dorm culture? (100 words minimum)
-3. Sponsors (i.e. the dorms involved)
-4. Location
-5. Date and time
-6. Number of people the event can accommodate (at one time and total)
-7. Expected attendance (at one time and total)
-8. Comprehensive budget of entire event that follows the following guidelines:
+1. What is your event and how does it involve dorm culture? (100 words minimum)
+2. Dorm sponsors (i.e. the dorms involved)
+3. Location
+4. Date and time
+5. Number of people the event can accommodate (at one time and total)
+6. Expected attendance (at one time and total)
+7. Comprehensive budget of entire event that follows the following guidelines:
     1. Itemized (as much as is reasonable)
     2. Expected alternative/extra funding sources
     3. Expected cover charge/tickets, if applicable. Indicate which items that
@@ -144,25 +140,25 @@ discussed. Funding will be transferred into dorm accounts after the
 
 ### Post-Event Report
 
-1. After the event, you are required to submit a post event report, which should
-   detail final expenses and the number of attendees, as well as any other
-   relevant notes.
-2. DormCon reserves the right to rescind or reduce funding if this report is not
-   submitted, or if the final reported expenses are significantly different from
-   the budget submitted on the funding application. In such a case, dorm
-   presidents will vote to approve the reduction in funding at the next possible
-   GBM.
+- After the event, you are required to submit a post event report, which should
+  detail final expenses and the number of attendees, as well as any other
+  relevant notes.
+- DormCon reserves the right to rescind or reduce funding if this report is not
+  submitted, or if the final reported expenses are significantly different from
+  the budget submitted on the funding application. In such a case, dorm
+  presidents will vote to approve the reduction in funding at the next possible
+  GBM.
 
 ## Resident Events
 
 ### Definition
 
-Events that are sponsored by an individual dorm resident and are open and
+Events that are sponsored by individual dorm residents and are open and
 advertised to everyone.
 
 ### Examples
 
-A Dr. Who watch party
+A Doctor Who watch party
 
 ### Specifications
 
@@ -189,14 +185,13 @@ discussed. Funding will be transferred into dorm accounts after the
 
 ### Event Funding Application Form
 
-1. Which category does your event fall under?
-2. What is your event and how does it involve dorm culture? (100 words minimum)
-3. Sponsors (i.e. the dorms involved)
-4. Location
-5. Date and time
-6. Number of people the event can accommodate (at one time and total)
-7. Expected attendance (at one time and total)
-8. Comprehensive budget of entire event that follows the following guidelines:
+1. What is your event and how does it involve dorm culture? (100 words minimum)
+2. Sponsors (i.e. the dorm residents involved)
+3. Location
+4. Date and time
+5. Number of people the event can accommodate (at one time and total)
+6. Expected attendance (at one time and total)
+7. Comprehensive budget of entire event that follows the following guidelines:
     1. Itemized (as much as is reasonable)
     2. Expected alternative/extra funding sources
     3. Expected cover charge/tickets, if applicable. Indicate which items that
@@ -205,22 +200,62 @@ discussed. Funding will be transferred into dorm accounts after the
 
 ### Post-Event Report
 
-1. After the event, you are required to submit a post event report, which should
-   detail final expenses and the number of attendees, as well as any other
-   relevant notes.
-2. DormCon reserves the right to rescind or reduce funding if this report is not
-   submitted, or if the final reported expenses are significantly different from
-   the budget submitted on the funding application. In such a case, dorm
-   presidents will vote to approve the reduction in funding at the next possible
-   GBM.
+- After the event, you are required to submit a post event report, which should
+  detail final expenses and the number of attendees, as well as any other
+  relevant notes.
+- DormCon reserves the right to rescind or reduce funding if this report is not
+  submitted, or if the final reported expenses are significantly different from
+  the budget submitted on the funding application. In such a case, dorm
+  presidents will vote to approve the reduction in funding at the next possible
+  GBM.
 
 ## Non-Event Funds
 
 ### Definition
 
 Funds for the betterment of the residential experience at MIT, but not
-necessarily for a specific event.
+necessarily for a specific event. May be sponsored either by dorm or individual
+dorm residents.
 
 ### Examples
 
-Dorm pilot programs, facilities repairs, mural boards
+Laundry pilot programs, dorm food pantries, facilities repairs, mural boards
+
+### Specifications
+
+**Funds given by DormCon must follow certain guidelines.**
+
+- No funding from DormCon may be given such that more than 50% of the budget for
+  said purpose is from DormCon.
+- Line items for publicity, giveaways (besides event food), or alcohol are not
+  eligible for DormCon funding.
+- DormCon must be listed as a funding source in all advertisements and publicity
+  materials, if applicable.
+
+### Application Deadlines
+
+[Applications](https://docs.google.com/forms/d/e/1FAIpQLSd0_F86wxzbuSDbf_rzvzAV684NuQoGgh8ax8AtgEBCQzJb0g/viewform)
+for funding must be received by the DormCon treasurer no later than one week
+before the DormCon general body meeting before it is to be used. Funding will be
+transferred into dorm accounts after the
+[Post-Event Report](https://forms.gle/V2FF6xMPhSp1ntpUA) is submitted.
+
+### Funding Application Form
+
+1. Detailed purpose of funding
+2. How does your request involve dorm culture? (200 words minimum)
+3. Sponsors (i.e. the dorms, communities, or residents involved)
+4. Comprehensive budget that follows the following guidelines:
+    1. Itemized (as much as is reasonable)
+    2. Expected alternative/extra funding sources
+    3. Do you expect this to be a repeating funding request?
+
+### Post-Funding Report
+
+- After the funding is used, you are required to submit a post funding report,
+  which should detail final expenses and any other relevant notes.
+- DormCon reserves the right to rescind or reduce funding if this report is not
+  submitted, or if the final reported expenses are significantly different from
+  the budget submitted on the funding application. In such a case, dorm
+  presidents will vote to approve the reduction in funding at the next possible
+  GBM.
