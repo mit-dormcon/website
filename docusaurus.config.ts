@@ -1,8 +1,10 @@
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type * as Plugin from "@docusaurus/types/src/plugin";
-import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 import { Temporal } from "@js-temporal/polyfill";
+
+import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
+import type * as SearchPlugin from "@easyops-cn/docusaurus-search-local";
 
 const config: Config = {
     title: "DormCon",
@@ -242,7 +244,22 @@ const config: Config = {
             } satisfies Plugin.PluginOptions,
         ],
     ],
-    themes: ["docusaurus-theme-openapi-docs"],
+    themes: [
+        "docusaurus-theme-openapi-docs",
+        [
+            require.resolve("@easyops-cn/docusaurus-search-local"),
+            {
+                hashed: true,
+                blogRouteBasePath: "/resources",
+                blogDir: "resources",
+                docsDir: "docs",
+                docsRouteBasePath: "docs",
+                indexBlog: true,
+                indexDocs: true,
+                indexPages: true,
+            } satisfies SearchPlugin.PluginOptions,
+        ],
+    ],
     future: {
         experimental_faster: true,
         v4: true,

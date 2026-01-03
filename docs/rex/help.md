@@ -5,7 +5,7 @@ description: A help page for instructions on how to use the REX Events Page.
 
 # How to use the REX Events Page
 
-[↩️ Back to REX Events](/rex/events)
+[↩ Back to REX Events](/rex/events)
 
 ## Finding events
 
