@@ -48,7 +48,7 @@
         "react-dom": "^19.2.1",
         "react-loadable": "^5.5.0",
         "sass": "^1.97.1",
-        "swr": "^2.3.7"
+        "swr": "^2.3.8"
     },
     "browserslist": {
         "production": [
