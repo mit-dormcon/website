@@ -1,3 +1,7 @@
 {
-    "recommendations": ["unifiedjs.vscode-mdx", "prettier.prettier-vscode"]
+    "recommendations": [
+        "unifiedjs.vscode-mdx",
+        "prettier.prettier-vscode",
+        "davidanson.vscode-markdownlint"
+    ]
 }
