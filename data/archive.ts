@@ -17,14 +17,14 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
         year: "Spring 2025",
         list: [
-            generateMeetingSchedule("Simmons", "2025-02-13 19:00"),
-            generateMeetingSchedule("Maseeh", "2025-02-27 19:00"),
-            generateMeetingSchedule("MacGregor", "2025-03-13 19:00"),
-            generateMeetingSchedule("Baker", "2025-04-03 19:00"),
-            generateMeetingSchedule("Burton-Conner", "2025-04-24 19:00"),
+            generateMeetingSchedule("Simmons", "2025-02-13 19:00", "docusaurus"),
+            generateMeetingSchedule("Maseeh", "2025-02-27 19:00", "docusaurus"),
+            generateMeetingSchedule("MacGregor", "2025-03-13 19:00", "docusaurus"),
+            generateMeetingSchedule("Baker", "2025-04-03 19:00", "docusaurus"),
+            generateMeetingSchedule("Burton-Conner", "2025-04-24 19:00", "docusaurus"),
             generateMeetingSchedule(
                 "Room 4-163 (Elections!!)",
-                "2025-05-01 19:00",
+                "2025-05-01 19:00", "docusaurus"
             ),
         ],
         gcalLink:
