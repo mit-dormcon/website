@@ -8,13 +8,13 @@ export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 export const meetings: MeetingSchedule = {
     year: "Fall 2025",
     list: [
-        generateMeetingSchedule("East Campus", "2025-09-11 19:00", "docusaurus"),
-        generateMeetingSchedule("McCormick", "2025-09-25 19:00", "docusaurus"),
-        generateMeetingSchedule("New House", "2025-10-09 19:00", "docusaurus"),
-        generateMeetingSchedule("New Vassar", "2025-10-23 19:00", "docusaurus"),
-        generateMeetingSchedule("Next House", "2025-11-06 19:00", "docusaurus"),
-        generateMeetingSchedule("Random", "2025-11-20 19:00", "docusaurus"),
-        generateMeetingSchedule("Simmons", "2025-12-04 19:00", "docusaurus"),
+        generateMeetingSchedule("East Campus", "2025-09-11 19:00"),
+        generateMeetingSchedule("McCormick", "2025-09-25 19:00"),
+        generateMeetingSchedule("New House", "2025-10-09 19:00"),
+        generateMeetingSchedule("New Vassar", "2025-10-23 19:00"),
+        generateMeetingSchedule("Next House", "2025-11-06 19:00"),
+        generateMeetingSchedule("Random", "2025-11-20 19:00"),
+        generateMeetingSchedule("Simmons", "2025-12-04 19:00"),
     ],
     gcalLink: "",
 };
@@ -33,7 +33,10 @@ function generateName(
     });
     const text = formatter.format(date);
 
-    const finalText = text.replace(":00", "").replace(" PM", "pm").replace(" AM", "am");
+    const finalText = text
+        .replace(":00", "")
+        .replace(" PM", "pm")
+        .replace(" AM", "am");
     return finalText;
 }
 
@@ -47,9 +50,9 @@ function generateMinutesUrl(
 
     if (where === "docusaurus") {
         const semester = month >= "08" ? "fall" : "spring";
-        return `/minutes/${semester}-${year}/${year}-${month}-${day}`
-    };
-    return `${minutesFolder}${year}-${month}-${day}.pdf`
+        return `/minutes/${semester}-${year}/${year}-${month}-${day}`;
+    }
+    return `${minutesFolder}${year}-${month}-${day}.pdf`;
 }
 
 // Of course, you can make it manually if you want a custom description like
@@ -73,6 +76,8 @@ export function generateMeetingSchedule(
     return {
         name: generateName(date),
         location,
-        minutesLink: minutesUploaded ? generateMinutesUrl(date, minutesUploaded) : undefined,
+        minutesLink: minutesUploaded
+            ? generateMinutesUrl(date, minutesUploaded)
+            : undefined,
     };
 }
