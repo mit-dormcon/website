@@ -17,14 +17,14 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
         year: "Spring 2025",
         list: [
-            generateMeetingSchedule("Simmons", "2025-02-13 19:00", "docusaurus"),
-            generateMeetingSchedule("Maseeh", "2025-02-27 19:00", "docusaurus"),
-            generateMeetingSchedule("MacGregor", "2025-03-13 19:00", "docusaurus"),
-            generateMeetingSchedule("Baker", "2025-04-03 19:00", "docusaurus"),
-            generateMeetingSchedule("Burton-Conner", "2025-04-24 19:00", "docusaurus"),
+            generateMeetingSchedule("Simmons", "2025-02-13 19:00"),
+            generateMeetingSchedule("Maseeh", "2025-02-27 19:00"),
+            generateMeetingSchedule("MacGregor", "2025-03-13 19:00"),
+            generateMeetingSchedule("Baker", "2025-04-03 19:00"),
+            generateMeetingSchedule("Burton-Conner", "2025-04-24 19:00"),
             generateMeetingSchedule(
                 "Room 4-163 (Elections!!)",
-                "2025-05-01 19:00", "docusaurus"
+                "2025-05-01 19:00"
             ),
         ],
         gcalLink:
@@ -33,17 +33,17 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
         year: "Fall 2024",
         list: [
-            generateMeetingSchedule("Simmons", "2024-09-12 19:30", "docusaurus"),
-            generateMeetingSchedule("New House", "2024-09-26 19:30", "docusaurus"),
-            generateMeetingSchedule("New Vassar", "2024-10-10 19:30", "docusaurus"),
-            generateMeetingSchedule("Next House", "2024-10-24 19:30", "docusaurus"),
-            generateMeetingSchedule("Random", "2024-11-07 19:30", "docusaurus"),
+            generateMeetingSchedule("Simmons", "2024-09-12 19:30"),
+            generateMeetingSchedule("New House", "2024-09-26 19:30"),
+            generateMeetingSchedule("New Vassar", "2024-10-10 19:30"),
+            generateMeetingSchedule("Next House", "2024-10-24 19:30"),
+            generateMeetingSchedule("Random", "2024-11-07 19:30"),
             {
                 name: "Chat with Concord Market: Nov 21 @ 7:30 pm",
                 location: "9-255",
                 minutesLink: "/minutes/fall-2024/2024-11-21",
             },
-            generateMeetingSchedule("McCormick", "2024-12-05 19:30", "docusaurus"),
+            generateMeetingSchedule("McCormick", "2024-12-05 19:30"),
         ],
         // gcalLink:
         //     "https://calendar.google.com/calendar/u/0?cid=NjMxYzZiMjI4Zjg0Y2QzNmVhMjhlYzU4M2JlZmE5OGEwMWRlODIwY2MwMzNjMzI4ZDU5ZDYzYjA1MjM2NjM5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
