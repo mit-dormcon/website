@@ -8,13 +8,13 @@ export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 export const meetings: MeetingSchedule = {
     year: "Fall 2025",
     list: [
-        generateMeetingSchedule("East Campus", "2025-09-11 19:00", true),
-        generateMeetingSchedule("McCormick", "2025-09-25 19:00", true),
-        generateMeetingSchedule("New House", "2025-10-09 19:00", true),
-        generateMeetingSchedule("New Vassar", "2025-10-23 19:00", true),
-        generateMeetingSchedule("Next House", "2025-11-06 19:00", true),
-        generateMeetingSchedule("Random", "2025-11-20 19:00", true),
-        generateMeetingSchedule("Simmons", "2025-12-04 19:00", true),
+        generateMeetingSchedule("East Campus", "2025-09-11 19:00", "docusaurus"),
+        generateMeetingSchedule("McCormick", "2025-09-25 19:00", "docusaurus"),
+        generateMeetingSchedule("New House", "2025-10-09 19:00", "docusaurus"),
+        generateMeetingSchedule("New Vassar", "2025-10-23 19:00", "docusaurus"),
+        generateMeetingSchedule("Next House", "2025-11-06 19:00", "docusaurus"),
+        generateMeetingSchedule("Random", "2025-11-20 19:00", "docusaurus"),
+        generateMeetingSchedule("Simmons", "2025-12-04 19:00", "docusaurus"),
     ],
     gcalLink: "",
 };
@@ -36,11 +36,17 @@ function generateName(
 
 function generateMinutesUrl(
     date: Temporal.PlainDateTime | Temporal.PlainDate,
+    where: "athena" | "docusaurus",
 ): string {
     const year = date.year;
     const month = String(date.month).padStart(2, "0");
     const day = String(date.day).padStart(2, "0");
-    return `${minutesFolder}${year}-${month}-${day}.pdf`;
+
+    if (where === "docusaurus") {
+        const semester = month >= "08" ? "fall" : "spring";
+        return `/minutes/${semester}-${year}/${year}-${month}-${day}`
+    };
+    return `${minutesFolder}${year}-${month}-${day}.pdf`
 }
 
 // Of course, you can make it manually if you want a custom description like
@@ -48,7 +54,7 @@ function generateMinutesUrl(
 export function generateMeetingSchedule(
     location: string,
     date: Temporal.PlainDateTime | Temporal.PlainDate | string,
-    minutesUploaded = true,
+    minutesUploaded: false | "athena" | "docusaurus" = "athena",
 ): Meeting {
     if (typeof date === "string") {
         const dateObj = Temporal.PlainDate.from(date);
@@ -64,6 +70,6 @@ export function generateMeetingSchedule(
     return {
         name: generateName(date),
         location,
-        minutesLink: minutesUploaded ? generateMinutesUrl(date) : undefined,
+        minutesLink: minutesUploaded ? generateMinutesUrl(date, minutesUploaded) : undefined,
     };
 }
