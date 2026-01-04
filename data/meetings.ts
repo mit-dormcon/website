@@ -8,16 +8,30 @@ export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 export const meetings: MeetingSchedule = {
     year: "Fall 2025",
     list: [
-        generateMeetingSchedule("East Campus", "2025-09-11 19:00", true),
-        generateMeetingSchedule("McCormick", "2025-09-25 19:00", true),
-        generateMeetingSchedule("New House", "2025-10-09 19:00", true),
-        generateMeetingSchedule("New Vassar", "2025-10-23 19:00", true),
-        generateMeetingSchedule("Next House", "2025-11-06 19:00", true),
-        generateMeetingSchedule("Random", "2025-11-20 19:00", true),
-        generateMeetingSchedule("Simmons", "2025-12-04 19:00", true),
+        generateMeetingSchedule("East Campus", "2025-09-11 19:00"),
+        generateMeetingSchedule("McCormick", "2025-09-25 19:00"),
+        generateMeetingSchedule("New House", "2025-10-09 19:00"),
+        generateMeetingSchedule("New Vassar", "2025-10-23 19:00"),
+        generateMeetingSchedule("Next House", "2025-11-06 19:00"),
+        generateMeetingSchedule("Random", "2025-11-20 19:00"),
+        generateMeetingSchedule("Simmons", "2025-12-04 19:00"),
     ],
     gcalLink: "",
 };
+
+function nth(d: number) {
+    if (d > 3 && d < 21) return "th";
+    switch (d % 10) {
+        case 1:
+            return "st";
+        case 2:
+            return "nd";
+        case 3:
+            return "rd";
+        default:
+            return "th";
+    }
+}
 
 function generateName(
     date: Temporal.PlainDateTime | Temporal.PlainDate,
@@ -32,8 +46,13 @@ function generateName(
         hour12: true,
     });
     const text = formatter.format(date);
+    const day = date.day;
 
-    const finalText = text.replace(":00", "").replace(" PM", "pm").replace(" AM", "am");
+    const finalText = text
+        .replace(String(day), `${day}${nth(day)}`)
+        .replace(":00", "")
+        .replace(" PM", "pm")
+        .replace(" AM", "am");
     return finalText;
 }
 
