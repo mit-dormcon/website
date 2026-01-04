@@ -12,17 +12,12 @@ export default function MeetingsComponent(props: { meetings: Meeting[] }) {
         <ul>
             {meetings.map((m, idx) => {
                 const minutesLink = m.minutesLink;
-                const external = minutesLink?.startsWith("http");
                 return (
                     <li key={idx} style={{ marginBottom: "10px" }}>
                         <div>
                             <b>{m.name}</b>&ensp;
                             {minutesLink && (
-                                <Link
-                                    to={minutesLink}
-                                    target={external ? "_blank" : undefined}
-                                    rel={external ? "noreferrer" : undefined}
-                                >
+                                <Link to={minutesLink}>
                                     <span className="badge badge--primary">
                                         📝 Minutes
                                     </span>
