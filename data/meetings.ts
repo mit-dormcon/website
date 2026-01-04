@@ -31,7 +31,10 @@ function generateName(
         year: "numeric",
         hour12: true,
     });
-    return formatter.format(date);
+    const text = formatter.format(date);
+
+    const finalText = text.replace(":00", "").replace(" PM", "pm").replace(" AM", "am");
+    return finalText;
 }
 
 function generateMinutesUrl(
