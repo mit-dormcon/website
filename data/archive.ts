@@ -161,7 +161,11 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
                 "2021-03-11 18:30",
                 "athena",
             ),
-            generateMeetingSchedule("Zoom University", "2021-03-25 18:30"),
+            generateMeetingSchedule(
+                "Zoom University",
+                "2021-03-25 18:30",
+                "athena",
+            ),
             generateMeetingSchedule(
                 "on top of the dome if you want",
                 "2021-04-08 18:30",
