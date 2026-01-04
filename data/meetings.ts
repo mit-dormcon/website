@@ -19,6 +19,20 @@ export const meetings: MeetingSchedule = {
     gcalLink: "",
 };
 
+function nth(d: number) {
+    if (d > 3 && d < 21) return "th";
+    switch (d % 10) {
+        case 1:
+            return "st";
+        case 2:
+            return "nd";
+        case 3:
+            return "rd";
+        default:
+            return "th";
+    }
+}
+
 function generateName(
     date: Temporal.PlainDateTime | Temporal.PlainDate,
 ): string {
@@ -32,8 +46,10 @@ function generateName(
         hour12: true,
     });
     const text = formatter.format(date);
+    const day = date.day;
 
     const finalText = text
+        .replace(String(day), `${day}${nth(day)}`)
         .replace(":00", "")
         .replace(" PM", "pm")
         .replace(" AM", "am");
