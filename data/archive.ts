@@ -24,7 +24,7 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
             generateMeetingSchedule("Burton-Conner", "2025-04-24 19:00"),
             generateMeetingSchedule(
                 "Room 4-163 (Elections!!)",
-                "2025-05-01 19:00"
+                "2025-05-01 19:00",
             ),
         ],
         gcalLink:
