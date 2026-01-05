@@ -36,6 +36,8 @@ jobs:
                   if git diff --cached --quiet; then
                       git commit -m "Update API documentation"
                       git push origin main
+                      exit 0
                   else
                       echo "No changes to commit"
+                      exit 0
                   fi
