@@ -243,6 +243,25 @@ const config: Config = {
                 },
             } satisfies Plugin.PluginOptions,
         ],
+        [
+            "@docusaurus/plugin-client-redirects",
+            {
+                redirects: [
+                    {
+                        from: "/concord",
+                        to: "https://docs.google.com/forms/d/e/1FAIpQLSdVxG0MUDU8jRfCqBM3uoXfl6eZi3RXZfqzCv9MlLtttUL4tA/viewform",
+                    },
+                    {
+                        from: "/join-dormspam",
+                        to: "https://join-dormspam.mit.edu",
+                    },
+                    {
+                        from: "/dining-form",
+                        to: "https://docs.google.com/forms/d/e/1FAIpQLSf36Q4wcea-g3GIwl9MwLYRUuW2ByqctYD-HUniFa59spVuYg/viewform",
+                    },
+                ],
+            },
+        ],
     ],
     themes: [
         "docusaurus-theme-openapi-docs",
