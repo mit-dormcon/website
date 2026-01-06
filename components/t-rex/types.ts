@@ -22,7 +22,7 @@ export interface TRexRawEvent {
     end: string; // Convert to ISO Date string!
     tags: string[];
     description: string;
-    group: string[] | null; // The subcommunities or living groups hosting this event, if any
+    group: string[]; // The subcommunities or living groups hosting this event, if any
     id: string; // Unique identifier for the event
 }
 
@@ -53,7 +53,7 @@ export interface TRexProcessedEvent {
     end: Temporal.Instant;
     tags: string[];
     description: string;
-    group: string[] | null; // The subcommunities or living groups hosting this event, if any
+    group: string[]; // The subcommunities or living groups hosting this event, if any
     id: string; // Unique identifier for the event
 }
 
