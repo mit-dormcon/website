@@ -78,16 +78,12 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
         year: "Spring 2023",
         list: [
-            generateMeetingSchedule("Baker", "2023-02-16 19:00", "athena"),
-            generateMeetingSchedule("McCormick", "2023-03-02 19:00", "athena"),
-            generateMeetingSchedule("Simmons", "2023-03-16 19:00", "athena"),
-            generateMeetingSchedule("Random", "2023-04-06 19:00", "athena"),
-            generateMeetingSchedule("MacGregor", "2023-04-27 19:00", "athena"),
-            generateMeetingSchedule(
-                "On Campus (56-114)",
-                "2023-05-11 19:00",
-                "athena",
-            ),
+            generateMeetingSchedule("Baker", "2023-02-16 19:00"),
+            generateMeetingSchedule("McCormick", "2023-03-02 19:00"),
+            generateMeetingSchedule("Simmons", "2023-03-16 19:00"),
+            generateMeetingSchedule("Random", "2023-04-06 19:00"),
+            generateMeetingSchedule("MacGregor", "2023-04-27 19:00"),
+            generateMeetingSchedule("On Campus (56-114)", "2023-05-11 19:00"),
         ],
     },
     {
