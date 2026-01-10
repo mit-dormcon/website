@@ -102,34 +102,54 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
         year: "Fall 2022",
         list: [
-            generateMeetingSchedule("Burton-Conner", "2022-09-15 19:00"),
-            generateMeetingSchedule("Maseeh", "2022-09-29 19:00"),
-            generateMeetingSchedule("New House", "2022-10-13 19:00"),
-            generateMeetingSchedule("East Campus", "2022-10-27 19:00"),
-            generateMeetingSchedule("Next House", "2022-11-10 19:00"),
-            generateMeetingSchedule("New Vassar", "2022-12-01 19:00"),
+            generateMeetingSchedule(
+                "Burton-Conner",
+                "2022-09-15 19:00",
+                "athena",
+            ),
+            generateMeetingSchedule("Maseeh", "2022-09-29 19:00", "athena"),
+            generateMeetingSchedule("New House", "2022-10-13 19:00", "athena"),
+            generateMeetingSchedule(
+                "East Campus",
+                "2022-10-27 19:00",
+                "athena",
+            ),
+            generateMeetingSchedule("Next House", "2022-11-10 19:00", "athena"),
+            generateMeetingSchedule("New Vassar", "2022-12-01 19:00", "athena"),
         ],
     },
     {
         year: "Spring 2022",
         list: [
-            generateMeetingSchedule("Maseeh", "2022-02-10 18:30"),
-            generateMeetingSchedule("Simmons", "2022-02-24 18:30"),
-            generateMeetingSchedule("Random", "2022-03-10 18:30"),
-            generateMeetingSchedule("MacGregor", "2022-03-31 18:30"),
-            generateMeetingSchedule("McCormick", "2022-04-21 18:30"),
-            generateMeetingSchedule("UA Senate Chambers", "2022-05-05 18:30"),
+            generateMeetingSchedule("Maseeh", "2022-02-10 18:30", "athena"),
+            generateMeetingSchedule("Simmons", "2022-02-24 18:30", "athena"),
+            generateMeetingSchedule("Random", "2022-03-10 18:30", "athena"),
+            generateMeetingSchedule("MacGregor", "2022-03-31 18:30", "athena"),
+            generateMeetingSchedule("McCormick", "2022-04-21 18:30", "athena"),
+            generateMeetingSchedule(
+                "UA Senate Chambers",
+                "2022-05-05 18:30",
+                "athena",
+            ),
         ],
     },
     {
         year: "Fall 2021",
         list: [
             generateMeetingSchedule("East Campus", "2021-09-16 19:00", false),
-            generateMeetingSchedule("New House", "2021-09-30 19:00"),
-            generateMeetingSchedule("Baker House", "2021-10-14 19:00"),
-            generateMeetingSchedule("Next House", "2021-10-28 19:00"),
-            generateMeetingSchedule("McCormick Hall", "2021-11-18 19:00"),
-            generateMeetingSchedule("New Vassar", "2021-12-02 19:00"),
+            generateMeetingSchedule("New House", "2021-09-30 19:00", "athena"),
+            generateMeetingSchedule(
+                "Baker House",
+                "2021-10-14 19:00",
+                "athena",
+            ),
+            generateMeetingSchedule("Next House", "2021-10-28 19:00", "athena"),
+            generateMeetingSchedule(
+                "McCormick Hall",
+                "2021-11-18 19:00",
+                "athena",
+            ),
+            generateMeetingSchedule("New Vassar", "2021-12-02 19:00", "athena"),
         ],
     },
     {
@@ -138,21 +158,29 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
             generateMeetingSchedule(
                 "wherever you want to be",
                 "2021-02-25 18:30",
+                "athena",
             ),
             generateMeetingSchedule(
                 "a socially distanced place (elections)",
                 "2021-03-11 18:30",
+                "athena",
             ),
-            generateMeetingSchedule("Zoom University", "2021-03-25 18:30"),
+            generateMeetingSchedule(
+                "Zoom University",
+                "2021-03-25 18:30",
+                "athena",
+            ),
             generateMeetingSchedule(
                 "on top of the dome if you want",
                 "2021-04-08 18:30",
+                "athena",
             ),
             generateMeetingSchedule(
                 "the Stata loading dock",
                 "2021-04-22 18:30",
+                "athena",
             ),
-            generateMeetingSchedule("your bed", "2021-05-06 18:30"),
+            generateMeetingSchedule("your bed", "2021-05-06 18:30", "athena"),
         ],
     },
     {
