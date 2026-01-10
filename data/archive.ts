@@ -14,6 +14,19 @@ interface MinutesLink {
 
 const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
+        year: "Fall 2025",
+        list: [
+            generateMeetingSchedule("East Campus", "2025-09-11 19:00"),
+            generateMeetingSchedule("McCormick", "2025-09-25 19:00"),
+            generateMeetingSchedule("New House", "2025-10-09 19:00"),
+            generateMeetingSchedule("New Vassar", "2025-10-23 19:00"),
+            generateMeetingSchedule("Next House", "2025-11-06 19:00"),
+            generateMeetingSchedule("Random", "2025-11-20 19:00"),
+            generateMeetingSchedule("Simmons", "2025-12-04 19:00"),
+        ],
+        gcalLink: "",
+    },
+    {
         year: "Spring 2025",
         list: [
             generateMeetingSchedule("Simmons", "2025-02-13 19:00"),
