@@ -1249,7 +1249,7 @@ const officers: Term[] = [
                 name: "",
                 affiliation: "Random + McCormick",
                 year: undefined,
-                kerb: "liani",
+                kerb: "fl",
             },
             {
                 position: "Judcomm Chair",
@@ -1345,7 +1345,7 @@ const officers: Term[] = [
                 name: "",
                 affiliation: "Random + McCormick",
                 year: undefined,
-                kerb: "liani",
+                kerb: "fl",
             },
             {
                 position: "REX/CPW Chair",
