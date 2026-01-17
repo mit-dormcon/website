@@ -18,13 +18,13 @@ jobs:
                   fetch-depth: 0
             - uses: actions/setup-node@v6
               with:
-                  node-version: 20
+                  node-version: 22
                   cache: yarn
 
             - name: Install dependencies
-              run: yarn install --frozen-lockfile
+              run: yarn install --immutable
             - name: Build website
-              run: yarn build
+              run: yarn run build
 
             - name: Upload Build Artifact
               uses: actions/upload-pages-artifact@v4

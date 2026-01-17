@@ -18,10 +18,10 @@ jobs:
                   fetch-depth: 0
             - uses: actions/setup-node@v6
               with:
-                  node-version: 20
+                  node-version: 22
                   cache: yarn
 
             - name: Install dependencies
-              run: yarn install --frozen-lockfile
+              run: yarn install --immutable
             - name: Test build website
-              run: yarn build
+              run: yarn run build
