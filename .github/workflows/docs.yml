@@ -23,7 +23,7 @@ jobs:
                   cache: yarn
 
             - name: Install dependencies
-              run: yarn install --immutable
+              run: yarn install --frozen-lockfile
 
             - name: Generate API documentation
               run: yarn run api-docs
