@@ -1,8 +1,5 @@
 import type { Meeting, MeetingSchedule } from "./types";
 
-import { Temporal, Intl } from "@js-temporal/polyfill";
-// Date.prototype.toTemporalInstant = toTemporalInstant;
-
 export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
 export const meetings: MeetingSchedule = {

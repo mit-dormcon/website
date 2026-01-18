@@ -22,9 +22,11 @@ import {
     getOptimalForegroundColor,
 } from "./helpers";
 
-import { Temporal } from "@js-temporal/polyfill";
 import { Error, LoadingFallback } from "./rexContent";
-// Date.prototype.toTemporalInstant = toTemporalInstant;
+
+if (!("Temporal" in globalThis)) {
+    await import("temporal-polyfill/global");
+}
 
 declare const gtag: Gtag.Gtag;
 
@@ -583,6 +585,7 @@ function eventDateDisplay(
     const duration = start
         .until(end)
         .round({ largestUnit: "hour", smallestUnit: "minute" })
+        // @ts-expect-error TS doesn't know about the localeString option
         .toLocaleString("en-US", { style: "narrow" });
     let timeUntil: Temporal.Instant;
     const now = Temporal.Now.instant();
@@ -609,6 +612,7 @@ function eventDateDisplay(
             .until(timeUntil)
             .abs()
             .round({ largestUnit: "day", smallestUnit: "minute" })
+            // @ts-expect-error TS doesn't know about the localeString option
             .toLocaleString("en-US", { style: "long" }),
     );
     const timeContextExact = timeContextExactBuilder(
