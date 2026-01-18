@@ -20,7 +20,7 @@
         "check-types": "tsc"
     },
     "engines": {
-        "node": ">=22"
+        "node": ">=20"
     },
     "dependencies": {
         "@docusaurus/core": "^3.9.2",
