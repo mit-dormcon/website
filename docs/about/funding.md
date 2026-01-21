@@ -12,8 +12,8 @@ DormCon
 in order to help fund events in the dorm community and for operational expenses.
 We are committed to keeping extraneous costs low in order to maximize the amount
 of money available for events that enhance the residential experience. As
-[approved by dorm presidents](https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf),
-DormCon receives $10 of house tax from every dorm resident.
+[approved by dorm presidents](/minutes/spring-2024/2024-02-29), DormCon receives
+$10 of house tax from every dorm resident.
 
 ## Funding Guidelines
 
