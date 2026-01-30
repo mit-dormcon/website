@@ -5,6 +5,7 @@ sidebar_position: 3
 
 import MeetingsComponent from "../../components/MeetingsComponent";
 import { meetings } from "../../data/meetings";
+import Link from "@docusaurus/Link";
 
 # Meetings
 
@@ -25,13 +26,16 @@ _Please note that this schedule is tentative and subject to change._
 
 <div>
     <h3>
-        {meetings.year + "\u2002"}
+        {meetings.year}
         {meetings.gcalLink && (
-            <a href={meetings.gcalLink} target="_blank" rel="noopener">
-                <span className="badge badge--primary">
-                    🗓️ Add to Google Calendar!
-                </span>
-            </a>
+            <>
+                <span>{"\u2002"}</span>
+                <Link to={meetings.gcalLink}>
+                    <span className="badge badge--primary">
+                        🗓️ Add to Google Calendar!
+                    </span>
+                </Link>
+            </>
         )}
     </h3>
 </div>

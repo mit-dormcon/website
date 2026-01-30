@@ -1,0 +1,33 @@
+---
+id: event
+title: "Event"
+description: "Represents an event in the REX system."
+sidebar_label: "Event"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"description":"string","dorm":["string"],"end":"2024-07-29T15:51:28.071Z","group":["string"],"id":"string","location":"string","name":"string","start":"2024-07-29T15:51:28.071Z","tags":["string"]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Event"}
+>
+</Heading>
+
+
+
+Represents an event in the REX system.
+
+<Schema
+  schema={{"description":"Represents an event in the REX system.","properties":{"description":{"description":"Event description, displayed in the booklet","maxLength":280,"title":"Description","type":"string"},"dorm":{"description":"Dorms hosting the event. While typically a single dorm, this can also be multiple dorms.","items":{"type":"string"},"title":"Dorm","type":"array","uniqueItems":true},"end":{"description":"Event end time","format":"date-time","title":"End","type":"string"},"group":{"description":"Subcommunities running/hosting the event","items":{"type":"string"},"title":"Group","type":"array","uniqueItems":true},"id":{"description":"4-Digit Event Code, used for linking, bookmarking, and making event revisions.","maxLength":4,"minLength":4,"title":"Id","type":"string"},"location":{"description":"Location of the event","maxLength":50,"title":"Location","type":"string"},"name":{"description":"Event name","maxLength":100,"title":"Name","type":"string"},"start":{"description":"Event start time","format":"date-time","title":"Start","type":"string"},"tags":{"description":"Tags associated with the event, used for filtering and display","items":{"type":"string"},"title":"Tags","type":"array","uniqueItems":true}},"required":["name","dorm","location","start","end","description","tags","group","id"],"title":"Event","type":"object"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

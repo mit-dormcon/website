@@ -11,6 +11,12 @@ updates:
           docusaurus-api:
               patterns:
                   - "*-openapi-docs" # Make sure all api docs plugins are updated together
+          react:
+              patterns:
+                  - "react"
+                  - "react-*"
+                  - "@types/react"
+                  - "@types/react-*"
     - package-ecosystem: github-actions
       directory: "/"
       schedule:

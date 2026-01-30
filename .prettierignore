@@ -1,3 +1,4 @@
 # Code formatter ignore directories
 build
 .docusaurus
+docs/rex/api
