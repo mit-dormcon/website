@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 API response for colors used in the REX system.
 
 <Schema
-  schema={{"description":"API response for colors used in the REX system.","properties":{"dorms":{"additionalProperties":{"format":"color","type":"string"},"default":{},"description":"Colors for dorms, used for display in the booklet and on the website","title":"Dorms","type":"object"},"groups":{"additionalProperties":{"additionalProperties":{"format":"color","type":"string"},"type":"object"},"default":{},"description":"Colors for groups within dorms, used for display in the booklet and on the website","title":"Groups","type":"object"},"tags":{"additionalProperties":{"format":"color","type":"string"},"default":{},"description":"Colors for tags, used for display in the booklet and on the website","title":"Tags","type":"object"}},"title":"ColorsAPIResponse","type":"object"}}
-  schemaType={"response"}
+  {...require("./colorsapiresponse.Schema.json")}
 >
   
 </Schema>
