@@ -14,7 +14,10 @@ import { TRexProcessedEvent } from "./types";
 import { useRexData } from "./helpers";
 
 import styles from "./rex.module.css";
-import { Temporal } from "@js-temporal/polyfill";
+
+if (!("Temporal" in globalThis)) {
+    await import("temporal-polyfill/global");
+}
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,

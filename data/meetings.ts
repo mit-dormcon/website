@@ -1,23 +1,34 @@
 import type { Meeting, MeetingSchedule } from "./types";
 
-import { Temporal, Intl } from "@js-temporal/polyfill";
-// Date.prototype.toTemporalInstant = toTemporalInstant;
-
 export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
 export const meetings: MeetingSchedule = {
-    year: "Fall 2025",
+    year: "Spring 2026",
     list: [
-        generateMeetingSchedule("East Campus", "2025-09-11 19:00", true),
-        generateMeetingSchedule("McCormick", "2025-09-25 19:00", true),
-        generateMeetingSchedule("New House", "2025-10-09 19:00", true),
-        generateMeetingSchedule("New Vassar", "2025-10-23 19:00", true),
-        generateMeetingSchedule("Next House", "2025-11-06 19:00", true),
-        generateMeetingSchedule("Random", "2025-11-20 19:00", true),
-        generateMeetingSchedule("Simmons", "2025-12-04 19:00", true),
-    ],
-    gcalLink: "",
+            generateMeetingSchedule("Baker", "2026-02-12 19:30", false),
+            generateMeetingSchedule("Burton-Conner", "2026-02-26 19:30", false),
+            generateMeetingSchedule("MacGregor", "2026-03-12 19:30", false),
+            generateMeetingSchedule("Maseeh", "2026-03-26 19:30", false),
+            generateMeetingSchedule("East Campus", "2026-04-02 19:30", false),
+            generateMeetingSchedule("McCormick", "2026-05-23 19:30", false),
+            generateMeetingSchedule("TBD (Elections!)", "2026-05-07 19:30", false),
+        ],
+    
 };
+
+function nth(d: number) {
+    if (d > 3 && d < 21) return "th";
+    switch (d % 10) {
+        case 1:
+            return "st";
+        case 2:
+            return "nd";
+        case 3:
+            return "rd";
+        default:
+            return "th";
+    }
+}
 
 function generateName(
     date: Temporal.PlainDateTime | Temporal.PlainDate,
@@ -31,7 +42,15 @@ function generateName(
         year: "numeric",
         hour12: true,
     });
-    return formatter.format(date);
+    const text = formatter.format(date);
+    const day = date.day;
+
+    const finalText = text
+        .replace(String(day), `${day}${nth(day)}`)
+        .replace(":00", "")
+        .replace(" PM", "pm")
+        .replace(" AM", "am");
+    return finalText;
 }
 
 function generateMinutesUrl(

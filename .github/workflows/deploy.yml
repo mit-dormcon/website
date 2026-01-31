@@ -13,7 +13,7 @@ jobs:
         name: Build Docusaurus
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   fetch-depth: 0
             - uses: actions/setup-node@v6
@@ -24,7 +24,7 @@ jobs:
             - name: Install dependencies
               run: yarn install --frozen-lockfile
             - name: Build website
-              run: yarn build
+              run: yarn run build
 
             - name: Upload Build Artifact
               uses: actions/upload-pages-artifact@v4

@@ -1,7 +1,6 @@
 import { MeetingSchedule, Term } from "./types";
 import { generateMeetingSchedule } from "./meetings";
 
-const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 const minutesFolderOld = "https://web-cert.mit.edu/dormcon/minutes/";
 
 // Most recent first, since the first tab gets auto-selected and it makes more sense logically
@@ -14,6 +13,19 @@ interface MinutesLink {
 }
 
 const meetings: (MeetingSchedule | MinutesLink)[] = [
+    {
+        year: "Fall 2025",
+        list: [
+            generateMeetingSchedule("East Campus", "2025-09-11 19:00"),
+            generateMeetingSchedule("McCormick", "2025-09-25 19:00"),
+            generateMeetingSchedule("New House", "2025-10-09 19:00"),
+            generateMeetingSchedule("New Vassar", "2025-10-23 19:00"),
+            generateMeetingSchedule("Next House", "2025-11-06 19:00"),
+            generateMeetingSchedule("Random", "2025-11-20 19:00"),
+            generateMeetingSchedule("Simmons", "2025-12-04 19:00"),
+        ],
+        gcalLink: "",
+    },
     {
         year: "Spring 2025",
         list: [
@@ -33,41 +45,16 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
         year: "Fall 2024",
         list: [
-            {
-                name: "Thursday, September 12th, 2024 at 7:30pm",
-                location: "Simmons",
-                minutesLink: minutesFolder + "2024-09-12.pdf",
-            },
-            {
-                name: "Thursday, September 26th, 2024 at 7:30pm",
-                location: "New House",
-                minutesLink: minutesFolder + "2024-09-26.pdf",
-            },
-            {
-                name: "Thursday, October 10th, 2024 at 7:30pm",
-                location: "New Vassar",
-                minutesLink: minutesFolder + "2024-10-10.pdf",
-            },
-            {
-                name: "Thursday, October 24th, 2024 at 7:30pm",
-                location: "Next House",
-                minutesLink: minutesFolder + "2024-10-24.pdf",
-            },
-            {
-                name: "Thursday, November 7th, 2024 at 7:30pm",
-                location: "Random",
-                minutesLink: minutesFolder + "2024-11-07.pdf",
-            },
-            {
-                name: "Chat with Concord Market: Nov 21 @ 7:30 pm",
-                location: "9-255",
-                minutesLink: minutesFolder + "2024-11-21.pdf",
-            },
-            {
-                name: "Thursday, December 5th, 2024 at 7:30pm",
-                location: "McCormick",
-                minutesLink: minutesFolder + "2024-12-05.pdf",
-            },
+            generateMeetingSchedule("Simmons", "2024-09-12 19:30"),
+            generateMeetingSchedule("New House", "2024-09-26 19:30"),
+            generateMeetingSchedule("New Vassar", "2024-10-10 19:30"),
+            generateMeetingSchedule("Next House", "2024-10-24 19:30"),
+            generateMeetingSchedule("Random", "2024-11-07 19:30"),
+            generateMeetingSchedule(
+                "Chat with Concord Market in 9-255",
+                "2024-11-21 19:30",
+            ),
+            generateMeetingSchedule("McCormick", "2024-12-05 19:30"),
         ],
         // gcalLink:
         //     "https://calendar.google.com/calendar/u/0?cid=NjMxYzZiMjI4Zjg0Y2QzNmVhMjhlYzU4M2JlZmE5OGEwMWRlODIwY2MwMzNjMzI4ZDU5ZDYzYjA1MjM2NjM5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
@@ -75,36 +62,15 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
         year: "Spring 2024",
         list: [
-            {
-                name: "Thursday, February 15th, 2024 at 7:00pm",
-                location: "Simmons",
-                minutesLink: minutesFolder + "2024-02-15.pdf",
-            },
-            {
-                name: "Thursday, February 29th, 2024 at 7:00pm",
-                location: "East Campus (Stud Space)",
-                minutesLink: minutesFolder + "2024-02-29.pdf",
-            },
-            {
-                name: "Thursday, March 14th, 2024 at 7:00pm",
-                location: "MacGregor",
-                minutesLink: minutesFolder + "2024-03-14.pdf",
-            },
-            {
-                name: "Thursday, April 4th, 2024 at 7:00pm",
-                location: "Baker",
-                minutesLink: minutesFolder + "2024-04-04.pdf",
-            },
-            {
-                name: "Thursday, April 25th, 2024 at 7:00pm",
-                location: "New House",
-                minutesLink: minutesFolder + "2024-04-25.pdf",
-            },
-            {
-                name: "Thursday, May 9th, 2024 at 7:00pm",
-                location: "1-190",
-                minutesLink: minutesFolder + "2024-05-09.pdf",
-            },
+            generateMeetingSchedule("Simmons", "2024-02-15 19:00"),
+            generateMeetingSchedule(
+                "East Campus (Stud Space)",
+                "2024-02-29 19:00",
+            ),
+            generateMeetingSchedule("MacGregor", "2024-03-14 19:00"),
+            generateMeetingSchedule("Baker", "2024-04-04 19:00"),
+            generateMeetingSchedule("New House", "2024-04-25 19:00"),
+            generateMeetingSchedule("1-190", "2024-05-09 19:00"),
         ],
         gcalLink:
             "https://calendar.google.com/calendar/u/0?cid=NjMxYzZiMjI4Zjg0Y2QzNmVhMjhlYzU4M2JlZmE5OGEwMWRlODIwY2MwMzNjMzI4ZDU5ZDYzYjA1MjM2NjM5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
@@ -112,36 +78,12 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
         year: "Fall 2023",
         list: [
-            {
-                name: "Thursday, Semptember 14th, 2023 at 7:30pm",
-                location: "Burton-Conner",
-                minutesLink: minutesFolder + "2023-09-14.pdf",
-            },
-            {
-                name: "Thursday, September 28th, 2023 at 7:30pm",
-                location: "Maseeh",
-                minutesLink: minutesFolder + "2023-09-28.pdf",
-            },
-            {
-                name: "Thursday, October 12th, 2023 at 7:30pm",
-                location: "New Vassar",
-                minutesLink: minutesFolder + "2023-10-12.pdf",
-            },
-            {
-                name: "Thursday, October 26th, 2023 at 7:30pm",
-                location: "Next",
-                minutesLink: minutesFolder + "2023-10-26.pdf",
-            },
-            {
-                name: "Thursday, November 9th, 2023 at 7:30pm",
-                location: "McCormick",
-                minutesLink: minutesFolder + "2023-11-09.pdf",
-            },
-            {
-                name: "Thursday, November 30th, 2023 at 7:30pm",
-                location: "Random",
-                minutesLink: minutesFolder + "2023-11-30.pdf",
-            },
+            generateMeetingSchedule("Burton-Conner", "2023-09-14 19:30"),
+            generateMeetingSchedule("Maseeh", "2023-09-28 19:30"),
+            generateMeetingSchedule("New Vassar", "2023-10-12 19:30"),
+            generateMeetingSchedule("Next", "2023-10-26 19:30"),
+            generateMeetingSchedule("McCormick", "2023-11-09 19:30"),
+            generateMeetingSchedule("Random", "2023-11-30 19:30"),
         ],
         gcalLink:
             "https://calendar.google.com/calendar/u/0?cid=NjMxYzZiMjI4Zjg0Y2QzNmVhMjhlYzU4M2JlZmE5OGEwMWRlODIwY2MwMzNjMzI4ZDU5ZDYzYjA1MjM2NjM5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
@@ -149,175 +91,68 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
         year: "Spring 2023",
         list: [
-            {
-                name: "Thursday, February 16th, 2023 at 7pm",
-                location: "Baker",
-                minutesLink: minutesFolder + "2023-02-16.pdf",
-            },
-            {
-                name: "Thursday, March 2nd, 2023 at 7pm",
-                location: "McCormick",
-                minutesLink: minutesFolder + "2023-03-02.pdf",
-            },
-            {
-                name: "Thursday, March 16th, 2023 at 7pm",
-                location: "Simmons",
-                minutesLink: minutesFolder + "2023-03-16.pdf",
-            },
-            {
-                name: "Thursday, April 6th, 2023 at 7pm",
-                location: "Random",
-                minutesLink: minutesFolder + "2023-04-06.pdf",
-            },
-            {
-                name: "Thursday, April 27th, 2023 at 7pm",
-                location: "MacGregor",
-                minutesLink: minutesFolder + "2023-04-27.pdf",
-            },
-            {
-                name: "Thursday, May 11th, 2023 at 7pm",
-                location: "On Campus (56-114)",
-                minutesLink: minutesFolder + "2023-05-11.pdf",
-            },
+            generateMeetingSchedule("Baker", "2023-02-16 19:00"),
+            generateMeetingSchedule("McCormick", "2023-03-02 19:00"),
+            generateMeetingSchedule("Simmons", "2023-03-16 19:00"),
+            generateMeetingSchedule("Random", "2023-04-06 19:00"),
+            generateMeetingSchedule("MacGregor", "2023-04-27 19:00"),
+            generateMeetingSchedule("On Campus (56-114)", "2023-05-11 19:00"),
         ],
     },
     {
         year: "Fall 2022",
         list: [
-            {
-                name: "Thursday, September 15th, 2022 at 7pm",
-                location: "Burton-Conner",
-                minutesLink: minutesFolder + "2022-09-15.pdf",
-            },
-            {
-                name: "Thursday, September 29th, 2022 at 7pm",
-                location: "Maseeh",
-                minutesLink: minutesFolder + "2022-09-29.pdf",
-            },
-            {
-                name: "Thursday, October 13th, 2022 at 7pm",
-                location: "New House",
-                minutesLink: minutesFolder + "2022-10-13.pdf",
-            },
-            {
-                name: "Thursday, October 27th, 2022 at 7pm",
-                location: "East Campus",
-                minutesLink: minutesFolder + "2022-10-27.pdf",
-            },
-            {
-                name: "Thursday, November 10th, 2022 at 7pm",
-                location: "Next House",
-                minutesLink: minutesFolder + "2022-11-10.pdf",
-            },
-            {
-                name: "Thursday, December 1st, 2022 at 7pm",
-                location: "New Vassar",
-                minutesLink: minutesFolder + "2022-12-01.pdf",
-            },
+            generateMeetingSchedule("Burton-Conner", "2022-09-15 19:00"),
+            generateMeetingSchedule("Maseeh", "2022-09-29 19:00"),
+            generateMeetingSchedule("New House", "2022-10-13 19:00"),
+            generateMeetingSchedule("East Campus", "2022-10-27 19:00"),
+            generateMeetingSchedule("Next House", "2022-11-10 19:00"),
+            generateMeetingSchedule("New Vassar", "2022-12-01 19:00"),
         ],
     },
     {
         year: "Spring 2022",
         list: [
-            {
-                name: "Thursday, February 10, 2022 at 6:30pm",
-                location: "Maseeh",
-                minutesLink: minutesFolder + "2022-02-10.pdf",
-            },
-            {
-                name: "Thursday, February 24, 2022 at 6:30pm",
-                location: "Simmons",
-                minutesLink: minutesFolder + "2022-02-24.pdf",
-            },
-            {
-                name: "Thursday, March 10, 2022 at 6:30pm",
-                location: "Random",
-                minutesLink: minutesFolder + "2022-03-10.pdf",
-            },
-            {
-                name: "Thursday, March 31, 2022 at 6:30pm",
-                location: "MacGregor",
-                minutesLink: minutesFolder + "2022-03-31.pdf",
-            },
-            {
-                name: "Thursday, April 21, 2022 at 6:30pm",
-                location: "McCormick",
-                minutesLink: minutesFolder + "2022-04-21.pdf",
-            },
-            {
-                name: "Thursday, May 5, 2022 at 6:30pm",
-                location: "UA Senate Chambers",
-                minutesLink: minutesFolder + "2022-05-05.pdf",
-            },
+            generateMeetingSchedule("Maseeh", "2022-02-10 18:30"),
+            generateMeetingSchedule("Simmons", "2022-02-24 18:30"),
+            generateMeetingSchedule("Random", "2022-03-10 18:30"),
+            generateMeetingSchedule("MacGregor", "2022-03-31 18:30"),
+            generateMeetingSchedule("McCormick", "2022-04-21 18:30"),
+            generateMeetingSchedule("UA Senate Chambers", "2022-05-05 18:30"),
         ],
     },
     {
         year: "Fall 2021",
         list: [
-            {
-                name: "Thursday, September 16, 2021 at 7:00pm",
-                location: "East Campus",
-            },
-            {
-                name: "Thursday, September 30, 2021 at 7:00pm",
-                location: "New House",
-                minutesLink: minutesFolder + "2021-09-30.pdf",
-            },
-            {
-                name: "Thursday, October 14, 2021 at 7:00pm",
-                location: "Baker House",
-                minutesLink: minutesFolder + "2021-10-14.pdf",
-            },
-            {
-                name: "Thursday, October 28, 2021 at 7:00pm",
-                location: "Next House",
-                minutesLink: minutesFolder + "2021-10-28.pdf",
-            },
-            {
-                name: "Thursday, November 18, 2021 at 7:00pm",
-                location: "McCormick Hall",
-                minutesLink: minutesFolder + "2021-11-18.pdf",
-            },
-            {
-                name: "Thursday, December 2, 2021 at 7:00pm",
-                location: "New Vassar",
-                minutesLink: minutesFolder + "2021-12-02.pdf",
-            },
+            generateMeetingSchedule("East Campus", "2021-09-16 19:00", false),
+            generateMeetingSchedule("New House", "2021-09-30 19:00"),
+            generateMeetingSchedule("Baker House", "2021-10-14 19:00"),
+            generateMeetingSchedule("Next House", "2021-10-28 19:00"),
+            generateMeetingSchedule("McCormick Hall", "2021-11-18 19:00"),
+            generateMeetingSchedule("New Vassar", "2021-12-02 19:00"),
         ],
     },
     {
         year: "Spring 2021",
         list: [
-            {
-                name: "Thursday, February 25th at 6:30pm",
-                location: "wherever you want to be",
-                minutesLink: minutesFolder + "2021-02-25.pdf",
-            },
-            {
-                name: "Thursday, March 11th (elections) at 6:30pm",
-                location: "a socially distanced place",
-                minutesLink: minutesFolder + "2021-03-11.pdf",
-            },
-            {
-                name: "Thursday, March 25th at 6:30pm",
-                location: "Zoom University",
-                minutesLink: minutesFolder + "2021-03-25.pdf",
-            },
-            {
-                name: "Thursday, April 8th at 6:30pm",
-                location: "on top of the dome if you want",
-                minutesLink: minutesFolder + "2021-04-08.pdf",
-            },
-            {
-                name: "Thursday, April 22nd at 6:30pm",
-                location: "the Stata loading dock",
-                minutesLink: minutesFolder + "2021-04-22.pdf",
-            },
-            {
-                name: "Thursday, May 6th at 6:30pm",
-                location: "your bed",
-                minutesLink: minutesFolder + "2021-05-06.pdf",
-            },
+            generateMeetingSchedule(
+                "wherever you want to be",
+                "2021-02-25 18:30",
+            ),
+            generateMeetingSchedule(
+                "a socially distanced place (elections)",
+                "2021-03-11 18:30",
+            ),
+            generateMeetingSchedule("Zoom University", "2021-03-25 18:30"),
+            generateMeetingSchedule(
+                "on top of the dome if you want",
+                "2021-04-08 18:30",
+            ),
+            generateMeetingSchedule(
+                "the Stata loading dock",
+                "2021-04-22 18:30",
+            ),
+            generateMeetingSchedule("your bed", "2021-05-06 18:30"),
         ],
     },
     {
@@ -1414,7 +1249,7 @@ const officers: Term[] = [
                 name: "",
                 affiliation: "Random + McCormick",
                 year: undefined,
-                kerb: "liani",
+                kerb: "fl",
             },
             {
                 position: "Judcomm Chair",
@@ -1510,7 +1345,7 @@ const officers: Term[] = [
                 name: "",
                 affiliation: "Random + McCormick",
                 year: undefined,
-                kerb: "liani",
+                kerb: "fl",
             },
             {
                 position: "REX/CPW Chair",

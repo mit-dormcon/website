@@ -1,8 +1,14 @@
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type * as Plugin from "@docusaurus/types/src/plugin";
+
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
-import { Temporal } from "@js-temporal/polyfill";
+import type * as SearchPlugin from "@easyops-cn/docusaurus-search-local";
+
+if (!("Temporal" in globalThis)) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require("temporal-polyfill/global");
+}
 
 const config: Config = {
     title: "DormCon",
@@ -17,7 +23,7 @@ const config: Config = {
     markdown: {
         hooks: {
             onBrokenMarkdownLinks: "warn",
-        }
+        },
     },
     headTags: [
         {
@@ -33,7 +39,7 @@ const config: Config = {
             id: "gbm_i26",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            content: `<strong>Our next GBM will be next semester, check back for updates!</strong>`,
+            content: `<strong>Our next GBM will be in Baker on February 2nd!</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
@@ -241,8 +247,42 @@ const config: Config = {
                 },
             } satisfies Plugin.PluginOptions,
         ],
+        [
+            "@docusaurus/plugin-client-redirects",
+            {
+                redirects: [
+                    {
+                        from: "/concord",
+                        to: "https://docs.google.com/forms/d/e/1FAIpQLSdVxG0MUDU8jRfCqBM3uoXfl6eZi3RXZfqzCv9MlLtttUL4tA/viewform",
+                    },
+                    {
+                        from: "/join-dormspam",
+                        to: "https://join-dormspam.mit.edu",
+                    },
+                    {
+                        from: "/dining-form",
+                        to: "https://docs.google.com/forms/d/e/1FAIpQLSf36Q4wcea-g3GIwl9MwLYRUuW2ByqctYD-HUniFa59spVuYg/viewform",
+                    },
+                ],
+            },
+        ],
     ],
-    themes: ["docusaurus-theme-openapi-docs"],
+    themes: [
+        "docusaurus-theme-openapi-docs",
+        [
+            require.resolve("@easyops-cn/docusaurus-search-local"),
+            {
+                hashed: true,
+                blogRouteBasePath: "/resources",
+                blogDir: "resources",
+                docsDir: "docs",
+                docsRouteBasePath: "docs",
+                indexBlog: true,
+                indexDocs: true,
+                indexPages: true,
+            } satisfies SearchPlugin.PluginOptions,
+        ],
+    ],
     future: {
         experimental_faster: true,
         v4: true,
