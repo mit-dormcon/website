@@ -21,6 +21,7 @@ const config: Config = {
     projectName: "website",
     trailingSlash: false,
     markdown: {
+        format: "detect",
         hooks: {
             onBrokenMarkdownLinks: "warn",
         },
