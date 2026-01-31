@@ -46,7 +46,9 @@ undergraduate residents.
 
 - [DTYD](https://mitadmissions.org/blogs/entry/dance-til-you-drop-53rd/)
 - [FredFest](https://thetech.com/2025/10/23/fredfest-2025)
-- [Piano Drop](https://news.mit.edu/2018/just-drop-it-mit-baker-house-piano-drop-0524)
+- [Baker Piano Drop](https://news.mit.edu/2018/just-drop-it-mit-baker-house-piano-drop-0524)
+- [Bad Ideas Weekend](https://thetech.com/2026/01/29/bad-ideas-2026)
+- [Next Haunt](https://mitadmissions.org/blogs/entry/group-post-next-haunt-2024-the-survivors/)
 
 ### Specifications
 
