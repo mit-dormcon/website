@@ -7,8 +7,8 @@ sidebar_position: 2
 
 :::note
 
-These guidelines were last updated on 1/31/2026. Please reach out to the
-DormCon Treasurer with any questions.
+These guidelines were last updated on 1/31/2026. Please reach out to the DormCon
+Treasurer with any questions.
 
 :::
 
@@ -44,7 +44,9 @@ undergraduate residents.
 
 ### Examples
 
-DTYD, FredFest, Piano Drop
+- [DTYD](https://mitadmissions.org/blogs/entry/dance-til-you-drop-53rd/)
+- [FredFest](https://thetech.com/2025/10/23/fredfest-2025)
+- [Piano Drop](https://news.mit.edu/2018/just-drop-it-mit-baker-house-piano-drop-0524)
 
 ### Specifications
 
@@ -102,7 +104,9 @@ Events that are sponsored by multiple dorms.
 
 ### Examples
 
-Spring Picnic, Fall Carnival, Multi-dorm formal
+- Spring Picnic
+- Fall Carnival
+- Multi-dorm formal
 
 ### Specifications
 
@@ -159,7 +163,8 @@ advertised to everyone.
 
 ### Examples
 
-A Doctor Who watch party, RPM study break
+- A Doctor Who watch party
+- RPM study break
 
 ### Specifications
 
@@ -219,7 +224,10 @@ dorm residents.
 
 ### Examples
 
-Laundry pilot programs, dorm food pantries, facilities repairs, mural boards
+- Laundry pilot programs
+- Dorm food pantries
+- Facilities repairs
+- Mural boards
 
 ### Specifications
 
