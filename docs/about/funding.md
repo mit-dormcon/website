@@ -5,14 +5,17 @@ sidebar_position: 2
 
 # Budget and Event Funding
 
-_These guidelines were last updated on 12/31/2025._
+:::note
 
-DormCon
-[maintains a budget](https://docs.google.com/spreadsheets/d/1UPuOOGkemUujGznduOHi4RSK1Wza2Hxgu3fIhYua50Q/edit?usp=sharing)
-in order to help fund events in the dorm community and for operational expenses.
-We are committed to keeping extraneous costs low in order to maximize the amount
-of money available for events that enhance the residential experience. As
-[approved by dorm presidents](https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf),
+These guidelines were last updated on 1/31/2026. Please reach out to the
+DormCon Treasurer with any questions.
+
+:::
+
+DormCon [maintains a budget][budget] in order to help fund events in the dorm
+community and for operational expenses. We are committed to keeping extraneous
+costs low in order to maximize the amount of money available for events that
+enhance the residential experience. As [approved by dorm presidents][tax],
 DormCon receives $10 of house tax from every dorm resident.
 
 In addition, beginning Spring 2026, DormCon is receiving additional semesterly
@@ -21,16 +24,16 @@ of Student Life, in lieu of (now defunct) LEF/ARCADE grants. This is in
 recognition of the value that undergraduate residence halls have on the student
 experience, and is fully distributed directly to dorms every semester based on
 request. Furthermore, DormCon annually funds campus-wide events such as Campus
-Preview Weekend (CPW), Residential Exploration (REX), and DormCon Apple Picking,
-as well as individual dorm events, inter-dorm events, and events sponsored by
-individual dorm residents.
+Preview Weekend (CPW), [Residential Exploration (REX)](/rex), and DormCon Apple
+Picking, as well as individual dorm events, inter-dorm events, and events
+sponsored by individual dorm residents.
 
 All funding requests are first reviewed by the DormCon Treasurer, then voted on
 by the dorm presidents at a general body meeting, and a representative of the
 group/organization requesting funding may be requested to attend as needed. This
 is to ensure a spirit of transparency, collaboration, and fiscal responsibility.
 Any questions should be directed to the DormCon Treasurer by emailing
-[dormcon-treasurer@mit.edu](mailto:dormcon-treasurer@mit.edu).
+<dormcon-treasurer@mit.edu>.
 
 ## Individual Dorm Events
 
@@ -60,11 +63,10 @@ DTYD, FredFest, Piano Drop
 
 ### Application Deadlines
 
-[Applications](https://docs.google.com/forms/d/e/1FAIpQLSd0_F86wxzbuSDbf_rzvzAV684NuQoGgh8ax8AtgEBCQzJb0g/viewform)
-for event funding must be received by the DormCon treasurer no later than one
-week before the DormCon general body meeting at which that event is to be
-discussed. Funding will be transferred into dorm accounts after the
-[Post-Event Report](https://forms.gle/V2FF6xMPhSp1ntpUA) is submitted.
+[Applications][application] for event funding must be received by the DormCon
+treasurer no later than one week before the DormCon general body meeting at
+which that event is to be discussed. Funding will be transferred into dorm
+accounts after the [Post-Event Report][post-event] is submitted.
 
 ### Event Funding Application Form
 
@@ -117,11 +119,10 @@ Spring Picnic, Fall Carnival, Multi-dorm formal
 
 ### Application Deadlines
 
-[Applications](https://docs.google.com/forms/d/e/1FAIpQLSd0_F86wxzbuSDbf_rzvzAV684NuQoGgh8ax8AtgEBCQzJb0g/viewform)
-for event funding must be received by the DormCon treasurer no later than one
-week before the DormCon general body meeting at which that event is to be
-discussed. Funding will be transferred into dorm accounts after the
-[Post-Event Report](https://forms.gle/V2FF6xMPhSp1ntpUA) is submitted.
+[Applications][application] for event funding must be received by the DormCon
+treasurer no later than one week before the DormCon general body meeting at
+which that event is to be discussed. Funding will be transferred into dorm
+accounts after the [Post-Event Report][post-event] is submitted.
 
 ### Event Funding Application Form
 
@@ -158,7 +159,7 @@ advertised to everyone.
 
 ### Examples
 
-A Doctor Who watch party
+A Doctor Who watch party, RPM study break
 
 ### Specifications
 
@@ -177,11 +178,10 @@ A Doctor Who watch party
 
 ### Application Deadlines
 
-[Applications](https://docs.google.com/forms/d/e/1FAIpQLSd0_F86wxzbuSDbf_rzvzAV684NuQoGgh8ax8AtgEBCQzJb0g/viewform)
-for event funding must be received by the DormCon treasurer no later than one
-week before the DormCon general body meeting at which that event is to be
-discussed. Funding will be transferred into dorm accounts after the
-[Post-Event Report](https://forms.gle/V2FF6xMPhSp1ntpUA) is submitted.
+[Applications][application] for event funding must be received by the DormCon
+treasurer no later than one week before the DormCon general body meeting at
+which that event is to be discussed. Funding will be transferred into dorm
+accounts after the [Post-Event Report][post-event] is submitted.
 
 ### Event Funding Application Form
 
@@ -234,11 +234,10 @@ Laundry pilot programs, dorm food pantries, facilities repairs, mural boards
 
 ### Application Deadlines
 
-[Applications](https://docs.google.com/forms/d/e/1FAIpQLSd0_F86wxzbuSDbf_rzvzAV684NuQoGgh8ax8AtgEBCQzJb0g/viewform)
-for funding must be received by the DormCon treasurer no later than one week
-before the DormCon general body meeting before it is to be used. Funding will be
-transferred into dorm accounts after the
-[Post-Event Report](https://forms.gle/V2FF6xMPhSp1ntpUA) is submitted.
+[Applications][application] for funding must be received by the DormCon
+treasurer no later than one week before the DormCon general body meeting before
+it is to be used. Funding will be transferred into dorm accounts after the
+[Post-Event Report][post-event] is submitted.
 
 ### Funding Application Form
 
@@ -259,3 +258,10 @@ transferred into dorm accounts after the
   the budget submitted on the funding application. In such a case, dorm
   presidents will vote to approve the reduction in funding at the next possible
   GBM.
+
+[budget]:
+    https://docs.google.com/spreadsheets/d/1UPuOOGkemUujGznduOHi4RSK1Wza2Hxgu3fIhYua50Q/edit?usp=sharing
+[tax]: https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf
+[application]:
+    https://docs.google.com/forms/d/e/1FAIpQLSd0_F86wxzbuSDbf_rzvzAV684NuQoGgh8ax8AtgEBCQzJb0g/viewform
+[post-event]: https://forms.gle/V2FF6xMPhSp1ntpUA
