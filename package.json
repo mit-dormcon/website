@@ -47,7 +47,7 @@
         "react-dom": "^19.2.4",
         "react-loadable": "^5.5.0",
         "sass": "^1.97.3",
-        "swr": "^2.3.8",
+        "swr": "^2.4.0",
         "temporal-polyfill": "^0.3.0"
     },
     "browserslist": {
