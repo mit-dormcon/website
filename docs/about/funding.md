@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Budget and Event Funding
 
-:::note
+:::info
 
 These guidelines were last updated on 1/31/2026. Please reach out to the DormCon
 Treasurer with any questions.
@@ -20,7 +20,7 @@ DormCon receives $10 of house tax from every dorm resident.
 
 In addition, beginning Spring 2026, DormCon is receiving additional semesterly
 funding to distribute to residence halls for large events from the MIT Division
-of Student Life, in lieu of (now defunct) LEF/ARCADE grants. This is in
+of Student Life, in lieu of (now defunct) LEF/ARCADE grants.[^1] This is in
 recognition of the value that undergraduate residence halls have on the student
 experience, and is fully distributed directly to dorms every semester based on
 request. Furthermore, DormCon annually funds campus-wide events such as
@@ -271,8 +271,32 @@ it is to be used. Funding will be transferred into dorm accounts after the
   presidents will vote to approve the reduction in funding at the next possible
   GBM.
 
+## Other Funding Sources
+
+:::note
+
+If you know of other relevant funding sources for residence halls and living
+groups, let us know!
+
+:::
+
+Other funding sources include:
+
+- Your dorm's house tax
+- [De Florez Fund for Humor](https://shass.mit.edu/for-students/student-funding-and-awards/de-florez-fund-for-humor/)
+- [Baker Foundation](https://firstyear.mit.edu/baker-foundation/)
+- [Council of the Arts at MIT (CAMIT)](https://arts.mit.edu/camit/funding/)
+- [Weekends@MIT](mailto:weekendsmit_support@mit.edu)
+
 [budget]:
     https://docs.google.com/spreadsheets/d/1UPuOOGkemUujGznduOHi4RSK1Wza2Hxgu3fIhYua50Q/edit?usp=sharing
 [tax]: https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf
 [application]: https://forms.gle/LJJqy6nmNpuQjfHQ8
 [post-event]: https://forms.gle/V2FF6xMPhSp1ntpUA
+
+[^1]:
+    Due to increased funding directly from DSL, residence halls are no longer
+    eligible for SGFC funding (which took over funding from the ASA's LEF/ARCADE
+    grants, UA's FinBoard, and GSC's Funding Board). More information on what
+    led to the creation of the SGFC can be found in the final report of the the
+    [Student Organization Working Group](https://studentlife.mit.edu/campus-communities/student-activities/student-organization-working-group/).
