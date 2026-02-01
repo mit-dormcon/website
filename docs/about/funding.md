@@ -37,12 +37,12 @@ Any questions should be directed to the DormCon Treasurer by emailing
 
 ## Individual Dorm Events
 
-### Definition
+### Definition {#individual-definition}
 
 Events that are sponsored by one dorm and are open and advertised to all
 undergraduate residents.
 
-### Examples
+### Examples {#individual-examples}
 
 - [DTYD](https://mitadmissions.org/blogs/entry/dance-til-you-drop-53rd/)
 - [FredFest](https://thetech.com/2025/10/23/fredfest-2025)
@@ -50,7 +50,7 @@ undergraduate residents.
 - [Bad Ideas Weekend](https://thetech.com/2026/01/29/bad-ideas-2026)
 - [Next Haunt](https://mitadmissions.org/blogs/entry/group-post-next-haunt-2024-the-survivors/)
 
-### Specifications
+### Specifications {#individual-specifications}
 
 **Events that are to be funded by DormCon must follow certain guidelines.**
 
@@ -65,14 +65,14 @@ undergraduate residents.
 - DormCon must be listed as a funding source in all advertisements and publicity
   materials for the event.
 
-### Application Deadlines
+### Application Deadlines {#individual-deadlines}
 
 [Applications][application] for event funding must be received by the DormCon
 treasurer no later than one week before the DormCon general body meeting at
 which that event is to be discussed. Funding will be transferred into dorm
 accounts after the [Post-Event Report][post-event] is submitted.
 
-### Event Funding Application Form
+### Event Funding Application Form {#individual-application}
 
 1. What is your event and how does it involve dorm culture? (100 words minimum)
 2. Dorm sponsor (i.e. the dorm involved)
@@ -87,7 +87,7 @@ accounts after the [Post-Event Report][post-event] is submitted.
        will be covered by DormCon funding
     4. Do you expect this to be a repeating event?
 
-### Post-Event Report
+### Post-Event Report {#individual-report}
 
 - After the event, you are required to submit a post event report, which should
   detail final expenses and the number of attendees, as well as any other
@@ -100,17 +100,17 @@ accounts after the [Post-Event Report][post-event] is submitted.
 
 ## Inter-Dorm Events
 
-### Definition
+### Definition {#inter-definition}
 
 Events that are sponsored by multiple dorms.
 
-### Examples
+### Examples {#inter-examples}
 
 - Spring Picnic
 - Fall Carnival
 - Multi-dorm formal
 
-### Specifications
+### Specifications {#inter-specifications}
 
 **Events that are to be funded by DormCon must follow certain guidelines.**
 
@@ -123,14 +123,14 @@ Events that are sponsored by multiple dorms.
 - DormCon must be listed as a funding source in all advertisements and publicity
   materials for the event.
 
-### Application Deadlines
+### Application Deadlines {#inter-deadlines}
 
 [Applications][application] for event funding must be received by the DormCon
 treasurer no later than one week before the DormCon general body meeting at
 which that event is to be discussed. Funding will be transferred into dorm
 accounts after the [Post-Event Report][post-event] is submitted.
 
-### Event Funding Application Form
+### Event Funding Application Form {#inter-application}
 
 1. What is your event and how does it involve dorm culture? (100 words minimum)
 2. Dorm sponsors (i.e. the dorms involved)
@@ -145,7 +145,7 @@ accounts after the [Post-Event Report][post-event] is submitted.
        will be covered by DormCon funding
     4. Do you expect this to be a repeating event?
 
-### Post-Event Report
+### Post-Event Report {#inter-report}
 
 - After the event, you are required to submit a post event report, which should
   detail final expenses and the number of attendees, as well as any other
@@ -158,17 +158,17 @@ accounts after the [Post-Event Report][post-event] is submitted.
 
 ## Resident Events
 
-### Definition
+### Definition {#resident-definition}
 
 Events that are sponsored by individual dorm residents and are open and
 advertised to everyone.
 
-### Examples
+### Examples {#resident-examples}
 
 - A Doctor Who watch party
 - RPM study break
 
-### Specifications
+### Specifications {#resident-specifications}
 
 **Events that are to be funded by DormCon must follow certain guidelines.**
 
@@ -183,14 +183,14 @@ advertised to everyone.
 - DormCon must be listed as a funding source in all advertisements and publicity
   materials for the event.
 
-### Application Deadlines
+### Application Deadlines {#resident-deadlines}
 
 [Applications][application] for event funding must be received by the DormCon
 treasurer no later than one week before the DormCon general body meeting at
 which that event is to be discussed. Funding will be transferred into dorm
 accounts after the [Post-Event Report][post-event] is submitted.
 
-### Event Funding Application Form
+### Event Funding Application Form {#resident-application}
 
 1. What is your event and how does it involve dorm culture? (100 words minimum)
 2. Sponsors (i.e. the dorm residents involved)
@@ -205,7 +205,7 @@ accounts after the [Post-Event Report][post-event] is submitted.
        will be covered by DormCon funding
     4. Do you expect this to be a repeating event?
 
-### Post-Event Report
+### Post-Event Report {#resident-report}
 
 - After the event, you are required to submit a post event report, which should
   detail final expenses and the number of attendees, as well as any other
@@ -218,20 +218,20 @@ accounts after the [Post-Event Report][post-event] is submitted.
 
 ## Non-Event Funds
 
-### Definition
+### Definition {#non-definition}
 
 Funds for the betterment of the residential experience at MIT, but not
 necessarily for a specific event. May be sponsored either by dorm or individual
 dorm residents.
 
-### Examples
+### Examples {#non-examples}
 
 - Laundry pilot programs
 - Dorm food pantries
 - Facilities repairs
 - Mural boards
 
-### Specifications
+### Specifications {#non-specifications}
 
 **Funds given by DormCon must follow certain guidelines.**
 
@@ -242,14 +242,14 @@ dorm residents.
 - DormCon must be listed as a funding source in all advertisements and publicity
   materials, if applicable.
 
-### Application Deadlines
+### Application Deadlines {#non-deadlines}
 
 [Applications][application] for funding must be received by the DormCon
 treasurer no later than one week before the DormCon general body meeting before
 it is to be used. Funding will be transferred into dorm accounts after the
 [Post-Event Report][post-event] is submitted.
 
-### Funding Application Form
+### Funding Application Form {#non-application}
 
 1. Detailed purpose of funding
 2. How does your request involve dorm culture? (200 words minimum)
@@ -259,7 +259,7 @@ it is to be used. Funding will be transferred into dorm accounts after the
     2. Expected alternative/extra funding sources
     3. Do you expect this to be a repeating funding request?
 
-### Post-Funding Report
+### Post-Funding Report {#non-report}
 
 - After the funding is used, you are required to submit a post funding report,
   which should detail final expenses and any other relevant notes.
