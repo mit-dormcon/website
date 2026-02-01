@@ -272,6 +272,5 @@ it is to be used. Funding will be transferred into dorm accounts after the
 [budget]:
     https://docs.google.com/spreadsheets/d/1UPuOOGkemUujGznduOHi4RSK1Wza2Hxgu3fIhYua50Q/edit?usp=sharing
 [tax]: https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf
-[application]:
-    https://docs.google.com/forms/d/e/1FAIpQLSd0_F86wxzbuSDbf_rzvzAV684NuQoGgh8ax8AtgEBCQzJb0g/viewform
+[application]: https://forms.gle/LJJqy6nmNpuQjfHQ8
 [post-event]: https://forms.gle/V2FF6xMPhSp1ntpUA
