@@ -23,10 +23,12 @@ funding to distribute to residence halls for large events from the MIT Division
 of Student Life, in lieu of (now defunct) LEF/ARCADE grants. This is in
 recognition of the value that undergraduate residence halls have on the student
 experience, and is fully distributed directly to dorms every semester based on
-request. Furthermore, DormCon annually funds campus-wide events such as Campus
-Preview Weekend (CPW), [Residential Exploration (REX)](/rex), and DormCon Apple
-Picking, as well as individual dorm events, inter-dorm events, and events
-sponsored by individual dorm residents.
+request. Furthermore, DormCon annually funds campus-wide events such as
+[Campus Preview Weekend (CPW)](https://cpwcommunity.mit.edu/),
+[Residential Exploration (REX)](/rex), and
+[DormCon Apple Picking](https://mitadmissions.org/blogs/entry/i-picked-my-first-apple/),
+as well as individual dorm events, inter-dorm events, and events sponsored by
+individual dorm residents.
 
 All funding requests are first reviewed by the DormCon Treasurer, then voted on
 by the dorm presidents at a general body meeting, and a representative of the
