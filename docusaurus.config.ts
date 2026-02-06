@@ -1,10 +1,14 @@
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import type * as Plugin from "@docusaurus/types/src/plugin";
-import { Temporal } from "@js-temporal/polyfill";
 
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 import type * as SearchPlugin from "@easyops-cn/docusaurus-search-local";
+
+if (!("Temporal" in globalThis)) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require("temporal-polyfill/global");
+}
 
 const config: Config = {
     title: "DormCon",
@@ -17,6 +21,7 @@ const config: Config = {
     projectName: "website",
     trailingSlash: false,
     markdown: {
+        format: "detect",
         hooks: {
             onBrokenMarkdownLinks: "warn",
         },
@@ -35,7 +40,7 @@ const config: Config = {
             id: "gbm_i26",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            content: `<strong>Our next GBM will be next semester, check back for updates!</strong>`,
+            content: `<strong>Our next GBM will be in Baker on February 12th!</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
@@ -60,7 +65,7 @@ const config: Config = {
                             },
                             {
                                 type: "doc",
-                                label: "Budget and Event Funding",
+                                label: "Budget and Funding Guidelines",
                                 docId: "about/funding",
                             },
                             {

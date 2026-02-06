@@ -1,4 +1,6 @@
-import { type Temporal } from "@js-temporal/polyfill";
+if (!("Temporal" in globalThis)) {
+    await import("temporal-polyfill/global");
+}
 
 /** Raw API output */
 export interface TRexAPIResponse {

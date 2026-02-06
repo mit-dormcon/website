@@ -24,7 +24,7 @@ jobs:
             - name: Install dependencies
               run: yarn install --frozen-lockfile
             - name: Build website
-              run: yarn build
+              run: yarn run build
 
             - name: Upload Build Artifact
               uses: actions/upload-pages-artifact@v4

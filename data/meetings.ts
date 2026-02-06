@@ -1,13 +1,17 @@
 import type { Meeting, MeetingSchedule } from "./types";
 
-import { Temporal, Intl } from "@js-temporal/polyfill";
-// Date.prototype.toTemporalInstant = toTemporalInstant;
-
 export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
 export const meetings: MeetingSchedule = {
     year: "Spring 2026",
-    list: [],
+    list: [
+        generateMeetingSchedule("Baker", "2026-02-12 19:30", false),
+        generateMeetingSchedule("Burton-Conner", "2026-02-26 19:30", false),
+        generateMeetingSchedule("MacGregor", "2026-03-12 19:30", false),
+        generateMeetingSchedule("Maseeh", "2026-04-02 19:30", false),
+        generateMeetingSchedule("McCormick", "2026-05-23 19:30", false),
+        generateMeetingSchedule("TBD (Elections!)", "2026-05-07 19:30", false),
+    ],
 };
 
 function nth(d: number) {

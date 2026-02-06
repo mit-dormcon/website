@@ -15,7 +15,7 @@ export const officers: Term = {
             name: "",
             affiliation: "McCormick",
             year: undefined,
-            kerb: "liani",
+            kerb: "fl",
         },
         {
             position: "Treasurer",

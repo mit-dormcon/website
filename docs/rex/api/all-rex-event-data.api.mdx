@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -45,16 +46,13 @@ Returns a JSON object with all REX data. This includes data about the REX API, a
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./all-rex-event-data.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"description":"API response for the REX system.","properties":{"colors":{"default":{"dorms":{},"groups":{},"tags":{}},"description":"Colors used in the REX system, used for display in the booklet and on the website.","properties":{"dorms":{"additionalProperties":{"format":"color","type":"string"},"default":{},"description":"Colors for dorms, used for display in the booklet and on the website","title":"Dorms","type":"object"},"groups":{"additionalProperties":{"additionalProperties":{"format":"color","type":"string"},"type":"object"},"default":{},"description":"Colors for groups within dorms, used for display in the booklet and on the website","title":"Groups","type":"object"},"tags":{"additionalProperties":{"format":"color","type":"string"},"default":{},"description":"Colors for tags, used for display in the booklet and on the website","title":"Tags","type":"object"}},"title":"ColorsAPIResponse","type":"object"},"dorms":{"default":[],"description":"All dorms in the REX system, used for display in the booklet and on the website.","items":{"type":"string"},"title":"Dorms","type":"array","uniqueItems":true},"end":{"description":"End date of REX, used for display in the booklet and on the website.","format":"date","title":"End","type":"string"},"events":{"default":[],"description":"List of events in the REX system, used for display in the booklet and on the website. \nCan be uniquely identified by the `Event.id` field.","items":{"description":"Represents an event in the REX system.","properties":{"description":{"description":"Event description, displayed in the booklet","maxLength":280,"title":"Description","type":"string"},"dorm":{"description":"Dorms hosting the event. While typically a single dorm, this can also be multiple dorms.","items":{"type":"string"},"title":"Dorm","type":"array","uniqueItems":true},"end":{"description":"Event end time","format":"date-time","title":"End","type":"string"},"group":{"description":"Subcommunities running/hosting the event","items":{"type":"string"},"title":"Group","type":"array","uniqueItems":true},"id":{"description":"4-Digit Event Code, used for linking, bookmarking, and making event revisions.","maxLength":4,"minLength":4,"title":"Id","type":"string"},"location":{"description":"Location of the event","maxLength":50,"title":"Location","type":"string"},"name":{"description":"Event name","maxLength":100,"title":"Name","type":"string"},"start":{"description":"Event start time","format":"date-time","title":"Start","type":"string"},"tags":{"description":"Tags associated with the event, used for filtering and display","items":{"type":"string"},"title":"Tags","type":"array","uniqueItems":true}},"required":["name","dorm","location","start","end","description","tags","group","id"],"title":"Event","type":"object"},"title":"Events","type":"array"},"groups":{"additionalProperties":{"items":{"type":"string"},"type":"array","uniqueItems":true},"default":{},"description":"A dictionary mapping dorms to their groups, used for display in the booklet and on the website.","title":"Groups","type":"object"},"name":{"description":"Name of the REX season, e.g. 'REX 2025'","title":"Name","type":"string"},"published":{"description":"When the API was published, used for display in the booklet and on the website","format":"date-time","title":"Published","type":"string"},"start":{"description":"Start date of REX, used for display in the booklet and on the website.","format":"date","title":"Start","type":"string"},"tags":{"default":[],"description":"All tags in the REX system, used for display in the booklet and on the website.","items":{"type":"string"},"title":"Tags","type":"array","uniqueItems":true}},"title":"APIResponse","type":"object"}}},"description":"Successful request!"}}}
+  {...require("./all-rex-event-data.StatusCodes.json")}
 >
   
 </StatusCodes>

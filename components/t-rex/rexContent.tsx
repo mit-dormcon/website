@@ -1,7 +1,10 @@
 import Interpolate from "@docusaurus/Interpolate";
 
 import { useRexData } from "./helpers";
-import { Temporal, Intl } from "@js-temporal/polyfill";
+
+if (!("Temporal" in globalThis)) {
+    await import("temporal-polyfill/global");
+}
 
 export const REXName = () => {
     const { data } = useRexData();
