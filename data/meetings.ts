@@ -53,10 +53,16 @@ function generateName(
 
 function generateMinutesUrl(
     date: Temporal.PlainDateTime | Temporal.PlainDate,
+    where: "athena" | "docusaurus",
 ): string {
     const year = date.year;
     const month = String(date.month).padStart(2, "0");
     const day = String(date.day).padStart(2, "0");
+
+    if (where === "docusaurus") {
+        const semester = month >= "08" ? "fall" : "spring";
+        return `/minutes/${semester}-${year}/${year}-${month}-${day}`;
+    }
     return `${minutesFolder}${year}-${month}-${day}.pdf`;
 }
 
@@ -65,7 +71,7 @@ function generateMinutesUrl(
 export function generateMeetingSchedule(
     location: string,
     date: Temporal.PlainDateTime | Temporal.PlainDate | string,
-    minutesUploaded = true,
+    minutesUploaded: false | "athena" | "docusaurus" = "docusaurus",
 ): Meeting {
     if (typeof date === "string") {
         const dateObj = Temporal.PlainDate.from(date);
@@ -81,6 +87,8 @@ export function generateMeetingSchedule(
     return {
         name: generateName(date),
         location,
-        minutesLink: minutesUploaded ? generateMinutesUrl(date) : undefined,
+        minutesLink: minutesUploaded
+            ? generateMinutesUrl(date, minutesUploaded)
+            : undefined,
     };
 }
