@@ -3,7 +3,7 @@ import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
 import Link from "@docusaurus/Link";
 
-const QUESTIONS = [
+const QUESTIONS: string[] = [
     "attended a dormcon meeting",
     "attended a dormcon meeting more than once",
     "attended dormcon for more than a year",
@@ -29,7 +29,7 @@ const QUESTIONS = [
     "got elected a dormcon officer at the first meeting attended",
     "was a dormcon officer",
     "held a dormcon office as a freshman",
-    "held the same dormcon office (or dorm presidency)for multiple terms",
+    "held the same dormcon office (or dorm presidency) for multiple terms",
     "was a dorm president",
     "was a dorm president and dormcon officer at the same time",
     "been dormcon president",
@@ -54,7 +54,7 @@ const QUESTIONS = [
     "insulted your own dorm at dormcon",
     "insulted another dorm at dormcon",
     "represented dormcon at a non-dormcon meeting",
-    "quit another student government organizaion to be in dormcon",
+    "quit another student government organization to be in dormcon",
     "been in a yelling match with the UA",
     "while in a dormcon position hooked up with or dated someone in the UA",
     "asked dormcon for money",
