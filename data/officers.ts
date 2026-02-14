@@ -11,11 +11,11 @@ export const officers: Term = {
             kerb: "dtemkin",
         },
         {
-            position: "Vice President",
-            name: "",
-            affiliation: "McCormick",
+            position: "Housing Chair",
+            name: "Daniel Gonzalez",
+            affiliation: "East Campus",
             year: undefined,
-            kerb: "fl",
+            kerb: "gonzalez",
         },
         {
             position: "Treasurer",
@@ -47,17 +47,17 @@ export const officers: Term = {
         },
         {
             position: "Housing Chair",
-            name: "Daniel Gonzalez",
-            affiliation: "East Campus",
-            year: undefined,
-            kerb: "gonzalez",
-        },
-        {
-            position: "Housing Chair",
             name: "Haylea Brock",
             affiliation: "Burton Conner",
             year: 2027,
             kerb: "hbrock",
+        },
+        {
+            position: "Housing Chair",
+            name: "",
+            affiliation: "",
+            year: undefined,
+            kerb: "",
         },
         {
             position: "Judcomm Chair",

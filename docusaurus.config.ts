@@ -40,7 +40,8 @@ const config: Config = {
             id: "gbm_i26",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            content: `<strong>Our next GBM will be in Baker on February 12th!</strong>`,
+            // TODO: find a way to auto update this...
+            content: `<strong>Our next GBM will be in Burton-Conner on February 26th!</strong>`,
         },
         navbar: {
             title: "MIT DormCon",
