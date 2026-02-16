@@ -5,7 +5,7 @@ export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 export const meetings: MeetingSchedule = {
     year: "Spring 2026",
     list: [
-        generateMeetingSchedule("Baker", "2026-02-12 19:30", false),
+        generateMeetingSchedule("Baker", "2026-02-12 19:30", "athena"),
         generateMeetingSchedule("Burton-Conner", "2026-02-26 19:30", false),
         generateMeetingSchedule("MacGregor", "2026-03-12 19:30", false),
         generateMeetingSchedule("Maseeh", "2026-04-02 19:30", false),
