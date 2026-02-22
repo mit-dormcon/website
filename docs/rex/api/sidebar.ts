@@ -3,16 +3,11 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 const sidebar: SidebarsConfig = {
   apisidebar: [
     {
-      type: "doc",
-      id: "rex/api/t-rex",
-    },
-    {
       type: "category",
       label: "Raw Data",
       link: {
-        type: "generated-index",
-        title: "Raw Data",
-        slug: "/category/rex/api/raw-data",
+        type: "doc",
+        id: "rex/api/t-rex",
       },
       items: [
         {

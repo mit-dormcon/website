@@ -2,8 +2,7 @@
 id: t-rex
 title: "T-REX"
 description: "This API hosts the structured data and information for the [REX Events page](https://dormcon.mit.edu/rex/events). Feel free to use it for your own purposes!"
-sidebar_label: Introduction
-sidebar_position: 0
+sidebar_label: "T-REX"
 hide_title: true
 custom_edit_url: null
 ---
@@ -42,4 +41,11 @@ This API hosts the structured data and information for the [REX Events page](htt
     DormCon Tech Chair: [dormcon-tech-chair@mit.edu](mailto:dormcon-tech-chair@mit.edu)
   </span>
 </div>
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
+
+<DocCardList items={useCurrentSidebarCategory().items}/>
+```
       

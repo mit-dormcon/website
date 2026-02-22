@@ -109,6 +109,12 @@ const config: Config = {
                     },
                     specialPage: "about",
                 },
+                // TODO: uncomment once minutes are all transferred...
+                // {
+                //     to: "minutes",
+                //     label: "Minutes",
+                //     position: "left",
+                // },
                 {
                     to: "resources",
                     label: "Resources",
@@ -246,7 +252,7 @@ const config: Config = {
                         outputDir: "docs/rex/api",
                         sidebarOptions: {
                             groupPathsBy: "tag",
-                            categoryLinkSource: "auto",
+                            categoryLinkSource: "info",
                         },
                         showSchemas: true,
                     } satisfies OpenApiPlugin.Options,
