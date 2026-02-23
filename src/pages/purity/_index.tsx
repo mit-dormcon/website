@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
-import Link from "@docusaurus/Link";
 
 const QUESTIONS: string[] = [
     "attended a dormcon meeting",
@@ -150,10 +148,9 @@ const ChecklistItem = ({
     );
 };
 
-export default function PurityTest() {
+export function PurityTest() {
     const [score, setScore] = useState<number | null>(null);
     const [activeItemsCount, setActiveItemsCount] = useState(0);
-    const [showAlert, setShowAlert] = useState(true);
 
     const calculateButtonHandler = () => {
         setScore(100 - activeItemsCount);
@@ -161,58 +158,24 @@ export default function PurityTest() {
 
     return (
         <>
-            <meta name="robots" content="noindex"></meta>
-            <Layout title="DormCon Purity Test" description="">
-                <main className="container container--fluid margin-vert--lg">
-                    <div className="row">
-                        <div className="col">
-                            <div
-                                className="alert alert--primary"
-                                role="alert"
-                                hidden={!showAlert}
-                            >
-                                <button
-                                    aria-label="Close"
-                                    className="clean-btn close"
-                                    type="button"
-                                    onClick={() => setShowAlert(false)}
-                                >
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <strong>Note:</strong> This Purity Test is a
-                                recreation of the{" "}
-                                <Link href="https://web.mit.edu/dormcon/www/dormcon-purity-test.html">
-                                    original DormCon Purity Test
-                                </Link>
-                                . Enjoy :)
-                            </div>
-                            <Heading as="h1">DormCon Purity Test</Heading>
-                            <div>
-                                <ol>
-                                    {QUESTIONS.map((question, index) => (
-                                        <li key={index}>
-                                            <ChecklistItem
-                                                setActiveItemsCount={
-                                                    setActiveItemsCount
-                                                }
-                                                label={question}
-                                                id={`question-${index}`}
-                                            />
-                                        </li>
-                                    ))}
-                                </ol>
-                            </div>
-                            <Heading as="h2">{score}</Heading>
-                            <button
-                                className="button button--primary"
-                                onClick={calculateButtonHandler}
-                            >
-                                Calculate!
-                            </button>
-                        </div>
-                    </div>
-                </main>
-            </Layout>
+            <ol>
+                {QUESTIONS.map((question, index) => (
+                    <li key={index}>
+                        <ChecklistItem
+                            setActiveItemsCount={setActiveItemsCount}
+                            label={question}
+                            id={`question-${index}`}
+                        />
+                    </li>
+                ))}
+            </ol>
+            <Heading as="h2">{score}</Heading>
+            <button
+                className="button button--primary"
+                onClick={calculateButtonHandler}
+            >
+                Calculate!
+            </button>
         </>
     );
 }
