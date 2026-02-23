@@ -138,29 +138,21 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
             generateMeetingSchedule(
                 "wherever you want to be",
                 "2021-02-25 18:30",
-                "athena",
             ),
             generateMeetingSchedule(
                 "a socially distanced place (elections)",
                 "2021-03-11 18:30",
-                "athena",
             ),
-            generateMeetingSchedule(
-                "Zoom University",
-                "2021-03-25 18:30",
-                "athena",
-            ),
+            generateMeetingSchedule("Zoom University", "2021-03-25 18:30"),
             generateMeetingSchedule(
                 "on top of the dome if you want",
                 "2021-04-08 18:30",
-                "athena",
             ),
             generateMeetingSchedule(
                 "the Stata loading dock",
                 "2021-04-22 18:30",
-                "athena",
             ),
-            generateMeetingSchedule("your bed", "2021-05-06 18:30", "athena"),
+            generateMeetingSchedule("your bed", "2021-05-06 18:30"),
         ],
     },
     {

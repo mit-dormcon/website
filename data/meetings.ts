@@ -1,5 +1,10 @@
 import type { Meeting, MeetingSchedule } from "./types";
 
+if (!("Temporal" in globalThis)) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require("temporal-polyfill/global");
+}
+
 export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
 export const meetings: MeetingSchedule = {
