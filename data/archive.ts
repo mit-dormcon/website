@@ -125,19 +125,11 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
         year: "Fall 2021",
         list: [
             generateMeetingSchedule("East Campus", "2021-09-16 19:00", false),
-            generateMeetingSchedule("New House", "2021-09-30 19:00", "athena"),
-            generateMeetingSchedule(
-                "Baker House",
-                "2021-10-14 19:00",
-                "athena",
-            ),
-            generateMeetingSchedule("Next House", "2021-10-28 19:00", "athena"),
-            generateMeetingSchedule(
-                "McCormick Hall",
-                "2021-11-18 19:00",
-                "athena",
-            ),
-            generateMeetingSchedule("New Vassar", "2021-12-02 19:00", "athena"),
+            generateMeetingSchedule("New House", "2021-09-30 19:00"),
+            generateMeetingSchedule("Baker House", "2021-10-14 19:00"),
+            generateMeetingSchedule("Next House", "2021-10-28 19:00"),
+            generateMeetingSchedule("McCormick Hall", "2021-11-18 19:00"),
+            generateMeetingSchedule("New Vassar", "2021-12-02 19:00"),
         ],
     },
     {
