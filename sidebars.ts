@@ -26,7 +26,7 @@ const sidebars: SidebarsConfig = {
                 },
                 {
                     type: "link",
-                    label: "Archived Meeting Minutes on Old Website",
+                    label: "Archived Minutes on Old Site",
                     href: "https://web.mit.edu/dormcon/minutes/",
                 },
             ],

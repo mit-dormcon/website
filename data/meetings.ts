@@ -60,8 +60,7 @@ function generateMinutesUrl(
     const day = String(date.day).padStart(2, "0");
 
     if (where === "docusaurus") {
-        const semester = month >= "08" ? "fall" : "spring";
-        return `/minutes/${semester}-${year}/${year}-${month}-${day}`;
+        return `/minutes/${year}-${month}-${day}`;
     }
     return `${minutesFolder}${year}-${month}-${day}.pdf`;
 }
