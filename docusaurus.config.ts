@@ -109,11 +109,12 @@ const config: Config = {
                     },
                     specialPage: "about",
                 },
-                {
-                    to: "minutes",
-                    label: "Minutes",
-                    position: "left",
-                },
+                // TODO: uncomment when ready
+                // {
+                //     to: "minutes",
+                //     label: "Minutes",
+                //     position: "left",
+                // },
                 {
                     to: "resources",
                     label: "Resources",

@@ -75,7 +75,8 @@ function generateMinutesUrl(
 export function generateMeetingSchedule(
     location: string,
     date: Temporal.PlainDateTime | Temporal.PlainDate | string,
-    minutesUploaded: false | "athena" | "docusaurus" = "docusaurus",
+    // TODO: change to docusaurus when ready
+    minutesUploaded: false | "athena" | "docusaurus" = "athena",
 ): Meeting {
     if (typeof date === "string") {
         const dateObj = Temporal.PlainDate.from(date);
