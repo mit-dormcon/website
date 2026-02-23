@@ -109,12 +109,11 @@ const config: Config = {
                     },
                     specialPage: "about",
                 },
-                // TODO: uncomment once minutes are all transferred...
-                // {
-                //     to: "minutes",
-                //     label: "Minutes",
-                //     position: "left",
-                // },
+                {
+                    to: "minutes",
+                    label: "Minutes",
+                    position: "left",
+                },
                 {
                     to: "resources",
                     label: "Resources",
