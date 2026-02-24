@@ -7,6 +7,8 @@ if (!("Temporal" in globalThis)) {
 
 export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
+export const markdownTransition: Temporal.PlainDate = new Temporal.PlainDate(2021, 2, 25);
+
 export const meetings: MeetingSchedule = {
     year: "Spring 2026",
     list: [
@@ -83,9 +85,16 @@ export function generateMeetingSchedule(
         try {
             const time = Temporal.PlainTime.from(date); // Check if time is present
             date = dateObj.toPlainDateTime(time);
+            if (minutesUploaded && Temporal.PlainTime.compare(date, (markdownTransition.toPlainDateTime(time))) >= 0) {
+                minutesUploaded = "docusaurus";
+            }
         } catch {
             // no time is provided, just use the date
             date = dateObj;
+
+            if (minutesUploaded && Temporal.PlainDate.compare(date, markdownTransition) >= 0) {
+                minutesUploaded = "docusaurus";
+            }
         }
     }
 

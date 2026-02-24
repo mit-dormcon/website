@@ -17,7 +17,7 @@ export default function MeetingsComponent(props: { meetings: Meeting[] }) {
                         <div>
                             <b>{m.name}</b>&ensp;
                             {minutesLink && (
-                                <Link to={minutesLink}>
+                                <Link target="_blank" to={minutesLink}>
                                     <span className="badge badge--primary">
                                         📝 Minutes
                                     </span>
