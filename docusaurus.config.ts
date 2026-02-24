@@ -4,6 +4,7 @@ import type * as Plugin from "@docusaurus/types/src/plugin";
 
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 import type * as SearchPlugin from "@easyops-cn/docusaurus-search-local";
+import { nextMeetingBanner } from "./data/meetings";
 
 if (!("Temporal" in globalThis)) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -45,7 +46,7 @@ const config: Config = {
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
             // TODO: find a way to auto update this...
-            content: `<strong>Our next GBM will be in Burton-Conner on February 26th!</strong>`,
+            content: nextMeetingBanner,
         },
         navbar: {
             title: "MIT DormCon",
@@ -109,12 +110,12 @@ const config: Config = {
                     },
                     specialPage: "about",
                 },
-                // TODO: uncomment when ready
-                // {
-                //     to: "minutes",
-                //     label: "Minutes",
-                //     position: "left",
-                // },
+                // TODONE: uncomment when ready
+                {
+                    to: "minutes",
+                    label: "Minutes",
+                    position: "left",
+                },
                 {
                     to: "resources",
                     label: "Resources",

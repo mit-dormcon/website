@@ -21,6 +21,32 @@ export const meetings: MeetingSchedule = {
     ],
 };
 
+export const nextMeeting : Meeting | undefined = (meetings.list.find((value: Meeting) => {
+        // const link = value.minutesLink;
+        // const ix = link? link.lastIndexOf("/") : 0;
+        // Return the first meeting where the meeting date is after or on today
+        return value.date? Temporal.PlainDate.compare(Temporal.PlainDate.from(value.date), Temporal.Now.plainDateISO())>=0 : false;
+}));
+
+export const nextMeetingBanner : string = nextMeeting? nextMeeting.date?
+            `<strong>Our next GBM will be in ${nextMeeting.location} on ${formatBannerDate(nextMeeting.date)}!</strong>`
+            : `<strong>Our next GBM will be in ${nextMeeting.location}!</strong>`
+            : `<string>No meetings until next semester. Check back soon for the new schedule!</strong>`;
+
+function formatBannerDate(date : Temporal.PlainDate | Temporal.PlainDateTime): string{
+    const formatter = new Intl.DateTimeFormat("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+    });
+    const text = formatter.format(date);
+    const day = date.day;
+
+    const finalText = text
+        .replace(String(day), `${day}${nth(day)}`)
+    return finalText;
+}
+
 function nth(d: number) {
     if (d > 3 && d < 21) return "th";
     switch (d % 10) {
@@ -77,7 +103,7 @@ function generateMinutesUrl(
 export function generateMeetingSchedule(
     location: string,
     date: Temporal.PlainDateTime | Temporal.PlainDate | string,
-    // TODO: change to docusaurus when ready
+    // TODONETHEOTHERWAY: change to docusaurus when ready
     minutesUploaded: false | "athena" | "docusaurus" = "athena",
 ): Meeting {
     if (typeof date === "string") {
@@ -104,5 +130,6 @@ export function generateMeetingSchedule(
         minutesLink: minutesUploaded
             ? generateMinutesUrl(date, minutesUploaded)
             : undefined,
+        date: date,
     };
 }

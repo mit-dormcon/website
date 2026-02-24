@@ -3,6 +3,7 @@ export interface Meeting {
     location?: string;
     /** An external link to the pdf of minutes, perhaps on Athena */
     minutesLink?: string;
+    date?: Temporal.PlainDateTime | Temporal.PlainDate;
 }
 
 export interface MeetingSchedule {
