@@ -37,13 +37,14 @@ const rexConverter = (json: TRexAPIResponse): TRexProcessedData => {
     };
 };
 
+void preload<TRexProcessedData>(API_URL, fetcher);
+
 export const useRexData = () => {
-    void preload<TRexProcessedData>(API_URL, fetcher);
     return useSWR<TRexProcessedData>(API_URL, fetcher);
 };
 
 // Helper function to get a value from a Map or Object (just in case types are being weird)
-export const map_or_object = <T>(
+export const mapOrObject = <T>(
     obj: Map<string, T> | Record<string, T> | undefined,
     key: string,
 ) => {
@@ -56,7 +57,7 @@ export const map_or_object = <T>(
     }
 };
 
-function standardize_color(str: string) {
+function standardizeColor(str: string) {
     const ctx = document.createElement("canvas").getContext("2d");
 
     if (!ctx) {
@@ -69,7 +70,7 @@ function standardize_color(str: string) {
 
 // https://www.w3.org/TR/WCAG20/#relativeluminancedef
 export function getOptimalForegroundColor(bgColor: string, WCAG20 = false) {
-    const color = standardize_color(bgColor);
+    const color = standardizeColor(bgColor);
 
     const r = parseInt(color.substring(1, 3), 16);
     const g = parseInt(color.substring(3, 5), 16);

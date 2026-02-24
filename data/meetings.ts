@@ -7,7 +7,11 @@ if (!("Temporal" in globalThis)) {
 
 export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
-export const markdownTransition: Temporal.PlainDate = new Temporal.PlainDate(2021, 2, 25);
+export const markdownTransition: Temporal.PlainDate = new Temporal.PlainDate(
+    2021,
+    2,
+    25,
+);
 
 export const meetings: MeetingSchedule = {
     year: "Spring 2026",
@@ -21,19 +25,29 @@ export const meetings: MeetingSchedule = {
     ],
 };
 
-export const nextMeeting : Meeting | undefined = (meetings.list.find((value: Meeting) => {
+export const nextMeeting: Meeting | undefined = meetings.list.find(
+    (value: Meeting) => {
         // const link = value.minutesLink;
         // const ix = link? link.lastIndexOf("/") : 0;
         // Return the first meeting where the meeting date is after or on today
-        return value.date? Temporal.PlainDate.compare(Temporal.PlainDate.from(value.date), Temporal.Now.plainDateISO())>=0 : false;
-}));
+        return value.date
+            ? Temporal.PlainDate.compare(
+                  Temporal.PlainDate.from(value.date),
+                  Temporal.Now.plainDateISO(),
+              ) >= 0
+            : false;
+    },
+);
 
-export const nextMeetingBanner : string = nextMeeting? nextMeeting.date?
-            `<strong>Our next GBM will be in ${nextMeeting.location} on ${formatBannerDate(nextMeeting.date)}!</strong>`
-            : `<strong>Our next GBM will be in ${nextMeeting.location}!</strong>`
-            : `<string>No meetings until next semester. Check back soon for the new schedule!</strong>`;
+export const nextMeetingBanner: string = nextMeeting
+    ? nextMeeting.date
+        ? `<strong>Our next GBM will be in ${nextMeeting.location} on ${formatBannerDate(nextMeeting.date)}!</strong>`
+        : `<strong>Our next GBM will be in ${nextMeeting.location}!</strong>`
+    : `<string>No meetings until next semester. Check back soon for the new schedule!</strong>`;
 
-function formatBannerDate(date : Temporal.PlainDate | Temporal.PlainDateTime): string{
+function formatBannerDate(
+    date: Temporal.PlainDate | Temporal.PlainDateTime,
+): string {
     const formatter = new Intl.DateTimeFormat("en-US", {
         weekday: "long",
         month: "long",
@@ -42,8 +56,7 @@ function formatBannerDate(date : Temporal.PlainDate | Temporal.PlainDateTime): s
     const text = formatter.format(date);
     const day = date.day;
 
-    const finalText = text
-        .replace(String(day), `${day}${nth(day)}`)
+    const finalText = text.replace(String(day), `${day}${nth(day)}`);
     return finalText;
 }
 
@@ -111,14 +124,23 @@ export function generateMeetingSchedule(
         try {
             const time = Temporal.PlainTime.from(date); // Check if time is present
             date = dateObj.toPlainDateTime(time);
-            if (minutesUploaded && Temporal.PlainTime.compare(date, (markdownTransition.toPlainDateTime(time))) >= 0) {
+            if (
+                minutesUploaded &&
+                Temporal.PlainTime.compare(
+                    date,
+                    markdownTransition.toPlainDateTime(time),
+                ) >= 0
+            ) {
                 minutesUploaded = "docusaurus";
             }
         } catch {
             // no time is provided, just use the date
             date = dateObj;
 
-            if (minutesUploaded && Temporal.PlainDate.compare(date, markdownTransition) >= 0) {
+            if (
+                minutesUploaded &&
+                Temporal.PlainDate.compare(date, markdownTransition) >= 0
+            ) {
                 minutesUploaded = "docusaurus";
             }
         }

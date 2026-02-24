@@ -16,11 +16,7 @@ import {
 import { BookmarkDropdownItem } from "./Bookmarks";
 import type { TRexProcessedEvent } from "./types";
 import { EventFilter } from "./EventFilter";
-import {
-    useRexData,
-    map_or_object,
-    getOptimalForegroundColor,
-} from "./helpers";
+import { useRexData, mapOrObject, getOptimalForegroundColor } from "./helpers";
 
 import { Error, LoadingFallback } from "./rexContent";
 
@@ -276,7 +272,7 @@ function EventCard(props: EventCardProps) {
 
     const cardStyle: CSSProperties = {};
     if (props.event.tags.includes("signature")) {
-        const signature_color = map_or_object(data?.colors.tags, "signature");
+        const signature_color = mapOrObject(data?.colors.tags, "signature");
 
         cardStyle.border = `2px solid ${signature_color ?? ""}`;
         cardStyle.boxShadow = `0px 0px 6px 1px ${signature_color ?? ""}`;
@@ -322,7 +318,7 @@ function EventCard(props: EventCardProps) {
                             <ColoredBadge
                                 key={idx}
                                 className="badge badge--secondary margin-right--sm"
-                                color={map_or_object(data?.colors.tags, tag)}
+                                color={mapOrObject(data?.colors.tags, tag)}
                                 onClick={() => {
                                     setFilter({ ...filter, tagFilter: tag });
                                 }}
@@ -365,7 +361,7 @@ function EventCard(props: EventCardProps) {
                     <div key={dorm}>
                         <ColoredBadge
                             className="badge margin-right--sm"
-                            color={map_or_object(data?.colors.dorms, dorm)}
+                            color={mapOrObject(data?.colors.dorms, dorm)}
                             onClick={() => {
                                 setFilter({
                                     ...filter,
@@ -393,14 +389,14 @@ function EventCard(props: EventCardProps) {
                             }}
                             color={
                                 // look for group color first
-                                map_or_object(
+                                mapOrObject(
                                     data?.colors.groups,
                                     props.event.dorm.find((d) =>
                                         data?.groups[d]?.includes(group),
                                     ) ?? "",
                                 )?.get(group) ??
                                 // then look for dorm color
-                                map_or_object(
+                                mapOrObject(
                                     data?.colors.dorms,
                                     props.event.dorm.find((d) =>
                                         data?.groups[d]?.includes(group),
