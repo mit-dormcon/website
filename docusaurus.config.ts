@@ -42,7 +42,6 @@ const config: Config = {
     ],
     themeConfig: {
         announcementBar: {
-            id: "gbm_i26",
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
             // TODO: find a way to auto update this...

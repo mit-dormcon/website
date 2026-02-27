@@ -7,17 +7,17 @@ if (!("Temporal" in globalThis)) {
 
 export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 
-export const markdownTransition: Temporal.PlainDate = new Temporal.PlainDate(
-    2021,
-    2,
-    25,
-);
+export const markdownTransition = Temporal.PlainDate.from({
+    year: 2021,
+    month: 2,
+    day: 25,
+});
 
 export const meetings: MeetingSchedule = {
     year: "Spring 2026",
     list: [
         generateMeetingSchedule("Baker", "2026-02-12 19:30"),
-        generateMeetingSchedule("Burton-Conner", "2026-02-26 19:30", false),
+        generateMeetingSchedule("Burton-Conner", "2026-02-26 19:30"),
         generateMeetingSchedule("MacGregor", "2026-03-12 19:30", false),
         generateMeetingSchedule("Maseeh", "2026-04-02 19:30", false),
         generateMeetingSchedule("McCormick", "2026-04-23 19:30", false),
@@ -25,21 +25,19 @@ export const meetings: MeetingSchedule = {
     ],
 };
 
-export const nextMeeting: Meeting | undefined = meetings.list.find(
-    (value: Meeting) => {
-        // const link = value.minutesLink;
-        // const ix = link? link.lastIndexOf("/") : 0;
-        // Return the first meeting where the meeting date is after or on today
-        return value.date
-            ? Temporal.PlainDate.compare(
-                  Temporal.PlainDate.from(value.date),
-                  Temporal.Now.plainDateISO(),
-              ) >= 0
-            : false;
-    },
-);
+export const nextMeeting = meetings.list.find((value) => {
+    // const link = value.minutesLink;
+    // const ix = link? link.lastIndexOf("/") : 0;
+    // Return the first meeting where the meeting date is after or on today
+    return value.date
+        ? Temporal.PlainDate.compare(
+              Temporal.PlainDate.from(value.date),
+              Temporal.Now.plainDateISO(),
+          ) >= 0
+        : false;
+});
 
-export const nextMeetingBanner: string = nextMeeting
+export const nextMeetingBanner = nextMeeting
     ? nextMeeting.date
         ? `<strong>Our next GBM will be in ${nextMeeting.location} on ${formatBannerDate(nextMeeting.date)}!</strong>`
         : `<strong>Our next GBM will be in ${nextMeeting.location}!</strong>`
