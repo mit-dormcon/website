@@ -87,6 +87,11 @@ function FeatureRow() {
                 <div>
                     <ul>
                         <li>
+                            <Link to="https://mtyc.co/nxws8f">
+                                Donate to the Residential Leadership fund!
+                            </Link>
+                        </li>
+                        <li>
                             <Link to="/resources/piazza">
                                 Ask a question on the DormCon Piazza.
                             </Link>
