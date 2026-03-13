@@ -18,7 +18,7 @@ export const meetings: MeetingSchedule = {
     list: [
         generateMeetingSchedule("Baker", "2026-02-12 19:30"),
         generateMeetingSchedule("Burton-Conner", "2026-02-26 19:30"),
-        generateMeetingSchedule("MacGregor", "2026-03-12 19:30", false),
+        generateMeetingSchedule("MacGregor", "2026-03-12 19:30"),
         generateMeetingSchedule("Maseeh", "2026-04-02 19:30", false),
         generateMeetingSchedule("McCormick", "2026-04-23 19:30", false),
         generateMeetingSchedule("TBD (Elections!)", "2026-05-07 19:30", false),

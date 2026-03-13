@@ -8,7 +8,7 @@ const sidebars: SidebarsConfig = {
             dirName: "about",
         },
     ],
-    // TODO: add back when we have minutes pages
+    // TODONE: add back when we have minutes pages
     minutes: [
         {
             type: "category",
