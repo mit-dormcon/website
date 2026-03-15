@@ -6,6 +6,7 @@ sidebar_position: 3
 import MeetingsComponent from "../../components/MeetingsComponent";
 import { meetings } from "../../data/meetings";
 import Link from "@docusaurus/Link";
+import Heading from '@theme/Heading'
 
 # Meetings
 
@@ -25,7 +26,7 @@ dormcon-secretary@mit.edu for help.
 _Please note that this schedule is tentative and subject to change._
 
 <div>
-    <h3>
+    <Heading as="h3">
         {meetings.year}
         {meetings.gcalLink && (
             <>
@@ -37,6 +38,6 @@ _Please note that this schedule is tentative and subject to change._
                 </Link>
             </>
         )}
-    </h3>
+    </Heading>
 </div>
 <MeetingsComponent meetings={meetings.list} />

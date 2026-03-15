@@ -5,6 +5,7 @@ sidebar_position: 4
 
 import OfficersTable from "../../components/OfficersTable";
 import { officers } from "../../data/officers";
+import Heading from '@theme/Heading'
 
 # Officers
 
@@ -123,6 +124,6 @@ work for REX.
 
 ## Current Officers
 
-<h2>Year {officers.year}</h2>
+<Heading as="h3">Year {officers.year}</Heading>
 
 <OfficersTable data={officers.list} />

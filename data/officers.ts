@@ -11,7 +11,7 @@ export const officers: Term = {
             kerb: "dtemkin",
         },
         {
-            position: "Housing Chair",
+            position: "Vice President",
             name: "Daniel Gonzalez",
             affiliation: "East Campus",
             year: undefined,
@@ -54,10 +54,10 @@ export const officers: Term = {
         },
         {
             position: "Housing Chair",
-            name: "",
-            affiliation: "",
-            year: undefined,
-            kerb: "",
+            name: "Valeria Ramirez",
+            affiliation: "Burton Conner",
+            year: 2029,
+            kerb: "rvaleria",
         },
         {
             position: "Judcomm Chair",
