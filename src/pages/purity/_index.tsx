@@ -1,7 +1,13 @@
-import { useEffect, useState } from "react";
+import {
+    type ReactNode,
+    type Dispatch,
+    type SetStateAction,
+    useEffect,
+    useState,
+} from "react";
 import Heading from "@theme/Heading";
 
-const QUESTIONS: string[] = [
+const QUESTIONS: ReactNode[] = [
     "attended a dormcon meeting",
     "attended a dormcon meeting more than once",
     "attended dormcon for more than a year",
@@ -104,15 +110,17 @@ const QUESTIONS: string[] = [
     "hung out with snaggs",
 ];
 
+interface ChecklistItemProps {
+    setActiveItemsCount: Dispatch<SetStateAction<number>>;
+    id: string;
+    children: ReactNode;
+}
+
 const ChecklistItem = ({
     setActiveItemsCount,
-    label,
     id,
-}: {
-    setActiveItemsCount: React.Dispatch<React.SetStateAction<number>>;
-    label: string;
-    id: string;
-}) => {
+    children,
+}: ChecklistItemProps) => {
     const [isActive, setIsActive] = useState(false);
 
     const changeHandler = () => {
@@ -143,7 +151,7 @@ const ChecklistItem = ({
                 onChange={changeHandler}
                 id={id}
             />
-            <label htmlFor={id}>{label}</label>
+            <label htmlFor={id}>{children}</label>
         </>
     );
 };
@@ -163,9 +171,10 @@ export function PurityTest() {
                     <li key={index}>
                         <ChecklistItem
                             setActiveItemsCount={setActiveItemsCount}
-                            label={question}
                             id={`question-${index}`}
-                        />
+                        >
+                            {question}
+                        </ChecklistItem>
                     </li>
                 ))}
             </ol>
