@@ -45,8 +45,8 @@ collaboration between DormCon and SIPB!**
 ## What dormspam list should I be on?
 
 - Go to [join-dormspam.mit.edu](https://join-dormspam.mit.edu/), which will
-  automatically identitify which dorm you live in, and tellsyou how to join that
-  list.
+  automatically identitify which dorm you live in, and tells you how to join
+  that list.
 - If you don't live in a dorm, it will redirect you to `random-hall-dormspam`,
   which is run by Random Hall, but is open to all current undergraduate and
   graduate students. `random-hall-dormspam` does not get any traffic other than
