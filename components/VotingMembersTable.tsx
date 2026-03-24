@@ -24,9 +24,17 @@ export default function VotingMembersTable(props: { data: DormConMember[] }) {
                 {data.map((m, idx) => (
                     <tr key={idx}>
                         <td>
-                            <Link to={m.url} target="_blank" rel="noreferrer">
-                                {m.dorm}
-                            </Link>
+                            {m.url ? (
+                                <Link
+                                    to={m.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    {m.dorm}
+                                </Link>
+                            ) : (
+                                m.dorm
+                            )}
                         </td>
                         <td>{generatePrezString(m.president)}</td>
                         <td>
