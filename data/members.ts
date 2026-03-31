@@ -69,7 +69,7 @@ export const members: DormConMember[] = [
     },
     {
         dorm: "UG in Grad Housing",
-        president: [],
+        president: ["Calvin Macatantan"],
         kerbs: ["ug-in-grad-rep"],
         // TODO: add page on housing.mit.edu once its ready
         // url: "",
