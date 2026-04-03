@@ -37,5 +37,5 @@ export interface DormConMember {
     /** A list with the mailing list of the dorm's president without @mit.edu */
     kerbs: string[];
     /** A link to the dorm's website */
-    url: string;
+    url?: string;
 }
