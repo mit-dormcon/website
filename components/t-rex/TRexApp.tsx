@@ -581,7 +581,6 @@ function eventDateDisplay(
     const duration = start
         .until(end)
         .round({ largestUnit: "hour", smallestUnit: "minute" })
-        // @ts-expect-error TS doesn't know about the localeString option
         .toLocaleString("en-US", { style: "narrow" });
     let timeUntil: Temporal.Instant;
     const now = Temporal.Now.instant();
@@ -608,7 +607,6 @@ function eventDateDisplay(
             .until(timeUntil)
             .abs()
             .round({ largestUnit: "day", smallestUnit: "minute" })
-            // @ts-expect-error TS doesn't know about the localeString option
             .toLocaleString("en-US", { style: "long" }),
     );
     const timeContextExact = timeContextExactBuilder(

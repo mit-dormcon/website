@@ -1,10 +1,14 @@
 import type { Config } from "@docusaurus/types";
+import { themes as prismThemes } from "prism-react-renderer";
 import type * as Preset from "@docusaurus/preset-classic";
 import type * as Plugin from "@docusaurus/types/src/plugin";
 
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 import type * as SearchPlugin from "@easyops-cn/docusaurus-search-local";
+
 import { nextMeetingBanner } from "./data/meetings";
+
+// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 if (!("Temporal" in globalThis)) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -27,9 +31,6 @@ const config: Config = {
     },
     markdown: {
         format: "detect",
-        hooks: {
-            onBrokenMarkdownLinks: "warn",
-        },
     },
     headTags: [
         {
@@ -200,6 +201,10 @@ const config: Config = {
                 groupByYear: false,
             },
         },
+        prism: {
+            theme: prismThemes.github,
+            darkTheme: prismThemes.dracula,
+        },
     } satisfies Preset.ThemeConfig,
     presets: [
         [
@@ -296,7 +301,6 @@ const config: Config = {
         ],
     ],
     future: {
-        experimental_faster: true,
         v4: true,
     },
 };

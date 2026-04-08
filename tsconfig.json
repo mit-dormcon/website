@@ -2,7 +2,15 @@
     "extends": "@docusaurus/tsconfig",
     "compilerOptions": {
         "baseUrl": ".",
-        "strict": true
+        "ignoreDeprecations": "6.0",
+        "strict": true,
+        "types": [
+            "node",
+            "react",
+            "react-dom",
+            "@docusaurus/module-type-aliases",
+            "gtag.js"
+        ]
     },
     "exclude": [".docusaurus", "build"]
 }
