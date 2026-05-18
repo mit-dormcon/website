@@ -71,7 +71,6 @@ export const members: DormConMember[] = [
         dorm: "UG in Grad Housing",
         president: ["Calvin Macatantan"],
         kerbs: ["ug-in-grad-rep"],
-        // TODO: add page on housing.mit.edu once its ready
-        // url: "",
+        url: "https://housing.mit.edu/housing-information/living-campus/undergraduates-graduate-housing",
     },
 ];
