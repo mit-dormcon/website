@@ -14,6 +14,17 @@ interface MinutesLink {
 
 const meetings: (MeetingSchedule | MinutesLink)[] = [
     {
+        year: "Spring 2026",
+        list: [
+            generateMeetingSchedule("Baker", "2026-02-12 19:30"),
+            generateMeetingSchedule("Burton-Conner", "2026-02-26 19:30"),
+            generateMeetingSchedule("MacGregor", "2026-03-12 19:30"),
+            generateMeetingSchedule("Maseeh", "2026-04-02 19:30"),
+            generateMeetingSchedule("McCormick", "2026-04-23 19:30"),
+            generateMeetingSchedule("1-190", "2026-05-07 19:30"),
+        ],
+    },
+    {
         year: "Fall 2025",
         list: [
             generateMeetingSchedule("East Campus", "2025-09-11 19:00"),
@@ -1192,6 +1203,123 @@ const meetings: (MeetingSchedule | MinutesLink)[] = [
 ];
 
 const officers: Term[] = [
+    {
+        year: "2025-2026",
+        list: [
+            {
+                position: "President",
+                name: "Diego Temkin",
+                affiliation: "East Campus",
+                year: 2026,
+                kerb: "dtemkin",
+            },
+            {
+                position: "Vice President",
+                name: "Daniel Gonzalez",
+                affiliation: "East Campus",
+                year: undefined,
+                kerb: "gonzalez",
+            },
+            {
+                position: "Treasurer",
+                name: "Gabriel Gomez",
+                affiliation: "MacGregor",
+                year: 2027,
+                kerb: "gabgomez",
+            },
+            {
+                position: "Secretary",
+                name: "Paola Namphy",
+                affiliation: "New House",
+                year: 2026,
+                kerb: "paolanam",
+            },
+            {
+                position: "REX/CPW Chair",
+                name: "Gabriel Gomez",
+                affiliation: "MacGregor",
+                year: 2027,
+                kerb: "gabgomez",
+            },
+            {
+                position: "REX/CPW Chair",
+                name: "Miranda Zhao",
+                affiliation: "Random",
+                year: 2029,
+                kerb: "mhz",
+            },
+            {
+                position: "Housing Chair",
+                name: "Haylea Brock",
+                affiliation: "Burton Conner",
+                year: 2027,
+                kerb: "hbrock",
+            },
+            {
+                position: "Housing Chair",
+                name: "Valeria Ramirez",
+                affiliation: "Burton Conner",
+                year: 2029,
+                kerb: "rvaleria",
+            },
+            {
+                position: "Judcomm Chair",
+                name: "Helena Usey",
+                affiliation: "Maseeh Hall",
+                year: 2026,
+                kerb: "hmusey",
+            },
+            {
+                position: "Judcomm Chair",
+                name: "Michaela Olimene",
+                affiliation: "New Vassar",
+                year: 2027,
+                kerb: "molimene",
+            },
+            {
+                position: "Underclassmen Representative",
+                name: "Andrew Wu",
+                affiliation: "Simmons",
+                year: 2028,
+                kerb: "andwu",
+            },
+            {
+                position: "Underclassmen Representative",
+                name: "Ericsson Ansah-Antwi",
+                affiliation: "New House",
+                year: 2029,
+                kerb: "ericsson",
+            },
+            {
+                position: "Dining Chair",
+                name: "Jackson Hamilton",
+                affiliation: "Simmons",
+                year: 2028,
+                kerb: "jackham",
+            },
+            {
+                position: "Dining Chair",
+                name: "Eugenie Cha",
+                affiliation: "Simmons",
+                year: 2028,
+                kerb: "eugeniec",
+            },
+            {
+                position: "i3 Chair",
+                name: "Shelly Yang",
+                affiliation: "East Campus",
+                year: 2029,
+                kerb: "shellyy",
+            },
+            {
+                position: "Tech Chair",
+                name: "Camila Pierce",
+                affiliation: "Baker House",
+                year: 2027,
+                kerb: "cepierce",
+            },
+        ],
+    },
     {
         year: "2024-2025",
         list: [
