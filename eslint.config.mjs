@@ -4,8 +4,7 @@ import globals from "globals";
 import eslint from "@eslint/js";
 
 import { FlatCompat } from "@eslint/eslintrc";
-import { defineConfig } from "eslint/config";
-import { includeIgnoreFile } from "@eslint/compat";
+import { defineConfig, includeIgnoreFile } from "eslint/config";
 import { fileURLToPath } from "node:url";
 
 import reactPlugin from "eslint-plugin-react";
