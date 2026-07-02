@@ -3780,10 +3780,10 @@
     "@types/history" "^4.7.11"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^19.2.16":
-  version "19.2.16"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.2.16.tgz#9868b153fd9e34e0117afcd5d7e372b8179337e1"
-  integrity sha512-esJiCAnl0kfpNdE69f3So4WJUXy95dLZydX0KwK46riIHDzHM7O9Vtf9xCHW0PXIqvgqNrswl522kA/5yx+F4w==
+"@types/react@*", "@types/react@^19.2.17":
+  version "19.2.17"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.2.17.tgz#dccac365baa0f1734ec270ff4b51c89465e8dc7f"
+  integrity sha512-MXfmqaVPEVgkBT/aY0aGCkRWWtByiYQXo3xdQ8r5RzuFrPiRn8Gar2tQdXSUQ2GKV3bkXckek89V8wQBY2Q/Aw==
   dependencies:
     csstype "^3.2.2"
 
@@ -5630,10 +5630,10 @@ doctrine@^2.1.0:
   dependencies:
     esutils "^2.0.2"
 
-docusaurus-plugin-openapi-docs@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/docusaurus-plugin-openapi-docs/-/docusaurus-plugin-openapi-docs-5.0.2.tgz#f00028621deb9179065fe7d6a541256692ef941b"
-  integrity sha512-WCC2m6PpylXZfNga+ScelTG0a7jUGtbB9+AmbR9lUj93FPryTs8VHTMJ3fKtO0senJTWgOU3MDvZw0v+mE3ztA==
+docusaurus-plugin-openapi-docs@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/docusaurus-plugin-openapi-docs/-/docusaurus-plugin-openapi-docs-5.1.0.tgz#9732f81f45a5bc126bcafcb150332b7623ddece7"
+  integrity sha512-ocRemE3KmdhhPKaow5hja1m1NLIPfNlfRYFt7pja+nG26Wlp0MEC9ERS99gSWEWaxU+txDFBpUXsxo7nGlk8ZA==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^15.3.3"
     "@redocly/openapi-core" "^2.25.2"
@@ -5658,10 +5658,10 @@ docusaurus-plugin-sass@^0.2.6:
   dependencies:
     sass-loader "^16.0.2"
 
-docusaurus-theme-openapi-docs@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/docusaurus-theme-openapi-docs/-/docusaurus-theme-openapi-docs-5.0.2.tgz#2ab6f6b04fc2e494e24971d31432a9187c84a2fe"
-  integrity sha512-BD6WhbunR6kXqtoUUDlhxO4HlCNM2nYENGr/TbiTEknkgXYKQz+FEIhY4Hyz5GSLpuhPih0CDuNl7Xkfpcz0Yw==
+docusaurus-theme-openapi-docs@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/docusaurus-theme-openapi-docs/-/docusaurus-theme-openapi-docs-5.1.0.tgz#4b9b7024130bd299a56bffe238c584280851012f"
+  integrity sha512-SLHg1lodIM5AEGo0EJx4pJ+9szDDrN8Q+hNk5qqTVJ60k/zKjHAnwGCzVDT25K1CCMDPaUzuuruj43d7TRoQKw==
   dependencies:
     "@hookform/error-message" "^2.0.1"
     "@reduxjs/toolkit" "^2.8.2"
@@ -10293,10 +10293,10 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prettier@^3.8.3:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.8.3.tgz#560f2de55bf01b4c0503bc629d5df99b9a1d09b0"
-  integrity sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==
+prettier@^3.9.4:
+  version "3.9.4"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.9.4.tgz#a9c477cf1614376bd1f6bbc593d8c0d414bcec87"
+  integrity sha512-yWG/o/4oJfo036EKAfK6ACAoDOfHeRHx4tuxkfBZiauURiaSmYwlpOr5LQqKtIkRD2z1PLteme2WoxEnj4tHTg==
 
 pretty-error@^4.0.0:
   version "4.0.0"
@@ -11765,10 +11765,10 @@ swc-loader@^0.2.6:
   dependencies:
     "@swc/counter" "^0.1.3"
 
-swr@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-2.4.1.tgz#c9e48abff6bf4b04846342e2f1f6be108a078cf6"
-  integrity sha512-2CC6CiKQtEwaEeNiqWTAw9PGykW8SR5zZX8MZk6TeAvEAnVS7Visz8WzphqgtQ8v2xz/4Q5K+j+SeMaKXeeQIA==
+swr@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-2.4.2.tgz#741ba9c804db756cfa966376cbc33f84a2d88cfd"
+  integrity sha512-ej644Y2bvkIajfR32KGeSSdBXQW+ScjGjkybZgSE7kFpk9eGnV44XY9FJylXi+W75pavSX1PVNB57W5EbhGIYw==
   dependencies:
     dequal "^2.0.3"
     use-sync-external-store "^1.6.0"
