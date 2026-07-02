@@ -6,11 +6,11 @@ import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 import type * as SearchPlugin from "@easyops-cn/docusaurus-search-local";
 
-import { nextMeetingBanner } from "./data/meetings";
+// import { nextMeetingBanner } from "./data/meetings";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-import "temporal-polyfill/global";
+// import "temporal-polyfill/global";
 
 const config: Config = {
     title: "DormCon",
@@ -43,7 +43,9 @@ const config: Config = {
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
             // TODO: find a way to auto update this...
-            content: nextMeetingBanner,
+            content:
+                "<strong>No meetings until next semester. Check back soon for the new schedule!</strong>",
+            // content: nextMeetingBanner,
         },
         navbar: {
             title: "MIT DormCon",
@@ -188,7 +190,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: `Copyright © ${Temporal.Now.plainDateISO().year} MIT DormCon. Built with Docusaurus.`,
+            copyright: `Copyright © ${new Date().getFullYear()} MIT DormCon. Built with Docusaurus.`,
         },
         colorMode: {
             respectPrefersColorScheme: true,

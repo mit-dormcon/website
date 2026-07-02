@@ -31,7 +31,7 @@ export const nextMeetingBanner = nextMeeting
     ? nextMeeting.date
         ? `<strong>Our next GBM will be in ${nextMeeting.location} on ${formatBannerDate(nextMeeting.date)}!</strong>`
         : `<strong>Our next GBM will be in ${nextMeeting.location}!</strong>`
-    : `<string>No meetings until next semester. Check back soon for the new schedule!</strong>`;
+    : `<strong>No meetings until next semester. Check back soon for the new schedule!</strong>`;
 
 function formatBannerDate(
     date: Temporal.PlainDate | Temporal.PlainDateTime,
