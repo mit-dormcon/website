@@ -47,7 +47,7 @@
         "react-chartjs-2": "^5.3.1",
         "react-dom": "^19.2.7",
         "sass": "^1.99.0",
-        "swr": "^2.4.1",
+        "swr": "^2.4.2",
         "temporal-polyfill": "^0.3.2"
     },
     "browserslist": {
