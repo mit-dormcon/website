@@ -1,7 +1,6 @@
 {
     "extends": "@docusaurus/tsconfig",
     "compilerOptions": {
-        "baseUrl": ".",
         "ignoreDeprecations": "6.0",
         "strict": true,
         "types": [
@@ -10,7 +9,8 @@
             "react-dom",
             "@docusaurus/module-type-aliases",
             "gtag.js"
-        ]
+        ],
+        "lib": ["esnext.temporal", "esnext.intl", "esnext.date"]
     },
     "exclude": [".docusaurus", "build"]
 }
