@@ -1,6 +1,6 @@
 import type { Meeting, MeetingSchedule } from "./types";
 
-import 'temporal-polyfill/global'
+import "temporal-polyfill/global";
 
 export const minutesFolder = "https://web-cert.mit.edu/dormcon/cert_minutes/";
 

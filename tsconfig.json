@@ -10,7 +10,13 @@
             "@docusaurus/module-type-aliases",
             "gtag.js"
         ],
-        "lib": ["esnext.temporal", "esnext.intl", "esnext.date"]
+        "lib": [
+            "ES2022",
+            "DOM",
+            "esnext.temporal",
+            "esnext.intl",
+            "esnext.date"
+        ]
     },
     "exclude": [".docusaurus", "build"]
 }

@@ -15,7 +15,7 @@ import { useRexData } from "./helpers";
 
 import styles from "./rex.module.css";
 
-import 'temporal-polyfill/global'
+import "temporal-polyfill/global";
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,
@@ -92,12 +92,10 @@ export function EventFilter(props: {
                     if (!(Temporal.Instant.compare(ev.start, now) >= 0))
                         return false;
                 } else if (timeFilter === TimeFilter.Ongoing) {
-                    if (
-                        !(
-                            Temporal.Instant.compare(ev.start, now) < 0 &&
-                            Temporal.Instant.compare(ev.end, now) >= 0
-                        )
-                    )
+                    if (!(
+                        Temporal.Instant.compare(ev.start, now) < 0 &&
+                        Temporal.Instant.compare(ev.end, now) >= 0
+                    ))
                         return false;
                 } else if (timeFilter === TimeFilter.OngoingUpcoming) {
                     if (!(Temporal.Instant.compare(ev.end, now) >= 0))

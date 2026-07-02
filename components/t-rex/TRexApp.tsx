@@ -20,7 +20,7 @@ import { useRexData, mapOrObject, getOptimalForegroundColor } from "./helpers";
 
 import { Error, LoadingFallback } from "./rexContent";
 
-import 'temporal-polyfill/global'
+import "temporal-polyfill/global";
 
 declare const gtag: Gtag.Gtag;
 

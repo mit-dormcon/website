@@ -10,7 +10,7 @@ import { nextMeetingBanner } from "./data/meetings";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-import 'temporal-polyfill/global'
+import "temporal-polyfill/global";
 
 const config: Config = {
     title: "DormCon",
