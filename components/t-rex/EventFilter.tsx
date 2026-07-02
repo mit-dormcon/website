@@ -15,9 +15,7 @@ import { useRexData } from "./helpers";
 
 import styles from "./rex.module.css";
 
-if (!("Temporal" in globalThis)) {
-    await import("temporal-polyfill/global");
-}
+import 'temporal-polyfill/global'
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,
