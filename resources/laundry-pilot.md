@@ -6,7 +6,7 @@ description:
     All washers and dryers in undergraduate residence halls will be free-to-use
     for academic year 2026-2027.
 date: 3/05/2026
-tags: [laundry]
+tags: [laundry, housing]
 ---
 
 We are happy to announce that, funded and organized by individual dorm
