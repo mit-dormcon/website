@@ -1,0 +1,4 @@
+.navbar {
+    /* Disables navbar auto-hide on events page */
+    position: static;
+}
