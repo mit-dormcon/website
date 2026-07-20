@@ -126,6 +126,11 @@ const config: Config = {
                     position: "left",
                 },
                 {
+                    to: "rex/event_submission",
+                    label: "REX Event Submissions",
+                    position: "left",
+                },
+                {
                     href: "https://web.mit.edu/dormcon/index.old.shtml",
                     label: "Old Site",
                     position: "right",
