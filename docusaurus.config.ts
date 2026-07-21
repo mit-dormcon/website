@@ -111,7 +111,8 @@ const config: Config = {
                 },
                 // TODONE: uncomment when ready
                 {
-                    to: "minutes",
+                    type: "doc",
+                    docId: "/minutes",
                     label: "Minutes",
                     position: "left",
                 },
@@ -121,14 +122,22 @@ const config: Config = {
                     position: "left",
                 },
                 {
-                    to: "rex",
+                    type: "dropdown",
                     label: "REX",
+                    to: "rex",
                     position: "left",
-                },
-                {
-                    to: "rex/event_submission",
-                    label: "REX Event Submissions",
-                    position: "left",
+                    items: [
+                        {
+                            type: "doc",
+                            docId: "rex/index",
+                            label: "About REX",
+                        },
+                        {
+                            type: "doc",
+                            docId: "rex/event_submission",
+                            label: "REX Event Submissions",
+                        },
+                    ],
                 },
                 {
                     href: "https://web.mit.edu/dormcon/index.old.shtml",
