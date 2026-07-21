@@ -6,11 +6,14 @@ import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 import type * as SearchPlugin from "@easyops-cn/docusaurus-search-local";
 
-// import { nextMeetingBanner } from "./data/meetings";
+import { nextMeetingBanner } from "./data/meetings";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-// import "temporal-polyfill/global";
+if (!("Temporal" in globalThis)) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require("temporal-polyfill/global");
+}
 
 const config: Config = {
     title: "DormCon",
@@ -42,10 +45,8 @@ const config: Config = {
         announcementBar: {
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-            // TODO: find a way to auto update this...
-            content:
-                "<strong>No meetings until next semester. Check back soon for the new schedule!</strong>",
-            // content: nextMeetingBanner,
+
+            content: nextMeetingBanner,
         },
         navbar: {
             title: "MIT DormCon",
@@ -204,7 +205,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} MIT DormCon. Built with Docusaurus.`,
+            copyright: `Copyright © ${Temporal.Now.plainDateISO().year} MIT DormCon. Built with Docusaurus.`,
         },
         colorMode: {
             respectPrefersColorScheme: true,

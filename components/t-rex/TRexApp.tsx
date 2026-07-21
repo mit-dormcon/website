@@ -20,7 +20,10 @@ import { useRexData, mapOrObject, getOptimalForegroundColor } from "./helpers";
 
 import { Error, LoadingFallback } from "./rexContent";
 
-import "temporal-polyfill/global";
+if (!("Temporal" in globalThis)) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require("temporal-polyfill/global");
+}
 
 declare const gtag: Gtag.Gtag;
 
@@ -483,15 +486,13 @@ function ColoredBadge(props: {
     return (
         <div
             className={props.className}
-            style={
-                {
-                    color: color,
-                    backgroundColor: backgroundColor,
-                    border: `var(--ifm-badge-border-width) solid ${borderColor}`,
-                    // Set cursor to pointer only when tag is clickable
-                    cursor: props.onClick && "pointer",
-                } as React.CSSProperties & Record<string, string>
-            }
+            style={{
+                color: color,
+                backgroundColor: backgroundColor,
+                border: `var(--ifm-badge-border-width) solid ${borderColor}`,
+                // Set cursor to pointer only when tag is clickable
+                cursor: props.onClick && "pointer",
+            }}
             onClick={props.onClick}
             onKeyDown={({ key }) => {
                 if (key === "Enter" && props.onClick) {

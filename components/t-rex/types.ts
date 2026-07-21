@@ -1,4 +1,7 @@
-import "temporal-polyfill/global";
+if (!("Temporal" in globalThis)) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require("temporal-polyfill/global");
+}
 
 /** Raw API output */
 export interface TRexAPIResponse {

@@ -15,7 +15,10 @@ import { useRexData } from "./helpers";
 
 import styles from "./rex.module.css";
 
-import "temporal-polyfill/global";
+if (!("Temporal" in globalThis)) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require("temporal-polyfill/global");
+}
 
 /**
  * Top-level event filter UI, containing options to filter by a string value,
