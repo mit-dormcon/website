@@ -20,10 +20,7 @@ import { useRexData, mapOrObject, getOptimalForegroundColor } from "./helpers";
 
 import { Error, LoadingFallback } from "./rexContent";
 
-if (!("Temporal" in globalThis)) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require("temporal-polyfill/global");
-}
+import "temporal-polyfill/global";
 
 declare const gtag: Gtag.Gtag;
 

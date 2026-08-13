@@ -1,8 +1,3 @@
-if (!("Temporal" in globalThis)) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require("temporal-polyfill/global");
-}
-
 /** Raw API output */
 export interface TRexAPIResponse {
     name: string; // The title of the current experience, such as "REX 2023"

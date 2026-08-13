@@ -2,10 +2,7 @@ import useSWR, { preload } from "swr";
 
 import type { TRexAPIResponse, TRexProcessedData } from "./types";
 
-if (!("Temporal" in globalThis)) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require("temporal-polyfill/global");
-}
+import "temporal-polyfill/global";
 
 const API_URL = "https://rex.mit.edu/api.json";
 

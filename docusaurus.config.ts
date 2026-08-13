@@ -8,12 +8,9 @@ import type * as SearchPlugin from "@easyops-cn/docusaurus-search-local";
 
 import { nextMeetingBanner } from "./data/meetings";
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+import "temporal-polyfill/global";
 
-if (!("Temporal" in globalThis)) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require("temporal-polyfill/global");
-}
+// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
     title: "DormCon",
@@ -45,7 +42,6 @@ const config: Config = {
         announcementBar: {
             backgroundColor: "var(--ifm-color-primary-contrast-background)",
             textColor: "var(--ifm-color-primary-contrast-foreground)",
-
             content: nextMeetingBanner,
         },
         navbar: {

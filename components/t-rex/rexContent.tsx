@@ -2,10 +2,7 @@ import Interpolate from "@docusaurus/Interpolate";
 
 import { useRexData } from "./helpers";
 
-if (!("Temporal" in globalThis)) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require("temporal-polyfill/global");
-}
+import "temporal-polyfill/global";
 
 export const REXName = () => {
     const { data } = useRexData();
