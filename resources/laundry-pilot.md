@@ -10,7 +10,7 @@ tags: [laundry, housing]
 ---
 
 We are happy to announce that, funded and organized by individual dorm
-governments, DormCon, and the UA, **beginning September 1st, 2026 and ending May
+governments, DormCon, and the UA, **beginning September 1st, 2026[^1] and ending May
 31st, 2027, laundry machines in all undergraduate residence halls will be
 free-to-use**. This means that all machines can be used as often as needed, and
 you will no longer need to use the CSC GO app to begin a cycle.
@@ -38,3 +38,7 @@ Your [dorm presidents](../about/voting-members),
 [UA Officers](https://ua.mit.edu/officers/) have worked with HRS over the course
 of the academic year to make this possible. If you have any thoughts, comments,
 or concerns, please don’t hesitate to reach out to <dormcon-laundry@mit.edu>.
+
+[^1]: Edit on 8/20/2026: This program will begin August 25th, 2026 instead of on 
+September 1st, 2026. This is to cover the usage of incoming first-years and early 
+returns.
