@@ -119,22 +119,10 @@ const config: Config = {
                     position: "left",
                 },
                 {
-                    type: "dropdown",
+                    type: "doc",
                     label: "REX",
-                    to: "rex",
+                    docId: "rex/index",
                     position: "left",
-                    items: [
-                        {
-                            type: "doc",
-                            docId: "rex/index",
-                            label: "About REX",
-                        },
-                        {
-                            type: "doc",
-                            docId: "rex/event_submission",
-                            label: "REX Event Submissions",
-                        },
-                    ],
                 },
                 {
                     href: "https://web.mit.edu/dormcon/index.old.shtml",
