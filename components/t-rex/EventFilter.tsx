@@ -11,7 +11,8 @@ import { debounce, isEqual } from "lodash";
 import clsx from "clsx";
 
 import {
-    FilterContext,
+    FilterValueContext,
+    SetFilterContext,
     FilterSettings,
     TimeFilter,
     unsetFilter,
@@ -39,7 +40,8 @@ export function EventFilter(props: {
     setRelativeTime: (val: boolean) => void;
 }) {
     const { saved, setEvents, showRelativeTime, setRelativeTime } = props;
-    const { filter, setFilter } = useContext(FilterContext);
+    const filter = useContext(FilterValueContext);
+    const setFilter = useContext(SetFilterContext);
 
     const { data } = useRexData();
     const [previousSearchValue, setPreviousSearchValue] = useState<string>("");

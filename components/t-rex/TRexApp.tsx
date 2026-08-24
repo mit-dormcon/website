@@ -7,7 +7,8 @@ import Link from "@docusaurus/Link";
 
 import styles from "./rex.module.css";
 import {
-    FilterContext,
+    FilterValueContext,
+    SetFilterContext,
     type FilterSettings,
     TimeFilter,
     timeFilterMap,
@@ -136,40 +137,42 @@ export function TRexApp() {
     if (!data) return <Error />;
 
     return (
-        <FilterContext.Provider value={{ filter, setFilter }}>
-            <div className="margin-vert--md">
-                <p className="margin-bottom--sm">
-                    <Link
-                        className="button button--primary button--sm margin-right--sm"
-                        to="/rex/toolbox"
-                    >
-                        🧰 Toolbox
-                    </Link>
-                    <Link
-                        className="button button--primary button--sm margin-right--sm"
-                        to="/rex/help"
-                    >
-                        ❓ Help
-                    </Link>
-                    <b>{events?.length}</b>/{data?.events.length} events,
-                    published {data?.published.toLocaleString()}
-                </p>
-                <EventFilter
-                    setEvents={setEvents}
-                    saved={savedEvents}
-                    showRelativeTime={showRelativeTime}
-                    setRelativeTime={setShowRelativeTime}
-                />
-                <EventLayout
-                    events={events}
-                    saved={savedEvents}
-                    setSaved={setSavedEvents}
-                    showRelativeTime={showRelativeTime}
-                    setEvents={setEvents}
-                    isBookmarkFilterOn={filter.bookmarksOnly}
-                />
-            </div>
-        </FilterContext.Provider>
+        <SetFilterContext.Provider value={setFilter}>
+            <FilterValueContext.Provider value={filter}>
+                <div className="margin-vert--md">
+                    <p className="margin-bottom--sm">
+                        <Link
+                            className="button button--primary button--sm margin-right--sm"
+                            to="/rex/toolbox"
+                        >
+                            🧰 Toolbox
+                        </Link>
+                        <Link
+                            className="button button--primary button--sm margin-right--sm"
+                            to="/rex/help"
+                        >
+                            ❓ Help
+                        </Link>
+                        <b>{events?.length}</b>/{data?.events.length} events,
+                        published {data?.published.toLocaleString()}
+                    </p>
+                    <EventFilter
+                        setEvents={setEvents}
+                        saved={savedEvents}
+                        showRelativeTime={showRelativeTime}
+                        setRelativeTime={setShowRelativeTime}
+                    />
+                    <EventLayout
+                        events={events}
+                        saved={savedEvents}
+                        setSaved={setSavedEvents}
+                        showRelativeTime={showRelativeTime}
+                        setEvents={setEvents}
+                        isBookmarkFilterOn={filter.bookmarksOnly}
+                    />
+                </div>
+            </FilterValueContext.Provider>
+        </SetFilterContext.Provider>
     );
 }
 
@@ -257,7 +260,7 @@ function EventCard(props: EventCardProps) {
 
     const { data } = useRexData();
 
-    const { filter, setFilter } = useContext(FilterContext);
+    const setFilter = useContext(SetFilterContext);
 
     const cardStyle: CSSProperties = {};
     if (props.event.tags.includes("signature")) {
@@ -309,7 +312,10 @@ function EventCard(props: EventCardProps) {
                                 className="badge badge--secondary margin-right--sm"
                                 color={mapOrObject(data?.colors.tags, tag)}
                                 onClick={() => {
-                                    setFilter({ ...filter, tagFilter: tag });
+                                    setFilter((f) => ({
+                                        ...f,
+                                        tagFilter: tag,
+                                    }));
                                 }}
                             >
                                 {tag}
@@ -352,11 +358,11 @@ function EventCard(props: EventCardProps) {
                             className="badge margin-right--sm"
                             color={mapOrObject(data?.colors.dorms, dorm)}
                             onClick={() => {
-                                setFilter({
-                                    ...filter,
+                                setFilter((f) => ({
+                                    ...f,
                                     dormFilter: dorm,
                                     groupFilter: undefined,
-                                });
+                                }));
                             }}
                         >
                             {dorm}
@@ -373,11 +379,11 @@ function EventCard(props: EventCardProps) {
                             <ColoredBadge
                                 className="badge margin-right--sm"
                                 onClick={() => {
-                                    setFilter({
-                                        ...filter,
+                                    setFilter((f) => ({
+                                        ...f,
                                         dormFilter: dormForGroup,
                                         groupFilter: group,
-                                    });
+                                    }));
                                 }}
                                 color={
                                     // look for group color first

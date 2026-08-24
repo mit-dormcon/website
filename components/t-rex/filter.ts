@@ -36,15 +36,10 @@ export const unsetFilter: FilterSettings = {
     searchValue: "",
 };
 
-export const FilterContext = createContext<{
-    filter: FilterSettings;
-    setFilter: Dispatch<SetStateAction<FilterSettings>>;
-}>(
-    {} as {
-        filter: FilterSettings;
-        setFilter: Dispatch<SetStateAction<FilterSettings>>;
-    },
-);
+export const FilterValueContext = createContext<FilterSettings>(unsetFilter);
+export const SetFilterContext = createContext<
+    Dispatch<SetStateAction<FilterSettings>>
+>(() => undefined);
 
 export const timeFilterMap: Record<string, TimeFilter> = {
     all: TimeFilter.AllEvents,
