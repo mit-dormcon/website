@@ -4,7 +4,7 @@ on:
     push:
         branches:
             - main
-    workflow_call: # to make the workflow triggerable from other workflows (release.yaml)
+    workflow_dispatch:
 
 permissions:
     contents: write
@@ -29,6 +29,7 @@ jobs:
               run: yarn run api-docs
 
             - name: Commit and push changes
+              id: changes
               run: |
                   git config --global user.name "${{ github.actor }}"
                   git config --global user.email "${{ github.actor }}@users.noreply.github.com"
@@ -36,6 +37,12 @@ jobs:
                       git add -A
                       git commit -m "Update API documentation"
                       git push origin main
+                      echo "changed=true" >> $GITHUB_OUTPUT
                   else
                       echo "No changes to commit"
+                      echo "changed=false" >> $GITHUB_OUTPUT
                   fi
+
+            - name: Run deploy workflow if changes were made
+              if: steps.changes.outputs.changed == 'true'
+              uses: ./.github/workflows/deploy.yml
