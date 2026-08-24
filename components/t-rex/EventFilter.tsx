@@ -1,4 +1,11 @@
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import {
+    useCallback,
+    useContext,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from "react";
 import Fuse from "fuse.js";
 import { debounce, isEqual } from "lodash";
 import clsx from "clsx";
@@ -7,7 +14,6 @@ import {
     FilterContext,
     FilterSettings,
     TimeFilter,
-    timeFilterMap,
     unsetFilter,
 } from "./filter";
 import { TRexProcessedEvent } from "./types";
@@ -134,19 +140,23 @@ export function EventFilter(props: {
         [fuse, data?.events, setEvents, saved],
     );
 
-    const searchForEventsDebounced = useCallback(
-        (filter: FilterSettings) => debounce(search, 500)(filter),
-        [search],
-    );
+    // reuse debounce instead of making a new one every time
+    const debouncedSearch = useMemo(() => debounce(search, 500), [search]);
 
-    // runs search when filter changes
+    useEffect(() => {
+        return () => {
+            debouncedSearch.cancel();
+        };
+    }, [debouncedSearch]);
+
+    // runs search when filter changes or when event data changes
     useEffect(() => {
         if (filter.searchValue == previousSearchValue || !filter.searchValue) {
             search(filter);
         } else {
-            searchForEventsDebounced(filter);
+            debouncedSearch(filter);
         }
-    }, [filter]);
+    }, [filter, data?.events]);
 
     return (
         <div
@@ -321,8 +331,7 @@ function ShareButton(props: FilterSettings) {
 
     const handleShare = () => {
         const url = new URL(window.location.origin + window.location.pathname);
-        if (props.searchValue)
-            url.searchParams.set("search", props.searchValue);
+        if (props.searchValue) url.searchParams.set("q", props.searchValue);
         if (props.dormFilter && props.dormFilter !== unsetFilter.dormFilter)
             url.searchParams.set("dorm", props.dormFilter);
         if (props.groupFilter && props.groupFilter !== unsetFilter.groupFilter)
@@ -330,12 +339,7 @@ function ShareButton(props: FilterSettings) {
         if (props.timeFilter && props.timeFilter !== TimeFilter.OngoingUpcoming)
             url.searchParams.set("time_filter", props.timeFilter);
         if (props.tagFilter && props.tagFilter !== unsetFilter.tagFilter)
-            url.searchParams.set(
-                "tag",
-                Object.entries(timeFilterMap).find(
-                    ([_, value]) => value === props.tagFilter,
-                )?.[0] ?? "",
-            );
+            url.searchParams.set("tag", props.tagFilter);
         if (
             props.bookmarksOnly &&
             props.bookmarksOnly !== unsetFilter.bookmarksOnly

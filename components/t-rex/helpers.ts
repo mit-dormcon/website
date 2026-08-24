@@ -55,15 +55,18 @@ export const mapOrObject = <T>(
     }
 };
 
-function standardizeColor(str: string) {
-    const ctx = document.createElement("canvas").getContext("2d");
+// reuse across calls for performance :wilt:
+let sharedColorCtx: CanvasRenderingContext2D | null = null;
 
-    if (!ctx) {
+function standardizeColor(str: string) {
+    sharedColorCtx ??= document.createElement("canvas").getContext("2d");
+
+    if (!sharedColorCtx) {
         throw new Error("Failed to create canvas context");
     }
 
-    ctx.fillStyle = str;
-    return ctx.fillStyle;
+    sharedColorCtx.fillStyle = str;
+    return sharedColorCtx.fillStyle;
 }
 
 // https://www.w3.org/TR/WCAG20/#relativeluminancedef

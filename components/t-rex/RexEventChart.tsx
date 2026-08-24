@@ -5,7 +5,7 @@ import {
     LinearScale,
     Tooltip,
 } from "chart.js";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Bar } from "react-chartjs-2";
 import { useHistory } from "@docusaurus/router";
 
@@ -28,11 +28,10 @@ import { useRexData } from "./helpers";
 ChartJS.register(BarElement, LinearScale, CategoryScale, Tooltip);
 
 export default function RexEventChart() {
-    const [eventsByDorm, setEventsByDorm] = useState<Map<string, number>>();
     const { data } = useRexData();
     const history = useHistory();
 
-    useEffect(() => {
+    const [values, labels] = useMemo(() => {
         const byDorm = new Map<string, number>();
         for (const event of data?.events ?? []) {
             event.dorm.forEach((dorm) => {
@@ -42,17 +41,14 @@ export default function RexEventChart() {
                 }
             });
         }
-        setEventsByDorm(byDorm);
-    }, [data]);
 
-    const [values, labels] = useMemo(() => {
-        const entries = Array.from(eventsByDorm?.entries() ?? []);
+        const entries = Array.from(byDorm.entries());
         entries.sort((a, b) => (a[0] > b[0] ? 1 : -1)); // Sort by dorm name
         const values = Array.from(entries, (e) => e[1]);
         const labels = Array.from(entries, (e) => e[0]);
 
         return [values, labels];
-    }, [eventsByDorm]);
+    }, [data]);
 
     return (
         <div>

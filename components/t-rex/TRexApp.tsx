@@ -90,15 +90,6 @@ export function TRexApp() {
     });
 
     useEffect(() => {
-        setEvents((e) => {
-            if (e === undefined && data?.events) {
-                return data.events;
-            }
-            return e;
-        });
-    }, [data?.events, setEvents]);
-
-    useEffect(() => {
         const savedStorage = localStorage.getItem("savedEvents");
         if (savedStorage) setSavedEvents(JSON.parse(savedStorage) as string[]);
     }, []);
@@ -286,7 +277,7 @@ function EventCard(props: EventCardProps) {
         return () => {
             clearInterval(intervalId);
         };
-    }, [props]);
+    }, [props.event.start, props.event.end]);
 
     return (
         <div
@@ -372,43 +363,43 @@ function EventCard(props: EventCardProps) {
                         </ColoredBadge>
                     </div>
                 ))}
-                {props.event.group?.map((group) => (
-                    <div key={group}>
-                        <ColoredBadge
-                            className="badge margin-right--sm"
-                            onClick={() => {
-                                setFilter({
-                                    ...filter,
-                                    dormFilter: props.event.dorm.find((d) =>
-                                        data?.groups[d]?.includes(group),
-                                    ),
-                                    groupFilter: group,
-                                });
-                            }}
-                            color={
-                                // look for group color first
-                                mapOrObject(
-                                    data?.colors.groups,
-                                    props.event.dorm.find((d) =>
-                                        data?.groups[d]?.includes(group),
-                                    ) ?? "",
-                                )?.get(group) ??
-                                // then look for dorm color
-                                mapOrObject(
-                                    data?.colors.dorms,
-                                    props.event.dorm.find((d) =>
-                                        data?.groups[d]?.includes(group),
-                                    ) ?? "",
-                                ) ??
-                                // if no group or dorm color, use default
-                                ""
-                            }
-                            outline={true}
-                        >
-                            {group}
-                        </ColoredBadge>
-                    </div>
-                ))}
+                {props.event.group?.map((group) => {
+                    // dorm this group belongs to
+                    const dormForGroup = props.event.dorm.find((d) =>
+                        data?.groups[d]?.includes(group),
+                    );
+                    return (
+                        <div key={group}>
+                            <ColoredBadge
+                                className="badge margin-right--sm"
+                                onClick={() => {
+                                    setFilter({
+                                        ...filter,
+                                        dormFilter: dormForGroup,
+                                        groupFilter: group,
+                                    });
+                                }}
+                                color={
+                                    // look for group color first
+                                    mapOrObject(
+                                        data?.colors.groups,
+                                        dormForGroup ?? "",
+                                    )?.get(group) ??
+                                    // then look for dorm color
+                                    mapOrObject(
+                                        data?.colors.dorms,
+                                        dormForGroup ?? "",
+                                    ) ??
+                                    // if no group or dorm color, use default
+                                    ""
+                                }
+                                outline={true}
+                            >
+                                {group}
+                            </ColoredBadge>
+                        </div>
+                    );
+                })}
                 <div
                     style={{ color: "var(--ifm-color-emphasis-700)" }}
                     className="margin-right--sm margin-left--sm"
