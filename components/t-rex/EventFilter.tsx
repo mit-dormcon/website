@@ -44,7 +44,6 @@ export function EventFilter(props: {
     const setFilter = useContext(SetFilterContext);
 
     const { data } = useRexData();
-    const [previousSearchValue, setPreviousSearchValue] = useState<string>("");
 
     const fuse = useRef<Fuse<TRexProcessedEvent>>(undefined);
 
@@ -136,7 +135,6 @@ export function EventFilter(props: {
                 events = [...startedEvents, ...upcomingEvents];
             }
 
-            setPreviousSearchValue(searchValue ?? "");
             setEvents(events);
         },
         [fuse, data?.events, setEvents, saved],
@@ -151,14 +149,23 @@ export function EventFilter(props: {
         };
     }, [debouncedSearch]);
 
+    // search text from last time this ran (eager)
+    const lastSeenSearchValue = useRef(filter.searchValue);
+
     // runs search when filter changes or when event data changes
     useEffect(() => {
-        if (filter.searchValue == previousSearchValue || !filter.searchValue) {
+        const searchValueChanged =
+            filter.searchValue !== lastSeenSearchValue.current;
+        lastSeenSearchValue.current = filter.searchValue;
+
+        if (!searchValueChanged || !filter.searchValue) {
+            // debounced was queued, cancel it
+            debouncedSearch.cancel();
             search(filter);
         } else {
             debouncedSearch(filter);
         }
-    }, [filter, data?.events]);
+    }, [filter, data?.events, search, debouncedSearch]);
 
     return (
         <div
@@ -289,7 +296,6 @@ export function EventFilter(props: {
                     <button
                         className="button button--sm button--outline button--primary margin-right--sm"
                         onClick={() => {
-                            setPreviousSearchValue(""); // makes search instant
                             setFilter(unsetFilter);
                         }}
                     >

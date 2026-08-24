@@ -167,8 +167,6 @@ export function TRexApp() {
                         saved={savedEvents}
                         setSaved={setSavedEvents}
                         showRelativeTime={showRelativeTime}
-                        setEvents={setEvents}
-                        isBookmarkFilterOn={filter.bookmarksOnly}
                     />
                 </div>
             </FilterValueContext.Provider>
@@ -181,8 +179,6 @@ interface EventLayoutProps {
     saved: string[];
     setSaved: (saved: string[]) => void;
     showRelativeTime: boolean;
-    isBookmarkFilterOn?: boolean;
-    setEvents: (events: TRexProcessedEvent[]) => void;
 }
 
 /**
@@ -192,13 +188,7 @@ interface EventLayoutProps {
 function EventLayout(props: EventLayoutProps) {
     const { data } = useRexData();
     const unsaveFunc = (n: string) => {
-        const events_remaining = props.saved.filter((name) => name !== n);
-        props.setSaved(events_remaining);
-        if (props.isBookmarkFilterOn && props.events) {
-            props.setEvents(
-                props.events.filter((ev) => events_remaining.includes(ev.id)),
-            );
-        }
+        props.setSaved(props.saved.filter((name) => name !== n));
     };
     const saveFunc = (n: string) => {
         if (!props.saved.includes(n)) props.setSaved([...props.saved, n]);
