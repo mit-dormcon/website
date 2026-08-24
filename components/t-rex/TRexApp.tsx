@@ -508,7 +508,7 @@ function ExpandableText(props: {
     const expandAmount = props.expandAmount ?? 140;
     let truncatePoint = 0;
     if (props.text.length > expandAmount) {
-        truncatePoint = props.text.lastIndexOf(" ", 140);
+        truncatePoint = props.text.lastIndexOf(" ", expandAmount);
         truncated = props.text.substring(0, truncatePoint);
     }
     return (
@@ -624,16 +624,24 @@ function GCalButton(props: { event: TRexProcessedEvent }) {
         );
     };
     // This URL syntax was sourced from https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/main/services/google.md
-    const buttonLink =
-        `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${props.event.dorm.join(", ")}: ${props.event.name}` +
-        `&dates=${formatGCalDate(props.event.start)}/${formatGCalDate(
-            props.event.end,
-        )}&ctz=America/New_York&details=${props.event.description}` +
-        `&location=${props.event.location}`;
+    const buttonLink = new URL("https://calendar.google.com/calendar/render");
+    buttonLink.searchParams.set("action", "TEMPLATE");
+    buttonLink.searchParams.set(
+        "text",
+        `${props.event.dorm.join(", ")}: ${props.event.name}`,
+    );
+    buttonLink.searchParams.set(
+        "dates",
+        `${formatGCalDate(props.event.start)}/${formatGCalDate(props.event.end)}`,
+    );
+    buttonLink.searchParams.set("ctz", "America/New_York");
+    buttonLink.searchParams.set("details", props.event.description);
+    buttonLink.searchParams.set("location", props.event.location);
+
     return (
         <Link
             className="dropdown__link"
-            to={encodeURI(buttonLink)}
+            to={buttonLink.toString()}
             onClick={logAnalytics}
         >
             🗓 Add to Calendar

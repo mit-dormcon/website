@@ -65,17 +65,35 @@ function standardizeColor(str: string) {
         throw new Error("Failed to create canvas context");
     }
 
+    // reset to black first in case input is invalid
+    sharedColorCtx.fillStyle = "#000000";
     sharedColorCtx.fillStyle = str;
     return sharedColorCtx.fillStyle;
+}
+
+function parseStandardizedColor(color: string): [number, number, number] {
+    if (color.startsWith("#")) {
+        return [
+            parseInt(color.substring(1, 3), 16),
+            parseInt(color.substring(3, 5), 16),
+            parseInt(color.substring(5, 7), 16),
+        ];
+    }
+
+    // apparently canvas can return rgb() and rgba() strings ???
+    const match = /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/.exec(color);
+    if (match) {
+        return [Number(match[1]), Number(match[2]), Number(match[3])];
+    }
+
+    // if it returns something else then...
+    return [0, 0, 0];
 }
 
 // https://www.w3.org/TR/WCAG20/#relativeluminancedef
 export function getOptimalForegroundColor(bgColor: string, WCAG20 = false) {
     const color = standardizeColor(bgColor);
-
-    const r = parseInt(color.substring(1, 3), 16);
-    const g = parseInt(color.substring(3, 5), 16);
-    const b = parseInt(color.substring(5), 16);
+    const [r, g, b] = parseStandardizedColor(color);
 
     if (WCAG20) {
         const RsRGB = r / 255;
