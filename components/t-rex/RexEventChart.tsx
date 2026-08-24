@@ -71,9 +71,10 @@ export default function RexEventChart() {
                         if (elements.length > 0) {
                             const index = elements[0].index;
                             const dorm = labels[index];
-                            history.push(
-                                `/rex/events?dorm=${encodeURIComponent(dorm)}`,
-                            );
+                            history.push({
+                                pathname: `/rex/events`,
+                                search: `?dorm=${encodeURIComponent(dorm)}`,
+                            });
                         }
                     },
                 }}

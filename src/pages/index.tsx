@@ -50,8 +50,8 @@ function FeatureRow() {
                             <Link to="pathname:///concord">here.</Link>
                         </li>
                         <li>
-                            REX 2025 will run from Sunday, August 23 to
-                            Wednesday, August 27!
+                            REX 2026 will run from Saturday, August 29 to
+                            Wednesday, September 2!
                         </li>
                     </ul>
                 </div>
