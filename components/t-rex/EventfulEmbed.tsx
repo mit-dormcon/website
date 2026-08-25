@@ -3,7 +3,7 @@ import { useRef } from "react";
 import styles from "./EventfulEmbed.module.css";
 import Link from "@docusaurus/Link";
 
-const EVENTFUL_URL = new URL("https://eventful.mit.edu/");
+const EVENTFUL_URL = new URL("https://clamedia.mit.edu/eventful/");
 EVENTFUL_URL.searchParams.append("trex", "https://rex.mit.edu/api.json");
 
 export function EventfulEmbed() {
