@@ -42,9 +42,9 @@ export const useRexData = () => {
 };
 
 // Helper function to get a value from a Map or Object (just in case types are being weird)
-export const mapOrObject = <T>(
-    obj: Map<string, T> | Record<string, T> | undefined,
-    key: string,
+export const mapOrObject = <K extends string | number | symbol, V>(
+    obj: Map<K, V> | Record<K, V> | undefined,
+    key: K,
 ) => {
     if (!obj) return undefined;
 
