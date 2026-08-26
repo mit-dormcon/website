@@ -12,6 +12,8 @@ permissions:
 jobs:
     update-api-docs:
         runs-on: ubuntu-latest
+        outputs:
+            changed: ${{ steps.changes.outputs.changed }}
         steps:
             - name: Checkout repository
               uses: actions/checkout@v7
@@ -42,3 +44,12 @@ jobs:
                       echo "No changes to commit"
                       echo "changed=false" >> $GITHUB_OUTPUT
                   fi
+
+    deploy:
+        name: Deploy to GitHub Pages
+        needs: update-api-docs
+        if: needs.update-api-docs.outputs.changed == 'true'
+        uses: ./.github/workflows/deploy.yml
+        permissions:
+            pages: write
+            id-token: write
