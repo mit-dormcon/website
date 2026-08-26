@@ -42,7 +42,3 @@ jobs:
                       echo "No changes to commit"
                       echo "changed=false" >> $GITHUB_OUTPUT
                   fi
-
-            - name: Run deploy workflow if changes were made
-              if: steps.changes.outputs.changed == 'true'
-              uses: ./.github/workflows/deploy.yml

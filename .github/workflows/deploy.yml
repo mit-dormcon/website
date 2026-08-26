@@ -3,7 +3,12 @@ name: Deploy to GitHub Pages
 
 on:
     workflow_dispatch:
-    workflow_call:
+    workflow_run:
+        workflows: ["Update API Docs"]
+        types:
+            - completed
+        branches:
+            - main
     push:
         branches:
             - main
@@ -14,6 +19,9 @@ jobs:
     build:
         name: Build Docusaurus
         runs-on: ubuntu-latest
+        # when triggered by the docs.yml workflow, only deploy if it actually succeeded
+        if: github.event_name != 'workflow_run' ||
+            github.event.workflow_run.conclusion == 'success'
         steps:
             - uses: actions/checkout@v7
               with:
