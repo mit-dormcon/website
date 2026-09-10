@@ -113,7 +113,7 @@ export const officers: Term = {
             name: "Ericcson Ansah-Antwi",
             affiliation: "New House",
             year: 2029,
-            kerb: "cepierce",
+            kerb: "ericsson",
         },
     ],
 };
