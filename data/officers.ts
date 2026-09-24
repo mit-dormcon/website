@@ -110,7 +110,7 @@ export const officers: Term = {
         },
         {
             position: "Tech Chair",
-            name: "Ericcson Ansah-Antwi",
+            name: "Ericsson Ansah-Antwi",
             affiliation: "New House",
             year: 2029,
             kerb: "ericsson",
