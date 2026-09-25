@@ -276,7 +276,7 @@ const config: Config = {
                     },
                     {
                         from: "/dining-form",
-                        to: "https://docs.google.com/forms/d/e/1FAIpQLSf36Q4wcea-g3GIwl9MwLYRUuW2ByqctYD-HUniFa59spVuYg/viewform",
+                        to: "https://docs.google.com/forms/d/e/1FAIpQLScR9ANnCYVu_Babf1WAcJpVPT1pN5Ho3nuQ6_v8CSoLKDIlwA/viewform?usp=dialog",
                     },
                 ],
             },
