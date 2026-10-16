@@ -97,7 +97,7 @@ function FeatureRow() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="https://bit.ly/dining23">
+                            <Link to="https://docs.google.com/forms/d/e/1FAIpQLScR9ANnCYVu_Babf1WAcJpVPT1pN5Ho3nuQ6_v8CSoLKDIlwA/viewform">
                                 Give feedback to a dining hall.
                             </Link>
                         </li>
