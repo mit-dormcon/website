@@ -272,7 +272,7 @@ const config: Config = {
                     },
                     {
                         from: "/join-dormspam",
-                        to: "https://join-dormspam.mit.edu",
+                        to: "https://sites.mit.edu/how-to-dormspam/unsubscribe/",
                     },
                     {
                         from: "/dining-form",
