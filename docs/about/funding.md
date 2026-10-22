@@ -7,36 +7,39 @@ sidebar_position: 2
 
 <!-- markdownlint-configure-file {"no-duplicate-heading": false} -->
 
-DormCon [maintains a budget][budget] in order to help fund events in the dorm
-community and for operational expenses. We are committed to keeping extraneous
-costs low in order to maximize the amount of money available for events that
-enhance the residential experience. As [approved by dorm presidents][tax],
+DormCon maintains a
+[budget](https://docs.google.com/spreadsheets/d/1lKeo7Z4NQGj8w80_tQE_KVoG3zySil5kERjuPxfSiGg/edit?usp=sharing)
+to keep track of funds that are allocated for both operational expenses and
+events in the dorm community. We are committed to keeping extraneous costs low
+in order to maximize the amount of money available for requests that enhance the
+residential experience. As
+[approved by dorm presidents](https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf),
 DormCon receives $10 of house tax from every dorm resident.
 
-In addition, beginning Spring 2026, DormCon is receiving additional semesterly
-funding to distribute to residence halls for large events from the MIT Division
-of Student Life, in lieu of (now defunct) LEF/ARCADE grants.[^1] This is in
-recognition of the value that undergraduate residence halls have on the student
-experience, and is fully distributed directly to dorms every semester based on
-request. Furthermore, DormCon annually funds campus-wide events such as
-[Campus Preview Weekend (CPW)](https://cpwcommunity.mit.edu/),
-[Residential Exploration (REX)](/rex), and
-[DormCon Apple Picking](https://mitadmissions.org/blogs/entry/i-picked-my-first-apple/),
-as well as individual dorm events, inter-dorm events, and events sponsored by
-individual dorm residents.
+Since Spring 2026, DormCon receives additional semesterly funding from the MIT
+Division of Student Life (DSL) to distribute to residence halls for large
+events, replacing the former LEF/ARCADE grant programs. This is in recognition
+of the value that undergraduate residence halls have on the student experience,
+and is fully distributed directly to dorms every semester based on request.
+Furthermore, DormCon annually funds campus-wide events such as Campus Preview
+Weekend (CPW), Residential Exploration (REX), and DormCon Apple Picking, as well
+as individual dorm events, inter-dorm events, and events sponsored by individual
+dorm residents.
 
 ## Funding Guidelines
 
-All funding requests are first reviewed by the DormCon Treasurer, then voted on
-by the dorm presidents at a general body meeting, and a representative of the
-group/organization requesting funding may be requested to attend as needed. This
-is to ensure a spirit of transparency, collaboration, and fiscal responsibility.
-Any questions should be directed to the DormCon Treasurer by emailing
-<dormcon-treasurer@mit.edu>.
+All funding requests are first reviewed by the DormCon Treasurer and then are
+voted on by the dorm presidents at a general body meeting. **A representative of
+the group/organization requesting funding must attend the meeting their proposal
+is being voted on.** This process is designed to ensure a spirit of
+transparency, collaboration, and fiscal responsibility.
 
-_These guidelines were last updated on 1/31/2026._
+Any questions should be directed to the DormCon Treasurer by emailing
+[dormcon-treasurer@mit.edu](mailto:dormcon-treasurer@mit.edu).
 
 ### Individual Dorm Events
+
+#### Definition
 
 Events that are sponsored by one dorm and are open and advertised to all
 undergraduate residents.
@@ -51,10 +54,10 @@ undergraduate residents.
 
 #### Specifications <!-- #individual-specifications -->
 
-**Events that are to be funded by DormCon must follow certain guidelines.**
+_Events that are to be funded by DormCon must follow certain guidelines._
 
-- All DormCon-funded individual dorm events must be open to all undergraduate
-  dorm residents.
+- All DormCon-funded individual dorm events must be open and advertised to all
+  undergraduate dorm residents (i.e. you must dormspam).
 - Events will not be given funding exceeding 50% of the eligible budget for said
   event
 - Line items for publicity, giveaways (besides event food), or alcohol are not
@@ -66,10 +69,11 @@ undergraduate residents.
 
 #### Application Deadlines <!-- #individual-deadlines -->
 
-[Applications][application] for event funding must be received by the DormCon
-treasurer no later than one week before the DormCon general body meeting at
-which that event is to be discussed. Funding will be transferred into dorm
-accounts after the [Post-Event Report][post-event] is submitted.
+[Applications](https://forms.gle/44xgPJtvbaeqJx3f8) for event funding must be
+received by the DormCon treasurer no later than one week before the DormCon
+general body meeting at which that event is to be discussed. Funding will be
+transferred into dorm accounts after the
+[Post-Event Report](https://forms.gle/oD4eHxDTGzQERzQH7) is submitted.
 
 #### Event Funding Application Form <!-- #individual-application -->
 
@@ -77,8 +81,8 @@ accounts after the [Post-Event Report][post-event] is submitted.
 2. Dorm sponsor (i.e. the dorm involved)
 3. Location
 4. Date and time
-5. Number of people the event can accommodate (at one time and total)
-6. Expected attendance (at one time and total)
+5. Number of people the event can accommodate (at one time **and** total)
+6. Expected attendance (at one time **and** total)
 7. Comprehensive budget of entire event that follows the following guidelines:
     1. Itemized (as much as is reasonable)
     2. Expected alternative/extra funding sources
@@ -91,13 +95,20 @@ accounts after the [Post-Event Report][post-event] is submitted.
 - After the event, you are required to submit a post event report, which should
   detail final expenses and the number of attendees, as well as any other
   relevant notes.
+- All receipts relevant to the funded event must be submitted with the
+  Post-Event Report to be eligible for reimbursement.
 - DormCon reserves the right to rescind or reduce funding if this report is not
   submitted, or if the final reported expenses are significantly different from
   the budget submitted on the funding application. In such a case, dorm
   presidents will vote to approve the reduction in funding at the next possible
   GBM.
+- Post-Event Reports must be submitted within 2 weeks of the completion of the
+  event to be eligible for reimbursement. Exceptions can be made via petition to
+  [dormcon-treasurer@mit.edu](mailto:dormcon-treasurer@mit.edu)
 
 ### Inter-Dorm Events
+
+#### Definition
 
 Events that are sponsored by multiple dorms.
 
@@ -109,7 +120,7 @@ Events that are sponsored by multiple dorms.
 
 #### Specifications <!-- #inter-specifications -->
 
-**Events that are to be funded by DormCon must follow certain guidelines.**
+_Events that are to be funded by DormCon must follow certain guidelines._
 
 - Events will not be given funding exceeding 50% of the eligible budget for said
   event
@@ -122,10 +133,11 @@ Events that are sponsored by multiple dorms.
 
 #### Application Deadlines <!-- #inter-deadlines -->
 
-[Applications][application] for event funding must be received by the DormCon
-treasurer no later than one week before the DormCon general body meeting at
-which that event is to be discussed. Funding will be transferred into dorm
-accounts after the [Post-Event Report][post-event] is submitted.
+[Applications](https://forms.gle/44xgPJtvbaeqJx3f8) for event funding must be
+received by the DormCon treasurer no later than one week before the DormCon
+general body meeting at which that event is to be discussed. Funding will be
+transferred into dorm accounts after the
+[Post-Event Report](https://forms.gle/oD4eHxDTGzQERzQH7) is submitted.
 
 #### Event Funding Application Form <!-- #inter-application -->
 
@@ -133,8 +145,8 @@ accounts after the [Post-Event Report][post-event] is submitted.
 2. Dorm sponsors (i.e. the dorms involved)
 3. Location
 4. Date and time
-5. Number of people the event can accommodate (at one time and total)
-6. Expected attendance (at one time and total)
+5. Number of people the event can accommodate (at one time **and** total)
+6. Expected attendance (at one time **and** total)
 7. Comprehensive budget of entire event that follows the following guidelines:
     1. Itemized (as much as is reasonable)
     2. Expected alternative/extra funding sources
@@ -147,13 +159,20 @@ accounts after the [Post-Event Report][post-event] is submitted.
 - After the event, you are required to submit a post event report, which should
   detail final expenses and the number of attendees, as well as any other
   relevant notes.
+- All receipts relevant to the funded event must be submitted with the
+  Post-Event Report to be eligible for reimbursement.
 - DormCon reserves the right to rescind or reduce funding if this report is not
   submitted, or if the final reported expenses are significantly different from
   the budget submitted on the funding application. In such a case, dorm
   presidents will vote to approve the reduction in funding at the next possible
   GBM.
+- Post-Event Reports must be submitted within 2 weeks of the completion of the
+  event to be eligible for reimbursement. Exceptions can be made via petition to
+  [dormcon-treasurer@mit.edu](mailto:dormcon-treasurer@mit.edu)
 
 ### Resident Events
+
+#### Definition
 
 Events that are sponsored by individual dorm residents and are open and
 advertised to everyone.
@@ -165,7 +184,7 @@ advertised to everyone.
 
 #### Specifications <!-- #resident-specifications -->
 
-**Events that are to be funded by DormCon must follow certain guidelines.**
+_Events that are to be funded by DormCon must follow certain guidelines._
 
 - All DormCon-funded individual dorm events must be open to all undergraduate
   dorm residents.
@@ -180,19 +199,20 @@ advertised to everyone.
 
 #### Application Deadlines <!-- #resident-deadlines -->
 
-[Applications][application] for event funding must be received by the DormCon
-treasurer no later than one week before the DormCon general body meeting at
-which that event is to be discussed. Funding will be transferred into dorm
-accounts after the [Post-Event Report][post-event] is submitted.
+[Applications](https://forms.gle/44xgPJtvbaeqJx3f8) for event funding must be
+received by the DormCon treasurer no later than one week before the DormCon
+general body meeting at which that event is to be discussed. Funding will be
+transferred into dorm accounts after the
+[Post-Event Report](https://forms.gle/oD4eHxDTGzQERzQH7) is submitted.
 
 #### Event Funding Application Form <!-- #resident-application -->
 
 1. What is your event and how does it involve dorm culture? (100 words minimum)
-2. Sponsors (i.e. the dorm residents involved)
+2. Dorm sponsors (i.e. the dorms involved)
 3. Location
 4. Date and time
-5. Number of people the event can accommodate (at one time and total)
-6. Expected attendance (at one time and total)
+5. Number of people the event can accommodate (at one time **and** total)
+6. Expected attendance (at one time **and** total)
 7. Comprehensive budget of entire event that follows the following guidelines:
     1. Itemized (as much as is reasonable)
     2. Expected alternative/extra funding sources
@@ -205,13 +225,20 @@ accounts after the [Post-Event Report][post-event] is submitted.
 - After the event, you are required to submit a post event report, which should
   detail final expenses and the number of attendees, as well as any other
   relevant notes.
+- All receipts relevant to the funded event must be submitted with the
+  Post-Event Report to be eligible for reimbursement.
 - DormCon reserves the right to rescind or reduce funding if this report is not
   submitted, or if the final reported expenses are significantly different from
   the budget submitted on the funding application. In such a case, dorm
   presidents will vote to approve the reduction in funding at the next possible
   GBM.
+- Post-Event Reports must be submitted within 2 weeks of the completion of the
+  event to be eligible for reimbursement. Exceptions can be made via petition to
+  [dormcon-treasurer@mit.edu](mailto:dormcon-treasurer@mit.edu)
 
 ### Non-Event Funds
+
+#### Definition
 
 Funds for the betterment of the residential experience at MIT, but not
 necessarily for a specific event. May be sponsored either by dorm or individual
@@ -226,7 +253,7 @@ dorm residents.
 
 #### Specifications <!-- #non-specifications -->
 
-**Funds given by DormCon must follow certain guidelines.**
+_Funds given by DormCon must follow certain guidelines._
 
 - No funding from DormCon may be given such that more than 50% of the budget for
   said purpose is from DormCon.
@@ -237,10 +264,11 @@ dorm residents.
 
 #### Application Deadlines <!-- #non-deadlines -->
 
-[Applications][application] for funding must be received by the DormCon
-treasurer no later than one week before the DormCon general body meeting before
-it is to be used. Funding will be transferred into dorm accounts after the
-[Post-Event Report][post-event] is submitted.
+[Applications](https://forms.gle/44xgPJtvbaeqJx3f8) for event funding must be
+received by the DormCon treasurer no later than one week before the DormCon
+general body meeting at which that event is to be discussed. Funding will be
+transferred into dorm accounts after the
+[Post-Event Report](https://forms.gle/oD4eHxDTGzQERzQH7) is submitted.
 
 #### Funding Application Form <!-- #non-application -->
 
@@ -254,13 +282,19 @@ it is to be used. Funding will be transferred into dorm accounts after the
 
 #### Post-Funding Report <!-- #non-report -->
 
-- After the funding is used, you are required to submit a post funding report,
-  which should detail final expenses and any other relevant notes.
+- After the event, you are required to submit a post event report, which should
+  detail final expenses and the number of attendees, as well as any other
+  relevant notes.
+- All receipts relevant to the funded event must be submitted with the
+  Post-Event Report to be eligible for reimbursement.
 - DormCon reserves the right to rescind or reduce funding if this report is not
   submitted, or if the final reported expenses are significantly different from
   the budget submitted on the funding application. In such a case, dorm
   presidents will vote to approve the reduction in funding at the next possible
   GBM.
+- Post-Event Reports must be submitted within 2 weeks of the completion of the
+  event to be eligible for reimbursement. Exceptions can be made via petition to
+  [dormcon-treasurer@mit.edu](mailto:dormcon-treasurer@mit.edu)
 
 ## Other Funding Sources
 
@@ -279,15 +313,9 @@ Other funding sources include:
 - [Council of the Arts at MIT (CAMIT)](https://arts.mit.edu/camit/funding/)
 - [Weekends@MIT](mailto:weekendsmit_support@mit.edu)
 
-[budget]:
-    https://docs.google.com/spreadsheets/d/1UPuOOGkemUujGznduOHi4RSK1Wza2Hxgu3fIhYua50Q/edit?usp=sharing
-[tax]: https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf
-[application]: https://forms.gle/LJJqy6nmNpuQjfHQ8
-[post-event]: https://forms.gle/V2FF6xMPhSp1ntpUA
+Relevant links:
 
-[^1]:
-    Due to increased funding directly from DSL, residence halls are no longer
-    eligible for SGFC funding (which took over funding from the ASA's LEF/ARCADE
-    grants, UA's FinBoard, and GSC's Funding Board). More information on what
-    led to the creation of the SGFC can be found in the final report of the the
-    [Student Organization Working Group](https://studentlife.mit.edu/campus-communities/student-activities/student-organization-working-group/).
+- [2026-27 DormCon Budget](https://docs.google.com/spreadsheets/d/1lKeo7Z4NQGj8w80_tQE_KVoG3zySil5kERjuPxfSiGg/edit?usp=sharing)
+- [Dorm tax](https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf)
+- [Funding application](https://web-cert.mit.edu/dormcon/cert_minutes/2024-02-29.pdf)
+- [Post-event report](https://forms.gle/oD4eHxDTGzQERzQH7)
