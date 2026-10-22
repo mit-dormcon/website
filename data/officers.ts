@@ -83,9 +83,9 @@ export const officers: Term = {
         {
             position: "Underclassmen Representative",
             name: "Patrick Cao",
-            affiliation: "",
+            affiliation: "Random Hall",
             year: 2029,
-            kerb: "pcao",
+            kerb: "patcao",
         },
         {
             position: "Dining Chair",
