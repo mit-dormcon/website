@@ -14,15 +14,23 @@ export const meetings: MeetingSchedule = {
     year: "Fall 2026",
     list: [
         generateMeetingSchedule("Next House", "2026-09-17 19:30", "docusaurus"),
-        generateMeetingSchedule("Simmons Hall", "2026-10-01 19:30", false),
-        generateMeetingSchedule("New House", "2026-10-15 19:30", false),
-        generateMeetingSchedule("Random Hall", "2026-10-29 19:30", false),
+        generateMeetingSchedule(
+            "Simmons Hall",
+            "2026-10-01 19:30",
+            "docusaurus",
+        ),
+        generateMeetingSchedule("New House", "2026-10-15 19:30", "docusaurus"),
+        generateMeetingSchedule(
+            "Random Hall",
+            "2026-10-29 19:30",
+            "docusaurus",
+        ),
         generateMeetingSchedule(
             "Burton-Conner House",
             "2026-11-12 19:30",
-            false,
+            "docusaurus",
         ),
-        generateMeetingSchedule("New Vassar", "2026-12-03 19:30", false),
+        generateMeetingSchedule("New Vassar", "2026-12-03 19:30", "docusaurus"),
     ],
 };
 
