@@ -7,7 +7,7 @@ export const officers: Term = {
             position: "President",
             name: "Daniel Gonzalez",
             affiliation: "East Campus",
-            year: undefined,
+            year: 2027,
             kerb: "gonzalez",
         },
         {
