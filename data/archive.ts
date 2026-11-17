@@ -1374,10 +1374,10 @@ const officers: Term[] = [
             },
             {
                 position: "Housing Chair",
-                name: "",
+                name: "Farin Liani",
                 affiliation: "Random + McCormick",
                 year: undefined,
-                kerb: "fl",
+                kerb: "liani",
             },
             {
                 position: "Judcomm Chair",
@@ -1470,10 +1470,10 @@ const officers: Term[] = [
             },
             {
                 position: "REX/CPW Chair",
-                name: "",
+                name: "Farin Liani",
                 affiliation: "Random + McCormick",
                 year: undefined,
-                kerb: "fl",
+                kerb: "liani",
             },
             {
                 position: "REX/CPW Chair",
